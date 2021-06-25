@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('client.home');
+Route::group(['namespace' => 'client'], function () {
+    Route::get('/', 'HomeController@index')->name('client.home');
+    Route::get('/Shopping-cart', 'ShoppingCartController@Index')->name('client.cart');
 });
-
 
 // Auth::routes();
 
