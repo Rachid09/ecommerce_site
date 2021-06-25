@@ -15,6 +15,12 @@ class CreateMainCategoriesTable extends Migration
     {
         Schema::create('main_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('translation_lang');
+            $table->bigInteger('translation_of')->unsigned();
+            $table->string('libelle');
+            $table->string('slug')->nullable();
+            $table->string('photo')->nullable();
+            $table->tinyInteger('is_active')->default(1);
             $table->timestamps();
         });
     }

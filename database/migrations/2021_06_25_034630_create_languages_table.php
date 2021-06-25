@@ -15,13 +15,12 @@ class CreateLanguagesTable extends Migration
     {
         Schema::create('languages', function (Blueprint $table) {
             $table->id();
+            $table->string("abbr");
+            $table->string('locale')->nullable();
+            $table->string('nom');
+            $table->enum("direction", ['ltr', 'rtl'])->default('rtl');
+            $table->tinyInteger('is_active')->default(1);
             $table->timestamps();
-            $table->string("nom");
-            $table->string('prenom');
-            $table->string('email');
-            $table->string('password');
-            $table->string('phone')->nullable();
-            $table->text("photo")->Nullable();
         });
     }
 
