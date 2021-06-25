@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="public/css/template.css">
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/handicruft.css">
+    <link rel="stylesheet" href="public/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="public/css/category/minimal.css">
 </head>
 
 
