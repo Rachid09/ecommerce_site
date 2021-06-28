@@ -6,28 +6,28 @@
             </li>
 
             <li class="nav-item"><a href=""><i class="la la-home"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">المتاجر </span>
-                    <span class="badge badge badge-info badge-pill float-right mr-2">5</span>
+                    <span class="menu-title" data-i18n="nav.dash.main">لغات الموقع </span>
+                    <span class="badge badge badge-info badge-pill float-right mr-2">{{App\Models\language::count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    <li class="active"><a class="menu-item" href="{{route('admin.languages')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                            متجر جديد </a>
+                    <li><a class="menu-item" href="{{route('admin.languages.create')}}" data-i18n="nav.dash.crypto">أضافة
+                            لغة جديدة </a>
                     </li>
                 </ul>
             </li>
 
 
             <li class="nav-item"><a href=""><i class="la la-group"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الفرق </span>
-                    <span class="badge badge badge-danger badge-pill float-right mr-2"></span>
+                    <span class="menu-title" data-i18n="nav.dash.main"> الاقسام الرئيسية </span>
+                    <span class="badge badge badge-danger badge-pill float-right mr-2">{{App\Models\MainCategory::count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    <li class="active"><a class="menu-item" href="{{route('admin.maincategories')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                            فريق </a>
+                    <li><a class="menu-item" href="{{route('admin.maincategories.create')}}" data-i18n="nav.dash.crypto">أضافة
+                            قسم جديد </a>
                     </li>
                 </ul>
             </li>

@@ -15,11 +15,31 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+define('PAGINATION_COUNT', 5);
 
-
-
+//******************************************LANGUAGES***************************************
 Route::group(['namespace' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('/', 'DashboardController@index')->name('admin.dashboard');
+    Route::group(['prefix' => 'languages'], function () {
+        Route::get('/', 'LanguagesController@index')->name('admin.languages');
+        Route::get('/create', 'LanguagesController@create')->name('admin.languages.create');
+        Route::post('/store', 'LanguagesController@store')->name('admin.languages.store');
+        Route::get('/edit/{id}', 'LanguagesController@edit')->name('admin.languages.edit');
+        Route::post('/update/{id}', 'LanguagesController@update')->name('admin.languages.update');
+        Route::get('delete/{id}', 'LanguagesController@destroy')->name('admin.languages.delete');
+    });
+
+
+    //********************************************Main categories********************************** */
+
+    Route::group(['prefix' => 'main-categories'], function () {
+        Route::get('/', 'MainCategoriesController@index')->name('admin.maincategories');
+        Route::get('/create', 'MainCategoriesController@create')->name('admin.maincategories.create');
+        Route::post('/store', 'MainCategoriesController@store')->name('admin.maincategories.store');
+        Route::get('/edit/{id}', 'MainCategoriesController@edit')->name('admin.maincategories.edit');
+        Route::post('/update/{id}', 'MainCategoriesController@update')->name('admin.maincategories.update');
+        Route::get('delete/{id}', 'MainCategoriesController@destroy')->name('admin.maincategories.delete');
+    });
 });
 
 
@@ -27,7 +47,6 @@ Route::group(['namespace' => 'admin', 'middleware' => 'auth:admin'], function ()
 Route::group(["namespace" => "admin", "middleware" => "guest:admin"], function () {
     Route::get('login', 'AdminLoginController@getlogin')->name('admin.getLogin');
     Route::post('login', 'AdminLoginController@login')->name('admin.login');
-    // Route::get('insert', 'AdminLoginController@insert');
 });
 
 
