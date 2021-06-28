@@ -54,8 +54,8 @@ class MainCategoriesController extends Controller
             $default_category_id = MainCategory::insertGetId([
                 'translation_lang' => $default_category['abbr'],
                 'translation_of' => 0,
-                'name' => $default_category['name'],
-                'slug' => $default_category['name'],
+                'libelle' => $default_category['libelle'],
+                'slug' => $default_category['libelle'],
                 'photo' => $filePath
             ]);
 
@@ -71,8 +71,8 @@ class MainCategoriesController extends Controller
                     $categories_arr[] = [
                         'translation_lang' => $category['abbr'],
                         'translation_of' => $default_category_id,
-                        'name' => $category['name'],
-                        'slug' => $category['name'],
+                        'libelle' => $category['libelle'],
+                        'slug' => $category['libelle'],
                         'photo' => $filePath
                     ];
                 }
@@ -90,18 +90,18 @@ class MainCategoriesController extends Controller
     }
 
 
-    public function edit($mainCat_id)
-    {
-        //get specific categories and its translations
-        $mainCategory = MainCategory::with('categories')
-            ->selection()
-            ->find($mainCat_id);
+    // public function edit($mainCat_id)
+    // {
+    //     //get specific categories and its translations
+    //     $mainCategory = MainCategory::with('categories')
+    //         ->selection()
+    //         ->find($mainCat_id);
 
-        if (!$mainCategory)
-            return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
+    //     if (!$mainCategory)
+    //         return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
 
-        return view('admin.maincategories.edit', compact('mainCategory'));
-    }
+    //     return view('admin.maincategories.edit', compact('mainCategory'));
+    // }
 
 
     // public function update($mainCat_id, MainCategoryRequest $request)

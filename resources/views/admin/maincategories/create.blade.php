@@ -62,7 +62,7 @@
                                             @if(get_languages() -> count() > 0)
                                             @foreach(get_languages() as $index => $lang)
                                             <div class="row">
-                                                <div class="col-md-12">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="projectinput1"> اسم القسم - {{__('messages.'.$lang -> abbr)}} </label>
                                                         <input type="text" value="" id="name" class="form-control" placeholder="  " name="category[{{$index}}][libelle]">
@@ -73,9 +73,9 @@
                                                 </div>
 
 
-                                                <div class="col-md-6 hidden">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> أختصار اللغة {{__('messages.'.$lang -> abbr)}} </label>
+                                                        <label for="projectinput1"> أختصار اللغة - {{__('messages.'.$lang -> abbr)}} </label>
                                                         <input type="text" id="abbr" class="form-control" placeholder="  " value="{{$lang -> abbr}}" name="category[{{$index}}][abbr]">
 
                                                         @error("category.$index.abbr")
@@ -89,10 +89,10 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group mt-1">
-                                                        <input type="checkbox" value="1" name="category[{{$index}}][active]" id="switcheryColor4" class="switchery" data-color="success" checked />
+                                                        <input type="checkbox" value="1" name="category[{{$index}}][is_active]" id="switcheryColor4" class="switchery" data-color="success" checked />
                                                         <label for="switcheryColor4" class="card-title ml-1">الحالة {{__('messages.'.$lang -> abbr)}} </label>
 
-                                                        @error("category.$index.active")
+                                                        @error("category.$index.is_active")
                                                         <span class="text-danger"> </span>
                                                         @enderror
                                                     </div>
