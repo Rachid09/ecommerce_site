@@ -48,20 +48,26 @@ return [
             'root' => storage_path('app'),
         ],
 
-        'maincategories' => [
+        'public' => [
             'driver' => 'local',
-            'root' => base_path('app/public'),
-            'url' => env('APP_URL') . 'public/images/mainCategories',
-            'visibility' => 'public',
-        ],
-
-        'maincategories' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
+            'root' => public_path('app/public'),
             'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
 
+        'mainCategories' => [
+            'driver' => 'local',
+            'root' => public_path() . '/assets/images/mainCategories/',
+            'url' => env('APP_URL') . '/public',
+            'visibility' => 'public',
+        ],
+
+        'vendors' => [
+            'driver' => 'local',
+            'root' => public_path() . '/assets/images/vendors/',
+            'url' => env('APP_URL') . '/public',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',
