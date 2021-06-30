@@ -31,27 +31,27 @@ class MainCategory extends Model
         return $query->select('id', 'translation_lang', 'libelle', 'slug', 'photo', 'is_active', 'translation_of');
     }
 
-    // public function getPhotoAttribute($val)
-    // {
-    //     return ($val !== null) ? asset('assets/' . $val) : "";
-    // }
+    public function getPhotoAttribute($val)
+    {
+        return ($val !== null) ? asset('public/assets/' . $val) : "";
+    }
 
     public function getIsActive()
     {
         return $this->is_active == 1 ? 'مفعل' : 'غير مفعل';
     }
 
-    // public function scopeDefaultCategory($query)
-    // {
-    //     return  $query->where('translation_of', 0);
-    // }
+    public function scopeDefaultCategory($query)
+    {
+        return  $query->where('translation_of', 0);
+    }
 
 
     // get all translation categories
-    // public function categories()
-    // {
-    //     return $this->hasMany(self::class, 'translation_of');
-    // }
+    public function categories()
+    {
+        return $this->hasMany(self::class, 'translation_of');
+    }
 
 
     // public  function subCategories()
