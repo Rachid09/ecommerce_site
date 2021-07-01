@@ -1,0 +1,143 @@
+/*==================================
+Theme Color All Codes Variable
+==================================*/
+
+:root {
+    --theme-general-color: #545657;
+    /* theme gray color ok*/
+}
+
+:root {
+    --theme-primary-color: #f7bc3e;
+    /* theme primary color ok*/
+}
+
+:root {
+    --theme-secondary-color: #0a327b;
+    /* theme secondary color ok*/
+}
+
+:root {
+    --theme-white-color: #fff;
+    /* theme white font color ok*/
+}
+
+:root {
+    --theme-light-color: #f4f5f6;
+    /* theme light gray color */
+}
+
+:root {
+    --theme-gray-color: #e7e7e8;
+    /* theme gray color ok*/
+}
+
+:root {
+    --theme-dark-color: #1b1b1e;
+    /* theme dark color ok*/
+}
+
+:root {
+    --theme-footer-color: #1e2124;
+    /* theme dark color */
+}
+
+:root {
+    --theme-extra-color: #f43838;
+    /* theme extra color */
+}
+
+:root {
+    --theme-extra2-color: #ffd200;
+    /* theme extra color */
+}
+
+:root {
+    --theme-primary-opacity-color: rgba(247, 188, 62, .8);
+    /* theme secondary color */
+}
+
+:root {
+    --theme-secondary-opacity-color: rgba(17, 57, 130, .8);
+    /* theme secondary color */
+}
+
+:root {
+    --theme-dark-opacity-color: rgba(27, 27, 30, .8);
+    /* theme dark opacity color */
+}
+
+:root {
+    --theme-white-opacity-color: rgba(255, 255, 255, 0.5);
+    /* theme light color */
+}
+
+:root {
+    --text-light-color: #a5a5a5;
+    /* text light color */
+}
+
+:root {
+    --text-gray-color: #c3c3c3;
+    /* theme text gray color */
+}
+
+
+/*==================================
+Font Variable
+==================================*/
+
+:root {
+    --theme-general-font: 'Jost', sans-serif;
+    /* Font use for normal text and general text ok*/
+}
+
+:root {
+    --theme-hiperlink-font: 'Jost', sans-serif;
+    /* Font use for normal text and general text */
+}
+
+:root {
+    --theme-highlight-font: 'Jost', sans-serif;
+    /* Font used in title or special area ok*/
+}
+
+:root {
+    --theme-extra-font: 'Jost', sans-serif;
+    /* Font use for Extra1 text ok*/
+}
+
+
+/*==================================
+Extra CSS
+==================================*/
+
+.text-extra {
+    color: var(--theme-extra-color) !important
+}
+
+#menu-and-category .nav-link.active,
+#menu-and-category2 .nav-link.active {
+    color: var(--theme-dark-color);
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.main-nav .form-inline input.search-field {
+    padding-left: 25px;
+    font-size: 16px !important
+}
+
+select,
+select option,
+select.form-control,
+select.form-control option,
+input::placeholder,
+input.form-control::placeholder {
+    font-family: var(--theme-extra-font) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+}
