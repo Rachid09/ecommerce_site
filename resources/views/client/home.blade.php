@@ -10,7 +10,7 @@
                 <div class="row row-cols-1 g-3">
                     <div class="col">
                         <div class="banner-wrapper hover-img-zoom banner-one custom-class-127" style="background-color:#e9fae1">
-                            <div class="banner-image overflow-hidden transation"><img src="public/images/102.png" alt="Banner Image"></div>
+                            <div class="banner-image overflow-hidden transation"><img src={{asset("public/images/102.png")}} alt="Banner Image"></div>
                             <div class="banner-content position-absolute">
                                 <h4 class="title"><a href="shop-grid.html">Wood Products</a></h4>
                                 <p>Wood made handicrafts chair</p>
@@ -20,7 +20,7 @@
                     </div>
                     <div class="col">
                         <div class="banner-wrapper hover-img-zoom banner-one custom-class-128" style="background-color:#f2f0f6">
-                            <div class="banner-image overflow-hidden transation"><img src="public/images/102.png" alt="Banner Image"></div>
+                            <div class="banner-image overflow-hidden transation"><img src={{asset("public/images/102.png")}} alt="Banner Image"></div>
                             <div class="banner-content position-absolute">
                                 <h4 class="title"><a href="shop-grid.html">Lamp Sades</a></h4>
                                 <p>Modern and colorful products</p>
@@ -34,7 +34,7 @@
                 <div class="row row-cols-1 g-3">
                     <div class="col">
                         <div class="banner-wrapper hover-img-zoom banner-one custom-class-130" style="background-color:#f2f1ef">
-                            <div class="banner-image overflow-hidden transation"><img src="public/images/102.png" alt="Banner Image"></div>
+                            <div class="banner-image overflow-hidden transation"><img src={{asset("public/images/102.png")}} alt="Banner Image"></div>
                             <div class="banner-content position-absolute">
                                 <h4 class="title"><a href="shop-grid.html">Home Decor</a></h4>
                                 <p>Hand made home showpices</p>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="col">
                         <div class="banner-wrapper hover-img-zoom banner-one custom-class-131" style="background-color: #ebfcf9">
-                            <div class="banner-image overflow-hidden transation"><img src="public/images/102.png" alt="Banner Image"></div>
+                            <div class="banner-image overflow-hidden transation"><img src={{asset("public/images/102.png")}} alt="Banner Image"></div>
                             <div class="banner-content position-absolute">
                                 <h4 class="title"><a href="shop-grid.html">Kitchen Tools</a></h4>
                                 <p>Woodmade kitchen products</p>
@@ -56,7 +56,7 @@
             </div>
             <div class="col-xl-6 col-md-12 order-xl-2">
                 <div class="banner-wrapper hover-img-zoom banner-one custom-class-129">
-                    <div class="banner-image overflow-hidden transation"><img src="public/images/104.png" alt="Banner Image"></div>
+                    <div class="banner-image overflow-hidden transation"><img src={{asset("public/images/104.png")}} alt="Banner Image"></div>
                     <div class="banner-content position-absolute">
                         <span class="d-table text-uppercase text-white font-fifteen font-500 mb-2">New Arrival</span>
                         <h2 class="title"><a href="shop-grid.html">Handicrafts Tools <br>30% Sale Off</a></h2>
