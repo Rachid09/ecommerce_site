@@ -32,16 +32,10 @@
     <link rel="stylesheet" href={{asset("public/css/layerslider.css")}}>
     <link rel="stylesheet" href={{asset("public/css/template.css")}}>
     <link rel="stylesheet" href={{asset("public/css/style.css")}}>
-    <link rel="stylesheet" href={{asset("public/css/vendor/handicruft.css")}}>
+     <link rel="stylesheet" href={{asset("public/css/vendor/handicruft.css")}}>
     <link rel="stylesheet" href={{asset("public/css/jquery.fancybox.min.css")}}>
     <link rel="stylesheet" href={{asset("public/css/category/minimal.css")>
     <link rel="stylesheet" href={{asset("public/css/category/default.css")}}>
-    <!-- Just in case another sheet comes along and i<link rel="stylesheet" href={{asset("")>-->
-
-
-
-
-   
 </head>
 
 

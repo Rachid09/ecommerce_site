@@ -22,7 +22,7 @@ class CreateAdminsTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('phone')->nullable();
-            $table->text("photo")->Nullable();
+            $table->text("photo")->nullable();
         });
     }
 
