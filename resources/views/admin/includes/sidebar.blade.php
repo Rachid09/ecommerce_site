@@ -33,14 +33,14 @@
             </li>
 
             <li class="nav-item"><a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">المدربين </span>
-                    <span class="badge badge badge-success badge-pill float-right mr-2"></span>
+                    <span class="menu-title" data-i18n="nav.dash.main">التجار </span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">{{App\Models\Vendor::count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    <li class="active"><a class="menu-item" href="{{route('admin.vendors')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                            مدرب </a>
+                    <li><a class="menu-item" href=" {{route('admin.vendors.create')}}" data-i18n="nav.dash.crypto">أضافة
+                            تاجر </a>
                     </li>
                 </ul>
             </li>
@@ -72,7 +72,7 @@
             </li>
 
 
-            <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title" data-i18n="nav.templates.main">Templates</span></a>
+            <!-- <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title" data-i18n="nav.templates.main">Templates</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main">Vertical</a>
                         <ul class="menu-content">
@@ -1177,11 +1177,11 @@
             </li>
             <li class=" nav-item"><a href="http://support.pixinvent.com/"><i class="la la-support"></i><span class="menu-title" data-i18n="nav.support_raise_support.main">Raise Support</span></a>
             </li>
-            <li class=" nav-item">
-                <a href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/documentation"><i class="la la-text-height"></i>
-                    <span class="menu-title" data-i18n="nav.support_documentation.main">Documentation</span>
-                </a>
-            </li>
+            <li class=" nav-item"> -->
+            <!-- <a href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/documentation"><i class="la la-text-height"></i>
+                <span class="menu-title" data-i18n="nav.support_documentation.main">Documentation</span>
+            </a>
+            </li> -->
         </ul>
     </div>
 </div>

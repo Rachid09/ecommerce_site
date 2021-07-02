@@ -20,15 +20,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!--  CSS Style -->
-    <link rel="stylesheet" href="public/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="public/css/all.min.css">
-    <link rel="stylesheet" href="public/css/vendor/animate.min.css">
-    <link rel="stylesheet" href="public/font/flaticon/flaticon.css">
-    <link rel="stylesheet" href="public/css/vendor/owl.carousel.min.css">
-    <link rel="stylesheet" href="public/css/layerslider.css">
-    <link rel="stylesheet" href="public/css/template.css">
-    <link rel="stylesheet" href="public/css/style.css">
-    <link rel="stylesheet" href="public/css/handicruft.css">
+    <link rel="stylesheet" href={{asset("public/css/vendor/bootstrap.min.css")}}>
+    <link rel="stylesheet" href={{asset("public/css/all.min.css")}}>
+    <link rel="stylesheet" href={{asset("public/css/vendor/animate.min.css")}}>
+    <link rel="stylesheet" href={{asset("public/font/flaticon/flaticon.css")}}>
+    <link rel="stylesheet" href={{asset("public/css/vendor/owl.carousel.min.css")}}>
+    <link rel="stylesheet" href={{asset("public/css/layerslider.css")}}>
+    <link rel="stylesheet" href={{asset("public/css/template.css")}}>
+    <link rel="stylesheet" href={{asset("public/css/style.css")}}>
+    <link rel="stylesheet" href={{asset("public/css/handicruft.css")}}>
+    <link rel="stylesheet" href={{asset("public/css/jquery.fancybox.min.css")}}>
+    <link rel=" stylesheet" href={{asset("public/css/category/minimal.css" )}}>
 </head>
 
 

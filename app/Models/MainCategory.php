@@ -61,9 +61,9 @@ class MainCategory extends Model
 
 
 
-    //     public function vendors()
-    //     {
+    public function vendors()
+    {
 
-    //         return $this->hasMany('App\Models\Vendor', 'category_id', 'id');
-    //     }
+        return $this->belongsToMany('App\Models\Vendor', 'maincategory_vendor', 'maincategory_id', 'vendor_id');
+    }
 }
