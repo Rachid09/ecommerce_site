@@ -54,8 +54,22 @@ Route::group(['namespace' => 'admin', 'middleware' => 'auth:admin'], function ()
         Route::get('edit/{id}', 'VendorsController@edit')->name('admin.vendors.edit');
         Route::post('update/{id}', 'VendorsController@update')->name('admin.vendors.update');
         Route::get('delete/{id}', 'VendorsController@destroy')->name('admin.vendors.delete');
+        Route::get('changeStatus/{id}', 'VendorsController@changeStatus')->name('admin.vendors.status');
     });
     ######################### End  vendors Routes  ########################
+
+    ######################### Begin SubCategories Routes ########################
+    Route::group(['prefix' => 'sub-categories'], function () {
+        Route::get('/', 'SubCategoryController@index')->name('admin.subcategories');
+        Route::get('create', 'SubCategoryController@create')->name('admin.subcategories.create');
+        Route::post('store', 'SubCategoryController@store')->name('admin.subcategories.store');
+        Route::get('edit/{id}', 'SubCategoryController@edit')->name('admin.subcategories.edit');
+        Route::post('update/{id}', 'SubCategoryController@update')->name('admin.subcategories.update');
+        Route::get('delete/{id}', 'SubCategoryController@destroy')->name('admin.subcategories.delete');
+        Route::get('changeStatus/{id}', 'SubCategoryController@changeStatus')->name('admin.subcategories.status');
+    });
+
+    ######################### End SubCategories Routes ########################
 });
 
 

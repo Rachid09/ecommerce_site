@@ -177,7 +177,7 @@
                                         </div>
 
 
-                                        <div id="map" style="height: 500px;width: 1000px;"></div>
+
 
                                         <div class="form-actions">
                                             <button type="button" class="btn btn-warning mr-1" onclick="history.back();">

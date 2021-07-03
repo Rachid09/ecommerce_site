@@ -47,8 +47,8 @@
                                             <tr>
                                                 <th>الاسم</th>
                                                 <th> اللوجو</th>
+                                                <th>اسم المتجر</th>
                                                 <th>الهاتف</th>
-                                                <th>القسم الرئيسي</th>
                                                 <th> ألحالة </th>
                                                 <th>الإجراءات</th>
                                             </tr>
@@ -56,24 +56,55 @@
                                         <tbody>
 
                                             @isset($vendors)
-                                            @foreach($vendors as $vendor)
+                                            @foreach($vendors as $index => $vendor)
                                             <tr>
-                                                <td>{{$vendor -> name}}</td>
+                                                <td>{{$vendor -> full_name}}</td>
                                                 <td><img style="width: 150px; height: 100px;" src="{{$vendor -> 	logo}}"></td>
 
-                                                <td>{{$vendor -> mobile}}</td>
-                                                <td> {{$vendor -> 	category -> name}}</td>
+                                                <td>{{$vendor -> store_name}}</td>
+                                                <td> {{$vendor -> mobile}}</td>
 
                                                 <td> {{$vendor -> getActive()}}</td>
                                                 <td>
                                                     <div class="btn-group" role="group" aria-label="Basic example">
+                                                        <a href="" class="btn btn-outline-info btn-min-width box-shadow-3 mr-1 mb-1" data-toggle="modal" data-target="#headingDefault{{$index}}">الاقسام الرئيسية</a>
                                                         <a href="{{route('admin.vendors.edit',$vendor -> id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
 
 
-                                                        <a href="" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+                                                        <a href="{{route('admin.vendors.delete',$vendor->id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
 
 
-                                                        <a href="" class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1">تفعيل</a>
+                                                        <a href="{{route('admin.vendors.status',$vendor->id)}}" class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1"> @if($vendor -> active == 0)
+                                                            تفعيل
+                                                            @else
+                                                            الغاء تفعيل
+                                                            @endif</a>
+
+                                                        <div class="modal fade text-left" id="headingDefault{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel25" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h2 class="modal-title text-text-bold-600" id="myModalLabel25"> الاقسام الرئيسية</h2>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+
+                                                                        @foreach($vendor -> MainCategory as $cat)
+                                                                        <div class="badge badge-primary">{{$cat->libelle}}</div>
+
+                                                                        @endforeach
+
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Close</button>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
 
 
                                                     </div>

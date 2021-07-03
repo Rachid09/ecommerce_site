@@ -17,10 +17,10 @@ class CreateMaincategoryVendorTable extends Migration
             $table->id();
             $table->unsignedBigInteger('vendor_id');
 
-            $table->foreign('vendor_id')->references('id')->on('vendors');
+            $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('cascade');
             $table->unsignedBigInteger('maincategory_id');
 
-            $table->foreign('maincategory_id')->references('id')->on('main_categories');
+            $table->foreign('maincategory_id')->references('id')->on('main_categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

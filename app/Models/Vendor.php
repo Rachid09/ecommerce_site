@@ -34,6 +34,7 @@ class Vendor extends Model
     public function scopeSelection($query)
     {
         return $query->select(
+            'id',
             'full_name',
             'store_name',
             'mobile',

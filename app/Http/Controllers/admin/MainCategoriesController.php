@@ -149,44 +149,45 @@ class MainCategoriesController extends Controller
     }
 
 
-    // public function destroy($id)
-    // {
+    public function destroy($id)
+    {
 
-    //     try {
-    //         $maincategory = MainCategory::find($id);
-    //         if (!$maincategory)
-    //             return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
+        try {
+            $maincategory = MainCategory::find($id);
+            if (!$maincategory)
+                return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
 
-    //         $vendors = $maincategory->vendors();
-    //         if (isset($vendors) && $vendors->count() > 0) {
-    //             return redirect()->route('admin.maincategories')->with(['error' => 'لأ يمكن حذف هذا القسم  ']);
-    //         }
+            $vendors = $maincategory->vendors();
+            if (isset($vendors) && $vendors->count() > 0) {
+                return redirect()->route('admin.maincategories')->with(['error' => 'لأ يمكن حذف هذا القسم  ']);
+            }
 
-    //         $image = Str::after($maincategory->photo, 'assets/');
-    //         $image = base_path('assets/' . $image);
-    //         unlink($image); //delete from folder
+            $image = Str::after($maincategory->photo, 'public/assets/');
+            $image = base_path('public/assets/' . $image);
+            unlink($image); //delete from folder
+            $maincategory->categories()->delete();
+            $maincategory->delete();
+            return redirect()->route('admin.maincategories')->with(['success' => 'تم حذف القسم بنجاح']);
+        } catch (\Exception $ex) {
+            return $ex;
+            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+        }
+    }
 
-    //         $maincategory->delete();
-    //         return redirect()->route('admin.maincategories')->with(['success' => 'تم حذف القسم بنجاح']);
-    //     } catch (\Exception $ex) {
-    //         return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
-    //     }
-    // }
+    public function changeStatus($id)
+    {
+        try {
+            $maincategory = MainCategory::find($id);
+            if (!$maincategory)
+                return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
 
-    // public function changeStatus($id)
-    // {
-    //     try {
-    //         $maincategory = MainCategory::find($id);
-    //         if (!$maincategory)
-    //             return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
+            $status =  $maincategory->is_active  == 0 ? 1 : 0;
 
-    //         $status =  $maincategory->active  == 0 ? 1 : 0;
+            $maincategory->update(['is_active' => $status]);
 
-    //         $maincategory->update(['active' => $status]);
-
-    //         return redirect()->route('admin.maincategories')->with(['success' => ' تم تغيير الحالة بنجاح ']);
-    //     } catch (\Exception $ex) {
-    //         return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
-    //     }
-    // }
+            return redirect()->route('admin.maincategories')->with(['success' => ' تم تغيير الحالة بنجاح ']);
+        } catch (\Exception $ex) {
+            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+        }
+    }
 }
