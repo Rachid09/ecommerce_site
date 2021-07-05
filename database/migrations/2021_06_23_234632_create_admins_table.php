@@ -21,6 +21,7 @@ class CreateAdminsTable extends Migration
             $table->string('prenom');
             $table->string('email');
             $table->string('password');
+            $table->rememberToken();
             $table->string('phone')->nullable();
             $table->text("photo")->nullable();
         });

@@ -1,4 +1,6 @@
-<!-- Begin Header -->
+@extends('layouts.admin')
+
+@section('content')
 <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light bg-info navbar-shadow">
     <div class="navbar-wrapper">
         <div class="navbar-header">
@@ -34,12 +36,12 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href=""><i class="ft-user"></i> تعديل الملف الشحصي </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <a class="dropdown-item" href="{{ route('vendor.logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 
-                            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('vendor.logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
 
@@ -218,3 +220,17 @@
     </div>
 </nav>
 <!--End  Header -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
+
+                <div class="card-body">
+                    Hi there, awesome vendor
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

@@ -23,6 +23,7 @@ class CreateVendorsTable extends Migration
             $table->string('password');
             $table->tinyInteger('active')->default(0);
             $table->text("logo");
+            $table->rememberToken();
             $table->timestamps();
         });
     }

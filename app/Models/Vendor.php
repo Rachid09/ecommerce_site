@@ -4,19 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Vendor extends Model
+class Vendor extends Authenticatable
 {
     use Notifiable;
 
     protected $table = 'vendors';
+    protected $guard = 'vendor';
 
     protected $fillable = [
         'full_name', 'store_name', 'mobile', 'address', 'email',  'password',  'active',
         'logo', 'created_at', 'updated_at'
     ];
 
-    protected $hidden = ['categories', 'password'];
+    protected $hidden = ['password', 'remember_token'];
 
 
     public function scopeActive($query)
@@ -59,10 +61,10 @@ class Vendor extends Model
     }
 
 
-    public function setPasswordAttribute($password)
-    {
-        if (!empty($password)) {
-            $this->attributes['password'] = bcrypt($password);
-        }
-    }
+    // public function setPasswordAttribute($password)
+    // {
+    //     if (!empty($password)) {
+    //         $this->attributes['password'] = bcrypt($password);
+    //     }
+    // }
 }
