@@ -22,12 +22,13 @@
                                 </h6>
                             </div>
 
-                            @include('vendor.alerts.errors')
-                            @include('vendor.alerts.success')
+                            @include('seller.alerts.errors')
+                            @include('seller.alerts.success')
+                            
 
                             <div class="card-content">
                                 <div class="card-body">
-                                    <form class="form-horizontal form-simple" action="{{route('vendor.login')}}" method="post" novalidate>
+                                    <form class="form-horizontal form-simple" action="{{route('seller.login')}}" method="post" novalidate>
                                         @csrf
                                         <fieldset class="form-group position-relative has-icon-left mb-0">
                                             <input type="text" name="email" class="form-control form-control-lg input-lg" value="" id="email" placeholder="أدخل البريد الالكتروني ">

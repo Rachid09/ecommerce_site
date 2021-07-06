@@ -42,7 +42,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
         $this->middleware('guest:admin')->except('logout');
-        $this->middleware('guest:vendor')->except('logout');
+        $this->middleware('guest:seller')->except('logout');
     }
 
     public function showAdminLoginForm()
@@ -63,31 +63,43 @@ class LoginController extends Controller
         return redirect()->back()->with(['error' => 'هناك خطا بالبيانات']);
     }
 
-    public function showVendorLoginForm()
+    public function showSellerLoginForm()
     {
-        return view('vendor.login');
+        return view('seller.login');
     }
 
-    public function vendorLogin(Request $request)
+    public function sellerLogin(Request $request)
     {
         $this->validate($request, [
             'email'   => 'required|email',
             'password' => 'required|min:4'
         ]);
 
-        if (Auth::guard('vendor')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember_me'))) {
+        if (Auth::guard('seller')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember_me'))) {
 
-            return redirect()->route('vendor.dashboard');
+            return redirect()->route('seller.dashboard');
         }
         return back()->withInput($request->only('email', 'remember_me'));
     }
 
+    public function showClientLoginForm()
+    {
+        return view('client.login');
+    }
 
-    // public function logout()
-    // {
-    //     Auth::guard('vendor')->logout();
-    //     return redirect()
-    //         ->route('vendor.login')
-    //         ->with('status', 'vendor has been logged out!');
-    // }
+
+    public function clientLogin(Request $request)
+    {
+        // return $request;
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required|min:4'
+        ]);
+
+        if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember_me'))) {
+
+            return redirect()->route('client.home');
+        }
+        return back()->withInput($request->only('email', 'remember_me'));
+    }
 }

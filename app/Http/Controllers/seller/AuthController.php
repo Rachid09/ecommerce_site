@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\vendor;
+namespace App\Http\Controllers\seller;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,8 +14,6 @@ class AuthController extends Controller
     public function logout()
     {
         Session::flush();
-        return redirect()
-            ->route('vendor.login')
-            ->with('status', 'vendor has been logged out!');
+        return redirect()->route('seller.login');
     }
 }

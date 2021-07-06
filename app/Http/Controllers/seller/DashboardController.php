@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\vendor;
+namespace App\Http\Controllers\seller;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,6 +10,6 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('vendor.dashboard');
+        return view('seller.dashboard');
     }
 }

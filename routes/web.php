@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,8 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('client.home')->name('home');
-});
+    return view('client.home');
+})->name('client.home');
 
 
 Route::get('/login', function () {
@@ -58,17 +59,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => 'auth
 
 
 
-    ######################### Begin vendors Routes ########################
-    Route::group(['prefix' => 'vendors'], function () {
-        Route::get('/', 'VendorsController@index')->name('admin.vendors');
-        Route::get('create', 'VendorsController@create')->name('admin.vendors.create');
-        Route::post('store', 'VendorsController@store')->name('admin.vendors.store');
-        Route::get('edit/{id}', 'VendorsController@edit')->name('admin.vendors.edit');
-        Route::post('update/{id}', 'VendorsController@update')->name('admin.vendors.update');
-        Route::get('delete/{id}', 'VendorsController@destroy')->name('admin.vendors.delete');
-        Route::get('changeStatus/{id}', 'VendorsController@changeStatus')->name('admin.vendors.status');
+    ######################### Begin sellers Routes ########################
+    Route::group(['prefix' => 'sellers'], function () {
+        Route::get('/', 'SellersController@index')->name('admin.sellers');
+        Route::get('create', 'SellersController@create')->name('admin.sellers.create');
+        Route::post('store', 'SellersController@store')->name('admin.sellers.store');
+        Route::get('edit/{id}', 'SellersController@edit')->name('admin.sellers.edit');
+        Route::post('update/{id}', 'SellersController@update')->name('admin.sellers.update');
+        Route::get('delete/{id}', 'SellersController@destroy')->name('admin.sellers.delete');
+        Route::get('changeStatus/{id}', 'SellersController@changeStatus')->name('admin.sellers.status');
     });
-    ######################### End  vendors Routes  ########################
+    ######################### End  sellers Routes  ########################
 
     ######################### Begin SubCategories Routes ########################
     Route::group(['prefix' => 'sub-categories'], function () {
@@ -89,35 +90,59 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Auth'], function () {
     Route::post('login', 'LoginController@adminLogin')->name('admin.login');
 });
 
-Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
-    Route::post('logout', 'AuthController@logout')->name('admin.logout');
+// Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
+//     Route::post('logout', 'AuthController@logout')->name('admin.logout');
+// });
+
+
+
+
+
+
+
+######################### brgin seller Routes ########################
+
+Route::group(['prefix' => 'seller', 'namespace' => 'seller', 'middleware' => 'auth:seller'], function () {
+    Route::get('/home', 'DashboardController@index')->name('seller.dashboard');
 });
 
 
 
-
-
-
-
-######################### brgin vendor Routes ########################
-
-Route::group(['prefix' => 'vendor', 'namespace' => 'vendor', 'middleware' => 'auth:vendor'], function () {
-    Route::get('/home', 'DashboardController@index')->name('vendor.dashboard');
+Route::group(['prefix' => 'seller', 'namespace' => 'Auth', 'middleware' => 'guest:seller'], function () {
+    Route::get('login', 'LoginController@showsellerLoginForm')->name('seller.login');
+    Route::post('login', 'LoginController@sellerLogin')->name('seller.login');
+    // Route::post('logout', 'LoginController@logout')->name('seller.logout');
 });
 
+// Route::group(['prefix' => 'seller', 'namespace' => 'seller'], function () {
+//     Route::post('logout', 'AuthController@logout')->name('seller.logout');
+// });
 
 
-Route::group(['prefix' => 'vendor', 'namespace' => 'Auth'], function () {
-    Route::get('login', 'LoginController@showVendorLoginForm')->name('vendor.login');
-    Route::post('login', 'LoginController@vendorLogin')->name('vendor.login');
-    // Route::post('logout', 'LoginController@logout')->name('vendor.logout');
-});
-
-Route::group(['prefix' => 'vendor', 'namespace' => 'vendor'], function () {
-    Route::post('logout', 'AuthController@logout')->name('vendor.logout');
-});
 
 
 
 // Route::view('/home', 'home')->middleware('auth');
 // Route::view('/admin', 'admin');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+######################### brgin client Routes ########################
+
+Route::group(['prefix' => 'client', 'namespace' => 'Auth', 'middleware' => 'guest'], function () {
+    Route::get('login', 'LoginController@showClientLoginForm')->name('client.login');
+    Route::post('login', 'LoginController@clientLogin')->name('client.login');
+});

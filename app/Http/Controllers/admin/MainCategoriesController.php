@@ -157,8 +157,8 @@ class MainCategoriesController extends Controller
             if (!$maincategory)
                 return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
 
-            $vendors = $maincategory->vendors();
-            if (isset($vendors) && $vendors->count() > 0) {
+            $sellers = $maincategory->sellers();
+            if (isset($sellers) && $sellers->count() > 0) {
                 return redirect()->route('admin.maincategories')->with(['error' => 'لأ يمكن حذف هذا القسم  ']);
             }
 

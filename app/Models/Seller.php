@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Vendor extends Authenticatable
+class Seller extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = 'vendors';
-    protected $guard = 'vendor';
+    protected $table = 'sellers';
+    protected $guard = 'seller';
 
     protected $fillable = [
         'full_name', 'store_name', 'mobile', 'address', 'email',  'password',  'active',
@@ -52,7 +52,7 @@ class Vendor extends Authenticatable
     public function maincategory()
     {
 
-        return $this->belongsToMany('App\Models\MainCategory', 'maincategory_vendor', 'vendor_id', 'maincategory_id');
+        return $this->belongsToMany('App\Models\MainCategory', 'maincategory_seller', 'seller_id', 'maincategory_id');
     }
 
     public function getActive()

@@ -1,10 +1,11 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMaincategoryVendorTable extends Migration
+class CreateMaincategorySellerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +14,11 @@ class CreateMaincategoryVendorTable extends Migration
      */
     public function up()
     {
-        Schema::create('maincategory_vendor', function (Blueprint $table) {
+        Schema::create('maincategory_seller', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('vendor_id');
+            $table->unsignedBigInteger('seller_id');
 
-            $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('cascade');
+            $table->foreign('seller_id')->references('id')->on('sellers')->onDelete('cascade');
             $table->unsignedBigInteger('maincategory_id');
 
             $table->foreign('maincategory_id')->references('id')->on('main_categories')->onDelete('cascade');
@@ -32,6 +33,6 @@ class CreateMaincategoryVendorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('maincategory_vendor');
+        Schema::dropIfExists('maincategory_seller');
     }
 }

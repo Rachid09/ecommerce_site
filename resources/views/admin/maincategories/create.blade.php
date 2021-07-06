@@ -11,8 +11,6 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="">الاقسام الرئيسية </a>
                             </li>
-                            <li class="breadcrumb-item"><a href=""> الاقسام الرئيسية </a>
-                            </li>
                             <li class="breadcrumb-item active">إضافة قسم رئيسي
                             </li>
                         </ol>

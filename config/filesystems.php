@@ -62,9 +62,9 @@ return [
             'visibility' => 'public',
         ],
 
-        'vendors' => [
+        'sellers' => [
             'driver' => 'local',
-            'root' => public_path() . '/assets/images/vendors/',
+            'root' => public_path() . '/assets/images/sellers/',
             'url' => env('APP_URL') . '/public',
             'visibility' => 'public',
         ],

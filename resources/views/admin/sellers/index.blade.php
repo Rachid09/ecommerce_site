@@ -55,26 +55,26 @@
                                         </thead>
                                         <tbody>
 
-                                            @isset($vendors)
-                                            @foreach($vendors as $index => $vendor)
+                                            @isset($sellers)
+                                            @foreach($sellers as $index => $seller)
                                             <tr>
-                                                <td>{{$vendor -> full_name}}</td>
-                                                <td><img style="width: 150px; height: 100px;" src="{{$vendor -> 	logo}}"></td>
+                                                <td>{{$seller -> full_name}}</td>
+                                                <td><img style="width: 150px; height: 100px;" src="{{$seller -> 	logo}}"></td>
 
-                                                <td>{{$vendor -> store_name}}</td>
-                                                <td> {{$vendor -> mobile}}</td>
+                                                <td>{{$seller -> store_name}}</td>
+                                                <td> {{$seller -> mobile}}</td>
 
-                                                <td> {{$vendor -> getActive()}}</td>
+                                                <td> {{$seller -> getActive()}}</td>
                                                 <td>
                                                     <div class="btn-group" role="group" aria-label="Basic example">
                                                         <a href="" class="btn btn-outline-info btn-min-width box-shadow-3 mr-1 mb-1" data-toggle="modal" data-target="#headingDefault{{$index}}">الاقسام الرئيسية</a>
-                                                        <a href="{{route('admin.vendors.edit',$vendor -> id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
+                                                        <a href="{{route('admin.sellers.edit',$seller -> id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
 
 
-                                                        <a href="{{route('admin.vendors.delete',$vendor->id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+                                                        <a href="{{route('admin.sellers.delete',$seller->id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
 
 
-                                                        <a href="{{route('admin.vendors.status',$vendor->id)}}" class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1"> @if($vendor -> active == 0)
+                                                        <a href="{{route('admin.sellers.status',$seller->id)}}" class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1"> @if($seller -> active == 0)
                                                             تفعيل
                                                             @else
                                                             الغاء تفعيل
@@ -91,7 +91,7 @@
                                                                     </div>
                                                                     <div class="modal-body">
 
-                                                                        @foreach($vendor -> MainCategory as $cat)
+                                                                        @foreach($seller -> MainCategory as $cat)
                                                                         <div class="badge badge-primary">{{$cat->libelle}}</div>
 
                                                                         @endforeach

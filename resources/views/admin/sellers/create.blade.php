@@ -11,9 +11,9 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="">الرئيسية </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{route('admin.vendors')}}">المتاجر </a>
+                            <li class="breadcrumb-item"><a href="{{route('admin.sellers')}}">المتاجر </a>
                             </li>
-                            <li class="breadcrumb-item active">تعديل متجر
+                            <li class="breadcrumb-item active">إضافة متجر
                             </li>
                         </ol>
                     </div>
@@ -27,7 +27,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title" id="basic-layout-form"> تعديل متجر </h4>
+                                <h4 class="card-title" id="basic-layout-form"> إضافة تاجر </h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -42,20 +42,11 @@
                             @include('admin.includes.alerts.errors')
                             <div class="card-content collapse show">
                                 <div class="card-body">
-                                    <form class="form" action="{{route('admin.vendors.update',$vendor -> id)}}" method="POST" enctype="multipart/form-data">
+                                    <form class="form" action="{{route('admin.sellers.store')}}" method="POST" enctype="multipart/form-data">
+
                                         @csrf
-
-                                        <input type="hidden" name="id" value="{{$vendor -> id}}">
-
                                         <div class="form-group">
-                                            <div class="text-center">
-                                                <img src="{{$vendor  -> logo}}" class="rounded-circle  height-250" alt="صورة القسم  ">
-                                            </div>
-                                        </div>
-
-
-                                        <div class="form-group">
-                                            <label> لوجو التجار </label>
+                                            <label> لوجو المنجر </label>
                                             <label id="projectinput7" class="file center-block">
                                                 <input type="file" id="file" name="logo">
                                                 <span class="file-custom"></span>
@@ -67,14 +58,14 @@
 
                                         <div class="form-body">
 
-                                            <h4 class="form-section"><i class="ft-home"></i> بيانات المتجر </h4>
+                                            <h4 class="form-section"><i class="ft-home"></i> بيانات التاجر </h4>
 
 
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> الاسم </label>
-                                                        <input type="text" value="{{$vendor -> full_name}}" id="name" class="form-control" placeholder="  " name="full_name">
+                                                        <label for="projectinput1"> الاسم الكامل</label>
+                                                        <input type="text" value="" id="name" class="form-control" placeholder="  " name="full_name">
                                                         @error("full_name")
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -82,43 +73,39 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> اسم المتجر </label>
-                                                        <input type="text" value="{{$vendor -> store_name}}" id="name" class="form-control" placeholder="  " name="store_name">
+                                                        <label for="projectinput1"> اسم المتجر</label>
+                                                        <input type="text" value="" id="name" class="form-control" placeholder="  " name="store_name">
                                                         @error("store_name")
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
                                                     </div>
                                                 </div>
-
-
                                             </div>
 
 
-                                            <div class="row">
 
+
+
+                                            <div class="row">
                                                 <div class="col-md-6 ">
                                                     <div class="form-group">
                                                         <label for="projectinput1"> رقم الهاتف </label>
-                                                        <input type="text" id="mobile" class="form-control" placeholder="  " name="mobile" value="{{$vendor -> mobile}}">
+                                                        <input type="text" id="mobile" class="form-control" placeholder="  " name="mobile">
 
                                                         @error("mobile")
                                                         <span class="text-danger"> {{$message}}</span>
                                                         @enderror
                                                     </div>
                                                 </div>
+
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput2"> أختر القسم </label>
+                                                        <label for="projectinput2"> أختر الأقسام </label>
                                                         <select name="categories[]" class="select2 form-control" multiple>
                                                             <optgroup label="من فضلك أختر القسم ">
                                                                 @if($categories && $categories -> count() > 0)
                                                                 @foreach($categories as $category)
-                                                                <option value="{{$category -> id }}" @foreach($vendor -> MainCategory as $cat)
-                                                                    @if ($cat->id == $category->id)
-                                                                    selected
-                                                                    @endif
-                                                                    @endforeach
-                                                                    >{{$category -> libelle}}</option>
+                                                                <option value="{{$category -> id }}">{{$category -> libelle}}</option>
                                                                 @endforeach
                                                                 @endif
                                                             </optgroup>
@@ -129,12 +116,22 @@
                                                     </div>
                                                 </div>
 
-
-
                                             </div>
 
 
                                             <div class="row">
+                                                <div class="col-md-6 ">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1"> ألبريد الالكتروني </label>
+                                                        <input type="text" id="email" class="form-control" placeholder="  " name="email">
+
+                                                        @error("email")
+                                                        <span class="text-danger"> {{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+
                                                 <div class="class col-md-6">
                                                     <div class="form-group">
                                                         <label for="projectinput1">كلمة المرور </label>
@@ -146,16 +143,8 @@
                                                     </div>
 
                                                 </div>
-                                                <div class="col-md-6 ">
-                                                    <div class="form-group">
-                                                        <label for="projectinput1"> ألبريد الالكتروني </label>
-                                                        <input type="text" id="email" class="form-control" placeholder="  " name="email" value="{{$vendor -> email}}">
 
-                                                        @error("email")
-                                                        <span class="text-danger"> {{$message}}</span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
+
                                             </div>
 
 
@@ -163,7 +152,7 @@
                                                 <div class="col-12 ">
                                                     <div class="form-group">
                                                         <label for="projectinput1"> العنوان </label>
-                                                        <input type="text" id="pac-input" class="form-control" placeholder="  " name="address" value="{{$vendor -> address}}">
+                                                        <input type="text" id="pac-input" class="form-control" placeholder="  " name="address">
 
                                                         @error("address")
                                                         <span class="text-danger"> {{$message}}</span>
@@ -175,7 +164,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group mt-1">
-                                                        <input type="checkbox" value="1" name="active" id="switcheryColor4" class="switchery" data-color="success" @if($vendor -> active == 1)checked @endif/>
+                                                        <input type="checkbox" value="1" name="active" id="switcheryColor4" class="switchery" data-color="success" checked />
                                                         <label for="switcheryColor4" class="card-title ml-1">الحالة </label>
 
                                                         @error("active")

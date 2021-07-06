@@ -2,26 +2,26 @@
 
 namespace App\Notifications;
 
-use App\Models\Vendor;
+use App\Models\Seller;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class VendorCreated extends Notification
+class SellerCreated extends Notification
 {
     use Queueable;
 
 
-    public $vendor;
+    public $seller;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(Vendor $vendor)
+    public function __construct(Seller $seller)
     {
-        $this->vendor =  $vendor;
+        $this->seller =  $seller;
     }
 
     /**
