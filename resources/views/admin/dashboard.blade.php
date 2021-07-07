@@ -2,320 +2,803 @@
 
 @section('content')
 
-<div class="app-content content">
+ <div class="app-content content">
     <div class="content-wrapper">
-        <div class="content-header row">
+      <div class="content-header row">
+      </div>
+      <div class="content-body">
+        <!-- eCommerce statistic -->
+        <div class="row">
+          <div class="col-xl-3 col-lg-6 col-12">
+            <div class="card pull-up">
+              <div class="card-content">
+                <div class="card-body">
+                  <div class="media d-flex">
+                    <div class="media-body text-left">
+                      <h3 class="info">850</h3>
+                      <h6>Products Sold</h6>
+                    </div>
+                    <div>
+                      <i class="icon-basket-loaded info font-large-2 float-right"></i>
+                    </div>
+                  </div>
+                  <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                    <div class="progress-bar bg-gradient-x-info" role="progressbar" style="width: 80%"
+                    aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12">
+            <div class="card pull-up">
+              <div class="card-content">
+                <div class="card-body">
+                  <div class="media d-flex">
+                    <div class="media-body text-left">
+                      <h3 class="warning">$748</h3>
+                      <h6>Net Profit</h6>
+                    </div>
+                    <div>
+                      <i class="icon-pie-chart warning font-large-2 float-right"></i>
+                    </div>
+                  </div>
+                  <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                    <div class="progress-bar bg-gradient-x-warning" role="progressbar" style="width: 65%"
+                    aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12">
+            <div class="card pull-up">
+              <div class="card-content">
+                <div class="card-body">
+                  <div class="media d-flex">
+                    <div class="media-body text-left">
+                      <h3 class="success">146</h3>
+                      <h6>New Customers</h6>
+                    </div>
+                    <div>
+                      <i class="icon-user-follow success font-large-2 float-right"></i>
+                    </div>
+                  </div>
+                  <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                    <div class="progress-bar bg-gradient-x-success" role="progressbar" style="width: 75%"
+                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12">
+            <div class="card pull-up">
+              <div class="card-content">
+                <div class="card-body">
+                  <div class="media d-flex">
+                    <div class="media-body text-left">
+                      <h3 class="danger">99.89 %</h3>
+                      <h6>Customer Satisfaction</h6>
+                    </div>
+                    <div>
+                      <i class="icon-heart danger font-large-2 float-right"></i>
+                    </div>
+                  </div>
+                  <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                    <div class="progress-bar bg-gradient-x-danger" role="progressbar" style="width: 85%"
+                    aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="content-body">
-            <div id="crypto-stats-3" class="row">
-                <div class="col-xl-4 col-12">
-                    <div class="card crypto-card-3 pull-up">
-                        <div class="card-content">
-                            <div class="card-body pb-0">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <h1><i class="cc BTC warning font-large-2" title="BTC"></i></h1>
-                                    </div>
-                                    <div class="col-5 pl-2">
-                                        <h4>BTC</h4>
-                                        <h6 class="text-muted">Bitcoin</h6>
-                                    </div>
-                                    <div class="col-5 text-right">
-                                        <h4>$9,980</h4>
-                                        <h6 class="success darken-4">31% <i class="la la-arrow-up"></i></h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <canvas id="btc-chartjs" class="height-75"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <!--/ eCommerce statistic -->
+        <!-- Products sell and New Orders -->
+        <div class="row match-height">
+          <div class="col-xl-8 col-12" id="ecommerceChartView">
+            <div class="card card-shadow">
+              <div class="card-header card-header-transparent py-20">
+                <div class="btn-group dropdown">
+                  <a href="#" class="text-body dropdown-toggle blue-grey-700" data-toggle="dropdown">PRODUCTS SALES</a>
+                  <div class="dropdown-menu animate" role="menu">
+                    <a class="dropdown-item" href="#" role="menuitem">Sales</a>
+                    <a class="dropdown-item" href="#" role="menuitem">Total sales</a>
+                    <a class="dropdown-item" href="#" role="menuitem">profit</a>
+                  </div>
                 </div>
-                <div class="col-xl-4 col-12">
-                    <div class="card crypto-card-3 pull-up">
-                        <div class="card-content">
-                            <div class="card-body pb-0">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <h1><i class="cc ETH blue-grey lighten-1 font-large-2" title="ETH"></i></h1>
-                                    </div>
-                                    <div class="col-5 pl-2">
-                                        <h4>ETH</h4>
-                                        <h6 class="text-muted">Ethereum</h6>
-                                    </div>
-                                    <div class="col-5 text-right">
-                                        <h4>$944</h4>
-                                        <h6 class="success darken-4">12% <i class="la la-arrow-up"></i></h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <canvas id="eth-chartjs" class="height-75"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-12">
-                    <div class="card crypto-card-3 pull-up">
-                        <div class="card-content">
-                            <div class="card-body pb-0">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <h1><i class="cc XRP info font-large-2" title="XRP"></i></h1>
-                                    </div>
-                                    <div class="col-5 pl-2">
-                                        <h4>XRP</h4>
-                                        <h6 class="text-muted">Balance</h6>
-                                    </div>
-                                    <div class="col-5 text-right">
-                                        <h4>$1.2</h4>
-                                        <h6 class="danger">20% <i class="la la-arrow-down"></i></h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <canvas id="xrp-chartjs" class="height-75"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <ul class="nav nav-pills nav-pills-rounded chart-action float-right btn-group" role="group">
+                  <li class="nav-item"><a class="active nav-link" data-toggle="tab" href="#scoreLineToDay">Day</a></li>
+                  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#scoreLineToWeek">Week</a></li>
+                  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#scoreLineToMonth">Month</a></li>
+                </ul>
+              </div>
+              <div class="widget-content tab-content bg-white p-20">
+                <div class="ct-chart tab-pane active scoreLineShadow" id="scoreLineToDay"></div>
+                <div class="ct-chart tab-pane scoreLineShadow" id="scoreLineToWeek"></div>
+                <div class="ct-chart tab-pane scoreLineShadow" id="scoreLineToMonth"></div>
+              </div>
             </div>
-            <!-- Candlestick Multi Level Control Chart -->
-
-            <!-- Sell Orders & Buy Order -->
-            <div class="row match-height">
-                <div class="col-12 col-xl-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Sell Order</h4>
-                            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                            <div class="heading-elements">
-                                <p class="text-muted">Total BTC available: 6542.56585</p>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <div class="table-responsive">
-                                <table class="table table-de mb-0">
-                                    <thead>
-                                        <tr>
-                                            <th>Price per BTC</th>
-                                            <th>BTC Ammount</th>
-                                            <th>Total($)</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="bg-success bg-lighten-5">
-                                            <td>10583.4</td>
-                                            <td><i class="cc BTC-alt"></i> 0.45000000</td>
-                                            <td>$ 4762.53</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10583.5</td>
-                                            <td><i class="cc BTC-alt"></i> 0.04000000</td>
-                                            <td>$ 423.34</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10583.7</td>
-                                            <td><i class="cc BTC-alt"></i> 0.25100000</td>
-                                            <td>$ 2656.51</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10583.8</td>
-                                            <td><i class="cc BTC-alt"></i> 0.35000000</td>
-                                            <td>$ 3704.33</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10595.7</td>
-                                            <td><i class="cc BTC-alt"></i> 0.30000000</td>
-                                            <td>$ 3178.71</td>
-                                        </tr>
-                                        <tr class="bg-danger bg-lighten-5">
-                                            <td>10599.5</td>
-                                            <td><i class="cc BTC-alt"></i> 0.02000000</td>
-                                            <td>$ 211.99</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+          </div>
+          <div class="col-xl-4 col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">New Orders</h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                  </ul>
                 </div>
-                <div class="col-12 col-xl-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Buy Order</h4>
-                            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                            <div class="heading-elements">
-                                <p class="text-muted">Total USD available: 9065930.43</p>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <div class="table-responsive">
-                                <table class="table table-de mb-0">
-                                    <thead>
-                                        <tr>
-                                            <th>Price per BTC</th>
-                                            <th>BTC Ammount</th>
-                                            <th>Total($)</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="bg-danger bg-lighten-5">
-                                            <td>10599.5</td>
-                                            <td><i class="cc BTC-alt"></i> 0.02000000</td>
-                                            <td>$ 211.99</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10583.5</td>
-                                            <td><i class="cc BTC-alt"></i> 0.04000000</td>
-                                            <td>$ 423.34</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10583.8</td>
-                                            <td><i class="cc BTC-alt"></i> 0.35000000</td>
-                                            <td>$ 3704.33</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10595.7</td>
-                                            <td><i class="cc BTC-alt"></i> 0.30000000</td>
-                                            <td>$ 3178.71</td>
-                                        </tr>
-                                        <tr class="bg-danger bg-lighten-5">
-                                            <td>10583.7</td>
-                                            <td><i class="cc BTC-alt"></i> 0.25100000</td>
-                                            <td>$ 2656.51</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10595.8</td>
-                                            <td><i class="cc BTC-alt"></i> 0.29697926</td>
-                                            <td>$ 3146.74</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+              <div class="card-content">
+                <div id="new-orders" class="media-list position-relative">
+                  <div class="table-responsive">
+                    <table id="new-orders-table" class="table table-hover table-xl mb-0">
+                      <thead>
+                        <tr>
+                          <th class="border-top-0">Product</th>
+                          <th class="border-top-0">Customers</th>
+                          <th class="border-top-0">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="text-truncate">iPhone X</td>
+                          <td class="text-truncate p-1">
+                            <ul class="list-unstyled users-list m-0">
+                              <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="John Doe"
+                              class="avatar avatar-sm pull-up">
+                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-19.png"
+                                alt="Avatar">
+                              </li>
+                              <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Katherine Nichols"
+                              class="avatar avatar-sm pull-up">
+                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-18.png"
+                                alt="Avatar">
+                              </li>
+                              <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Joseph Weaver"
+                              class="avatar avatar-sm pull-up">
+                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-17.png"
+                                alt="Avatar">
+                              </li>
+                              <li class="avatar avatar-sm">
+                                <span class="badge badge-info">+4 more</span>
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="text-truncate">$8999</td>
+                        </tr>
+                        <tr>
+                          <td class="text-truncate">Pixel 2</td>
+                          <td class="text-truncate p-1">
+                            <ul class="list-unstyled users-list m-0">
+                              <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Alice Scott"
+                              class="avatar avatar-sm pull-up">
+                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-16.png"
+                                alt="Avatar">
+                              </li>
+                              <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Charles Miller"
+                              class="avatar avatar-sm pull-up">
+                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-15.png"
+                                alt="Avatar">
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="text-truncate">$5550</td>
+                        </tr>
+                        <tr>
+                          <td class="text-truncate">OnePlus</td>
+                          <td class="text-truncate p-1">
+                            <ul class="list-unstyled users-list m-0">
+                              <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Christine Ramos"
+                              class="avatar avatar-sm pull-up">
+                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-11.png"
+                                alt="Avatar">
+                              </li>
+                              <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Thomas Brewer"
+                              class="avatar avatar-sm pull-up">
+                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-10.png"
+                                alt="Avatar">
+                              </li>
+                              <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Alice Chapman"
+                              class="avatar avatar-sm pull-up">
+                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-9.png"
+                                alt="Avatar">
+                              </li>
+                              <li class="avatar avatar-sm">
+                                <span class="badge badge-info">+3 more</span>
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="text-truncate">$9000</td>
+                        </tr>
+                        <tr>
+                          <td class="text-truncate">Galaxy</td>
+                          <td class="text-truncate p-1">
+                            <ul class="list-unstyled users-list m-0">
+                              <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Ryan Schneider"
+                              class="avatar avatar-sm pull-up">
+                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-14.png"
+                                alt="Avatar">
+                              </li>
+                              <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Tiffany Oliver"
+                              class="avatar avatar-sm pull-up">
+                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-13.png"
+                                alt="Avatar">
+                              </li>
+                              <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Joan Reid"
+                              class="avatar avatar-sm pull-up">
+                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-12.png"
+                                alt="Avatar">
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="text-truncate">$7500</td>
+                        </tr>
+                        <tr>
+                          <td class="text-truncate">Moto Z2</td>
+                          <td class="text-truncate p-1">
+                            <ul class="list-unstyled users-list m-0">
+                              <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons"
+                              class="avatar avatar-sm pull-up">
+                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-8.png"
+                                alt="Avatar">
+                              </li>
+                              <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres"
+                              class="avatar avatar-sm pull-up">
+                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-7.png"
+                                alt="Avatar">
+                              </li>
+                              <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Rebecca Jones"
+                              class="avatar avatar-sm pull-up">
+                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-6.png"
+                                alt="Avatar">
+                              </li>
+                              <li class="avatar avatar-sm">
+                                <span class="badge badge-info">+1 more</span>
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="text-truncate">$8500</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
+              </div>
             </div>
-            <!--/ Sell Orders & Buy Order -->
-            <!-- Active Orders -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Active Order</h4>
-                            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                            <div class="heading-elements">
-                                <td>
-                                    <button class="btn btn-sm round btn-danger btn-glow"><i class="la la-close font-medium-1"></i> Cancel all</button>
-                                </td>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <div class="table-responsive">
-                                <table class="table table-de mb-0">
-                                    <thead>
-                                        <tr>
-                                            <th>Date</th>
-                                            <th>Type</th>
-                                            <th>Amount BTC</th>
-                                            <th>BTC Remaining</th>
-                                            <th>Price</th>
-                                            <th>USD</th>
-                                            <th>Fee (%)</th>
-                                            <th>Cancel</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>2018-01-31 06:51:51</td>
-                                            <td class="success">Buy</td>
-                                            <td><i class="cc BTC-alt"></i> 0.58647</td>
-                                            <td><i class="cc BTC-alt"></i> 0.58647</td>
-                                            <td>11900.12</td>
-                                            <td>$ 6979.78</td>
-                                            <td>0.2</td>
-                                            <td>
-                                                <button class="btn btn-sm round btn-outline-danger"> Cancel</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2018-01-31 06:50:50</td>
-                                            <td class="danger">Sell</td>
-                                            <td><i class="cc BTC-alt"></i> 1.38647</td>
-                                            <td><i class="cc BTC-alt"></i> 0.38647</td>
-                                            <td>11905.09</td>
-                                            <td>$ 4600.97</td>
-                                            <td>0.2</td>
-                                            <td>
-                                                <button class="btn btn-sm round btn-outline-danger"> Cancel</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2018-01-31 06:49:51</td>
-                                            <td class="success">Buy</td>
-                                            <td><i class="cc BTC-alt"></i> 0.45879</td>
-                                            <td><i class="cc BTC-alt"></i> 0.45879</td>
-                                            <td>11901.85</td>
-                                            <td>$ 5460.44</td>
-                                            <td>0.2</td>
-                                            <td>
-                                                <button class="btn btn-sm round btn-outline-danger"> Cancel</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2018-01-31 06:51:51</td>
-                                            <td class="success">Buy</td>
-                                            <td><i class="cc BTC-alt"></i> 0.89877</td>
-                                            <td><i class="cc BTC-alt"></i> 0.89877</td>
-                                            <td>11899.25</td>
-                                            <td>$ 10694.6</td>
-                                            <td>0.2</td>
-                                            <td>
-                                                <button class="btn btn-sm round btn-outline-danger"> Cancel</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2018-01-31 06:51:51</td>
-                                            <td class="danger">Sell</td>
-                                            <td><i class="cc BTC-alt"></i> 0.45712</td>
-                                            <td><i class="cc BTC-alt"></i> 0.45712</td>
-                                            <td>11908.58</td>
-                                            <td>$ 5443.65</td>
-                                            <td>0.2</td>
-                                            <td>
-                                                <button class="btn btn-sm round btn-outline-danger"> Cancel</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2018-01-31 06:51:51</td>
-                                            <td class="success">Buy</td>
-                                            <td><i class="cc BTC-alt"></i> 0.58647</td>
-                                            <td><i class="cc BTC-alt"></i> 0.58647</td>
-                                            <td>11900.12</td>
-                                            <td>$ 6979.78</td>
-                                            <td>0.2</td>
-                                            <td>
-                                                <button class="btn btn-sm round btn-outline-danger"> Cancel</button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Active Orders -->
+          </div>
         </div>
+        <!--/ Products sell and New Orders -->
+        <!-- Recent Transactions -->
+        <div class="row">
+          <div id="recent-transactions" class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Recent Transactions</h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li><a class="btn btn-sm btn-danger box-shadow-2 round btn-min-width pull-right"
+                      href="invoice-summary.html" target="_blank">Invoice Summary</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="table-responsive">
+                  <table id="recent-orders" class="table table-hover table-xl mb-0">
+                    <thead>
+                      <tr>
+                        <th class="border-top-0">Status</th>
+                        <th class="border-top-0">Invoice#</th>
+                        <th class="border-top-0">Customer Name</th>
+                        <th class="border-top-0">Products</th>
+                        <th class="border-top-0">Categories</th>
+                        <th class="border-top-0">Shipping</th>
+                        <th class="border-top-0">Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-truncate"><i class="la la-dot-circle-o success font-medium-1 mr-1"></i>                          Paid</td>
+                        <td class="text-truncate"><a href="#">INV-001001</a></td>
+                        <td class="text-truncate">
+                          <span class="avatar avatar-xs">
+                            <img class="box-shadow-2" src="../../../app-assets/images/portrait/small/avatar-s-4.png"
+                            alt="avatar">
+                          </span>
+                          <span>Elizabeth W.</span>
+                        </td>
+                        <td class="text-truncate p-1">
+                          <ul class="list-unstyled users-list m-0">
+                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons"
+                            class="avatar avatar-sm pull-up">
+                              <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
+                              src="../../../app-assets/images/portfolio/portfolio-1.jpg"
+                              alt="Avatar">
+                            </li>
+                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres"
+                            class="avatar avatar-sm pull-up">
+                              <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
+                              src="../../../app-assets/images/portfolio/portfolio-2.jpg"
+                              alt="Avatar">
+                            </li>
+                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Rebecca Jones"
+                            class="avatar avatar-sm pull-up">
+                              <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
+                              src="../../../app-assets/images/portfolio/portfolio-4.jpg"
+                              alt="Avatar">
+                            </li>
+                            <li class="avatar avatar-sm">
+                              <span class="badge badge-info">+1 more</span>
+                            </li>
+                          </ul>
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-sm btn-outline-danger round">Food</button>
+                        </td>
+                        <td>
+                          <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                            <div class="progress-bar bg-gradient-x-danger" role="progressbar" style="width: 25%"
+                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </td>
+                        <td class="text-truncate">$ 1200.00</td>
+                      </tr>
+                      <tr>
+                        <td class="text-truncate"><i class="la la-dot-circle-o danger font-medium-1 mr-1"></i>                          Declined</td>
+                        <td class="text-truncate"><a href="#">INV-001002</a></td>
+                        <td class="text-truncate">
+                          <span class="avatar avatar-xs">
+                            <img class="box-shadow-2" src="../../../app-assets/images/portrait/small/avatar-s-5.png"
+                            alt="avatar">
+                          </span>
+                          <span>Doris R.</span>
+                        </td>
+                        <td class="text-truncate p-1">
+                          <ul class="list-unstyled users-list m-0">
+                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons"
+                            class="avatar avatar-sm pull-up">
+                              <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
+                              src="../../../app-assets/images/portfolio/portfolio-5.jpg"
+                              alt="Avatar">
+                            </li>
+                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres"
+                            class="avatar avatar-sm pull-up">
+                              <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
+                              src="../../../app-assets/images/portfolio/portfolio-6.jpg"
+                              alt="Avatar">
+                            </li>
+                            <li class="avatar avatar-sm">
+                              <span class="badge badge-info">+2 more</span>
+                            </li>
+                          </ul>
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-sm btn-outline-warning round">Electronics</button>
+                        </td>
+                        <td>
+                          <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                            <div class="progress-bar bg-gradient-x-warning" role="progressbar" style="width: 45%"
+                            aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </td>
+                        <td class="text-truncate">$ 1850.00</td>
+                      </tr>
+                      <tr>
+                        <td class="text-truncate"><i class="la la-dot-circle-o warning font-medium-1 mr-1"></i>                          Pending</td>
+                        <td class="text-truncate"><a href="#">INV-001003</a></td>
+                        <td class="text-truncate">
+                          <span class="avatar avatar-xs">
+                            <img class="box-shadow-2" src="../../../app-assets/images/portrait/small/avatar-s-6.png"
+                            alt="avatar">
+                          </span>
+                          <span>Megan S.</span>
+                        </td>
+                        <td class="text-truncate p-1">
+                          <ul class="list-unstyled users-list m-0">
+                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons"
+                            class="avatar avatar-sm pull-up">
+                              <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
+                              src="../../../app-assets/images/portfolio/portfolio-2.jpg"
+                              alt="Avatar">
+                            </li>
+                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres"
+                            class="avatar avatar-sm pull-up">
+                              <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
+                              src="../../../app-assets/images/portfolio/portfolio-5.jpg"
+                              alt="Avatar">
+                            </li>
+                          </ul>
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-sm btn-outline-success round">Groceries</button>
+                        </td>
+                        <td>
+                          <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                            <div class="progress-bar bg-gradient-x-success" role="progressbar" style="width: 75%"
+                            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </td>
+                        <td class="text-truncate">$ 3200.00</td>
+                      </tr>
+                      <tr>
+                        <td class="text-truncate"><i class="la la-dot-circle-o success font-medium-1 mr-1"></i>                          Paid</td>
+                        <td class="text-truncate"><a href="#">INV-001004</a></td>
+                        <td class="text-truncate">
+                          <span class="avatar avatar-xs">
+                            <img class="box-shadow-2" src="../../../app-assets/images/portrait/small/avatar-s-7.png"
+                            alt="avatar">
+                          </span>
+                          <span>Andrew D.</span>
+                        </td>
+                        <td class="text-truncate p-1">
+                          <ul class="list-unstyled users-list m-0">
+                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons"
+                            class="avatar avatar-sm pull-up">
+                              <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
+                              src="../../../app-assets/images/portfolio/portfolio-6.jpg"
+                              alt="Avatar">
+                            </li>
+                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres"
+                            class="avatar avatar-sm pull-up">
+                              <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
+                              src="../../../app-assets/images/portfolio/portfolio-1.jpg"
+                              alt="Avatar">
+                            </li>
+                            <li class="avatar avatar-sm">
+                              <span class="badge badge-info">+1 more</span>
+                            </li>
+                          </ul>
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-sm btn-outline-info round">Apparels</button>
+                        </td>
+                        <td>
+                          <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                            <div class="progress-bar bg-gradient-x-info" role="progressbar" style="width: 65%"
+                            aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </td>
+                        <td class="text-truncate">$ 4500.00</td>
+                      </tr>
+                      <tr>
+                        <td class="text-truncate"><i class="la la-dot-circle-o success font-medium-1 mr-1"></i>                          Paid</td>
+                        <td class="text-truncate"><a href="#">INV-001005</a></td>
+                        <td class="text-truncate">
+                          <span class="avatar avatar-xs">
+                            <img class="box-shadow-2" src="../../../app-assets/images/portrait/small/avatar-s-9.png"
+                            alt="avatar">
+                          </span>
+                          <span>Walter R.</span>
+                        </td>
+                        <td class="text-truncate p-1">
+                          <ul class="list-unstyled users-list m-0">
+                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons"
+                            class="avatar avatar-sm pull-up">
+                              <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
+                              src="../../../app-assets/images/portfolio/portfolio-5.jpg"
+                              alt="Avatar">
+                            </li>
+                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres"
+                            class="avatar avatar-sm pull-up">
+                              <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
+                              src="../../../app-assets/images/portfolio/portfolio-3.jpg"
+                              alt="Avatar">
+                            </li>
+                          </ul>
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-sm btn-outline-danger round">Food</button>
+                        </td>
+                        <td>
+                          <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                            <div class="progress-bar bg-gradient-x-danger" role="progressbar" style="width: 35%"
+                            aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </td>
+                        <td class="text-truncate">$ 1500.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/ Recent Transactions -->
+        <!--Recent Orders & Monthly Sales -->
+        <div class="row match-height">
+          <div class="col-xl-8 col-lg-12">
+            <div class="card">
+              <div class="card-content ">
+                <div id="cost-revenue" class="height-250 position-relative"></div>
+              </div>
+              <div class="card-footer">
+                <div class="row mt-1">
+                  <div class="col-3 text-center">
+                    <h6 class="text-muted">Total Products</h6>
+                    <h2 class="block font-weight-normal">18.6 k</h2>
+                    <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                      <div class="progress-bar bg-gradient-x-info" role="progressbar" style="width: 70%"
+                      aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                  <div class="col-3 text-center">
+                    <h6 class="text-muted">Total Sales</h6>
+                    <h2 class="block font-weight-normal">64.54 M</h2>
+                    <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                      <div class="progress-bar bg-gradient-x-warning" role="progressbar" style="width: 60%"
+                      aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                  <div class="col-3 text-center">
+                    <h6 class="text-muted">Total Cost</h6>
+                    <h2 class="block font-weight-normal">24.38 B</h2>
+                    <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                      <div class="progress-bar bg-gradient-x-danger" role="progressbar" style="width: 40%"
+                      aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                  <div class="col-3 text-center">
+                    <h6 class="text-muted">Total Revenue</h6>
+                    <h2 class="block font-weight-normal">36.72 M</h2>
+                    <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                      <div class="progress-bar bg-gradient-x-success" role="progressbar" style="width: 90%"
+                      aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-12">
+            <div class="card">
+              <div class="card-content">
+                <div class="card-body sales-growth-chart">
+                  <div id="monthly-sales" class="height-250"></div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="chart-title mb-1 text-center">
+                  <h6>Total monthly Sales.</h6>
+                </div>
+                <div class="chart-stats text-center">
+                  <a href="#" class="btn btn-sm btn-danger box-shadow-2 mr-1">Statistics <i class="ft-bar-chart"></i></a>
+                  <span class="text-muted">for the last year.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/Recent Orders & Monthly Sales -->
+        <!-- Basic Horizontal Timeline -->
+        <div class="row match-height">
+          <div class="col-xl-4 col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Basic Card</h4>
+              </div>
+              <div class="card-content">
+                <img class="img-fluid" src="../../../app-assets/images/carousel/05.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up
+                    the bulk of the card's content.</p>
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div>
+              </div>
+              <div class="card-footer border-top-blue-grey border-top-lighten-5 text-muted">
+                <span class="float-left">3 hours ago</span>
+                <span class="float-right">
+                  <a href="#" class="card-link">Read More <i class="fa fa-angle-right"></i></a>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-8 col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Horizontal Timeline</h4>
+                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="card-body">
+                  <div class="card-text">
+                    <section class="cd-horizontal-timeline">
+                      <div class="timeline">
+                        <div class="events-wrapper">
+                          <div class="events">
+                            <ol>
+                              <li><a href="#0" data-date="16/01/2015" class="selected">16 Jan</a></li>
+                              <li><a href="#0" data-date="28/02/2015">28 Feb</a></li>
+                              <li><a href="#0" data-date="20/04/2015">20 Mar</a></li>
+                              <li><a href="#0" data-date="20/05/2015">20 May</a></li>
+                              <li><a href="#0" data-date="09/07/2015">09 Jul</a></li>
+                              <li><a href="#0" data-date="30/08/2015">30 Aug</a></li>
+                              <li><a href="#0" data-date="15/09/2015">15 Sep</a></li>
+                            </ol>
+                            <span class="filling-line" aria-hidden="true"></span>
+                          </div>
+                          <!-- .events -->
+                        </div>
+                        <!-- .events-wrapper -->
+                        <ul class="cd-timeline-navigation">
+                          <li><a href="#0" class="prev inactive">Prev</a></li>
+                          <li><a href="#0" class="next">Next</a></li>
+                        </ul>
+                        <!-- .cd-timeline-navigation -->
+                      </div>
+                      <!-- .timeline -->
+                      <div class="events-content">
+                        <ol>
+                          <li class="selected" data-date="16/01/2015">
+                            <blockquote class="blockquote border-0">
+                              <div class="media">
+                                <div class="media-left">
+                                  <img class="media-object img-xl mr-1" src="../../../app-assets/images/portrait/small/avatar-s-5.png"
+                                  alt="Generic placeholder image">
+                                </div>
+                                <div class="media-body">
+                                  Sometimes life is going to hit you in the head with a brick. Don't lose faith.
+                                </div>
+                              </div>
+                              <footer class="blockquote-footer text-right">Steve Jobs
+                                <cite title="Source Title">Entrepreneur</cite>
+                              </footer>
+                            </blockquote>
+                            <p class="lead mt-2">
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia,
+                              fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur
+                              aspernatur at.
+                            </p>
+                          </li>
+                          <li data-date="28/02/2015">
+                            <blockquote class="blockquote border-0">
+                              <div class="media">
+                                <div class="media-left">
+                                  <img class="media-object img-xl mr-1" src="../../../app-assets/images/portrait/small/avatar-s-6.png"
+                                  alt="Generic placeholder image">
+                                </div>
+                                <div class="media-body">
+                                  Sometimes life is going to hit you in the head with a brick. Don't lose faith.
+                                </div>
+                              </div>
+                              <footer class="blockquote-footer text-right">Steve Jobs
+                                <cite title="Source Title">Entrepreneur</cite>
+                              </footer>
+                            </blockquote>
+                            <p class="lead mt-2">
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia,
+                              fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur
+                              aspernatur at.
+                            </p>
+                          </li>
+                          <li data-date="20/04/2015">
+                            <blockquote class="blockquote border-0">
+                              <div class="media">
+                                <div class="media-left">
+                                  <img class="media-object img-xl mr-1" src="../../../app-assets/images/portrait/small/avatar-s-7.png"
+                                  alt="Generic placeholder image">
+                                </div>
+                                <div class="media-body">
+                                  Sometimes life is going to hit you in the head with a brick. Don't lose faith.
+                                </div>
+                              </div>
+                              <footer class="blockquote-footer text-right">Steve Jobs
+                                <cite title="Source Title">Entrepreneur</cite>
+                              </footer>
+                            </blockquote>
+                            <p class="lead mt-2">
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia,
+                              fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur
+                              aspernatur at.
+                            </p>
+                          </li>
+                          <li data-date="20/05/2015">
+                            <blockquote class="blockquote border-0">
+                              <div class="media">
+                                <div class="media-left">
+                                  <img class="media-object img-xl mr-1" src="../../../app-assets/images/portrait/small/avatar-s-8.png"
+                                  alt="Generic placeholder image">
+                                </div>
+                                <div class="media-body">
+                                  Sometimes life is going to hit you in the head with a brick. Don't lose faith.
+                                </div>
+                              </div>
+                              <footer class="blockquote-footer text-right">Steve Jobs
+                                <cite title="Source Title">Entrepreneur</cite>
+                              </footer>
+                            </blockquote>
+                            <p class="lead mt-2">
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia,
+                              fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur
+                              aspernatur at.
+                            </p>
+                          </li>
+                          <li data-date="09/07/2015">
+                            <blockquote class="blockquote border-0">
+                              <div class="media">
+                                <div class="media-left">
+                                  <img class="media-object img-xl mr-1" src="../../../app-assets/images/portrait/small/avatar-s-9.png"
+                                  alt="Generic placeholder image">
+                                </div>
+                                <div class="media-body">
+                                  Sometimes life is going to hit you in the head with a brick. Don't lose faith.
+                                </div>
+                              </div>
+                              <footer class="blockquote-footer text-right">Steve Jobs
+                                <cite title="Source Title">Entrepreneur</cite>
+                              </footer>
+                            </blockquote>
+                            <p class="lead mt-2">
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia,
+                              fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur
+                              aspernatur at.
+                            </p>
+                          </li>
+                          <li data-date="30/08/2015">
+                            <blockquote class="blockquote border-0">
+                              <div class="media">
+                                <div class="media-left">
+                                  <img class="media-object img-xl mr-1" src="../../../app-assets/images/portrait/small/avatar-s-6.png"
+                                  alt="Generic placeholder image">
+                                </div>
+                                <div class="media-body">
+                                  Sometimes life is going to hit you in the head with a brick. Don't lose faith.
+                                </div>
+                              </div>
+                              <footer class="blockquote-footer text-right">Steve Jobs
+                                <cite title="Source Title">Entrepreneur</cite>
+                              </footer>
+                            </blockquote>
+                            <p class="lead mt-2">
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia,
+                              fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur
+                              aspernatur at.
+                            </p>
+                          </li>
+                          <li data-date="15/09/2015">
+                            <blockquote class="blockquote border-0">
+                              <div class="media">
+                                <div class="media-left">
+                                  <img class="media-object img-xl mr-1" src="../../../app-assets/images/portrait/small/avatar-s-7.png"
+                                  alt="Generic placeholder image">
+                                </div>
+                                <div class="media-body">
+                                  Sometimes life is going to hit you in the head with a brick. Don't lose faith.
+                                </div>
+                              </div>
+                              <footer class="blockquote-footer text-right">Steve Jobs
+                                <cite title="Source Title">Entrepreneur</cite>
+                              </footer>
+                            </blockquote>
+                            <p class="lead mt-2">
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia,
+                              fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur
+                              aspernatur at.
+                            </p>
+                          </li>
+                        </ol>
+                      </div>
+                      <!-- .events-content -->
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/ Basic Horizontal Timeline -->
+      </div>
     </div>
-</div><!-- ////////////////////////////////////////////////////////////////////////////-->
+  </div>
 
 @endsection
