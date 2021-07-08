@@ -68,6 +68,12 @@ return [
             'url' => env('APP_URL') . '/public',
             'visibility' => 'public',
         ],
+        'subcategories' => [
+            'driver' => 'local',
+            'root' => public_path() . '/assets/images/subcategories/',
+            'url' => env('APP_URL') . '/public',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',

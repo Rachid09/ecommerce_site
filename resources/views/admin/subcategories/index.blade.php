@@ -45,21 +45,32 @@
                                       <table class="table display nowrap table-striped table-bordered scroll-horizontal">
                                           <thead class="">
                                               <tr>
-                                                  <th>القسم </th>
-                                                  <th>نوع القسم</th>
-                                                  <th>الوصف</th>
-                                                  <th> تخفيضم</th>
-                                                  <th>صوره القسم</th>
-                                                  <th>الإجراءات</th>
+                                                  <th>Nom du categorie </th>
+                                                  <th>Section </th>
+                                                   <th>Categorie parent</th>
+                                                  <th>Description</th>
+                                                  <th> Discount</th>
+                                                  <th>  image</th>
+                                                  <th></th>
                                               </tr>
                                           </thead>
                                           <tbody>
 
                                               @isset($categories)
                                               @foreach($categories as $category)
+                                              @if (!isset($category->parentSubCategory->name))
+                                                   @php
+                                                       $parent_cat='categorie principal';
+                                                   @endphp
+                                              @else
+                                              @php
+                                                  $parent_cat=$category-> parentSubCategory->name;
+                                              @endphp
+                                              @endif
                                               <tr>
                                                   <td>{{$category -> name}}</td>
-                                                  <td>{{$category-> parent_id}}</td>
+                                                  <td>{{$category -> mainCategory->libelle}}</td>
+                                                  <td>{{$parent_cat}}</td>
                                                   <td>{{$category -> description}}</td>
                                                   <td>{{$category -> discount}}</td>
                                                   <td> <img style="width: 150px; height: 100px;" src="{{$category -> 	photo}}"></td>
@@ -78,8 +89,6 @@
                                                               الغاء تفعيل
                                                               @endif
                                                           </a>
-
-
                                                       </div>
                                                   </td>
                                               </tr>

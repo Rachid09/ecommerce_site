@@ -80,6 +80,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => 'auth
         Route::post('update/{id}', 'SubCategoryController@update')->name('admin.subcategories.update');
         Route::get('delete/{id}', 'SubCategoryController@destroy')->name('admin.subcategories.delete');
         Route::get('changeStatus/{id}', 'SubCategoryController@changeStatus')->name('admin.subcategories.status');
+        Route::post('append-category-level', 'SubCategoryController@appendCategoryLevel')->name('append-category-level');
     });
 
     ######################### End SubCategories Routes ########################
