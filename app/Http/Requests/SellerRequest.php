@@ -31,7 +31,8 @@ class SellerRequest extends FormRequest
             'email'  => 'required|email|unique:sellers,email,' . $this->id,
             // 'category_id'  => 'required|exists:main_categories,id',
             'address'   => 'required|string|max:500',
-            'password'   => 'required_without:id'
+            'password'   => 'required_without:id',
+            'cop_name'   => 'required|string|max:100'
         ];
     }
 
@@ -46,6 +47,7 @@ class SellerRequest extends FormRequest
             'email.email' => 'ضيغه البريد الالكتروني غير صحيحه',
             'address.string' => 'العنوان لابد ان يكون حروف او حروف وارقام ',
             'store_name.string'  => 'الاسم لابد ان يكون حروف او حروف وارقام ',
+            'cop_name.string'  => 'الاسم لابد ان يكون حروف او حروف وارقام ',
             'full_name.string'  => 'الاسم لابد ان يكون حروف او حروف وارقام ',
             'logo.required_without'  => 'الصوره مطلوبة',
             'email.unique' => 'البريد الالكتروني مستخدم من قبل ',

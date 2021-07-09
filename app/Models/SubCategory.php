@@ -44,13 +44,13 @@ class SubCategory extends Model
         return $this->belongsTo(MainCategory::class, 'maincategory_id', 'id');
     }
 
-    public function subcategories()
-    {
-        return $this->hasMany(SubCategory::class, 'parent_id');
-    }
+    // public function subcategories()
+    // {
+    //     return $this->hasMany(SubCategory::class, 'parent_id');
+    // }
 
-    public function parentSubCategory()
-    {
-        return $this->belongsTo(SubCategory::class, 'parent_id')->selection();
-    }
+    // public function parentSubCategory()
+    // {
+    //     return $this->belongsTo(SubCategory::class, 'parent_id')->selection();
+    // }
 }

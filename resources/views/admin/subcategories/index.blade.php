@@ -47,7 +47,7 @@
                                               <tr>
                                                   <th>Nom du categorie </th>
                                                   <th>Section </th>
-                                                   <th>Categorie parent</th>
+
                                                   <th>Description</th>
                                                   <th> Discount</th>
                                                   <th>  image</th>
@@ -58,31 +58,23 @@
 
                                               @isset($categories)
                                               @foreach($categories as $category)
-                                              @if (!isset($category->parentSubCategory->name))
-                                                   @php
-                                                       $parent_cat='categorie principal';
-                                                   @endphp
-                                              @else
-                                              @php
-                                                  $parent_cat=$category-> parentSubCategory->name;
-                                              @endphp
-                                              @endif
+
                                               <tr>
                                                   <td>{{$category -> name}}</td>
                                                   <td>{{$category -> mainCategory->libelle}}</td>
-                                                  <td>{{$parent_cat}}</td>
+
                                                   <td>{{$category -> description}}</td>
                                                   <td>{{$category -> discount}}</td>
                                                   <td> <img style="width: 150px; height: 100px;" src="{{$category -> 	photo}}"></td>
                                                   <td>
                                                       <div class="btn-group" role="group" aria-label="Basic example">
-                                                          <a href="{{route('admin.maincategories.edit',$category -> id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
+                                                          <a href="{{route('admin.subcategories.edit',$category -> id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
 
 
-                                                          <a href="{{route('admin.maincategories.delete',$category -> id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+                                                          <a href="{{route('admin.subcategories.delete',$category -> id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
 
 
-                                                          <a href="{{route('admin.maincategories.status',$category -> id)}}" class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1">
+                                                          <a href="{{route('admin.subcategories.status',$category -> id)}}" class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1">
                                                               @if($category -> status == 0)
                                                               تفعيل
                                                               @else

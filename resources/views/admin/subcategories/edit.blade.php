@@ -11,7 +11,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="">Home </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{route('admin.sellers')}}">sous-categories </a>
+                            <li class="breadcrumb-item"><a href="{{route('admin.subcategories')}}">sous-categories </a>
                             </li>
                             <li class="breadcrumb-item active">Modifier sous categorie
                             </li>
@@ -27,7 +27,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title" id="basic-layout-form"> modification sous categorie متجر </h4>
+                                <h4 class="card-title" id="basic-layout-form"> modification sous categorie  </h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -42,12 +42,12 @@
                             @include('admin.includes.alerts.errors')
                             <div class="card-content collapse show">
                                 <div class="card-body">
-                                    <form class="form" action="{{route('admin.subcategories.update',$category -> id)}}" method="POST"
-                                        enctype="multipart/form-data">
+                                    <form class="form" action="{{route('admin.subcategories.update',$category -> id)}}"
+                                        method="POST" enctype="multipart/form-data">
                                         @csrf
 
                                         <div class="form-body">
-                                             <input type="hidden" name="id" value="{{$category -> id}}">
+                                            <input type="hidden" name="id"  value="{{$category -> id}}">
 
                                             <h4 class="form-section"><i class="ft-home"></i> Modifer une sous categorie
                                             </h4>
@@ -57,8 +57,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="projectinput1">nom du sous categorie</label>
-                                                        <input type="text" value="{{$category->name}}" id="name" class="form-control"
-                                                            placeholder="  " name="name">
+                                                        <input type="text" value="{{$category->name}}" id="name"
+                                                            class="form-control" placeholder="  " name="name">
                                                         @error("name")
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -69,20 +69,20 @@
                                                     <div class="form-group">
                                                         <label for="projectinput2"> choisir la categorie principal
                                                         </label>
-                                                            <div class="form-group">
-                                                                <select name="maincategory_id" id="maincategory_id"
-                                                                    class="jui-select-default form-control">
-                                                                      @if($categories && $categories -> count() > 0)
-                                                                @foreach($categories as $category)
-                                                                <option value="{{$category -> id }}" @foreach($category -> mainCategory as $cat)
-                                                                    @if ($cat->id == $category->id)
+                                                        <div class="form-group">
+                                                            <select name="maincategory_id" id="maincategory_id"
+                                                                class="jui-select-default form-control">
+                                                                @if($maincategories && $maincategories -> count() > 0)
+                                                                @foreach($maincategories as $maincat)
+                                                                <option value="{{$maincat -> id }}"
+                                                                    @if ($maincat->id == $category->maincategory_id)
                                                                     selected
                                                                     @endif
-                                                                    @endforeach
-                                                                    >{{$category -> libelle}}</option>
+                                                                    >{{$maincat -> libelle}}</option>
                                                                 @endforeach
-                                                                </select>
-                                                            </div>
+                                                                 @endif
+                                                            </select>
+                                                        </div>
                                                         @error('maincategory_id')
                                                         <span class="text-danger"> {{$message}}</span>
                                                         @enderror
@@ -91,9 +91,6 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-md-6" id="append_categories_level">
-                                                    @include('admin.subcategories.append_subcategories_level')
-                                                </div>
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
                                                         <label for="projectinput1"> image du categorie</label>
@@ -111,7 +108,7 @@
                                                     <label for="projectinput1"> description</label>
                                                     <fieldset class"form-group">
                                                         <textarea class="form-control" id="placeTextarea" rows="3"
-                                                            placeholder="Simple Textarea" name="description"></textarea>
+                                                            placeholder="Simple Textarea" name="description">{{$category-> description}}</textarea>
                                                     </fieldset>
                                                 </div>
                                             </div>

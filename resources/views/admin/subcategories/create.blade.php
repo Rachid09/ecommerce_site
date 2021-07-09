@@ -67,21 +67,18 @@
                                                     <div class="form-group">
                                                         <label for="projectinput2"> choisir la categorie principal
                                                         </label>
-
-
-                                                            <div class="form-group">
-                                                                <select name="maincategory_id" id="maincategory_id"
-                                                                    class="jui-select-default form-control">
-                                                                     <option value="">choisir</option>
-                                                                     @if($categories && $categories -> count() > 0)
+                                                        <div class="form-group">
+                                                            <select name="maincategory_id" id="maincategory_id"
+                                                                class="jui-select-default form-control">
+                                                                <option value="">choisir</option>
+                                                                @if($categories && $categories -> count() > 0)
                                                                 @foreach($categories as $category)
                                                                 <option value="{{$category -> id }}">
                                                                     {{$category -> libelle}}</option>
                                                                 @endforeach
                                                                 @endif
-
-                                                                </select>
-                                                            </div>
+                                                            </select>
+                                                        </div>
 
 
                                                         @error('maincategory_id')
@@ -92,9 +89,9 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-md-6" id="append_categories_level">
+                                                {{-- <div class="col-md-6" id="append_categories_level">
                                                     @include('admin.subcategories.append_subcategories_level')
-                                                </div>
+                                                </div> --}}
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
                                                         <label for="projectinput1"> image du categorie</label>
@@ -161,4 +158,3 @@
 </div>
 
 @endsection
-

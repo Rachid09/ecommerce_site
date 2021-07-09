@@ -58,9 +58,6 @@ class SellersController extends Controller
 
             $Seller->maincategory()->attach($request->categories);
             Notification::send($Seller, new SellerCreated($Seller));
-
-
-
             return redirect()->route('admin.sellers')->with(['success' => 'تم الحفظ بنجاح']);
         } catch (\Exception $ex) {
             return $ex;

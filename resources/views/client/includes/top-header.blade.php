@@ -6,7 +6,7 @@
              </div>
              <div class="col-lg-8 d-flex">
                  <ul class="top-links d-flex ms-auto align-items-center">
-                     <li><a href="{{route('seller.login')}}">Become Seller</a></li>
+                     <li><a href="{{route('seller.register')}}">Become Seller</a></li>
                      <li><a href="faq.html">FAQ</a></li>
                      <li><a href="#">Help & Support</a></li>
                      <li class="my-account-dropdown">

@@ -28,9 +28,17 @@ class SubCategoryRequest extends FormRequest
         return [
             'photo' => 'required_without:id|mimes:jpg,jpeg,png',
             // 'category' => 'required|array|min:1',
-            'name' => 'required',
+            'name' => 'required|string|max:190',
             'maincategory_id' => 'required',
-            'parent_id' => 'required',
+            'description' => 'required',
+        ];
+    }
+
+     public function messages()
+    {
+        return [
+            'required' => 'ce champ est obligé',
+            'nom.string' =>  'le nom de a categories doit etre des caracteres',
         ];
     }
 }

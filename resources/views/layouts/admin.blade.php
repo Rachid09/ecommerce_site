@@ -80,7 +80,7 @@
     <link rel="stylesheet" type="text/css" href={{asset("public/admin/vendors/css/extensions/timedropper.min.css")}}>
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
-    <link rel="stylesheet" type="text/css" href={{asset("public/admin/css/style.css")}}> --}}
+    <link rel="stylesheet" type="text/css" href={{asset("public/admin/css/style.css")}}>
     <!-- END Custom CSS-->
   <!-- END Custom CSS-->
     <style>
@@ -93,12 +93,22 @@
 <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar"
 data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
+@if(Auth::guard('admin')->check())
+
     @include('admin.includes.header')
     @include('admin.includes.sidebar')
 
     @yield('content')
 
     @include('admin.includes.footer')
+
+@elseif(Auth::guard('seller')->check())
+    @include('seller.includes.header')
+    @include('seller.includes.sidebar')
+    @yield('content')
+    @include('seller.includes.footer')
+
+@endif
 
 
 
@@ -108,6 +118,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
     <script src="{{asset('public/js/admin.script.js')}}" ></script>
     <!-- BEGIN VENDOR JS-->
     <script src={{asset("public/admin/vendors/js/vendors.min.js")}} type="text/javascript"></script>
+    {{-- <script src={{asset("public/js/bootstrap.min.js.map")}} type="text/javascript"></script> --}}
     <!-- BEGIN VENDOR JS-->
     <script src={{asset("public/admin/vendors/js/tables/datatable/datatables.min.js")}} type="text/javascript"></script>
     <script src={{asset("public/admin/vendors/js/tables/datatable/dataTables.buttons.min.js")}} type="text/javascript"></script>
@@ -135,7 +146,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
     <script src={{asset("public/admin/js/scripts/customizer.js")}} type="text/javascript"></script>
     <!-- END MODERN JS-->
     <!-- BEGIN PAGE LEVEL JS-->
-    <script src={{asset("public/admin/js/scripts/pages/dashboard-crypto.js")}} type="text/javascript"></script>
+    {{-- <script src={{asset("public/admin/js/scripts/pages/dashboard-crypto.js")}} type="text/javascript"></script> --}}
 
 
 
@@ -149,7 +160,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
 
  <!-- BEGIN VENDOR JS-->
- 
+
   <!-- BEGIN VENDOR JS-->
   <!-- BEGIN PAGE VENDOR JS-->
   <script src="{{asset('public/admin/vendors/js/charts/chartist.min.js')}}" type="text/javascript"></script>

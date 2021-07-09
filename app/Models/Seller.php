@@ -14,7 +14,7 @@ class Seller extends Authenticatable
     protected $guard = 'seller';
 
     protected $fillable = [
-        'full_name', 'store_name', 'mobile', 'address', 'email',  'password',  'active',
+        'full_name', 'cop_name', 'store_name', 'mobile', 'address', 'email',  'password',  'active',
         'logo', 'created_at', 'updated_at'
     ];
 
@@ -38,6 +38,7 @@ class Seller extends Authenticatable
         return $query->select(
             'id',
             'full_name',
+            'cop_name',
             'store_name',
             'mobile',
             'address',
@@ -59,6 +60,14 @@ class Seller extends Authenticatable
     {
         return $this->active == 1 ? 'مفعل' : 'غير مفعل';
     }
+
+    public function products()
+    {
+
+        return $this->hasMany('App\Models\Product', 'seller_id', 'id');
+    }
+
+
 
 
     // public function setPasswordAttribute($password)
