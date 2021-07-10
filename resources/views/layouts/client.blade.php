@@ -18,7 +18,7 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
-
+   
 
 
 
@@ -32,10 +32,12 @@
     <link rel="stylesheet" href={{asset("public/css/layerslider.css")}}>
     <link rel="stylesheet" href={{asset("public/css/template.css")}}>
     <link rel="stylesheet" href={{asset("public/css/style.css")}}>
-    <link rel="stylesheet" href={{asset("public/css/vendor/handicruft.css")}}>
+     <link rel="stylesheet" href={{asset("public/css/vendor/handicruft.css")}}>
     <link rel="stylesheet" href={{asset("public/css/jquery.fancybox.min.css")}}>
     <link rel="stylesheet" href={{asset("public/css/category/minimal.css")}}>
     <link rel="stylesheet" href={{asset("public/css/category/default.css")}}>
+
+  
 </head>
 
 
@@ -67,7 +69,7 @@
     <script src={{asset("public/js/mixitup.min.js")}}></script>
 
 
-
+   
 </body>
 
 </html>

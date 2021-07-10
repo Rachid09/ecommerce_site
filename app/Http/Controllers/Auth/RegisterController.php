@@ -8,6 +8,10 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpFoundation\Request;
+use App\Models\MainCategory;
+use App\Models\Seller;
+use App\Http\Requests\SellerRequest;
 
 class RegisterController extends Controller
 {
@@ -38,36 +42,67 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:seller')->except('logout');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+    public function showSellerRegisterForm()
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        $default_lang = get_default_lang();
+        $maincategories = MainCategory::where('translation_lang', $default_lang)
+            ->selection()
+            ->get();
+        return view('seller.register', compact('maincategories'));
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
+
+    public function sellerRegister(SellerRequest $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+        try {
+
+            // if (!$request->has('active'))
+            //     $request->request->add(['active' => 0]);
+            // else
+            //     $request->request->add(['active' => 1]);
+
+            $filePath = "";
+            if ($request->has('logo')) {
+                $filePath = uploadImage('sellers', $request->logo);
+            }
+
+            $Seller = Seller::create([
+                'full_name' => $request->full_name,
+                'store_name' => $request->store_name,
+                'cop_name' => $request->cop_name,
+                'mobile' => $request->mobile,
+                'address' => $request->address,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+                'active' => $request->active,
+                'logo' => $filePath,
+
+            ]);
+
+            // $Seller->maincategory()->attach($request->categories);
+            // Notification::send($Seller, new SellerCreated($Seller));
+            return redirect()->route('vendor.login')->with(['sucess' => 'votre inscription a ete enregisté']);
+        } catch (\Exception $ex) {
+            return $ex;
+            return redirect()->route('vendor.register')->with(['error' => 'un probleme est survenu']);
+        }
+    }
+
+    public function showClientRegiterForm()
+    {
+        return view('client.register');
+    }
+
+    public function clientRegister(Request $request)
+    {
+        // return $request;
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required|min:4'
         ]);
     }
-}
+};

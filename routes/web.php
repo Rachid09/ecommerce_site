@@ -17,14 +17,24 @@ use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('client.home');
-})->name('client.home');
-
-
-Route::get('/login', function () {
-    return view('client.login');
 });
 
 
+
+/* 
+Route::get('/wishlist', function () {
+    return view('client.wishlist');
+});
+Route::get('/cart', function () {
+    return view('client.cart');
+});
+ */
+/* Route::get('/product/{id}', function () {
+    return view('client.cart');
+}); */
+
+
+ 
 
 Auth::routes();
 
@@ -145,4 +155,6 @@ Route::group(['prefix' => 'seller', 'namespace' => 'Auth', 'middleware' => 'gues
 Route::group(['prefix' => 'client', 'namespace' => 'Auth', 'middleware' => 'guest'], function () {
     Route::get('login', 'LoginController@showClientLoginForm')->name('client.login');
     Route::post('login', 'LoginController@clientLogin')->name('client.login');
+    Route::get('register', 'RegisterController@showClientRegisterForm')->name('client.register');
+    
 });

@@ -1,6 +1,6 @@
 @extends('layouts.client')
 
-@section(content)
+@section('content')
         <!-- breadcrumb -->
         <div class="full-row bg-light py-5">
             <div class="container">
