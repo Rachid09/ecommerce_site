@@ -29,6 +29,8 @@
                         <div class="woocommerce">
                             <div class="row">
                                 <div class="col-lg-6 col-md-8 col-12 mx-auto">
+                                     @include('client.alerts.errors')
+                                     @include('client.alerts.success')
                                     <div class="sign-in-form">
                                         <h3>User Login</h3>
                                         <form class="woocommerce-form-login" action="{{route('client.login')}}" method="post" novalidate>

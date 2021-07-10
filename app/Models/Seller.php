@@ -58,7 +58,7 @@ class Seller extends Authenticatable
 
     public function getActive()
     {
-        return $this->active == 1 ? 'مفعل' : 'غير مفعل';
+        return $this->active == 1 ? 'desactiver' : 'activer';
     }
 
     public function products()

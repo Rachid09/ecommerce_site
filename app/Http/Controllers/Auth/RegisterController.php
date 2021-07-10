@@ -101,6 +101,7 @@ class RegisterController extends Controller
     public function clientRegister(Request $request)
     {
         // return $request;
+
         $this->validate($request, [
             'email'   => 'required|email',
             'password' => 'required|min:4'

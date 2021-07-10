@@ -16,7 +16,7 @@ class Product extends Model
 
 
     protected $fillable = [
-        'category_id', 'maincategory_id', 'seller_id', 'name', 'code', 'color',  'price',  'discount',
+        'maincategory_id', 'seller_id', 'name', 'code', 'color',  'price',  'discount', 'stock',
         'description', 'main_image', 'is_featured', 'status', 'created_at', 'updated_at'
     ];
 
@@ -29,7 +29,7 @@ class Product extends Model
         return $query->where('status', 1);
     }
 
-    public function getLogoAttribute($val)
+    public function getMainImageAttribute($val)
     {
         return ($val !== null) ? asset('public/assets/' . $val) : "";
     }
@@ -39,7 +39,7 @@ class Product extends Model
     {
         return $query->select(
             'id',
-            'category_id',
+            'maincategory_id',
             'seller_id',
             'name',
             'code',
@@ -49,7 +49,8 @@ class Product extends Model
             'description',
             'main_image',
             'is_featured',
-            'status'
+            'status',
+            'stock'
         );
     }
 
@@ -57,11 +58,17 @@ class Product extends Model
     public function seller()
     {
 
-        return $this->belongsTo('App\Models\Seller');
+        return $this->belongsTo('App\Models\Seller', 'seller_id', 'id');
     }
+    public function maincategory()
+    {
+
+        return $this->belongsTo('App\Models\maincategory', 'maincategory_id', 'id');
+    }
+
 
     public function getActive()
     {
-        return $this->active == 1 ? 'مفعل' : 'غير مفعل';
+        return $this->status == 1 ? 'مفعل' : 'غير مفعل';
     }
 }
