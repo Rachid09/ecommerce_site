@@ -11,8 +11,8 @@
                     <div class="col-sm-6">
                         <nav aria-label="breadcrumb" class="d-flex justify-content-sm-end align-items-center h-100">
                             <ol class="breadcrumb mb-0 d-inline-flex bg-transparent p-0">
-                                <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                                <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i>Accueil</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Panier</li>
                             </ol>
                         </nav>
                     </div>
