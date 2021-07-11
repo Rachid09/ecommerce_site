@@ -27,7 +27,7 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-12 ">
                                     <div class="registration-form">
-                                        <h3>Register</h3>
+                                        <h3>S'inscrire </h3>
                                         <form method="post">
                                         <div class="col-lg-6 col-md-12 ">
                                             <p>
@@ -50,12 +50,12 @@
                                         <div class="col-lg-6 col-md-12 ">
                                             <p>
                                                 <label for="name">Retappez le mot de passe &nbsp;<span class="required">*</span></label>
-                                                <input type="password" class="form-control" name="name" id="name" />
+                                                <input type="password" class="form-control" name= "secondpassword" id="name" />
                                             </p>
                                         </div>
                                           
                                             <p>
-                                                <button type="submit" class="btn btn-primary rounded-0" name="register" value="Register">Register</button>
+                                                <button type="submit" class="btn btn-primary rounded-0" name="register" value="Register">S'inscrire</button>
                                             </p>
                                         </form>
                                     </div>

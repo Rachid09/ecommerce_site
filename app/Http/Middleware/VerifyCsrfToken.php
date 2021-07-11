@@ -12,6 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
+        'admin/sub-categories/append-category-level', 'admin/sub-categories/edit/append-category-level'
         //
     ];
 }

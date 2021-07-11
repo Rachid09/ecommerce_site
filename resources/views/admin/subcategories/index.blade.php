@@ -45,41 +45,42 @@
                                       <table class="table display nowrap table-striped table-bordered scroll-horizontal">
                                           <thead class="">
                                               <tr>
-                                                  <th>القسم </th>
-                                                  <th>نوع القسم</th>
-                                                  <th>الوصف</th>
-                                                  <th> تخفيضم</th>
-                                                  <th>صوره القسم</th>
-                                                  <th>الإجراءات</th>
+                                                  <th>Nom du categorie </th>
+                                                  <th>Section </th>
+
+                                                  <th>Description</th>
+                                                  <th> Discount</th>
+                                                  <th>  image</th>
+                                                  <th></th>
                                               </tr>
                                           </thead>
                                           <tbody>
 
                                               @isset($categories)
                                               @foreach($categories as $category)
+
                                               <tr>
                                                   <td>{{$category -> name}}</td>
-                                                  <td>{{$category-> parent_id}}</td>
+                                                  <td>{{$category -> mainCategory->libelle}}</td>
+
                                                   <td>{{$category -> description}}</td>
                                                   <td>{{$category -> discount}}</td>
                                                   <td> <img style="width: 150px; height: 100px;" src="{{$category -> 	photo}}"></td>
                                                   <td>
                                                       <div class="btn-group" role="group" aria-label="Basic example">
-                                                          <a href="{{route('admin.maincategories.edit',$category -> id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
+                                                          <a href="{{route('admin.subcategories.edit',$category -> id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
 
 
-                                                          <a href="{{route('admin.maincategories.delete',$category -> id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+                                                          <a href="{{route('admin.subcategories.delete',$category -> id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
 
 
-                                                          <a href="{{route('admin.maincategories.status',$category -> id)}}" class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1">
+                                                          <a href="{{route('admin.subcategories.status',$category -> id)}}" class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1">
                                                               @if($category -> status == 0)
                                                               تفعيل
                                                               @else
                                                               الغاء تفعيل
                                                               @endif
                                                           </a>
-
-
                                                       </div>
                                                   </td>
                                               </tr>

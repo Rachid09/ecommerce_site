@@ -16,6 +16,7 @@ class CreateSellersTable extends Migration
         Schema::create('sellers', function (Blueprint $table) {
             $table->id();
             $table->string("full_name");
+            $table->string("cop_name");
             $table->string("store_name");
             $table->string('mobile');
             $table->string('address');

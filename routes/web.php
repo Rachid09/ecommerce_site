@@ -29,9 +29,8 @@ Route::get('/cart', function () {
     return view('client.cart');
 });
  */
-/* Route::get('/product/{id}', function () {
-    return view('client.cart');
-}); */
+
+
 
 
  
@@ -90,6 +89,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => 'auth
         Route::post('update/{id}', 'SubCategoryController@update')->name('admin.subcategories.update');
         Route::get('delete/{id}', 'SubCategoryController@destroy')->name('admin.subcategories.delete');
         Route::get('changeStatus/{id}', 'SubCategoryController@changeStatus')->name('admin.subcategories.status');
+        // Route::post('append-category-level', 'SubCategoryController@appendCategoryLevel')->name('append-category-level');
+        // Route::post('/edit/append-category-level', 'SubCategoryController@appendCategoryLevel')->name('edit.append-category-level');
     });
 
     ######################### End SubCategories Routes ########################
@@ -121,6 +122,8 @@ Route::group(['prefix' => 'seller', 'namespace' => 'seller', 'middleware' => 'au
 Route::group(['prefix' => 'seller', 'namespace' => 'Auth', 'middleware' => 'guest:seller'], function () {
     Route::get('login', 'LoginController@showsellerLoginForm')->name('seller.login');
     Route::post('login', 'LoginController@sellerLogin')->name('seller.login');
+    Route::get('register', 'RegisterController@showSellerRegisterForm')->name('seller.register');
+    Route::post('register', 'RegisterController@sellerRegister')->name('seller.register');
     // Route::post('logout', 'LoginController@logout')->name('seller.logout');
 });
 
@@ -156,5 +159,6 @@ Route::group(['prefix' => 'client', 'namespace' => 'Auth', 'middleware' => 'gues
     Route::get('login', 'LoginController@showClientLoginForm')->name('client.login');
     Route::post('login', 'LoginController@clientLogin')->name('client.login');
     Route::get('register', 'RegisterController@showClientRegisterForm')->name('client.register');
-    
+    Route::get('register', 'RegisterController@RegisterForm')->name('client.register');
+    Route::get('cart', 'UserController@showcart')->name('client.cart');
 });

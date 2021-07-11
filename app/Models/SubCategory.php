@@ -23,18 +23,18 @@ class SubCategory extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('active', 1);
+        return $query->where('status', 1);
     }
 
     public function getPhotoAttribute($val)
     {
-        return ($val !== null) ? asset('assets/' . $val) : "";
+        return ($val !== null) ? asset('public/assets/' . $val) : "";
     }
 
 
     public function getActive()
     {
-        return $this->active == 1 ? 'مفعل' : 'غير مفعل';
+        return $this->status == 1 ? 'مفعل' : 'غير مفعل';
     }
 
 
@@ -43,4 +43,14 @@ class SubCategory extends Model
     {
         return $this->belongsTo(MainCategory::class, 'maincategory_id', 'id');
     }
+
+    // public function subcategories()
+    // {
+    //     return $this->hasMany(SubCategory::class, 'parent_id');
+    // }
+
+    // public function parentSubCategory()
+    // {
+    //     return $this->belongsTo(SubCategory::class, 'parent_id')->selection();
+    // }
 }
