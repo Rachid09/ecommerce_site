@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Models\MainCategory;
 use App\Models\Seller;
 use App\Http\Requests\SellerRequest;
+use App\Http\Requests\ClientRequest;
 
 class RegisterController extends Controller
 {
@@ -84,13 +85,29 @@ class RegisterController extends Controller
 
             ]);
 
+
+            // $Seller->maincategory()->attach($request->categories);
+            // Notification::send($Seller, new SellerCreated($Seller));
+            return redirect()->route('vendor.login')->with(['sucess' => 'votre inscription a ete enregisté']);
+        } catch (\Exception $ex) {
+            return $ex;
+            return redirect()->route('vendor.register')->with(['error' => 'un probleme est survenu']);
+
             $Seller->maincategory()->attach($request->categories);
             // Notification::send($Seller, new SellerCreated($Seller));
             return redirect()->route('seller.login')->with(['sucess' => 'votre inscription a ete enregisté']);
         } catch (\Exception $ex) {
             return $ex;
             return redirect()->route('seller.register')->with(['error' => 'un probleme est survenu']);
+
         }
+    }
+
+    public function showClientRegisterForm()
+    {
+        $default_lang = get_default_lang();
+        
+        return view('seller.register', compact('maincategories'));
     }
 
     public function showClientRegiterForm()
@@ -98,13 +115,36 @@ class RegisterController extends Controller
         return view('client.register');
     }
 
-    public function clientRegister(Request $request)
+    public function clientRegister(ClientRequest $request)
     {
         // return $request;
 
+  
         $this->validate($request, [
+            'name'   => 'required|name',
             'email'   => 'required|email',
-            'password' => 'required|min:4'
+            'password' => 'required|min:4',
+            'secondpassword'=>'required|min:4',
         ]);
+        try {
+
+            
+            $Client = Client::create([
+                'name' => $request->name,
+                'mobile' => $request->mobile,
+                'address' => $request->address,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+                
+            
+            ]);
+        }
+        catch (\Exception $ex){
+            return $ex;
+            return redirect()->route('client.register')->with(['error' => 'Un problème est survenu']);
+
+        }
+
+
     }
-}
+};

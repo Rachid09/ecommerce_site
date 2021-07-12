@@ -37,8 +37,8 @@ class SubCategoryRequest extends FormRequest
      public function messages()
     {
         return [
-            'required' => 'ce champ est obligé',
-            'nom.string' =>  'le nom de a categories doit etre des caracteres',
+            'required' => 'Ce champ est obligatoire',
+            'nom.string' =>  'Le nom de la catégorie doit être des caractères',
         ];
     }
 }

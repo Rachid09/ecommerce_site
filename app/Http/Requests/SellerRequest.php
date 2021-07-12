@@ -41,17 +41,17 @@ class SellerRequest extends FormRequest
     {
 
         return [
-            'required'  => 'هذا الحقل مطلوب ',
-            'max'  => 'هذا الحقل طويل',
-            'category_id.exists'  => 'القسم غير موجود ',
-            'email.email' => 'ضيغه البريد الالكتروني غير صحيحه',
-            'address.string' => 'العنوان لابد ان يكون حروف او حروف وارقام ',
-            'store_name.string'  => 'الاسم لابد ان يكون حروف او حروف وارقام ',
-            'cop_name.string'  => 'الاسم لابد ان يكون حروف او حروف وارقام ',
-            'full_name.string'  => 'الاسم لابد ان يكون حروف او حروف وارقام ',
-            'logo.required_without'  => 'الصوره مطلوبة',
-            'email.unique' => 'البريد الالكتروني مستخدم من قبل ',
-            'mobile.unique' => 'رقم الهاتف مستخدم من قبل ',
+            'required'  =>'Ce champ est obligatoire',
+            'max'  => 'Ce champ est obligatoire',
+            'category_id.exists'  =>'Cette catégorie n existe pas',
+            'email.email' => 'Cet email est pas invalide ',
+            'address.string' => 'Ce champ doit être composé de caractères, ou bien caractères et numéros',
+            'store_name.string'  => 'Ce champ doit être composé de caractères, ou bien caractères et numéros',
+            'cop_name.string'  => 'Ce champ doit être composé de caractères, ou bien caractères et numéros',
+            'full_name.string'  => 'Ce champ doit être composé de caractères, ou bien caractères et numéros',
+            'logo.required_without'=> 'La photo est obligatoite',
+            'email.unique' => 'Cet email est déjà utilisé ',
+            'mobile.unique' => 'Ce numéro de téléphone est déjà utilisé ',
 
 
         ];

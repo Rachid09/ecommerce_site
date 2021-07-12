@@ -1,0 +1,348 @@
+/*==================================
+Theme Color All Codes Variable
+==================================*/
+
+:root {
+    --theme-general-color: #767678;
+    /* theme gray color ok*/
+}
+
+:root {
+    --theme-primary-color: #bf8072;
+    /* theme primary color ok*/
+}
+
+:root {
+    --theme-secondary-color: #141926;
+    /* theme secondary color ok*/
+}
+
+:root {
+    --theme-white-color: #fff;
+    /* theme white font color ok*/
+}
+
+:root {
+    --theme-light-color: #f8f8f8;
+    /* theme light gray color ok*/
+}
+
+:root {
+    --theme-gray-color: #e7e7e8;
+    /* theme gray color */
+}
+
+:root {
+    --theme-dark-color: #1b1b1e;
+    /* theme dark color */
+}
+
+:root {
+    --theme-footer-color: #1e2124;
+    /* theme dark color */
+}
+
+:root {
+    --theme-extra-color: #f3612e;
+    /* theme extra color ok*/
+}
+
+:root {
+    --theme-extra2-color: #ffd200;
+    /* theme extra color ok*/
+}
+
+:root {
+    --theme-primary-opacity-color: rgba(191, 128, 114, .8);
+    /* theme primary opacity color ok*/
+}
+
+:root {
+    --theme-secondary-opacity-color: rgba(20, 25, 38, .8);
+    /* theme secondary color ok*/
+}
+
+:root {
+    --theme-dark-opacity-color: rgba(27, 27, 30, .8);
+    /* theme dark opacity color */
+}
+
+:root {
+    --theme-white-opacity-color: rgba(255, 255, 255, 0.5);
+    /* theme white color ok*/
+}
+
+:root {
+    --theme-white-opacity90-color: rgba(255, 255, 255, 0.9);
+    /* theme white color ok*/
+}
+
+:root {
+    --text-light-color: #a5a5a5;
+    /* text light color */
+}
+
+:root {
+    --text-gray-color: #c3c3c3;
+    /* theme text gray color */
+}
+
+
+/*==================================
+Font Variable
+==================================*/
+
+:root {
+    --theme-general-font: 'Jost', sans-serif;
+    /* Font use for normal text and general text ok*/
+}
+
+:root {
+    --theme-hiperlink-font: 'Jost', sans-serif;
+    /* Font use for normal text and general text ok*/
+}
+
+:root {
+    --theme-highlight-font: 'Jost', sans-serif;
+    /* Font used in title or special area ok*/
+}
+
+
+/*==================================
+Extra CSS
+==================================*/
+
+body {
+    font-size: 16px;
+}
+
+h5,
+.h5 {
+    font-weight: 500;
+}
+
+.font-mini {
+    font-size: 12px;
+}
+
+.tagcloud ul li a {
+    font-size: 16px;
+}
+
+.product-wrapper .product-info .star-rating a {
+    font-size: 14px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    font-size: 13px;
+    text-transform: uppercase
+}
+
+.main-nav .form-inline input.search-field {
+    padding-left: 25px;
+    font-size: 16px !important
+}
+
+.main-nav .form-inline input.search-field::placeholder,
+.header-sticky .form-inline input.search-field::placeholder {
+    color: var(--theme-secondary-color);
+    font-size: 16px !important
+}
+
+[class*="product-search-"] .form-inline.search-pill-shape {
+    background-color: var(--theme-light-color);
+    border: 0;
+}
+
+.sub-title {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.product-wrapper .product-info .product-title,
+.product-wrapper .product-info .product-title a {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.coustom-categories-banner-1 .product-wrapper .product-info .product-title,
+.coustom-categories-banner-1 .product-wrapper .product-info .product-title a {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.coustom-categories-banner-1 .product-wrapper .product-info .strok {
+    font-size: 14px;
+}
+
+.product-wrapper .product-info .product-price .price ins {
+    font-weight: 500;
+    color: var(--theme-secondary-color);
+}
+
+.product-wrapper .product-info .product-price .price del {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--theme-general-color);
+}
+
+.btn {
+    border-radius: 0
+}
+
+.tagline {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 auto;
+}
+
+[class*="btn-link"] {
+    letter-spacing: 2px
+}
+
+.thumb-blog-simple .post-content {
+    width: 80%;
+    position: relative;
+    margin-top: -50px;
+    background-color: var(--theme-light-color);
+    left: 0;
+    padding: 30px;
+}
+
+.thumb-blog-simple .post-meta {
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.thumb-blog-simple .post-content .btn-link-down-line {
+    text-transform: capitalize;
+    font-size: 14px;
+}
+
+.widget_recent_entries ul li span {
+    font-size: 14px;
+    font-style: normal;
+}
+
+.widget_recent_entries ul li a {
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.footer-widget .widget-title {
+    font-weight: 500;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.footer-widget li a {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.single-post .post-meta a {
+    color: var(--theme-general-color)
+}
+
+.ecommerce-header .top-header {
+    font-size: 15px;
+}
+
+.search-view>a,
+.wishlist-view>a,
+.refresh-view>a,
+.sign-in>a {
+    background-color: var(--theme-light-color);
+}
+
+.sticky-myaccount .flat-default,
+.search-view .flat-default,
+.wishlist-view .flat-default,
+.refresh-view .flat-default,
+.cart-icon .flat-default {
+	font-size: 17px;
+}
+
+@media screen and (max-width: 1399px) {
+    .thumb-blog-simple .post-content {
+        width: 85% !important;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .search-view>a,
+    .wishlist-view>a,
+    .refresh-view>a,
+    .sign-in>a {
+        line-height: 40px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 1399px) {
+    .touch-screen-view.visible {
+        visibility: visible;
+        opacity: 1;
+    }
+	.admin-bar .touch-screen-view {
+		top: 32px;
+	}
+    .touch-screen-view {
+        position: fixed;
+        width: 100%;
+        height: 130px;
+        background: #fff;
+        top: 0;
+        left: 0;
+        z-index: 110;
+        visibility: hidden;
+        opacity: 0;
+        -moz-transition: all 300ms ease-in-out 0s;
+        -webkit-transition: all 300ms ease-in-out 0s;
+        -o-transition: all 300ms ease-in-out 0s;
+        -ms-transition: all 300ms ease-in-out 0s;
+        transition: all 300ms ease-in-out 0s;
+    }
+    .touch-screen-view .form-inline {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .border-footer .col:nth-child(3) .footer-widget,
+    .border-footer .col:nth-child(4) .footer-widget {
+        margin-top: 0 !important;
+    }
+    .border-footer .col:nth-child(3) {
+        border-left: 0;
+        padding-left: 15px;
+    }
+    header.fixed-top .header-sticky {
+        box-shadow: none;
+        border: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .custom-class-122 .banner-content {
+        right: 0%;
+        height: 100%;
+        width: 50%
+    }
+    .custom-class-122 .middle-content {
+        width: auto;
+        right: 20px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .custom-class-122 {
+        display: none
+    }
+}
