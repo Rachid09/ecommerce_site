@@ -37,7 +37,10 @@
     <link rel="stylesheet" href={{asset("public/css/category/minimal.css")}}>
     <link rel="stylesheet" href={{asset("public/css/category/default.css")}}>
 
+
   
+
+     <link rel="stylesheet" type="text/css" href={{asset("public/admin/vendors/css/forms/selects/select2.min.css")}}>
 </head>
 
 
@@ -67,6 +70,8 @@
     <script src={{asset("public/js/custom.js")}}></script>
     <script src={{asset("public/js/jquery.fancybox.min.js")}}></script>
     <script src={{asset("public/js/mixitup.min.js")}}></script>
+    <script src={{asset("public/admin/vendors/js/forms/select/select2.full.min.js")}} type="text/javascript"></script>
+    <script src={{asset("public/admin/js/scripts/forms/select/form-select2.js")}} type="text/javascript"></script>
 
 
    

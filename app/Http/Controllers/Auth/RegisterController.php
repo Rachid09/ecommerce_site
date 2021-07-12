@@ -118,6 +118,14 @@ class RegisterController extends Controller
     public function clientRegister(ClientRequest $request)
     {
         // return $request;
+
+  
+        $this->validate($request, [
+            'name'   => 'required|name',
+            'email'   => 'required|email',
+            'password' => 'required|min:4',
+            'secondpassword'=>'required|min:4',
+        ]);
         try {
 
             
@@ -137,12 +145,6 @@ class RegisterController extends Controller
 
         }
 
-        $this->validate($request, [
-            'name'   => 'required|name',
-            'email'   => 'required|email',
-            'password' => 'required|min:4',
-            'secondpassword'=>'required|min:4',
-        ]);
 
     }
 };

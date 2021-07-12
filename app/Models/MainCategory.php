@@ -48,9 +48,9 @@ class MainCategory extends Model
 
 
     // get all translation categories
-    public function categories()
+    public function products()
     {
-        return $this->hasMany(self::class, 'translation_of');
+        return $this->hasMany(Product::class, 'maincategory_id', 'id');
     }
 
 

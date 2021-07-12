@@ -96,7 +96,8 @@ class LoginController extends Controller
         // return $request;
         $this->validate($request, [
             'email'   => 'required|email',
-            'password' => 'required|min:4'
+            'password' => 'required|min:6',
+
         ]);
 
         if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember_me'))) {

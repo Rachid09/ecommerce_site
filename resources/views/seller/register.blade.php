@@ -68,15 +68,11 @@
                                         </div>
 
                                         <div class="col-lg-6">
-                                            <label for="name">categorie principal&nbsp;<span
+                                            <label for="name">categorie des produits&nbsp;<span
                                                     class="required">*</span></label>
-                                            <select name="maincategory_id" class="form-control"
-                                                style="width: 100%;
-    background: var(--theme-light-color);
-    padding: 5px 20px;
-    border: 1px solid var(--theme-gray-color);
-    border-radius: 0;">
-                                                <option value="1" selected="selected">Choisir</option>
+                                            <select  multiple name="categories[]" class="select2 form-control"
+                                                style="width: 100%;">
+
                                                 @if($maincategories && $maincategories -> count() > 0)
                                                 @foreach($maincategories as $maincat)
                                                 <option value="{{$maincat -> id }}">{{$maincat -> libelle}}</option>
@@ -84,9 +80,9 @@
                                                 @endif
 
                                             </select>
-                                            @error('email')
+                                            {{-- @error('email')
                                             <span class="text-danger">{{$message}}</span>
-                                            @enderror
+                                            @enderror --}}
 
 
                                         </div>

@@ -115,6 +115,37 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Auth'], function () {
 
 Route::group(['prefix' => 'seller', 'namespace' => 'seller', 'middleware' => 'auth:seller'], function () {
     Route::get('/home', 'DashboardController@index')->name('seller.dashboard');
+    ######################### brgin products Routes ########################
+    Route::group(['prefix' => 'products'], function () {
+        Route::get('/', 'ProductController@index')->name('seller.products');
+        Route::get('/add', 'ProductController@create')->name('seller.product.create');
+        Route::post('/store', 'ProductController@store')->name('seller.product.store');
+        Route::get('/edit/{id}', 'ProductController@edit')->name('seller.product.edit');
+        Route::post('/update/{id}', 'ProductController@update')->name('seller.product.update');
+        Route::get('delete/{id}', 'ProductController@destroy')->name('seller.product.delete');
+        Route::get('changeStatus/{id}', 'ProductController@changeStatus')->name('seller.product.status');
+    });
+
+    ######################### brgin store Routes ########################
+    Route::group(['prefix' => 'store'], function () {
+        Route::get('/', 'StoreController@index')->name('seller.store');
+        // Route::get('/add', 'StoreController@create')->name('seller.store.create');
+        // Route::post('/store', 'StoreController@store')->name('seller.store.store');
+        Route::get('/edit/{id}', 'StoreController@edit')->name('seller.store.edit');
+        Route::post('/update/{id}', 'StoreController@update')->name('seller.store.update');
+        Route::get('delete/{id}', 'StoreController@destroy')->name('seller.store.delete');
+    });
+
+    ######################### brgin orders Routes ########################
+    Route::group(['prefix' => 'orders'], function () {
+        Route::get('/', 'OrderController@index')->name('seller.orders');
+        Route::get('/add', 'OrderController@create')->name('seller.orders.create');
+        Route::post('/store', 'OrderController@store')->name('seller.orders.store');
+        Route::get('/edit/{id}', 'OrderController@edit')->name('seller.orders.edit');
+        Route::post('/update/{id}', 'OrderController@update')->name('seller.orders.update');
+        Route::get('delete/{id}', 'OrderController@destroy')->name('seller.orders.delete');
+        Route::get('changeStatus/{id}', 'OrderController@changeStatus')->name('seller.orders.status');
+    });
 });
 
 
@@ -135,8 +166,12 @@ Route::group(['prefix' => 'seller', 'namespace' => 'Auth', 'middleware' => 'gues
 
 
 
-// Route::view('/home', 'home')->middleware('auth');
-// Route::view('/admin', 'admin');
+Route::group(['prefix' => 'client', 'namespace' => 'Auth'], function () {
+    Route::get('login', 'LoginController@showClientLoginForm')->name('client.login');
+    Route::post('login', 'LoginController@clientLogin')->name('client.login');
+    Route::get('register', 'RegisterController@showClientRegisterForm')->name('client.register');
+    Route::post('register', 'RegisterController@ClientRegister')->name('client.register');
+});
 
 
 
