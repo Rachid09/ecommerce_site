@@ -11,9 +11,9 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('seller.dashboard')}}">Tableau de bord </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{route('seller.stock.products')}}">List des produits  </a>
+                            <li class="breadcrumb-item"><a href="{{route('seller.store.products')}}">List des produits </a>
                             </li>
-                            <li class="breadcrumb-item active"> Ajouter un produit
+                            <li class="breadcrumb-item active"> Modifier un produit
                             </li>
                         </ol>
                     </div>
@@ -27,7 +27,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title" id="basic-layout-form">  Ajout d'un produit </h4>
+                                {{-- <h4 class="card-title" id="basic-layout-form">  Modification d'un produit </h4> --}}
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -42,10 +42,19 @@
                             @include('seller.includes.alerts.errors')
                             <div class="card-content collapse show">
                                 <div class="card-body">
-                                    <form class="form" action="{{route('seller.stock.product.store')}}" method="POST" enctype="multipart/form-data">
+                                    <form class="form" action="{{route('seller.store.product.update',$product->id)}}" method="POST"
+                                        enctype="multipart/form-data">
 
                                         @csrf
                                         <input type="hidden" name="seller_id" value="{{$id = Auth::user()->id}}">
+                                        <input type="hidden" name="id" value="{{$id = $product->id}}">
+
+                                        <div class="form-group">
+                                            <div class="text-center">
+                                                <img src="{{$product -> main_image}}" class="rounded-circle  height-150" alt="صورة القسم  ">
+                                            </div>
+                                        </div>
+
                                         <div class="form-group">
                                             <label> l'image du produit </label>
                                             <label id="projectinput7" class="file center-block">
@@ -59,14 +68,16 @@
 
                                         <div class="form-body">
 
-                                            <h4 class="form-section"><i class="ft-home"></i> Les details du produit </h4>
+                                            <h4 class="form-section"><i class="ft-home"></i> Les details du produit
+                                            </h4>
 
 
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="projectinput1"> nom du produit </label>
-                                                        <input type="text" value="" id="name" class="form-control" placeholder="  " name="name">
+                                                        <input type="text"  id="name" class="form-control"
+                                                             name="name"    value="{{$product->name}}">
                                                         @error("name")
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -77,12 +88,15 @@
                                                         <label for="projectinput2"> choisir la categorie
                                                         </label>
                                                         <div class="form-group">
-                                                            <select  name="maincategory_id" id="maincategory_id"
+                                                            <select name="maincategory_id" id="maincategory_id"
                                                                 class="jui-select-default form-control">
                                                                 {{-- <option value="">choisir</option> --}}
                                                                 @if(!empty($categories)> 0)
                                                                 @foreach($categories as $category)
-                                                                <option value="{{$category -> id }}">
+                                                                <option value="{{$category -> id }}" @if ($category->
+                                                                    id==$product->maincategory_id)
+                                                                    selected
+                                                                    @endif>
                                                                     {{$category -> libelle}}</option>
                                                                 @endforeach
                                                                 @endif
@@ -104,18 +118,20 @@
                                             <div class="row">
                                                 <div class="col-md-6 ">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> le code du produit  </label>
-                                                        <input type="text" id="code" class="form-control" placeholder="  " name="code">
+                                                        <label for="projectinput1"> le code du produit </label>
+                                                        <input type="text" id="code" class="form-control"
+                                                            placeholder="  " name="code" value="{{$product->code}}">
 
                                                         @error("code")
                                                         <span class="text-danger"> {{$message}}</span>
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                    <div class="col-md-6 ">
+                                                <div class="col-md-6 ">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> le prix du produit  </label>
-                                                        <input type="text" id="price" class="form-control" placeholder="  " name="price">
+                                                        <label for="projectinput1"> le prix du produit </label>
+                                                        <input type="text" id="price" value="{{$product->price}}" class="form-control"
+                                                            placeholder="  " name="price">
 
                                                         @error("code")
                                                         <span class="text-danger"> {{$message}}</span>
@@ -137,8 +153,10 @@
                                                                 class="jui-select-default form-control">
                                                                 <option value="">choisir</option>
                                                                 @if(!empty($colors))
-                                                                @foreach($colors as  $color)
-                                                                <option value="{{$color}}">
+                                                                @foreach($colors as $color)
+                                                                <option value="{{$color}}" @if ($color==$product->color) selected
+
+                                                                @endif>
                                                                     {{$color}}</option>
                                                                 @endforeach
                                                                 @endif
@@ -156,7 +174,10 @@
                                                 <div class="class col-md-6">
                                                     <div class="form-group">
                                                         <label for="projectinput1">description </label>
-                                                        <textarea id="description" type="text" cols="1" class="form-control" placeholder="Ecrire une bref description" name="description"></textarea>
+                                                        <textarea id="description" type="text" cols="1"
+                                                            class="form-control"
+                                                            placeholder="Ecrire une bref description"
+                                                            name="description">{{$product->description}}</textarea>
 
                                                         @error("description")
                                                         <span class="text-danger"> {{$message}}</span>
@@ -173,17 +194,20 @@
                                                 <div class="col-md-6 ">
                                                     <div class="form-group">
                                                         <label for="projectinput1"> promotion </label>
-                                                        <input type="text" id="discount" class="form-control" placeholder=" entrer une pourcentage du promotion " name="discount">
+                                                        <input type="text" id="discount" class="form-control"
+                                                            placeholder=" entrer une pourcentage du promotion "
+                                                            name="discount" value="{{$product->discount}}">
 
                                                         @error("discount")
                                                         <span class="text-danger"> {{$message}}</span>
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                    <div class="col-md-6 ">
+                                                <div class="col-md-6 ">
                                                     <div class="form-group">
                                                         <label for="projectinput1"> quantité </label>
-                                                        <input type="text" id="stock" class="form-control" placeholder=" quantite du produit " name="quantite">
+                                                        <input type="text" id="stock" class="form-control"
+                                                            placeholder=" quantite du produit " name="quantite" value="{{$product->stock}}">
 
                                                         @error("quantite")
                                                         <span class="text-danger"> {{$message}}</span>
@@ -195,8 +219,11 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group mt-1">
-                                                        <input type="checkbox" value="1" name="status" id="switcheryColor4" class="switchery" data-color="success" checked />
-                                                        <label for="switcheryColor4" class="card-title ml-1">status </label>
+                                                        <input type="checkbox" value="1" name="status"
+                                                            id="switcheryColor4" class="switchery" data-color="success"
+                                                            @if($product-> status == 1)checked @endif />
+                                                        <label for="switcheryColor4" class="card-title ml-1">status
+                                                        </label>
 
                                                         @error("status")
                                                         <span class="text-danger"> </span>
@@ -211,11 +238,12 @@
 
 
                                         <div class="form-actions">
-                                            <button type="button" class="btn btn-warning mr-1" onclick="history.back();">
-                                                <i class="ft-x"></i> تراجع
+                                            <button type="button" class="btn btn-warning mr-1"
+                                                onclick="history.back();">
+                                                <i class="ft-x"></i> Annuler
                                             </button>
                                             <button type="submit" class="btn btn-primary">
-                                                <i class="la la-check-square-o"></i> حفظ
+                                                <i class="la la-check-square-o"></i> Enregister
                                             </button>
                                         </div>
                                     </form>

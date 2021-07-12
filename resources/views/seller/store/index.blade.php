@@ -11,9 +11,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('seller.dashboard')}}">Home</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{route('seller.stock.product.create')}}">Ajouter produit</a>
-                            </li>
-                            <li class="breadcrumb-item active"> List des produits
+                            <li class="breadcrumb-item active"> ma boutique
                             </li>
                         </ol>
                     </div>
@@ -75,17 +73,11 @@
                                                 <td>
                                                     <div class="btn-group" role="group" aria-label="Basic example">
 
-                                                        <a href="{{route('seller.stock.product.edit',$product ->id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">Modifier</a>
+                                                        <a href="{{route('seller.store.product.edit',$product ->id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">Modifier</a>
 
 
-                                                        <a href="{{route('seller.stock.product.delete',$product->id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">Supprimer</a>
+                                                        <a href="{{route('seller.store.product.status',$product->id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">Supprimer</a>
 
-
-                                                        <a href="{{route('seller.stock.product.status',$product->id)}}" class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1"> @if($product -> status == 0)
-                                                            activer
-                                                            @else
-                                                            desactiver
-                                                            @endif</a>
                                                     </div>
                                                 </td>
                                             </tr>

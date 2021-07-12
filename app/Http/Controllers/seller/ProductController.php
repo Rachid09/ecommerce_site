@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use App\Models\Seller;
 use App\Models\Product;
+use Illuminate\Support\Str;
 use DB;
 use Auth;
 
@@ -73,10 +74,10 @@ class ProductController extends Controller
             ]);
 
 
-            return redirect()->route('seller.products')->with(['success' => 'تم الحفظ بنجاح']);
+            return redirect()->route('seller.stock.products')->with(['success' => 'تم الحفظ بنجاح']);
         } catch (\Exception $ex) {
             return $ex;
-            return redirect()->route('seller.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('seller.stock.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
     }
 
@@ -84,23 +85,24 @@ class ProductController extends Controller
     public function edit($id)
     {
         try {
+            $seller_id = Auth::user()->id;
 
             $product = Product::Selection()->find($id);
             // echo '<pre>';
             // print_r($product);
             // die;
             if (!$product)
-                return redirect()->route('seller.products')->with(['error' => "ce produit n'existe pas"]);
+                return redirect()->route('seller.stock.products')->with(['error' => "ce produit n'existe pas"]);
 
             // $categories = MainCategory::where('translation_of', 0)->active()->get();
-            $maincategories = Seller::find($id)->maincategory()->orderBy('libelle')->get();
+            $maincategories = Seller::find($seller_id)->maincategory()->orderBy('libelle')->get();
             $categories = json_decode(json_encode($maincategories));
             $colors = array('rouge', 'vert', 'blanc', 'jaune', 'marron', 'noir');
 
-            return view('seller.stock.edit', compact('product', 'categories', 'colors'));
+            return view('seller.stock.product.edit', compact('product', 'categories', 'colors'));
         } catch (\Exception $exception) {
             return $exception;
-            return redirect()->route('seller.products')->with(['error' => 'un probleme est survenu']);
+            return redirect()->route('seller.stock.products')->with(['error' => 'un probleme est survenu']);
         }
     }
 
@@ -114,7 +116,7 @@ class ProductController extends Controller
             $product = Product::find($id);
 
             if (!$product)
-                return redirect()->route('admin.subcategories')->with(['error' => 'هذا القسم غير موجود ']);
+                return redirect()->route('seller.stock.products')->with(['error' => 'هذا القسم غير موجود ']);
             DB::beginTransaction();
 
 
@@ -151,19 +153,61 @@ class ProductController extends Controller
                     'discount' => $request->discount,
                     'stock' => $request->quantite,
                     'description' => $request->description,
-                    'main_image' =>  $filePath,
                     'status' => $request->status,
                 ]);
 
 
 
             DB::commit();
-            return redirect()->route('seller.products')->with(['success' => 'تم ألتحديث بنجاح']);
+            return redirect()->route('seller.stock.products')->with(['success' => 'تم ألتحديث بنجاح']);
         } catch (\Exception $ex) {
 
             DB::rollback();
             return $ex;
-            return redirect()->route('seller.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('seller.stock.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+        }
+    }
+
+
+    public function destroy($id)
+    {
+
+        try {
+            $product = Product::find($id);
+            if (!$product)
+                return redirect()->route('seller.stock.products')->with(['error' => 'هذا التاجر غير موجود ']);
+
+            // $Sellers = $Seller->Sellers();
+            // if (isset($Sellers) && $Sellers->count() > 0) {
+            //     return redirect()->route('admin.maincategories')->with(['error' => 'لأ يمكن حذف هذا القسم  ']);
+            // }
+
+            $image = Str::after($product->main_image, 'public/assets/');
+            $image = base_path('public/assets/' . $image);
+            unlink($image); //delete from folder
+            // $maincategory->categories()->delete();
+            $product->delete();
+            return redirect()->route('seller.stock.products')->with(['success' => 'تم حذف التاجر بنجاح']);
+        } catch (\Exception $ex) {
+            return $ex;
+            return redirect()->route('seller.stock.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+        }
+    }
+
+    public function changeStatus($id)
+    {
+        try {
+            $product = Product::find($id);
+            if (!$product)
+                return redirect()->route('seller.stock.products')->with(['error' => 'هذا التاجر غير موجود ']);
+
+            $status =  $product->status  == 0 ? 1 : 0;
+
+            $product->update(['status' => $status]);
+
+            return redirect()->route('seller.stock.products')->with(['success' => ' تم تغيير الحالة بنجاح ']);
+        } catch (\Exception $ex) {
+            return redirect()->route('seller.stock.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
     }
 }

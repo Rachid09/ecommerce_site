@@ -54,7 +54,7 @@
                                         </div>
 
 
-                                        <div class="form-group">
+                                        <div class="form-group">    
                                             <label> صوره القسم </label>
                                             <label id="projectinput7" class="file center-block">
                                                 <input type="file" id="file" name="photo">

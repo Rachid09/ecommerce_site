@@ -27,7 +27,7 @@
                     <span class="badge badge badge-success badge-pill float-right mr-2">{{App\Models\Seller::count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="{{route('seller.store')}}" data-i18n="nav.dash.ecommerce"> List des produits  </a>
+                    <li class="active"><a class="menu-item" href="{{route('seller.store.products')}}" data-i18n="nav.dash.ecommerce"> List des produits  </a>
                     </li>
                     {{-- <li><a class="menu-item" href=" {{route('admin.sellers.create')}}" data-i18n="nav.dash.crypto">
                             Ajouter un produit </a>
@@ -37,12 +37,12 @@
 
             <li class="nav-item"><a href=""><i class="la la-male"></i>
                     <span class="menu-title" data-i18n="nav.dash.main"> Stock </span>
-                    <span class="badge badge badge-success badge-pill float-right mr-2">{{App\Models\SubCategory::count()}}</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">{{App\Models\Product::count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="{{route('seller.products')}}" data-i18n="nav.dash.ecommerce">  List des produits </a>
+                    <li class="active"><a class="menu-item" href="{{route('seller.stock.products')}}" data-i18n="nav.dash.ecommerce">  List des produits </a>
                     </li>
-                    <li><a class="menu-item" href=" {{route('seller.product.create')}}" data-i18n="nav.dash.crypto">ajouter un produit au stock
+                    <li><a class="menu-item" href=" {{route('seller.stock.product.create')}}" data-i18n="nav.dash.crypto">ajouter un produit au stock
                              </a>
                     </li>
                 </ul>

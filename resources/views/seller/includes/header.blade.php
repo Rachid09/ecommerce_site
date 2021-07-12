@@ -167,11 +167,11 @@
                 <a class="dropdown-item" href="#"><i class="ft-message-square"></i> Chats</a>
                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                {{ __('Logout seller') }}
                             </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
+                      @csrf
                 </form>
               </div>
             </li>

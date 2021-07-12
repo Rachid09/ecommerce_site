@@ -73,9 +73,19 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> الاسم </label>
+                                                        <label for="projectinput1"> le nom du vendeur </label>
                                                         <input type="text" value="{{$seller -> full_name}}" id="name" class="form-control" placeholder="  " name="full_name">
                                                         @error("full_name")
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                 <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1"> le nom du coperative </label>
+                                                        <input type="text" value="{{$seller -> cop_name}}" id="name" class="form-control" placeholder="  " name="cop_name">
+                                                        @error("cop_name")
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
                                                     </div>

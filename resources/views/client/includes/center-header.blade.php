@@ -1,4 +1,4 @@
- <div class="middle-header d-none d-lg-block py-4">
+ {{-- <div class="middle-header d-none d-lg-block py-4">
      <div class="container">
          <div class="row">
              <div class="col-lg-4">
@@ -93,4 +93,4 @@
              </div>
          </div>
      </div>
- </div>
+ </div> --}}

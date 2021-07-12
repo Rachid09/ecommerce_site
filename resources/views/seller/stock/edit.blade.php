@@ -11,7 +11,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('seller.dashboard')}}">Tableau de bord </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{route('seller.products')}}">List des produits </a>
+                            <li class="breadcrumb-item"><a href="{{route('seller.stock.products')}}">List des produits </a>
                             </li>
                             <li class="breadcrumb-item active"> Modifier un produit
                             </li>
@@ -42,12 +42,19 @@
                             @include('seller.includes.alerts.errors')
                             <div class="card-content collapse show">
                                 <div class="card-body">
-                                    <form class="form" action="{{route('seller.product.update',$product->id)}}" method="POST"
+                                    <form class="form" action="{{route('seller.stock.product.update',$product->id)}}" method="POST"
                                         enctype="multipart/form-data">
 
                                         @csrf
                                         <input type="hidden" name="seller_id" value="{{$id = Auth::user()->id}}">
                                         <input type="hidden" name="id" value="{{$id = $product->id}}">
+
+                                        <div class="form-group">
+                                            <div class="text-center">
+                                                <img src="{{$product -> main_image}}" class="rounded-circle  height-150" alt="صورة القسم  ">
+                                            </div>
+                                        </div>
+
                                         <div class="form-group">
                                             <label> l'image du produit </label>
                                             <label id="projectinput7" class="file center-block">

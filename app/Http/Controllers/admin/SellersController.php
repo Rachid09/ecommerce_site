@@ -47,6 +47,7 @@ class SellersController extends Controller
             $Seller = Seller::create([
                 'full_name' => $request->full_name,
                 'store_name' => $request->store_name,
+                 'cop_name' => $request->cop_name,
                 'mobile' => $request->mobile,
                 'address' => $request->address,
                 'email' => $request->email,

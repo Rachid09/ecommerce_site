@@ -62,7 +62,7 @@
 
 
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="projectinput1"> الاسم الكامل</label>
                                                         <input type="text" value="" id="name" class="form-control" placeholder="  " name="full_name">
@@ -71,7 +71,17 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+
+                                                  <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1"> le nom du coperative </label>
+                                                        <input type="text" value="" id="name" class="form-control" placeholder="  " name="cop_name">
+                                                        @error("cop_name")
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="projectinput1"> اسم المتجر</label>
                                                         <input type="text" value="" id="name" class="form-control" placeholder="  " name="store_name">
