@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\ProductsImage;
 
 class Product extends Model
 {
@@ -27,6 +28,11 @@ class Product extends Model
     {
 
         return $query->where('status', 1);
+    }
+    public function scopeIsFeatured($query)
+    {
+
+        return $query->where('is_featured', 'Yes');
     }
 
     public function getMainImageAttribute($val)
@@ -70,5 +76,10 @@ class Product extends Model
     public function getActive()
     {
         return $this->status == 1 ? 'مفعل' : 'غير مفعل';
+    }
+
+    public function productImages()
+    {
+        return $this->hasMany(ProductsImage::class, 'product_id', 'id');
     }
 }

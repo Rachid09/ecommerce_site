@@ -15,9 +15,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('client.home');
-});
+Route::get(
+    '/',
+    'HomeController@index'
+)->name('home');
 
 
 
@@ -95,6 +96,20 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => 'auth
     });
 
     ######################### End SubCategories Routes ########################
+
+
+    ######################### End Products Routes ########################
+
+    Route::group(['prefix' => 'products'], function () {
+        Route::get('/', 'ProductsController@index')->name('admin.products');
+        // Route::get('/create', 'ProductsController@create')->name('admin.products.create');
+        // Route::post('/store', 'ProductsController@store')->name('admin.products.store');
+        // Route::get('edit/{id}', 'ProductsController@edit')->name('admin.products.edit');
+        // Route::post('update/{id}', 'ProductsController@update')->name('admin.products.update');
+        Route::get('delete/{id}', 'ProductsController@destroy')->name('admin.products.delete');
+        Route::get('changeStatus/{id}', 'ProductsController@changeStatus')->name('admin.products.status');
+        Route::get('makeFeatured/{id}', 'ProductsController@changeFeatured')->name('admin.products.featured');
+    });
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Auth'], function () {
@@ -118,6 +133,8 @@ Route::group(['prefix' => 'seller', 'namespace' => 'seller', 'middleware' => 'au
         Route::post('/update/{id}', 'ProductController@update')->name('seller.stock.product.update');
         Route::get('delete/{id}', 'ProductController@destroy')->name('seller.stock.product.delete');
         Route::get('changeStatus/{id}', 'ProductController@changeStatus')->name('seller.stock.product.status');
+        Route::get('addImages/{id}', 'ProductController@getFormAddImages')->name('seller.stock.product.addImages');
+        Route::post('addImages/{id}', 'ProductController@addImages')->name('seller.stock.product.addImages');
     });
 
     ######################### brgin store Routes ########################

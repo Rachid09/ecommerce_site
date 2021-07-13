@@ -99,7 +99,7 @@ class ProductController extends Controller
             $categories = json_decode(json_encode($maincategories));
             $colors = array('rouge', 'vert', 'blanc', 'jaune', 'marron', 'noir');
 
-            return view('seller.stock.product.edit', compact('product', 'categories', 'colors'));
+            return view('seller.stock.edit', compact('product', 'categories', 'colors'));
         } catch (\Exception $exception) {
             return $exception;
             return redirect()->route('seller.stock.products')->with(['error' => 'un probleme est survenu']);
@@ -209,5 +209,19 @@ class ProductController extends Controller
         } catch (\Exception $ex) {
             return redirect()->route('seller.stock.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
+    }
+
+
+    public function getFormAddImages($id)
+    {
+
+        $product = Product::with(['productImages'])->where(['id' => $id])->get();
+        $productArray = json_decode(json_encode($product));
+
+        // echo '<pre>';
+        // print_r($productArray);
+        // die;
+
+        return view('seller.stock.addImages')->with(compact('productArray'));
     }
 }

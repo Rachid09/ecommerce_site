@@ -54,58 +54,31 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 sm-mb-30">
-                        <div class="banner-wrapper hover-img-zoom banner-one custom-class-112">
-                            <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/58.png" alt="Banner Image"></div>
-                            <div class="banner-content position-absolute">
-                                <span class="font-500 font-small text-uppercase d-block mb-2">Beauty Special</span>
-                                <h4><a href="#" class="text-primary text-decoration-none">Makeup Accessories</a></h4>
-                                <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-6">
+                    <div class="col-lg-12 col-md-12">
                         <div class="row row-cols-lg-2 row-cols-1">
+                            @foreach ($maincategories as $cat)
                             <div class="col">
                                 <div class="banner-wrapper hover-img-zoom banner-one custom-class-113">
-                                    <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/59.png" alt="Banner Image"></div>
+                                    <div class="banner-image overflow-hidden transation" style="height:400px"><img src="{{$cat->photo}}" alt="Banner Image" style="object-fit: cover"></div>
                                     <div class="banner-content position-absolute">
                                         <span class="d-block font-500 font-small text-uppercase mb-2">Sale Upto 50%</span>
-                                        <h4><a href="#" class="text-primary text-decoration-none">Natural Cream</a></h4>
+                                        <h4><a href="#" class="text-primary text-decoration-none">{{$cat->libelle}}</a></h4>
                                         <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="banner-wrapper hover-img-zoom banner-one custom-class-113">
-                                    <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/60.png" alt="Banner Image"></div>
-                                    <div class="banner-content position-absolute">
-                                        <span class="font-500 font-small text-uppercase d-block mb-2">Natural</span>
-                                        <h4><a href="#" class="text-primary text-decoration-none">Hair Cares</a></h4>
-                                        <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="banner-wrapper hover-img-zoom banner-one custom-class-113">
-                                    <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/61.png" alt="Banner Image"></div>
-                                    <div class="banner-content position-absolute">
-                                        <span class="font-500 font-small text-uppercase d-block mb-2">TOP BRAND BEAUTY</span>
-                                        <h4><a href="#" class="text-primary text-decoration-none">Natural Oils</a></h4>
-                                        <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="banner-wrapper hover-img-zoom banner-one custom-class-113">
-                                    <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/62.png" alt="Banner Image"></div>
+                            @endforeach
+
+                                {{-- <div class="banner-wrapper hover-img-zoom banner-one custom-class-113">
+                                    <div class="banner-image overflow-hidden transation"><img src="{{asset('public/images/CHABICHIC_MARS21_300dpi_josephouechen-2_2048x.jpg')}}" alt="Banner Image"></div>
                                     <div class="banner-content position-absolute">
                                         <span class="font-500 font-small text-uppercase d-block mb-2">Fat Loss</span>
                                         <h4><a href="#" class="text-primary text-decoration-none">Organic Tea</a></h4>
                                         <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -119,241 +92,65 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <span class="text-primary text-center pb-2 d-table mx-auto tagline text-uppercase font-small">Exclusive Product</span>
-                        <h3 class="mb-4 w-50 text-center mx-auto w-sm-100 font-700 text-dark">New Arrival</h3>
+                        {{-- <span class="text-primary text-center pb-2 d-table mx-auto tagline text-uppercase font-small">Top</span> --}}
+                        <h3 class="mb-4 w-50 text-center mx-auto w-sm-100 font-700 text-dark">Top produits</h3>
                     </div>
                 </div>
 				<div class="row">
 					<div class="col-12">
 						<div class="products product-style-3">
-							<div class="row g-3 row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-1 e-image-bg-light e-hover-image-zoom e-btn-set-hover-primary">
-								<div class="col">
-									<div class="product type-product">
-										<div class="product-wrapper">
-											<div class="product-image">
-												<a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-216.png" alt="Product Image"></a>
-												<div class="product-labels">
-													<div class="badge1"><span>New</span></div>
-												</div>
-												<div class="on-sale">- 60%</div>
-											</div>
-											<div class="product-info">
-												<h3 class="product-title"><a href="#">Body Bulm</a></h3>
-												<div class="product-price">
-													<div class="price">
-														<ins>$45.00</ins>
-														<del>$98.00</del>
-													</div>
-												</div>
-												<div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
-												<div class="shipping-feed-back">
-													<div class="star-rating">
-														<div class="rating-wrap">
-															<a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
-														</div>
-														<div class="rating-counts-wrap">
-															<a href="#">(563)</a>
-														</div>
-													</div>
-													<div class="sold-items">
-														<span>65</span> <span>Sold</span>
-													</div>
-												</div>
-												<div class="hover-area">
-													<div class="cart-button">
-														<a href="#" class="button add_to_cart_button">Add to Cart</a>
-													</div>
-													<div class="wishlist-button">
-														<a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-													</div>
-													<div class="compare-button">
-														<a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col">
-									<div class="product type-product">
-										<div class="product-wrapper">
-											<div class="product-image">
-												<a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-217.png" alt="Product Image"></a>
-												<div class="product-labels">
-													<div class="badge1"><span>New</span></div>
-												</div>
-											</div>
-											<div class="product-info">
-												<h3 class="product-title"><a href="#">Shinylicious Lip Gloss</a></h3>
-												<div class="product-price">
-													<div class="price">
-														<ins>$15.00</ins>
-													</div>
-												</div>
-												<div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
-												<div class="shipping-feed-back">
-													<div class="star-rating">
-														<div class="rating-wrap">
-															<a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
-														</div>
-														<div class="rating-counts-wrap">
-															<a href="#">(563)</a>
-														</div>
-													</div>
-													<div class="sold-items">
-														<span>65</span> <span>Sold</span>
-													</div>
-												</div>
-												<div class="hover-area">
-													<div class="cart-button">
-														<a href="#" class="button add_to_cart_button">Add to Cart</a>
-													</div>
-													<div class="wishlist-button">
-														<a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-													</div>
-													<div class="compare-button">
-														<a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col">
-									<div class="product type-product">
-										<div class="product-wrapper">
-											<div class="product-image">
-												<a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-218.png" alt="Product Image"></a>
-												<div class="product-labels">
-													<div class="badge1"><span>New</span></div>
-												</div>
-											</div>
-											<div class="product-info">
-												<h3 class="product-title"><a href="#">Face Glow Spray</a></h3>
-												<div class="product-price">
-													<div class="price">
-														<ins>$21.00</ins>
-													</div>
-												</div>
-												<div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
-												<div class="shipping-feed-back">
-													<div class="star-rating">
-														<div class="rating-wrap">
-															<a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
-														</div>
-														<div class="rating-counts-wrap">
-															<a href="#">(563)</a>
-														</div>
-													</div>
-													<div class="sold-items">
-														<span>65</span> <span>Sold</span>
-													</div>
-												</div>
-												<div class="hover-area">
-													<div class="cart-button">
-														<a href="#" class="button add_to_cart_button">Add to Cart</a>
-													</div>
-													<div class="wishlist-button">
-														<a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-													</div>
-													<div class="compare-button">
-														<a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col">
-									<div class="product type-product">
-										<div class="product-wrapper">
-											<div class="product-image">
-												<a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-219.png" alt="Product Image"></a>
-												<div class="product-labels">
-													<div class="badge1"><span>New</span></div>
-												</div>
-											</div>
-											<div class="product-info">
-												<h3 class="product-title"><a href="#">Duneam Lipstick</a></h3>
-												<div class="product-price">
-													<div class="price">
-														<ins>$17.80</ins>
-													</div>
-												</div>
-												<div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
-												<div class="shipping-feed-back">
-													<div class="star-rating">
-														<div class="rating-wrap">
-															<a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
-														</div>
-														<div class="rating-counts-wrap">
-															<a href="#">(563)</a>
-														</div>
-													</div>
-													<div class="sold-items">
-														<span>65</span> <span>Sold</span>
-													</div>
-												</div>
-												<div class="hover-area">
-													<div class="cart-button">
-														<a href="#" class="button add_to_cart_button">Add to Cart</a>
-													</div>
-													<div class="wishlist-button">
-														<a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-													</div>
-													<div class="compare-button">
-														<a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col">
-									<div class="product type-product">
-										<div class="product-wrapper">
-											<div class="product-image">
-												<a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-220.png" alt="Product Image"></a>
-												<div class="product-labels">
-													<div class="badge1"><span>New</span></div>
-												</div>
-											</div>
-											<div class="product-info">
-												<h3 class="product-title"><a href="#">Duneam Lipstick</a></h3>
-												<div class="product-price">
-													<div class="price">
-														<ins>$12.80</ins>
-													</div>
-												</div>
-												<div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
-												<div class="shipping-feed-back">
-													<div class="star-rating">
-														<div class="rating-wrap">
-															<a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
-														</div>
-														<div class="rating-counts-wrap">
-															<a href="#">(563)</a>
-														</div>
-													</div>
-													<div class="sold-items">
-														<span>65</span> <span>Sold</span>
-													</div>
-												</div>
-												<div class="hover-area">
-													<div class="cart-button">
-														<a href="#" class="button add_to_cart_button">Add to Cart</a>
-													</div>
-													<div class="wishlist-button">
-														<a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-													</div>
-													<div class="compare-button">
-														<a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+							<div class="row g-3 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 e-image-bg-light e-hover-image-zoom e-btn-set-hover-primary">
+
+                                @foreach ($featured as $item)
+                                <div class="col">
+                                    <div class="product type-product">
+                                        <div class="product-wrapper">
+                                            <div class="product-image">
+                                                <a href="#" class="woocommerce-LoopProduct-link"><img src="{{$item->main_image}}" alt="Product Image"></a>
+                                                <div class="product-labels">
+                                                    <div class="badge1"><span>On top</span></div>
+                                                </div>
+                                                <div class="on-sale">-60%</div>
+                                            </div>
+                                            <div class="product-info">
+                                                <h3 class="product-title"><a href="#">{{$item->name}}</a></h3>
+                                                <div class="product-price">
+                                                    <div class="price">
+                                                        <ins>{{$item->price}}Dh</ins>
+                                                        {{-- <del>$98.00</del> --}}
+                                                    </div>
+                                                </div>
+                                                {{-- <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div> --}}
+                                                <div class="shipping-feed-back">
+                                                    <div class="star-rating">
+                                                        <div class="rating-wrap">
+                                                            <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                        </div>
+                                                        <div class="rating-counts-wrap">
+                                                            <a href="#">(563)</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sold-items">
+                                                        <span>65</span> <span>Sold</span>
+                                                    </div>
+                                                </div>
+                                                <div class="hover-area">
+                                                    <div class="cart-button">
+                                                        <a href="#" class="button add_to_cart_button">Add to Cart</a>
+                                                    </div>
+                                                    <div class="wishlist-button">
+                                                        <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                    </div>
+                                                    {{-- <div class="compare-button">
+                                                        <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                    </div> --}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+
 							</div>
 						</div>
 					</div>
