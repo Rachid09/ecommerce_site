@@ -3018,7 +3018,7 @@ Product Type One Style Start
 
 .yith-wcwl-add-to-wishlist .wishlist-button a.add_to_wishlist::after,
 .product-wrapper .wishlist-button a.add_to_wishlist::after {
-    content: "\f111";
+    content: "\f132";
     font-size: 15px;
     font-weight: 600;
 }

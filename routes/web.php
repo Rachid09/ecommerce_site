@@ -15,10 +15,23 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get(
-    '/',
-    'HomeController@index'
-)->name('home');
+Route::group(['namespace' => 'client'], function () {
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/all-products', 'ProductsController@index')->name('all-products');
+    Route::get('/categories/{name}/{id}', 'ProductsController@categoryProducts')->name('shop.categoryProducts');
+    Route::get('/product/{name}/{id}', 'ProductsController@productDetails')->name('shop.productDetails');
+    // Route::post('/store', 'LanguagesController@store')->name('');
+    // Route::get('/edit/{id}', 'LanguagesController@edit')->name('');
+    // Route::post('/update/{id}', 'LanguagesController@update')->name('');
+});
+
+// Route::get(
+//     '/',
+//     'HomeController@index'
+// )->name('shop.home');
+// Route::get('/shop', function () {
+//     return view('shop.AllProducts');
+// });
 
 
 
@@ -133,8 +146,10 @@ Route::group(['prefix' => 'seller', 'namespace' => 'seller', 'middleware' => 'au
         Route::post('/update/{id}', 'ProductController@update')->name('seller.stock.product.update');
         Route::get('delete/{id}', 'ProductController@destroy')->name('seller.stock.product.delete');
         Route::get('changeStatus/{id}', 'ProductController@changeStatus')->name('seller.stock.product.status');
-        Route::get('addImages/{id}', 'ProductController@getFormAddImages')->name('seller.stock.product.addImages');
-        Route::post('addImages/{id}', 'ProductController@addImages')->name('seller.stock.product.addImages');
+        Route::get('addImages/{id}', 'ProductController@getFormAddImages')->name('seller.stock.product.images');
+        Route::post('addImages/{id}', 'ProductController@addImages')->name('seller.stock.product.storeImages');
+        Route::get('/{prod_id}/changeImageStatus/{id}', 'ProductController@changeImageStatus')->name('seller.stock.product.changeImageStatus');
+        Route::get('/{prod_id}/deleteImage/{id}', 'ProductController@destroyImage')->name('seller.stock.product.deleteImage');
     });
 
     ######################### brgin store Routes ########################

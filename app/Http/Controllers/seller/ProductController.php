@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use App\Models\Seller;
 use App\Models\Product;
+use App\Models\ProductsImage;
 use Illuminate\Support\Str;
 use DB;
 use Auth;
@@ -18,8 +19,10 @@ class ProductController extends Controller
     public function index()
     {
         $id = Auth::user()->id;
+        // print_r($id);
+        // die;
         $maincategories = Seller::find($id)->maincategory()->orderBy('libelle')->get();
-        $products = Product::with(['seller', 'maincategory'])->selection()->get();
+        $products = Product::with(['seller', 'maincategory'])->where(['seller_id' => $id])->selection()->get();
         return view('seller.stock.index', compact('products'));
     }
 
@@ -187,10 +190,10 @@ class ProductController extends Controller
             unlink($image); //delete from folder
             // $maincategory->categories()->delete();
             $product->delete();
-            return redirect()->route('seller.stock.products')->with(['success' => 'تم حذف التاجر بنجاح']);
+            return redirect()->back()->with(['success' => 'les images ont été ajouter avec succès']);
         } catch (\Exception $ex) {
             return $ex;
-            return redirect()->route('seller.stock.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->back()->with(['error' => 'un probléme est survenu']);
         }
     }
 
@@ -215,13 +218,92 @@ class ProductController extends Controller
     public function getFormAddImages($id)
     {
 
-        $product = Product::with(['productImages'])->where(['id' => $id])->get();
-        $productArray = json_decode(json_encode($product));
+        $product = Product::with(['productImages'])->where(['id' => $id])->selection()->first();
+        // $product = Product::find($id)->with('productImages');
+        $productArray = json_decode(json_encode($product), true);
 
         // echo '<pre>';
         // print_r($productArray);
         // die;
 
         return view('seller.stock.addImages')->with(compact('productArray'));
+    }
+
+    public function addImages(Request $request, $id)
+    {
+
+        try {
+            if (!$request->has('status'))
+                $request->request->add(['status' => 0]);
+            else
+                $request->request->add(['status' => 1]);
+
+            if ($request->hasFile('images')) {
+                $images = $request->file('images');
+                // echo '<pre>';
+                // print_r($images);
+
+
+                foreach ($images as $key => $image) {
+                    $filePath = uploadImage('products', $image);
+
+                    $Product = ProductsImage::create([
+                        'product_id' => $id,
+                        'product_image' => $filePath,
+                        'status' => $request->status
+                    ]);
+                }
+            };
+            return redirect()->route('seller.stock.product.images', $id)->with(['success' => 'les images ont été ajouter avec succès']);
+        } catch (\Exception $ex) {
+            return $ex;
+            return redirect()->route('seller.stock.product.images', $id)->with(['error' => 'les images ont été ajouter avec succès']);
+        }
+    }
+
+
+
+    public function changeImageStatus($prod_id, $id)
+    {
+
+        try {
+            $image = ProductsImage::find($id);
+
+            if (!$image)
+                return redirect()->route('seller.stock.product.images', $prod_id)->with(['error' => 'هذا التاجر غير موجود ']);
+
+            $status =  $image->status  == 0 ? 1 : 0;
+
+            $image->update(['status' => $status]);
+
+            return redirect()->route('seller.stock.product.images', $prod_id)->with(['success' => ' تم تغيير الحالة بنجاح ']);
+        } catch (\Exception $ex) {
+            return redirect()->route('seller.stock.product.images', $prod_id)->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+        }
+    }
+
+    public function destroyImage($prod_id, $id)
+    {
+
+        try {
+            $product = ProductsImage::find($id);
+            if (!$product)
+                return redirect()->route('seller.stock.product.images')->with(['error' => 'هذا التاجر غير موجود ']);
+
+            // $Sellers = $Seller->Sellers();
+            // if (isset($Sellers) && $Sellers->count() > 0) {
+            //     return redirect()->route('admin.maincategories')->with(['error' => 'لأ يمكن حذف هذا القسم  ']);
+            // }
+
+            $image = Str::after($product->product_image, 'public/assets/');
+            $image = base_path('public/assets/' . $image);
+            unlink($image); //delete from folder
+            // $maincategory->categories()->delete();
+            $product->delete();
+            return redirect()->route('seller.stock.product.images', $prod_id)->with(['success' => 'les images ont été ajouter avec succès']);
+        } catch (\Exception $ex) {
+            return $ex;
+            return redirect()->route('seller.stock.product.images', $prod_id)->with(['error' => 'les images ont été ajouter avec succès']);
+        }
     }
 }

@@ -1,13 +1,17 @@
 @font-face {
     font-family: "flaticon";
-    src: url("./flaticon.ttf?c80b7e90ba17b5c33e626bbaa87af102") format("truetype"),
-url("./flaticon.woff?c80b7e90ba17b5c33e626bbaa87af102") format("woff"),
-url("./flaticon.woff2?c80b7e90ba17b5c33e626bbaa87af102") format("woff2"),
-url("./flaticon.eot?c80b7e90ba17b5c33e626bbaa87af102#iefix") format("embedded-opentype"),
-url("./flaticon.svg?c80b7e90ba17b5c33e626bbaa87af102#flaticon") format("svg");
+    src: url("./flaticon.ttf?c80b7e90ba17b5c33e626bbaa87af102")
+            format("truetype"),
+        url("./flaticon.woff?c80b7e90ba17b5c33e626bbaa87af102") format("woff"),
+        url("./flaticon.woff2?c80b7e90ba17b5c33e626bbaa87af102") format("woff2"),
+        url("./flaticon.eot?c80b7e90ba17b5c33e626bbaa87af102#iefix")
+            format("embedded-opentype"),
+        url("./flaticon.svg?c80b7e90ba17b5c33e626bbaa87af102#flaticon")
+            format("svg");
 }
 
-i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+i[class^="flaticon-"]:before,
+i[class*=" flaticon-"]:before {
     font-family: flaticon !important;
     font-style: normal;
     font-weight: normal !important;

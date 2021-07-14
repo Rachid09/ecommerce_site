@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="{{asset("public/css/layerslider.css")}}">
     <link rel="stylesheet" href="{{asset("public/css/template.css")}}">
     <link rel="stylesheet" href="{{asset("public/css/style.css")}}">
+     @yield('custom-css')
     <link rel="stylesheet" href="{{asset("public/css/category/cosmetic-store.css")}}">
     <link rel="stylesheet" href="{{asset("public/css/jquery.fancybox.min.css")}}">
     {{-- <link rel="stylesheet" href="{{asset("public/css/category/minimal.css")}}">
@@ -47,10 +48,11 @@
 <body>
     <div id="page_wrapper" class="bg-white">
         <header class="ecommerce-header">
-            @include('client.includes.top-header')
-            @include('client.includes.bottom-header')
-            @include('client.includes.mobile-header')
+            @yield('top-header')
+            @yield('bottom-header')
+            @yield('mobile-header')
         </header>
+        @yield('breadcrumb')
         @yield('content')
 
         @include('client.includes.newsletter')
@@ -69,8 +71,10 @@
     <script src="{{asset("public/js/custom.js")}}"></script>
     <script src="{{asset("public/js/vendor/jquery.fancybox.min.js")}}"></script>
     {{-- <script src="{{asset("public/js/vendor/mixitup.min.js")}}"></script> --}}
-    {{-- <script src="{{asset("public/admin/vendors/js/forms/select/select2.full.min.js")}}" type="text/javascript"></script>
-    <script src="{{asset("public/admin/js/scripts/forms/select/form-select2.js")}}" type="text/javascript"></script> --}}
+    <script src="{{asset('public/js/vendor/jquery.elevatezoom.js')}}"></script>
+    <script src="{{asset("public/admin/vendors/js/forms/select/select2.full.min.js")}}" type="text/javascript"></script>
+    <script src="{{asset("public/admin/js/scripts/forms/select/form-select2.js")}}" type="text/javascript"></script>
+     @yield('zoomScript')
       <script>
         $(document).ready(function() {
             $('#slider').layerSlider({

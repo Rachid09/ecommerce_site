@@ -80,7 +80,7 @@
 
                                                         <a href="{{route('seller.stock.product.delete',$product->id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">Supprimer</a>
 
-                                                        <a href="{{route('seller.stock.product.addImages',$product->id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">ajouter images</a>
+                                                        <a href="{{route('seller.stock.product.images',$product->id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">ajouter images</a>
 
 
                                                         <a href="{{route('seller.stock.product.status',$product->id)}}" class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1"> @if($product -> status == 0)

@@ -19,7 +19,7 @@ class StoreController extends Controller
     {
         $id = Auth::user()->id;
         $maincategories = Seller::find($id)->maincategory()->orderBy('libelle')->get();
-        $products = Product::with(['seller', 'maincategory'])->selection()->active()->get();
+        $products = Product::with(['seller', 'maincategory'])->where(['seller_id' => $id])->selection()->active()->get();
         return view('seller.store.index', compact('products'));
     }
 

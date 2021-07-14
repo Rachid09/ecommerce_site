@@ -240,7 +240,7 @@ h6,
 }
 
 .cart-button .button.add_to_cart_button::after {
-    content: "\f10a" !important;
+    content: "\f162" !important;
 }
 
 .ecommerce-header .top-links li a {

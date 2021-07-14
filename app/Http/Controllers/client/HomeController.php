@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\client;
+
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Models\MainCategory;
@@ -20,6 +22,12 @@ class HomeController extends Controller
         $maincategories = array_slice($categoriesArray, 0, 4);
         $products_featured = Product::with(['seller', 'maincategory'])->active()->IsFeatured()->selection()->get();
         $featured = json_decode(json_encode($products_featured));
-        return view('client.home', compact('maincategories', 'categoriesArray', 'featured'));
+
+        $latest_products = Product::orderBy('id', 'Desc')->limit(4)->active()->selection()->get();
+        $latest_prod = json_decode(json_encode($latest_products));
+        // echo '<pre>';
+        // print_r($latest_prod);
+        // die;
+        return view('client.home', compact('maincategories', 'categoriesArray', 'featured', 'latest_prod'));
     }
 }

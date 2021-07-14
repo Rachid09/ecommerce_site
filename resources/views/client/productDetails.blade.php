@@ -1,28 +1,20 @@
 @extends('layouts.client')
+@section('custom-css')
+<link rel="stylesheet" href="{{asset("public/css/category/minimal.css")}}">
+@endsection
+@section('top-header')
+ @include('client.includes.shopTopHeader')
+@endsection
+@section('bottom-header')
+@endsection
+@section('mobile-header')
+@include('client.includes.shopMobileHeader')
+@endsection
+@section('breadcrumb')
+@include('client.includes.breadcrumb',['title'=>$title])
+@endsection
 
 @section('content')
-
-   <!-- breadcrumb -->
-   <div class="full-row bg-light py-5">
-            <div class="container">
-                <div class="row text-secondary">
-                    <div class="col-sm-6">
-                        <h3 class="mb-2 text-secondary">Single Shop</h3>
-                    </div>
-                    <div class="col-sm-6">
-                        <nav aria-label="breadcrumb" class="d-flex justify-content-sm-end align-items-center h-100">
-                            <ol class="breadcrumb mb-0 d-inline-flex bg-transparent p-0">
-                                <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
-                                <li class="breadcrumb-item"><a href="shop-grid-full.html">Shop</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Single Shop</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- breadcrumb -->
-
         <div class="full-row">
             <div class="container">
                 <div class="row single-product-wrapper">
@@ -196,7 +188,7 @@
                                                          title="">Grey</span>
                                                     </span>
                                                     <span class="swatch swatch-color term-maroon swatch-circle" title="Maroon" data-term="maroon">
-                                                        <span class="bigbazar-tooltip" style="background-color:#800000" 
+                                                        <span class="bigbazar-tooltip" style="background-color:#800000"
                                                          title="">Maroon</span>
                                                     </span>
                                                 </div>
@@ -731,5 +723,25 @@
         </div>
         <!--==================== Related Products Section End ====================-->
 
-    
-@endsection
+
+ @endsection
+ @section('zoomScript')
+  <!-- Initializing the slider -->
+    <script>
+        //initiate the plugin and pass the id of the div containing gallery images
+        $("#single-image-zoom").elevateZoom({
+            gallery: 'gallery_09',
+            zoomType: "inner",
+            cursor: "crosshair",
+            galleryActiveClass: 'active',
+            imageCrossfade: true,
+            loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif'
+        });
+        //pass the images to Fancybox
+        $("#single-image-zoom").bind("click", function(e) {
+            var ez = $('#single-image-zoom').data('elevateZoom');
+            $.fancybox(ez.getGalleryList());
+            return false;
+        });
+    </script>
+ @endsection

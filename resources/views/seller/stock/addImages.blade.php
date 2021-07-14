@@ -24,50 +24,69 @@
         <div class="content-body">
             <!-- DOM - jQuery events table -->
             <section id="dom">
-                <div class="row">
+              <div class="row">
                     <div class="col-12">
                         <div class="card">
-                             <div class="card-header">
-                                  <h4 class="card-title"> les information du produit </h4>
-                                  <form action="{{route('seller.stock.product.addImages',$productArray['name'])}}" method="POST" enctype="multipart/form-data">
-                                  @csrf
-                                  <table>
-                                      <tr>
-                                          <th>le nom du produit</th>
-                                          <td>{{$productArray['name']}}</td>
-                                          <td>{{$productArray['name']}}</td>
-                                      </tr>
-                                      <tr>
-                                          <th>le code du produit</th>
-                                          <td>{{$productArray['name']}}</td>
+                            @include('seller.alerts.success')
+                            @include('seller.alerts.errors')
 
-                                      </tr>
-                                      <tr>
-                                          <th>la couleur du produit</th>
-                                          <td>{{$productArray['name']}}</td>
+                            <div class="card-content collapse show">
+                                <div class="card-body card-dashboard">
+                                    <form action="{{route('seller.stock.product.storeImages',$productArray['id'])}}" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    <table class="table display nowrap table-striped table-bordered scroll-horizontal">
+                                        <thead class="">
+                                            <tr>
+                                                {{-- <th>id</th> --}}
+                                                <th> le nom du produit</th>
+                                                <th> l'image principale</th>
+                                                <th>le code du produit</th>
+                                                <th>la couleur du produit</th>
+                                                <th>les actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
-                                      </tr>
-                                      <tr>
+                                            @isset($productArray)
 
-                                          <td>
-                                              <input type="file" name="images[]" id="product_images" multiple="">
-                                          </td>
 
-                                      </tr>
-                                  </table>
+                                            <tr>
+                                                <td>{{$productArray['name']}}</td>
 
-                                </form>
-                                    <button type="submit" class="btn-infos">
-                                        add images
+                                                <td><img style="width: 150px; height: 100px;"
+                                                        src="{{$productArray['main_image']}}"></td>
+
+                                                        <td>{{$productArray['code']}}</td>
+                                                        <td>{{$productArray['color']}}</td>
+                                                <td>
+                                                   <input type="file" name="images[]" multiple="" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1" id="">
+                                                </input>
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+
+                                            @endisset
+
+
+                                        </tbody>
+
+                                    </table>
+                                     <button type="submit" class="btn btn-primary" >
+                                                <i class="la la-check-square-o"></i> حفظ
                                     </button>
-                               </div>
 
+                                    </form>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
 
-                {{-- <div class="row">
+                <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
@@ -83,8 +102,6 @@
                                 </div>
                             </div>
 
-                            @include('seller.alerts.success')
-                            @include('seller.alerts.errors')
 
                             <div class="card-content collapse show">
                                 <div class="card-body card-dashboard">
@@ -98,25 +115,26 @@
                                         </thead>
                                         <tbody>
 
-                                            @isset($product)
+                                            @isset($productArray)
                                             @php
                                             $i=1
                                             @endphp
+                                            @foreach ($productArray['product_images'] as $img)
                                             <tr>
                                                 <td>{{$i}}</td>
-                                                <td>{{$product ->productImages->product_image }}</td>
+
                                                 <td><img style="width: 150px; height: 100px;"
-                                                        src="{{$product -> main_image}}"></td>
+                                                        src="{{$img['product_image']}}"></td>
                                                 <td>
                                                     <div class="btn-group" role="group" aria-label="Basic example">
 
-                                                        <a href="{{route('seller.stock.product.delete',$product->id)}}"
+                                                        <a href="{{route('seller.stock.product.deleteImage',['prod_id'=>$productArray['id'],'id'=>$img['id']])}}"
                                                             class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">Supprimer</a>
 
 
-                                                        <a href="{{route('seller.stock.product.status',$product->id)}}"
+                                                        <a href="{{route('seller.stock.product.changeImageStatus',['prod_id'=>$productArray['id'],'id'=>$img['id']])}}"
                                                             class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1">
-                                                            @if($product -> status == 0)
+                                                            @if($img['status'] == 0)
                                                             activer
                                                             @else
                                                             desactiver
@@ -124,6 +142,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
+                                            @endforeach
                                             @php
                                             $i++
                                             @endphp
@@ -137,7 +156,7 @@
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
             </section>
         </div>
     </div>
