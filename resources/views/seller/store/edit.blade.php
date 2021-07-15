@@ -164,7 +164,7 @@
                                                         </div>
 
 
-                                                        @error('color')
+                                                        @error('colors')
                                                         <span class="text-danger"> {{$message}}</span>
                                                         @enderror
                                                     </div>

@@ -50,7 +50,7 @@
                                                 <th>le nom du produit</th>
                                                 <th> l'image</th>
                                                 <th>code du produit </th>
-                                                <th>la couleur</th>
+                                                {{-- <th>la couleur</th> --}}
                                                  <th>prix</th>
                                                 <th> la categorie du produit </th>
                                                 <th>les actions</th>
@@ -62,18 +62,19 @@
                                             @php
                                                 $i=1
                                             @endphp
-                                            @foreach($products as  $product)
+                                            @foreach($products as $index=> $product)
                                             <tr>  <td>{{$i}}</td>
                                                 <td>{{$product -> name}}</td>
                                                 <td><img style="width: 150px; height: 100px;" src="{{$product -> main_image}}"></td>
 
                                                 <td>{{$product -> code}}</td>
-                                                <td> {{$product -> color}}</td>
+                                                {{-- <td> {{$product -> color}}</td> --}}
                                                  <td>{{$product -> price}}</td>
 
                                                 <td> {{$product -> maincategory->libelle}}</td>
                                                 <td>
                                                     <div class="btn-group" role="group" aria-label="Basic example">
+                                                          <a href="" class="btn btn-outline-info btn-min-width box-shadow-3 mr-1 mb-1" data-toggle="modal" data-target="#headingDefault{{$index}}">les details</a>
 
                                                         <a href="{{route('seller.stock.product.edit',$product ->id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">Modifier</a>
 
@@ -89,6 +90,32 @@
                                                             desactiver
                                                             @endif</a>
                                                     </div>
+
+
+
+                                                      <div class="modal fade text-left" id="headingDefault{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel25" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h2 class="modal-title text-text-bold-600" id="myModalLabel25"> les couleurs</h2>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+
+                                                                        @foreach($product -> colors as $color)
+                                                                        <div class="badge badge-primary">{{$color->name}}</div>
+                                                                        @endforeach
+
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Close</button>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                 </td>
                                             </tr>
                                            @php
@@ -100,6 +127,8 @@
 
                                         </tbody>
                                     </table>
+
+
 
                                 </div>
                             </div>

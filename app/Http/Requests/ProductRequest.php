@@ -27,7 +27,7 @@ class ProductRequest extends FormRequest
             'main_image' => 'required_without:id|mimes:jpg,jpeg,png',
             'name' => 'required|string|max:100',
             'code' => 'required|string|max:100',
-            'color' => 'required|max:100',
+            'colors' => 'required',
             'price'  => 'required|max:100',
             'description'  => 'required|string',
             'quantite'   => 'required|max:200',

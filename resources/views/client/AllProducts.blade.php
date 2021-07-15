@@ -680,7 +680,7 @@
                                     <div class="product type-product">
                                         <div class="product-wrapper">
                                             <div class="product-image">
-                                                <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{$item->main_image}}" alt="Product Image"></a>
+                                                <a href="{{route('shop.productDetails',['name'=>$item->name,'id'=>$item->id])}}" class="woocommerce-LoopProduct-link"><img src="{{$item->main_image}}" alt="Product Image"></a>
                                                 <div class="product-variations">
                                                     <span class="active"><a href="#" style="background-color: #b78269;"></a></span>
                                                     <span><a href="#" style="background-color: #f1cc4e;"></a></span>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\seller;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
+use App\Models\Color;
 use App\Models\Seller;
 use App\Models\Product;
 use App\Models\ProductsImage;
@@ -39,13 +40,18 @@ class ProductController extends Controller
         // print_r($maincategories);
         // die;
 
-        $colors = array('rouge', 'vert', 'blanc', 'jaune', 'marron', 'noir');
+        $colors = Color::get();
+        // echo '<pre>';
+        // print_r($colors);
+        // die;
+
+
         return view('seller.stock.create')->with(compact('categories', 'colors'));
     }
 
     public function store(ProductRequest $request)
     {
-        // return $request;
+        // return $request->all();
 
 
         try {
@@ -67,7 +73,6 @@ class ProductController extends Controller
                 'seller_id' => $request->seller_id,
                 'name' => $request->name,
                 'code' => $request->code,
-                'color' => $request->color,
                 'price' => $request->price,
                 'discount' => $request->discount,
                 'stock' => $request->quantite,
@@ -75,6 +80,7 @@ class ProductController extends Controller
                 'main_image' =>  $filePath,
                 'status' => $request->status,
             ]);
+            $Product->colors()->attach($request->colors);
 
 
             return redirect()->route('seller.stock.products')->with(['success' => 'تم الحفظ بنجاح']);
@@ -100,7 +106,7 @@ class ProductController extends Controller
             // $categories = MainCategory::where('translation_of', 0)->active()->get();
             $maincategories = Seller::find($seller_id)->maincategory()->orderBy('libelle')->get();
             $categories = json_decode(json_encode($maincategories));
-            $colors = array('rouge', 'vert', 'blanc', 'jaune', 'marron', 'noir');
+            $colors = Color::get();
 
             return view('seller.stock.edit', compact('product', 'categories', 'colors'));
         } catch (\Exception $exception) {
@@ -145,19 +151,19 @@ class ProductController extends Controller
 
 
             // update date
-            Product::where('id', $id)
+            $Product = Product::where('id', $id)
                 ->update([
                     'maincategory_id' => $request->maincategory_id,
                     'seller_id' => $request->seller_id,
                     'name' => $request->name,
                     'code' => $request->code,
-                    'color' => $request->color,
                     'price' => $request->price,
                     'discount' => $request->discount,
                     'stock' => $request->quantite,
                     'description' => $request->description,
                     'status' => $request->status,
                 ]);
+            $product->colors()->sync($request->colors);
 
 
 

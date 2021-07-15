@@ -48,7 +48,7 @@
                                                 <th>le nom du produit</th>
                                                 <th> l'image</th>
                                                 <th>code du produit </th>
-                                                <th>la couleur</th>
+                                                {{-- <th>la couleur</th> --}}
                                                  <th>prix</th>
                                                 <th> la categorie du produit </th>
                                                 <th>les actions</th>
@@ -66,7 +66,7 @@
                                                 <td><img style="width: 150px; height: 100px;" src="{{$product -> main_image}}"></td>
 
                                                 <td>{{$product -> code}}</td>
-                                                <td> {{$product -> color}}</td>
+                                                {{-- <td> {{$product -> color}}</td> --}}
                                                  <td>{{$product -> price}}</td>
 
                                                 <td> {{$product -> maincategory->libelle}}</td>

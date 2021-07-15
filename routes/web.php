@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+// use Cart;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +18,18 @@ use Illuminate\Http\Request;
 
 Route::group(['namespace' => 'client'], function () {
     Route::get('/', 'HomeController@index')->name('home');
+    ####################### Product routes ############################
     Route::get('/all-products', 'ProductsController@index')->name('all-products');
     Route::get('/categories/{name}/{id}', 'ProductsController@categoryProducts')->name('shop.categoryProducts');
     Route::get('/product/{name}/{id}', 'ProductsController@productDetails')->name('shop.productDetails');
-    // Route::post('/store', 'LanguagesController@store')->name('');
-    // Route::get('/edit/{id}', 'LanguagesController@edit')->name('');
+
+    ###################### Cart Routes ############################
+
+    // Route::post('/shopping-cart', 'CartController@index')->name('shopping-cart');
+    Route::post('/shopping-cart/ajouter', 'CartController@store')->name('shopping-cart.add');
+    Route::get('/shopping-cart/empty', function () {
+        Cart::destroy();
+    });
     // Route::post('/update/{id}', 'LanguagesController@update')->name('');
 });
 

@@ -118,7 +118,7 @@
                                     <div class="product type-product">
                                         <div class="product-wrapper">
                                             <div class="product-image">
-                                                <a href="#" class="woocommerce-LoopProduct-link"><img src="{{$item->main_image}}" alt="Product Image"></a>
+                                                <a href="{{route('shop.productDetails',['name'=>$item->name,'id'=>$item->id])}}" class="woocommerce-LoopProduct-link"><img src="{{$item->main_image}}" alt="Product Image"></a>
                                                 <div class="product-labels">
                                                     <div class="badge1"><span>Nouveau</span></div>
                                                 </div>

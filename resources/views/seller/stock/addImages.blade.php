@@ -41,7 +41,7 @@
                                                 <th> le nom du produit</th>
                                                 <th> l'image principale</th>
                                                 <th>le code du produit</th>
-                                                <th>la couleur du produit</th>
+                                                {{-- <th>la couleur du produit</th> --}}
                                                 <th>les actions</th>
                                             </tr>
                                         </thead>
@@ -57,7 +57,7 @@
                                                         src="{{$productArray['main_image']}}"></td>
 
                                                         <td>{{$productArray['code']}}</td>
-                                                        <td>{{$productArray['color']}}</td>
+                                                        {{-- <td>{{$productArray['color']}}</td> --}}
                                                 <td>
                                                    <input type="file" name="images[]" multiple="" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1" id="">
                                                 </input>

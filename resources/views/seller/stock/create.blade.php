@@ -129,7 +129,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
+                                                    {{-- <div class="form-group">
                                                         <label for="projectinput2"> choisissez la couleur
                                                         </label>
                                                         <div class="form-group">
@@ -149,7 +149,23 @@
                                                         @error('color')
                                                         <span class="text-danger"> {{$message}}</span>
                                                         @enderror
+                                                    </div> --}}
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">  couleur </label>
+                                                        <select name="colors[]" class="select2 form-control" multiple>
+                                                            <optgroup label="choisissez une couleur ">
+                                                                @if($colors && $colors -> count() > 0)
+                                                                @foreach($colors as $color)
+                                                                <option value="{{$color -> id }}">{{$color -> name}}</option>
+                                                                @endforeach
+                                                                @endif
+                                                            </optgroup>
+                                                        </select>
+                                                        @error('colors')
+                                                        <span class="text-danger"> {{$message}}</span>
+                                                        @enderror
                                                     </div>
+
                                                 </div>
 
 

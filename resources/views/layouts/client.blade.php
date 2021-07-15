@@ -68,13 +68,13 @@
     <script src="{{asset("public/js/vendor/owl.carousel.min.js")}}"></script>
     <script src="{{asset("public/js/vendor/wow.js")}}"></script>
     <script src="{{asset("public/js/vendor/jquery.countdown.js")}}"></script>
+    <script src="{{asset('public/js/vendor/jquery.elevatezoom.js')}}"></script>
     <script src="{{asset("public/js/custom.js")}}"></script>
     <script src="{{asset("public/js/vendor/jquery.fancybox.min.js")}}"></script>
+    @yield('zoomScript')
     {{-- <script src="{{asset("public/js/vendor/mixitup.min.js")}}"></script> --}}
-    <script src="{{asset('public/js/vendor/jquery.elevatezoom.js')}}"></script>
     <script src="{{asset("public/admin/vendors/js/forms/select/select2.full.min.js")}}" type="text/javascript"></script>
     <script src="{{asset("public/admin/js/scripts/forms/select/form-select2.js")}}" type="text/javascript"></script>
-     @yield('zoomScript')
       <script>
         $(document).ready(function() {
             $('#slider').layerSlider({

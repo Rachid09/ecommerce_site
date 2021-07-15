@@ -17,7 +17,7 @@ class Product extends Model
 
 
     protected $fillable = [
-        'maincategory_id', 'seller_id', 'name', 'code', 'color',  'price',  'discount', 'stock',
+        'maincategory_id', 'seller_id', 'name', 'code', 'price',  'discount', 'stock',
         'description', 'main_image', 'is_featured', 'status', 'created_at', 'updated_at'
     ];
 
@@ -49,7 +49,6 @@ class Product extends Model
             'seller_id',
             'name',
             'code',
-            'color',
             'price',
             'discount',
             'description',
@@ -81,5 +80,21 @@ class Product extends Model
     public function productImages()
     {
         return $this->hasMany(ProductsImage::class, 'product_id', 'id');
+    }
+
+
+
+
+    public function scopeCategoryIdSelection($query)
+    {
+        return $query->select(
+            'maincategory_id'
+        );
+    }
+
+    public function colors()
+    {
+
+        return $this->belongsToMany('App\Models\Color', 'color_product', 'product_id', 'color_id');
     }
 }

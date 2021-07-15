@@ -36,12 +36,14 @@ class productsController extends Controller
     }
     public function productDetails($name, $id)
     {
-        $categories = MainCategory::selection()->active()->get();
-        $totalProducts = Product::where(['maincategory_id' => $id])->selection()->active()->count();
-        $products = Product::where(['maincategory_id' => $id])->selection()->active()->get();
-        $latest_products = Product::orderBy('id', 'Desc')->limit(4)->active()->selection()->get();
+        $categoryId = Product::where(['id' => $id])->CategoryIdSelection()->first()->toArray();
+        $cat_id = $categoryId['maincategory_id'];
+        $related_products = Product::where(['maincategory_id' => $cat_id])->selection()->active()->get()->toArray();
+        $product = Product::with(['maincategory', 'productImages', 'colors'])->where(['id' => $id])->selection()->first()->toArray();
+        // echo '<pre>';
+        // print_r($product);
+        // die;
         $title = $name;
-        $navbarTitle = $name;
-        return view('client.AllProducts', compact('products', 'categories', 'totalProducts', 'title', 'navbarTitle', 'latest_products'));
+        return view('client.productDetails', compact('product', 'related_products', 'title'));
     }
 }

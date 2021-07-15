@@ -11,7 +11,8 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('seller.dashboard')}}">Tableau de bord </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{route('seller.stock.products')}}">List des produits </a>
+                            <li class="breadcrumb-item"><a href="{{route('seller.stock.products')}}">List des produits
+                                </a>
                             </li>
                             <li class="breadcrumb-item active"> Modifier un produit
                             </li>
@@ -42,8 +43,8 @@
                             @include('seller.includes.alerts.errors')
                             <div class="card-content collapse show">
                                 <div class="card-body">
-                                    <form class="form" action="{{route('seller.stock.product.update',$product->id)}}" method="POST"
-                                        enctype="multipart/form-data">
+                                    <form class="form" action="{{route('seller.stock.product.update',$product->id)}}"
+                                        method="POST" enctype="multipart/form-data">
 
                                         @csrf
                                         <input type="hidden" name="seller_id" value="{{$id = Auth::user()->id}}">
@@ -51,7 +52,8 @@
 
                                         <div class="form-group">
                                             <div class="text-center">
-                                                <img src="{{$product -> main_image}}" class="rounded-circle  height-150" alt="صورة القسم  ">
+                                                <img src="{{$product -> main_image}}" class="rounded-circle  height-150"
+                                                    alt="صورة القسم  ">
                                             </div>
                                         </div>
 
@@ -76,8 +78,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="projectinput1"> nom du produit </label>
-                                                        <input type="text"  id="name" class="form-control"
-                                                             name="name"    value="{{$product->name}}">
+                                                        <input type="text" id="name" class="form-control" name="name"
+                                                            value="{{$product->name}}">
                                                         @error("name")
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -130,8 +132,8 @@
                                                 <div class="col-md-6 ">
                                                     <div class="form-group">
                                                         <label for="projectinput1"> le prix du produit </label>
-                                                        <input type="text" id="price" value="{{$product->price}}" class="form-control"
-                                                            placeholder="  " name="price">
+                                                        <input type="text" id="price" value="{{$product->price}}"
+                                                            class="form-control" placeholder="  " name="price">
 
                                                         @error("code")
                                                         <span class="text-danger"> {{$message}}</span>
@@ -145,7 +147,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
+                                                    {{-- <div class="form-group">
                                                         <label for="projectinput2"> choisissez la couleur
                                                         </label>
                                                         <div class="form-group">
@@ -154,9 +156,10 @@
                                                                 <option value="">choisir</option>
                                                                 @if(!empty($colors))
                                                                 @foreach($colors as $color)
-                                                                <option value="{{$color}}" @if ($color==$product->color) selected
+                                                                <option value="{{$color}}" @if ($color==$product->color)
+                                                                    selected
 
-                                                                @endif>
+                                                                    @endif>
                                                                     {{$color}}</option>
                                                                 @endforeach
                                                                 @endif
@@ -164,7 +167,30 @@
                                                         </div>
 
 
+
                                                         @error('color')
+                                                        <span class="text-danger"> {{$message}}</span>
+                                                        @enderror
+                                                    </div> --}}
+
+
+                                                   <div class="form-group">
+                                                        <label for="projectinput2">  la couleur </label>
+                                                        <select name="colors[]" class="select2 form-control" multiple>
+                                                            <optgroup label="choisissez une couleur ">
+                                                                @if($colors && $colors -> count() > 0)
+                                                                @foreach($colors as $color)
+                                                                <option value="{{$color -> id }}" @foreach($product -> colors as $col)
+                                                                    @if ($col->id == $color->id)
+                                                                    selected
+                                                                    @endif
+                                                                    @endforeach
+                                                                    >{{$color -> name}}</option>
+                                                                @endforeach
+                                                                @endif
+                                                            </optgroup>
+                                                        </select>
+                                                        @error('colors')
                                                         <span class="text-danger"> {{$message}}</span>
                                                         @enderror
                                                     </div>
@@ -207,7 +233,8 @@
                                                     <div class="form-group">
                                                         <label for="projectinput1"> quantité </label>
                                                         <input type="text" id="stock" class="form-control"
-                                                            placeholder=" quantite du produit " name="quantite" value="{{$product->stock}}">
+                                                            placeholder=" quantite du produit " name="quantite"
+                                                            value="{{$product->stock}}">
 
                                                         @error("quantite")
                                                         <span class="text-danger"> {{$message}}</span>
@@ -221,7 +248,8 @@
                                                     <div class="form-group mt-1">
                                                         <input type="checkbox" value="1" name="status"
                                                             id="switcheryColor4" class="switchery" data-color="success"
-                                                            @if($product-> status == 1)checked @endif />
+                                                            @if($product-> status ==
+                                                        1)checked @endif />
                                                         <label for="switcheryColor4" class="card-title ml-1">status
                                                         </label>
 
