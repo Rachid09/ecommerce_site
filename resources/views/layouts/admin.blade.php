@@ -117,68 +117,77 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{asset('public/js/admin.script.js')}}" ></script>
     <!-- BEGIN VENDOR JS-->
-    <script src={{asset("public/admin/vendors/js/vendors.min.js")}} type="text/javascript"></script>
     {{-- <script src={{asset("public/js/bootstrap.min.js.map")}} type="text/javascript"></script> --}}
     <!-- BEGIN VENDOR JS-->
-    <script src={{asset("public/admin/vendors/js/tables/datatable/datatables.min.js")}} type="text/javascript"></script>
-    <script src={{asset("public/admin/vendors/js/tables/datatable/dataTables.buttons.min.js")}} type="text/javascript"></script>
-    <script src={{asset("public/admin/js/scripts/tables/datatables/datatable-basic.js")}} type="text/javascript"></script>
-    <script src={{asset("public/admin/vendors/js/forms/toggle/bootstrap-switch.min.js")}} type="text/javascript"></script>
-    <script src={{asset("public/admin/vendors/js/forms/toggle/bootstrap-checkbox.min.js")}} type="text/javascript"></script>
-    <script src={{asset("public/admin/vendors/js/forms/toggle/switchery.min.js")}} type="text/javascript"></script>
-    <script src={{asset("public/admin/js/scripts/forms/switch.js")}} type="text/javascript"></script>
-    <script src={{asset("public/admin/vendors/js/forms/select/select2.full.min.js")}} type="text/javascript"></script>
-    <script src={{asset("public/admin/js/scripts/forms/select/form-select2.js")}} type="text/javascript"></script>
+
 
     <!-- BEGIN PAGE VENDOR JS-->
-    <script src={{asset("public/admin/vendors/js/charts/chart.min.js")}} type="text/javascript"></script>
+    {{-- <script src={{asset("public/admin/vendors/js/charts/chart.min.js")}} type="text/javascript"></script>
     <script src={{asset("public/admin/vendors/js/charts/echarts/echarts.js")}} type="text/javascript"></script>
 
     <script src={{asset("public/admin/vendors/js/extensions/datedropper.min.js")}} type="text/javascript"></script>
     <script src={{asset("public/admin/vendors/js/extensions/timedropper.min.js")}} type="text/javascript"></script>
 
-    <script src={{asset("public/admin/vendors/js/forms/icheck/icheck.min.js")}} type="text/javascript"></script>
-    <script src={{asset("public/admin/js/scripts/pages/chat-application.js")}} type="text/javascript"></script>
+    <script src={{asset("public/admin/vendors/js/forms/icheck/icheck.min.js")}} type="text/javascript"></script> --}}
+    {{-- <script src={{asset("public/admin/js/scripts/pages/chat-application.js")}} type="text/javascript"></script> --}}
     <!-- END PAGE VENDOR JS-->
     <!-- BEGIN MODERN JS-->
-    <script src={{asset("public/admin/js/core/app-menu.js")}} type="text/javascript"></script>
+    {{-- <script src={{asset("public/admin/js/core/app-menu.js")}} type="text/javascript"></script>
     <script src={{asset("public/admin/js/core/app.js")}} type="text/javascript"></script>
-    <script src={{asset("public/admin/js/scripts/customizer.js")}} type="text/javascript"></script>
+    <script src={{asset("public/admin/js/scripts/customizer.js")}} type="text/javascript"></script> --}}
     <!-- END MODERN JS-->
     <!-- BEGIN PAGE LEVEL JS-->
     {{-- <script src={{asset("public/admin/js/scripts/pages/dashboard-crypto.js")}} type="text/javascript"></script> --}}
 
 
-
-    <script src={{asset("public/admin/js/scripts/extensions/date-time-dropper.js")}} type="text/javascript"></script>
+{{--
     <!-- END PAGE LEVEL JS-->
 
     <script src={{asset("public/admin/js/scripts/forms/checkbox-radio.js")}} type="text/javascript"></script>
 
     <script src={{asset("public/admin/js/scripts/modal/components-modal.js")}} type="text/javascript">
-    </script>
+    </script> --}}
 
 
- <!-- BEGIN VENDOR JS-->
+<!-- BEGIN VENDOR JS-->
+<script src={{asset("public/admin/vendors/js/vendors.min.js")}} type="text/javascript"></script>
+<!-- BEGIN VENDOR JS-->
+<!-- BEGIN PAGE VENDOR JS-->
+<script src="{{asset('public/admin/vendors/js/charts/chartist.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('public/admin/vendors/js/charts/chartist-plugin-tooltip.min.js')}}"
+type="text/javascript"></script>
+<script src="{{asset('public/admin/vendors/js/charts/raphael-min.js')}}" type="text/javascript"></script>
+<script src="{{asset('public/admin/vendors/js/charts/morris.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('public/admin/vendors/js/timeline/horizontal-timeline.js')}}" type="text/javascript"></script>
+<!-- END PAGE VENDOR JS-->
+<!-- BEGIN MODERN JS-->
+<script src="{{asset('public/admin/js/core/app-menu.js')}}" type="text/javascript"></script>
+<script src="{{asset('public/admin/js/core/app.js')}}" type="text/javascript"></script>
+<script src="{{asset('public/admin/js/scripts/customizer.js')}}" type="text/javascript"></script>
+<!-- END MODERN JS-->
+<!-- BEGIN PAGE LEVEL JS-->
+<script src="{{asset('public/admin/js/scripts/pages/dashboard-ecommerce.js')}}" type="text/javascript"></script>
 
-  <!-- BEGIN VENDOR JS-->
-  <!-- BEGIN PAGE VENDOR JS-->
-  <script src="{{asset('public/admin/vendors/js/charts/chartist.min.js')}}" type="text/javascript"></script>
-  <script src="{{asset('public/admin/vendors/js/charts/chartist-plugin-tooltip.min.js')}}"
-  type="text/javascript"></script>
-  <script src="{{asset('public/admin/vendors/js/charts/raphael-min.js')}}" type="text/javascript"></script>
-  <script src="{{asset('public/admin/vendors/js/charts/morris.min.js')}}" type="text/javascript"></script>
-  <script src="{{asset('public/admin/vendors/js/timeline/horizontal-timeline.js')}}" type="text/javascript"></script>
-  <!-- END PAGE VENDOR JS-->
-  <!-- BEGIN MODERN JS-->
-  <script src="{{asset('public/admin/js/core/app-menu.js')}}" type="text/javascript"></script>
-  <script src="{{asset('public/admin/js/core/app.js')}}" type="text/javascript"></script>
-  <script src="{{asset('public/admin/js/scripts/customizer.js')}}" type="text/javascript"></script>
-  <!-- END MODERN JS-->
-  <!-- BEGIN PAGE LEVEL JS-->
-  <script src="{{asset('public/admin/js/scripts/pages/dashboard-ecommerce.js')}}" type="text/javascript"></script>
 
-    <script>
+<script src="{{asset("public/admin/vendors/js/tables/datatable/datatables.min.js")}}" type="text/javascript"></script>
+<script src="{{asset("public/admin/vendors/js/tables/datatable/dataTables.buttons.min.js")}}" type="text/javascript"></script>
+<script src="{{asset("public/admin/js/scripts/tables/datatables/datatable-basic.js")}}" type="text/javascript"></script>
+<script src="{{asset("public/admin/vendors/js/forms/toggle/bootstrap-switch.min.js")}}" type="text/javascript"></script>
+<script src="{{asset("public/admin/vendors/js/forms/toggle/bootstrap-checkbox.min.js")}}" type="text/javascript"></script>
+<script src="{{asset("public/admin/vendors/js/forms/toggle/switchery.min.js")}}" type="text/javascript"></script>
+<script src="{{asset("public/admin/js/scripts/forms/switch.js")}}" type="text/javascript"></script>
+<script src="{{asset("public/admin/vendors/js/forms/select/select2.full.min.js")}}" type="text/javascript"></script>
+<script src="{{asset("public/admin/js/scripts/forms/select/form-select2.js")}}" type="text/javascript"></script>
+<script src="{{asset("public/admin/vendors/js/charts/chart.min.js")}}" type="text/javascript"></script>
+<script src="{{asset("public/admin/vendors/js/charts/echarts/echarts.js")}}" type="text/javascript"></script>
+
+<script src="{{asset("public/admin/js/scripts/extensions/date-time-dropper.js")}}" type="text/javascript"></script>
+<script src="{{asset("public/admin/vendors/js/extensions/datedropper.min.js")}}" type="text/javascript"></script>
+<script src="{{asset("public/admin/vendors/js/extensions/timedropper.min.js")}}" type="text/javascript"></script>
+
+    <script src="{{asset("public/admin/vendors/js/forms/icheck/icheck.min.js")}}" type="text/javascript"></script>
+
+<script>
         $('#meridians1').timeDropper({
             meridians: true,
             setCurrentTime: false

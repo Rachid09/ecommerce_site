@@ -5,7 +5,7 @@
           <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
           <li class="nav-item">
             <a class="navbar-brand" href="index.html">
-              <img class="brand-logo" alt="modern admin logo" src="../../../app-assets/images/logo/logo.png">
+              <img class="brand-logo" alt="modern admin logo" src="{{asset('public/admin/images/logo/logo.png')}}">
               <h3 class="brand-text">Modern Seller</h3>
             </a>
           </li>
@@ -167,7 +167,7 @@
                 <a class="dropdown-item" href="#"><i class="ft-message-square"></i> Chats</a>
                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                {{ __('Logout seller') }}
+                                {{ __('Deconnexion') }}
                             </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
