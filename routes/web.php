@@ -16,23 +16,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['namespace' => 'client'], function () {
-    Route::get('/', 'HomeController@index')->name('home');
-    ####################### Product routes ############################
-    Route::get('/all-products', 'ProductsController@index')->name('all-products');
-    Route::get('/categories/{name}/{id}', 'ProductsController@categoryProducts')->name('shop.categoryProducts');
-    Route::get('/product/{name}/{id}', 'ProductsController@productDetails')->name('shop.productDetails');
-
-    ###################### Cart Routes ############################
-
-    // Route::post('/shopping-cart', 'CartController@index')->name('shopping-cart');
-    Route::post('/shopping-cart/ajouter', 'CartController@store')->name('shopping-cart.add');
-    Route::get('/shopping-cart/empty', function () {
-        Cart::destroy();
-    });
-    // Route::post('/update/{id}', 'LanguagesController@update')->name('');
-});
-
 // Route::get(
 //     '/',
 //     'HomeController@index'
@@ -60,6 +43,32 @@ Route::get('/cart', function () {
 Auth::routes();
 
 define('PAGINATION_COUNT', 5);
+
+Route::group(['namespace' => 'client'], function () {
+    Route::get('/', 'HomeController@index')->name('home');
+    ####################### Product routes ############################
+    Route::get('/all-products', 'ProductsController@index')->name('shop.all-products');
+    Route::get('/categories/{name}/{id}', 'ProductsController@categoryProducts')->name('shop.categoryProducts');
+    Route::get('/product/{name}/{id}', 'ProductsController@productDetails')->name('shop.productDetails');
+
+    ###################### Cart Routes ############################
+
+    Route::get('/shopping-cart', 'CartController@index')->name('shopping-cart');
+    Route::post('/shopping-cart/ajouter', 'CartController@store')->name('shopping-cart.add');
+    Route::post('/shopping-cart/update/{id}', 'CartController@update')->name('shopping-cart.update');
+    Route::get('/shopping-cart/delete/{id}', 'CartController@destroy')->name('shopping-cart.delete');
+
+    Route::get('/shopping-cart/empty', function () {
+        Cart::destroy();
+    });
+
+    ########################### CHECKOUT CONTROLLER ######################################
+    Route::get('/paiement', 'CheckoutController@index')->name('checkout');
+});
+
+
+
+
 ########################## begin admin routes###########################################
 
 //******************************************LANGUAGES***************************************
@@ -224,10 +233,10 @@ Route::group(['prefix' => 'client', 'namespace' => 'Auth'], function () {
 
 ######################### brgin client Routes ########################
 
-Route::group(['prefix' => 'client', 'namespace' => 'Auth', 'middleware' => 'guest'], function () {
-    Route::get('login', 'LoginController@showClientLoginForm')->name('client.login');
-    Route::post('login', 'LoginController@clientLogin')->name('client.login');
-    Route::get('register', 'RegisterController@showClientRegisterForm')->name('client.register');
-    Route::get('register', 'RegisterController@RegisterForm')->name('client.register');
-    // Route::get('cart', 'UserController@showcart')->name('client.cart');
-});
+// Route::group(['prefix' => 'client', 'namespace' => 'Auth'], function () {
+//     Route::get('login', 'LoginController@showClientLoginForm')->name('client.login');
+//     Route::post('login', 'LoginController@clientLogin')->name('client.login');
+//     Route::get('register', 'RegisterController@showClientRegisterForm')->name('client.register');
+//     Route::get('register', 'RegisterController@RegisterForm')->name('client.register');
+//     // Route::get('cart', 'UserController@showcart')->name('client.cart');
+// });

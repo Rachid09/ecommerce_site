@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model
+class User extends Authenticatable
 {
     //
 
@@ -15,13 +16,32 @@ class User extends Model
     protected $guard = 'web';
 
     protected $fillable = [
-        'name', 'email', 'password', 'email_verified_at', 'created_at', 'updated_at'
+        'first_name', 'last_name', 'phone', 'email', 'password', 'adresse', 'email_verified_at', 'created_at', 'updated_at'
     ];
 
     protected $hidden = ['password', 'remember_token'];
 
-    public function setPasswordAttribute($password)
+
+
+
+    public function scopeSelection($query)
     {
-        $this->attributes['password'] = bcrypt($password);
+        return $query->select(
+            'id',
+            'first_name',
+            'last_name',
+            'phone',
+            'email',
+            'password',
+            'adresse',
+            'created_at',
+            'updated_at'
+        );
     }
+
+
+    // public function setPasswordAttribute($password)
+    // {
+    //     $this->attributes['password'] = bcrypt($password);
+    // }
 }

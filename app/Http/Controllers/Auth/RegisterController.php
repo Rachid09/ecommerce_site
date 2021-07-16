@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\User;
+use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -53,7 +53,9 @@ class RegisterController extends Controller
         $maincategories = MainCategory::where('translation_lang', $default_lang)
             ->selection()
             ->get();
-        return view('seller.register', compact('maincategories'));
+
+        $title = 'Inscription Vendeur';
+        return view('seller.register', compact('maincategories', 'title'));
     }
 
 
@@ -90,48 +92,36 @@ class RegisterController extends Controller
 
             $Seller->maincategory()->attach($request->categories);
             // Notification::send($Seller, new SellerCreated($Seller));
-            return redirect()->route('seller.login')->with(['sucess' => 'votre inscription a ete enregisté']);
+            return redirect()->route('seller.login')->with(['success' => 'votre inscription a ete enregisté']);
         } catch (\Exception $ex) {
             return $ex;
             return redirect()->route('seller.register')->with(['error' => 'un probleme est survenu']);
         }
     }
 
+
     public function showClientRegisterForm()
     {
-        $default_lang = get_default_lang();
-
-        return view('seller.register', compact('maincategories'));
-    }
-
-    public function showClientRegiterForm()
-    {
-        return view('client.register');
+        $title = 'Inscription Client';
+        return view('client.register', compact('title'));
     }
 
     public function clientRegister(ClientRequest $request)
     {
         // return $request;
-
-
-        $this->validate($request, [
-            'name'   => 'required|name',
-            'email'   => 'required|email',
-            'password' => 'required|min:4',
-            'secondpassword' => 'required|min:4',
-        ]);
         try {
 
 
-            $Client = Client::create([
-                'name' => $request->name,
-                'mobile' => $request->mobile,
-                'address' => $request->address,
+            $Client = User::create([
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'phone' => $request->phone,
                 'email' => $request->email,
                 'password' => bcrypt($request->password),
-
+                'adresse' => $request->adresse,
 
             ]);
+            return redirect()->route('client.login')->with(['success' => 'votre inscription a ete enregisté']);
         } catch (\Exception $ex) {
             return $ex;
             return redirect()->route('client.register')->with(['error' => 'Un problème est survenu']);

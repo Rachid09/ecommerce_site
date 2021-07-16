@@ -212,10 +212,11 @@
                                     </a>
                                     <div class="cart-popup">
                                         <ul class="cart_list product_list_widget ">
+                                            @foreach (Cart::content() as $item)
                                             <li class="mini-cart-item">
-                                                <a href="#" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
-                                                <a href="#" class="product-image bg-light"><img src="assets/images/products/squire-95.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Cart product"></a>
-                                                <a href="#" class="product-name">Women Black Fashion Shirt</a>
+                                                <a href="{{route('shopping-cart.delete',$item->rowId)}}" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
+                                                <a href="#" class="product-image bg-light"><img src="{{$item->model->main_image}}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Cart product"></a>
+                                                <a href="#" class="product-name">{{$item->model->name}}</a>
                                                 <div class="woocommerce-product-rating">
                                                     <div class="star-rating">
                                                         <div class="rating-wrap">
@@ -224,42 +225,25 @@
                                                     </div>
                                                 </div>
                                                 <div class="variation">
-                                                    <span>Vendor:</span>
-                                                    <span>Women's Fashion</span>
+                                                    <span>Catégorie</span>
+                                                    <span>{{$item->model->maincategory->libelle}}</span>
                                                 </div>
-                                                <div class="cart-item-quantity">1 ×
+                                                <div class="cart-item-quantity">{{$item->qty}} ×
                                                     <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>24.00</bdi>
                                                     </span>
                                                 </div>
                                             </li>
-                                            <li class="mini-cart-item">
-                                                <a href="#" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
-                                                <a href="#" class="product-image bg-light"><img src="assets/images/products/squire-105.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Cart product"></a>
-                                                <a href="#" class="product-name">Blazar Jins Coat</a>
-                                                <div class="woocommerce-product-rating">
-                                                    <div class="star-rating">
-                                                        <div class="rating-wrap">
-                                                            <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.7 (73)</span></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="variation">
-                                                    <span>Vendor:</span>
-                                                    <span>Men's Fashion</span>
-                                                </div>
-                                                <div class="cart-item-quantity">1 ×
-                                                    <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>38.00</bdi>
-                                                    </span>
-                                                </div>
-                                            </li>
+
+                                            @endforeach
+
                                         </ul>
                                         <div class="total-cart">
                                             <div class="title">Total: </div>
-                                            <div class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>62.00</span>
+                                            <div class="price"><span class="woocommerce-Price-amount amount">{{Cart::total()}}<span class="woocommerce-Price-currencySymbol">DH</span></span>
                                             </div>
                                         </div>
                                         <div class="buttons">
-                                            <a href="cart.html" class="btn btn-primary rounded-0 view-cart">View cart</a>
+                                            <a href="{{route('shopping-cart')}}" class="btn btn-primary rounded-0 view-cart">View cart</a>
                                             <a href="checkout.html" class="btn btn-secondary rounded-0 checkout">Check out</a>
                                         </div>
                                     </div>

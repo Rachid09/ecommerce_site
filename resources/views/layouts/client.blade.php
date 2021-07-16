@@ -14,6 +14,7 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href={{asset("public/favicon.ico")}}>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -24,6 +25,7 @@
 
 
     <!--  CSS Style -->
+    @yield('bootstrap-css')
     <link rel="stylesheet" href="{{asset("public/css/vendor/bootstrap.min.css")}}">
     <link rel="stylesheet" href="{{asset("public/css/all.min.css")}}">
     <link rel="stylesheet" href="{{asset("public/css/vendor/animate.min.css")}}">
@@ -32,7 +34,7 @@
     <link rel="stylesheet" href="{{asset("public/css/layerslider.css")}}">
     <link rel="stylesheet" href="{{asset("public/css/template.css")}}">
     <link rel="stylesheet" href="{{asset("public/css/style.css")}}">
-     @yield('custom-css')
+    @yield('custom-css')
     <link rel="stylesheet" href="{{asset("public/css/category/cosmetic-store.css")}}">
     <link rel="stylesheet" href="{{asset("public/css/jquery.fancybox.min.css")}}">
     {{-- <link rel="stylesheet" href="{{asset("public/css/category/minimal.css")}}">
@@ -51,9 +53,14 @@
             @yield('top-header')
             @yield('bottom-header')
             @yield('mobile-header')
+             @yield('extra-meta')
         </header>
+
+         @include('client.alerts.success')
+         @include('client.alerts.errors')
         @yield('breadcrumb')
         @yield('content')
+
 
         @include('client.includes.newsletter')
         @include('client.includes.footer')
@@ -72,6 +79,7 @@
     <script src="{{asset("public/js/custom.js")}}"></script>
     <script src="{{asset("public/js/vendor/jquery.fancybox.min.js")}}"></script>
     @yield('zoomScript')
+     @yield('extra-js')
     {{-- <script src="{{asset("public/js/vendor/mixitup.min.js")}}"></script> --}}
     <script src="{{asset("public/admin/vendors/js/forms/select/select2.full.min.js")}}" type="text/javascript"></script>
     <script src="{{asset("public/admin/js/scripts/forms/select/form-select2.js")}}" type="text/javascript"></script>

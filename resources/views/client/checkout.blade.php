@@ -1,25 +1,20 @@
 @extends('layouts.client')
+@section('custom-css')
+<link rel="stylesheet" href="{{asset("public/css/category/minimal.css")}}">
+@endsection
+@section('top-header')
+ @include('client.includes.shopTopHeader')
+@endsection
+@section('bottom-header')
+@endsection
+@section('mobile-header')
+@include('client.includes.shopMobileHeader')
+@endsection
+@section('breadcrumb')
+@include('client.includes.breadcrumb',['title'=>$title])
+@endsection
 
 @section('content')
-  <!-- breadcrumb -->
-  <div class="full-row bg-light py-5">
-      <div class="container">
-          <div class="row text-secondary">
-              <div class="col-sm-6">
-                  <h3 class="mb-2 text-secondary">Checkout</h3>
-              </div>
-              <div class="col-sm-6">
-                  <nav aria-label="breadcrumb" class="d-flex justify-content-sm-end align-items-center h-100">
-                      <ol class="breadcrumb mb-0 d-inline-flex bg-transparent p-0">
-                          <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
-                          <li class="breadcrumb-item active" aria-current="page">Checkout</li>
-                      </ol>
-                  </nav>
-              </div>
-          </div>
-      </div>
-  </div>
-  <!-- breadcrumb -->
 
   <!--==================== Checkout Section Start ====================-->
   <div id="main-content" class="full-row site-content">
@@ -177,7 +172,7 @@
                                               <div class="woocommerce-shipping-fields">
                                                   <h3 id="ship-to-different-address">
                                                       <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
-                                                          <input id="ship-to-different-address-checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" type="checkbox" name="ship_to_different_address" value="1"> 
+                                                          <input id="ship-to-different-address-checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" type="checkbox" name="ship_to_different_address" value="1">
                                                           <span>Ship to a different address?</span>
                                                       </label>
                                                   </h3>

@@ -64,7 +64,7 @@
                             <nav class="breadcrumb-divider-slash" aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('all-products')}}">Shop</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('shop.all-products')}}">Shop</a></li>
 
                                     <li class="breadcrumb-item"><a
                                             href="{{route('shop.categoryProducts',['name'=>$product['maincategory']['libelle'],'id'=>$product['maincategory_id']])}}">{{$product['maincategory']['libelle']}}</a>

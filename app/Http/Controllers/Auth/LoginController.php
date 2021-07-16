@@ -63,7 +63,7 @@ class LoginController extends Controller
         return redirect()->back()->with(['error' => 'هناك خطا بالبيانات']);
     }
 
-    //Seller functions 
+    //Seller functions
     public function showSellerLoginForm()
     {
         return view('seller.login');
@@ -83,8 +83,8 @@ class LoginController extends Controller
         return back()->withInput($request->only('email', 'remember_me'));
     }
 
-    //Client functions 
-    
+    //Client functions
+
     public function showClientLoginForm()
     {
         return view('client.login');
@@ -94,16 +94,15 @@ class LoginController extends Controller
     public function clientLogin(Request $request)
     {
         // return $request;
-        $this->validate($request, [
-            'email'   => 'required|email',
-            'password' => 'required|min:6',
+        // $this->validate($request, [
+        //     'email'   => 'required|email',
+        //     'password' => 'required|min:6',
 
-        ]);
-
+        // ]);
         if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember_me'))) {
 
-            return redirect()->intended('client.home');
+            return redirect()->intended('/');
         }
-        return back()->withInput($request->only('email', 'remember_me'));
+        return redirect()->back()->with(['error' => 'Les informations sont incorrect']);
     }
 }
