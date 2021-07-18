@@ -1,6 +1,6 @@
 @extends('layouts.client')
 @section('custom-css')
- <link rel="stylesheet" href="{{asset("public/css/category/cosmetic-store.css")}}">
+<link rel="stylesheet" href="{{asset("public/css/category/cosmetic-store.css")}}">
 @endsection
 @section('top-header')
 @include('client.includes.top-header')
@@ -19,8 +19,8 @@
 
 <div class="full-row p-0 bg-light">
     <div id="slider" style="width:1200px; height:650px; margin:0 auto; margin-bottom:0px;">
-        @foreach ($featured as $item)
-        <div class="ls-slide" data-ls="duration:8000; transition2d:4; kenburnsscale:1.2;">
+        {{-- @foreach ($featured as $item)
+        <div class="ls-slide" data-ls="duration:4000; transition2d:4; kenburnsscale:1.2;">
             <img width="1920" height="750" src="{{$item->main_image}}" class="ls-bg" alt=""
                 style="top:50%; left:50%; text-align:initial; font-weight:400; font-style:normal; text-decoration:none; mix-blend-mode:normal; width:100%;"
                 data-ls="showinfo:1; durationin:2000; easingin:easeOutExpo; scalexin:1.5; scaleyin:1.5; position:fixed;">
@@ -51,41 +51,9 @@
                     class="bg-dark text-white">Acheter</p>
             </a>
         </div>
-        @endforeach
+        @endforeach --}}
         <!-- Slide 1-->
 
-        <!-- Slide 2-->
-        {{-- <div class="ls-slide" data-ls="duration:8000; transition2d:4; kenburnsscale:1.2;">
-            <img width="1920" height="750" src="assets/images/slider/22.png" class="ls-bg" alt=""
-                style="top:50%; left:50%; text-align:initial; font-weight:400; font-style:normal; text-decoration:none; mix-blend-mode:normal; width:100%;"
-                data-ls="showinfo:1; durationin:2000; easingin:easeOutExpo; scalexin:1.5; scaleyin:1.5; position:fixed;">
-
-            <p style="width:450px; font-size:80px; line-height:60px; top:40%; left:100px; white-space:normal;"
-                class="ls-l higlight-font font-700 ls-hide-phone text-dark"
-                data-ls="offsetyin:150; durationin:700; delayin:500; easingin:easeOutQuint; rotatexin:20; scalexin:1.4; offsetyout:600; durationout:400; parallaxlevel:0;">
-                Beauty Care
-            </p>
-            <p style="font-size:14px; letter-spacing: 2px; line-height:20px; top:28%; left:100px;"
-                class="ls-l ordenery-font text-dark text-uppercase font-700 ls-hide-phone"
-                data-ls="offsetyin:150; durationin:700; easingin:easeOutQuint; rotatexin:20; scalexin:1.4; offsetyout:600; durationout:400; parallaxlevel:0;">
-                Deal Upto 30%</p>
-
-            <p style="width:580px; font-weight:600; font-size:15px; line-height:30px; top:58%; left:120px; white-space:normal;"
-                class="ls-l ls-hide-phone text-dark ordenery-font text-uppercase"
-                data-ls="offsetxin:150; durationin:700; easingin:easeOutBack; rotatexin:20; scalexin:1; offsetyout:600; durationout:400; parallaxlevel:0; delayin:900;">
-                Price Starting<br>From <span class="text-primary font-600 font-large"> $29.99</span></p>
-
-            <div style="width:3px; height:60px; border-radius:0; top:58%; left:100px;"
-                class="ls-l ls-hide-phone bg-primary"
-                data-ls="offsetxin:100; easingin:easeOutBack; delayin:700; durationout:400; offsetxout:-20; parallax:false; parallaxlevel:1;">
-            </div>
-
-            <a class="ls-l ls-hide-phone" href="#" target="_self"
-                data-ls="offsetyin:150; durationin:700; delayin:1200; easingin:easeOutQuint; rotatexin:20; scalexin:1.4; offsetyout:600; durationout:400; hover:true; hoveropacity:1; hoverbgcolor:#e74c3c ; parallaxlevel:0;">
-                <p style="cursor:pointer;padding-top:8px; padding-bottom:8px; font-weight: 500; font-size:14px; top:72%; left:100px; padding-right:25px; padding-left:25px; line-height:28px;"
-                    class="bg-dark text-white">SHOP NOW</p>
-            </a>
-        </div> --}}
     </div>
 </div>
 <!--==================== Slider Section End ====================-->
@@ -96,8 +64,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-head d-flex justify-content-between align-items-center pb-20">
-                    <h3 class="text-secondary mb-0">Shop By Categories</h3>
-                    <a href="{{route('shop.all-products')}}" class="btn-link-down-line text-uppercase font-small">See More Categories</a>
+                    <h3 class="text-secondary mb-0">Acheter Par Catègorie</h3>
+                    <a href="{{route('shop.all-products')}}" class="btn-link-down-line text-uppercase font-small">Voir toutes</a>
                 </div>
             </div>
         </div>
@@ -111,9 +79,9 @@
                             <div class="banner-image overflow-hidden transation" style="height:400px"><img
                                     src="{{$cat->photo}}" alt="Banner Image" style="object-fit: cover"></div>
                             <div class="banner-content position-absolute">
-                                <span class="d-block font-500 font-small text-uppercase mb-2">Sale Upto 50%</span>
-                                <h4><a href="#" class="text-primary text-decoration-none">{{$cat->libelle}}</a></h4>
-                                <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
+                                <span class="d-block font-500 font-small text-uppercase mb-2"></span>
+                                <h4><a href="{{route('shop.categoryProducts',['name'=>$cat->libelle,'id'=>$cat->id])}}"" class="text-primary text-decoration-none">{{$cat->libelle}}</a></h4>
+                                <a href="{{route('shop.categoryProducts',['name'=>$cat->libelle,'id'=>$cat->id])}}"" class="btn-link-down-line mt-20 text-uppercase">Acheter</a>
                             </div>
                         </div>
                     </div>
@@ -150,7 +118,7 @@
             <div class="col-12">
                 <div class="products product-style-3">
                     <div
-                        class="row g-3 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 e-image-bg-light e-hover-image-zoom e-btn-set-hover-primary">
+                        class="row g-3 row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-1 e-image-bg-light e-hover-image-zoom e-btn-set-hover-primary">
 
                         @foreach ($latest_prod as $item)
                         <div class="col">
@@ -163,18 +131,25 @@
                                         <div class="product-labels">
                                             <div class="badge1"><span>Nouveau</span></div>
                                         </div>
-                                        <div class="on-sale">-60%</div>
+                                        <div class="on-sale">{{$item->discount}}</div>
                                     </div>
-                                    <div class="product-info">
-                                        <h3 class="product-title"><a href="#">{{$item->name}}</a></h3>
+                                    <div class="product-info" style="background-color: #f8f6f5;
+    padding: 1.5rem 1.5rem;line-height: 1.4;height:160px;">
+                                        <h3 class="product-title"><a
+                                                href="{{route('shop.productDetails',['name'=>$item->name,'id'=>$item->id])}}"
+                                                style="font-size: 16px !important;">{{$item->name}}</a></h3>
                                         <div class="product-price">
                                             <div class="price">
-                                                <ins>{{$item->price}}Dh</ins>
-                                                {{-- <del>$98.00</del> --}}
+                                                @if (!$item->discount)
+                                                <ins>{{$item->price}}.00DH</ins>
+                                                @else
+                                                <ins>{{calculatePriceAfterDiscount($item->price,$item->discount)}}DH</ins>
+                                                <del>{{$item->price}}.00DH</del>
+                                                @endif
                                             </div>
                                         </div>
                                         {{-- <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div> --}}
-                                        <div class="shipping-feed-back">
+                                        {{-- <div class="shipping-feed-back">
                                             <div class="star-rating">
                                                 <div class="rating-wrap">
                                                     <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
@@ -186,8 +161,8 @@
                                             <div class="sold-items">
                                                 <span>65</span> <span>Sold</span>
                                             </div>
-                                        </div>
-                                        <div class="hover-area">
+                                        </div> --}}
+                                        <div class="hover-area" style="justify-content: space-around;">
                                             <form action="{{route('shopping-cart.add')}}" method="post"
                                                 id="add-to-cart-form{{$item->id}}">
                                                 @csrf
@@ -196,9 +171,8 @@
                                                 <div class="cart-button">
                                                     <a href="{{route('shopping-cart.add')}}"
                                                         onclick="event.preventDefault();
-                                                       document.getElementById('add-to-cart-form{{$item->id}}').submit();"
-                                                        class="button add_to_cart_button" data-bs-toggle="tooltip"
-                                                        data-bs-placement="right" title=""
+                                                       document.getElementById('add-to-cart-form{{$item->id}}').submit();" class="button add_to_cart_button"
+                                                        data-bs-toggle="tooltip" data-bs-placement="right" title=""
                                                         data-bs-original-title="Add to Cart"
                                                         aria-label="Add to Cart">Add to
                                                         Cart</a>
@@ -266,7 +240,7 @@
             <div class="col-12">
                 <div class="products product-style-3">
                     <div
-                        class="row g-3 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 e-image-bg-light e-hover-image-zoom e-btn-set-hover-primary">
+                        class="row g-3 row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-1 e-image-bg-light e-hover-image-zoom e-btn-set-hover-primary">
 
                         @foreach ($featured as $item)
                         <div class="col">
@@ -284,8 +258,12 @@
                                         <h3 class="product-title"><a href="#">{{$item->name}}</a></h3>
                                         <div class="product-price">
                                             <div class="price">
-                                                <ins>{{$item->price}}Dh</ins>
-                                                {{-- <del>$98.00</del> --}}
+                                                 @if (!$item->discount)
+                                                <ins>{{$item->price}}.00DH</ins>
+                                                @else
+                                                <ins>{{calculatePriceAfterDiscount($item->price,$item->discount)}}DH</ins>
+                                                <del>{{$item->price}}.00DH</del>
+                                                @endif
                                             </div>
                                         </div>
                                         {{-- <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div> --}}
@@ -304,15 +282,17 @@
                                         </div>
                                         <div class="hover-area">
 
-        <form action="{{route('shopping-cart.add')}}" method="post" id="add-to-cart-form{{$item->id}}">
+                                            <form action="{{route('shopping-cart.add')}}" method="post"
+                                                id="add-to-cart-form{{$item->id}}">
                                                 @csrf
-                                                <input type="hidden" name="product_id"  value="{{$item->id}}">
+                                                <input type="hidden" name="product_id" value="{{$item->id}}">
                                                 {{-- <input type="hidden" name="name" value="{{$item['name']}}">
                                                 <input type="hidden" name="price" value="{{$item['price']}}"> --}}
                                                 <div class="cart-button">
-                                                    <a href="{{route('shopping-cart.add')}}"  onclick="event.preventDefault();
-                                                       document.getElementById('add-to-cart-form{{$item->id}}').submit();" class="button add_to_cart_button"
-                                                       >Add to
+                                                    <a href="{{route('shopping-cart.add')}}"
+                                                        onclick="event.preventDefault();
+                                                       document.getElementById('add-to-cart-form{{$item->id}}').submit();"
+                                                        class="button add_to_cart_button">Add to
                                                         Cart</a>
                                                 </div>
                                             </form>

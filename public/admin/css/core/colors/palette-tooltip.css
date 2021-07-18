@@ -31,12 +31,12 @@
   color: #28D094; }
 
 .tooltip-bg-info .tooltip-inner {
-  background-color: #1E9FF2; }
+  background-color: #e6ab67; }
   .tooltip-bg-info .tooltip-inner:before {
-    border-top-color: #1E9FF2 !important; }
+    border-top-color: #e6ab67 !important; }
 
 .tooltip-text-info .tooltip-inner {
-  color: #1E9FF2; }
+  color: #e6ab67; }
 
 .tooltip-bg-warning .tooltip-inner {
   background-color: #FF9149; }

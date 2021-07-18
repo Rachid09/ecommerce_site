@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Cart;
 use Session;
+use App\Models\MainCategory;
 
 class CartController extends Controller
 {
@@ -14,9 +15,10 @@ class CartController extends Controller
     public function index()
     {
         // dd(Cart::content());
+        $categories = MainCategory::selection()->active()->get();
 
-        $title = "Shopping Cart";
-        return view('client.cart', compact('title'));
+        $title = "Panier";
+        return view('client.cart', compact('title', 'categories'));
     }
 
     public function store(Request $request)
@@ -37,7 +39,7 @@ class CartController extends Controller
 
         Cart::add($product->id, $product->name, 1, $product->price)->associate('App\Models\Product');
 
-        return redirect()->back()->with(['success' => 'le produit a bien été ajouté.']);
+        return redirect()->back();
     }
 
 
@@ -45,7 +47,7 @@ class CartController extends Controller
 
     public function update(Request $request, $rowId)
     {
-        $data = $request->json()->all();
+        $data = $request->all();
 
         // $validates = Validator::make($request->all(), [
         //     'qty' => 'numeric|required|between:1,5',
@@ -55,11 +57,20 @@ class CartController extends Controller
         //     Session::flash('error', 'La quantité doit est comprise entre 1 et 5.');
         //     return response()->json(['error' => 'Cart Quantity Has Not Been Updated']);
         // }
+        // dd($data);
+        // die;
 
         Cart::update($rowId, $data['qty']);
+        $cartInstance = Cart::get($rowId);
+        $price = $cartInstance->price;
+        $subtotal = Cart::subtotal();
+        $total = Cart::total();
+        $tax = Cart::tax();
+        $items_count = Cart::content()->count();
+        $qty = $cartInstance->qty;
 
-        Session::flash('success', 'La quantité du produit est passée à ' . $data['qty'] . '.');
-        return response()->json(['success' => 'Cart Quantity Has Been Updated']);
+        // Session::flash('success', 'La quantité du produit est passée à ' . $data['qty'] . '.');
+        return response()->json(['success' => 'votre quantité est mise a jour', 'price' => $price, 'subtotal' => $subtotal, 'total' => $total, 'tax' => $tax, 'qty' => $qty, 'items_count' => $items_count]);
     }
 
 

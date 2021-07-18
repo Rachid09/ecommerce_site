@@ -27,6 +27,8 @@
               <div class="row">
                     <div class="col-12">
                         <div class="card">
+                              <div class="card-header">
+                                  </div>
                             @include('seller.alerts.success')
                             @include('seller.alerts.errors')
 

@@ -53,7 +53,7 @@
             @yield('top-header')
             @yield('bottom-header')
             @yield('mobile-header')
-             @yield('extra-meta')
+            @yield('extra-meta')
         </header>
 
          @include('client.alerts.success')

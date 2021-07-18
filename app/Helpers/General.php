@@ -31,3 +31,10 @@ function uploadVideo($folder, $video)
     $path = 'video/' . $folder . '/' . $filename;
     return $path;
 }
+
+function calculatePriceAfterDiscount($actual_price, $discount)
+{
+    if ($discount) {
+        return $selling_price = $actual_price - ($actual_price * ($discount / 100));
+    }
+}

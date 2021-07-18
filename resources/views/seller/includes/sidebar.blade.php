@@ -1,4 +1,4 @@
-<div class="main-menu menu-fixed menu-light menu-accordion    menu-shadow " data-scroll-to-active="true">
+<div class="main-menu menu-fixed menu-light menu-accordion    menu-shadow " data-scroll-to-="true">
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
@@ -14,7 +14,7 @@
                     <span class="badge badge badge-danger badge-pill float-right mr-2">{{App\Models\MainCategory::defaultCategory()->count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="{{route('seller.orders')}}" data-i18n="nav.dash.ecommerce">  liste des commandes </a>
+                    <li class=""><a class="menu-item" href="{{route('seller.orders')}}" data-i18n="nav.dash.ecommerce">  liste des commandes </a>
                     </li>
                     <li><a class="menu-item" href="{{route('seller.orders.create')}}" data-i18n="nav.dash.crypto">Ajouer un commande
                              </a>
@@ -27,7 +27,7 @@
                     <span class="badge badge badge-success badge-pill float-right mr-2">{{App\Models\Seller::count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="{{route('seller.store.products')}}" data-i18n="nav.dash.ecommerce"> List des produits  </a>
+                    <li class=""><a class="menu-item" href="{{route('seller.store.products')}}" data-i18n="nav.dash.ecommerce"> List des produits  </a>
                     </li>
                     {{-- <li><a class="menu-item" href=" {{route('admin.sellers.create')}}" data-i18n="nav.dash.crypto">
                             Ajouter un produit </a>
@@ -40,7 +40,7 @@
                     <span class="badge badge badge-success badge-pill float-right mr-2">{{App\Models\Product::count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="{{route('seller.stock.products')}}" data-i18n="nav.dash.ecommerce">  List des produits </a>
+                    <li class=""><a class="menu-item" href="{{route('seller.stock.products')}}" data-i18n="nav.dash.ecommerce">  List des produits </a>
                     </li>
                     <li><a class="menu-item" href=" {{route('seller.stock.product.create')}}" data-i18n="nav.dash.crypto">ajouter un produit au stock
                              </a>

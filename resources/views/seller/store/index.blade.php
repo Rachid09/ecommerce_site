@@ -45,13 +45,13 @@
                                     <table class="table display nowrap table-striped table-bordered scroll-horizontal">
                                         <thead class="">
                                             <tr> <th>id</th>
-                                                <th>le nom du produit</th>
-                                                <th> l'image</th>
-                                                <th>code du produit </th>
+                                                <th>nom du produit</th>
+                                                <th>Image</th>
+                                                <th>Code</th>
                                                 {{-- <th>la couleur</th> --}}
-                                                 <th>prix</th>
-                                                <th> la categorie du produit </th>
-                                                <th>les actions</th>
+                                                 <th>Prix</th>
+                                                <th>Categorie</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>

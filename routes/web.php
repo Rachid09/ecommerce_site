@@ -44,6 +44,15 @@ Auth::routes();
 
 define('PAGINATION_COUNT', 5);
 
+################## CLIENT ROUTES ################################
+Route::group(['prefix' => 'client', 'namespace' => 'Auth'], function () {
+    Route::get('login', 'LoginController@showClientLoginForm')->name('client.login');
+    Route::post('login', 'LoginController@clientLogin')->name('client.login');
+    Route::get('register', 'RegisterController@showClientRegisterForm')->name('client.register');
+    Route::post('register', 'RegisterController@ClientRegister')->name('client.register');
+});
+
+
 Route::group(['namespace' => 'client'], function () {
     Route::get('/', 'HomeController@index')->name('home');
     ####################### Product routes ############################
@@ -203,40 +212,4 @@ Route::group(['prefix' => 'seller', 'namespace' => 'Auth', 'middleware' => 'gues
 
 // Route::group(['prefix' => 'seller', 'namespace' => 'seller'], function () {
 //     Route::post('logout', 'AuthController@logout')->name('seller.logout');
-// });
-
-
-
-############################## begin client routes #######################################
-
-Route::group(['prefix' => 'client', 'namespace' => 'Auth'], function () {
-    Route::get('login', 'LoginController@showClientLoginForm')->name('client.login');
-    Route::post('login', 'LoginController@clientLogin')->name('client.login');
-    Route::get('register', 'RegisterController@showClientRegisterForm')->name('client.register');
-    Route::post('register', 'RegisterController@ClientRegister')->name('client.register');
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-######################### brgin client Routes ########################
-
-// Route::group(['prefix' => 'client', 'namespace' => 'Auth'], function () {
-//     Route::get('login', 'LoginController@showClientLoginForm')->name('client.login');
-//     Route::post('login', 'LoginController@clientLogin')->name('client.login');
-//     Route::get('register', 'RegisterController@showClientRegisterForm')->name('client.register');
-//     Route::get('register', 'RegisterController@RegisterForm')->name('client.register');
-//     // Route::get('cart', 'UserController@showcart')->name('client.cart');
 // });

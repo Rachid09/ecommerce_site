@@ -28,6 +28,7 @@
                         <div class="card">
                             <div class="card-header">
                                 {{-- <h4 class="card-title"> التاجر </h4> --}}
+                                <a href="{{route('seller.stock.product.create')}}" class="btn btn-success" >Ajouter produit</a>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -47,12 +48,12 @@
                                     <table class="table display nowrap table-striped table-bordered scroll-horizontal">
                                         <thead class="">
                                             <tr> <th>id</th>
-                                                <th>le nom du produit</th>
-                                                <th> l'image</th>
-                                                <th>code du produit </th>
+                                                <th>nom du produit</th>
+                                                <th>image</th>
+                                                <th>code</th>
                                                 {{-- <th>la couleur</th> --}}
                                                  <th>prix</th>
-                                                <th> la categorie du produit </th>
+                                                <th> la categorie</th>
                                                 <th>les actions</th>
                                             </tr>
                                         </thead>

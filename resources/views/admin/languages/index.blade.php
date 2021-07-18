@@ -64,9 +64,9 @@
                                                 <td>{{$lang->getIsActive()}}</td>
                                                 <td>
                                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                                        <a href="{{route('admin.languages.edit',$lang->id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
+                                                        <a href="{{route('admin.languages.edit',$lang->id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">Modifier</a>
 
-                                                        <a href="{{route('admin.languages.delete',$lang -> id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+                                                        <a href="{{route('admin.languages.delete',$lang -> id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">Supprimer</a>
                                                     </div>
                                                 </td>
                                             </tr>

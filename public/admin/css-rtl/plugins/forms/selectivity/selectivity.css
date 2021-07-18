@@ -2,8 +2,8 @@
   border: 1px solid #BABFC7;
   width: 100%; }
   .selectivity-input .selectivity-multiple-selected-item {
-    background: #1E9FF2;
-    border-color: #0c84d1; }
+    background: #e6ab67;
+    border-color: #bb782c; }
   .selectivity-input[class*=bg-] .selectivity-multiple-selected-item {
     background: rgba(0, 0, 0, 0.25); }
   .selectivity-input[class*=border-] .selectivity-multiple-input-container {

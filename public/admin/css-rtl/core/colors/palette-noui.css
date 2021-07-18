@@ -47,16 +47,16 @@
   background: #28D094 !important; }
 
 .slider-info .noUi-connect {
-  background: #1E9FF2 !important; }
+  background: #e6ab67 !important; }
 
 .slider-info.noUi-connect {
-  background: #1E9FF2 !important; }
+  background: #e6ab67 !important; }
 
 .slider-info .noUi-handle {
-  border-color: #1E9FF2 !important; }
+  border-color: #e6ab67 !important; }
 
 .slider-info.circle-filled .noUi-handle, .slider-info.square .noUi-handle {
-  background: #1E9FF2 !important; }
+  background: #e6ab67 !important; }
 
 .slider-warning .noUi-connect {
   background: #FF9149 !important; }

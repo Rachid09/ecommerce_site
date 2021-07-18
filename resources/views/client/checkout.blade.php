@@ -27,9 +27,9 @@
                               <div class="woocommerce-notices-wrapper"></div>
                               <div class="woocommerce-form-login-toggle">
                                   <div class="woocommerce-info">
-                                      Returning customer? <a href="#" class="showlogin">Click here to login</a> </div>
+                                      Devenir un client? <a href="{{route('client.login')}}" class="showlogin">Cliquer ici pour se connecter </a> </div>
                               </div>
-                              <form class="woocommerce-form woocommerce-form-login login" method="post" style="display:none;">
+                              {{-- <form class="woocommerce-form woocommerce-form-login login" method="post" style="display:none;">
                                   <p>If you have shopped with us before, please enter your details below. If you are a new customer, please proceed to the Billing section.</p>
                                   <p class="form-row form-row-first">
                                       <label for="username">Username or email&nbsp;<span class="required">*</span></label>
@@ -51,16 +51,16 @@
                                       <a href="https://kapee.presslayouts.com/my-account/lost-password/">Lost your password?</a>
                                   </p>
                                   <div class="clear"></div>
-                              </form>
+                              </form> --}}
 
 
                               <div class="woocommerce-form-coupon-toggle">
                                   <div class="woocommerce-info">
-                                      Have a coupon? <a href="#" class="showcoupon">Click here to enter your code</a> </div>
+                                      possède un coupon? <a href="#" class="showcoupon">Cliquer ici pour entrer le code</a> </div>
                               </div>
 
 
-                              <form class="checkout_coupon woocommerce-form-coupon" method="post" style="display:none">
+                              {{-- <form class="checkout_coupon woocommerce-form-coupon" method="post" style="display:none">
                                   <p>If you have a coupon code, please apply it below.</p>
                                   <p class="form-row form-row-first">
                                       <input type="text" name="coupon_code" class="input-text" placeholder="Coupon code" id="coupon_code" value="">
@@ -68,7 +68,7 @@
                                   <p class="form-row form-row-last">
                                       <button type="submit" class="button" name="apply_coupon" value="Apply coupon">Apply coupon</button>
                                   </p>
-                              </form>
+                              </form> --}}
 
 
                               <form name="checkout" method="post" class="checkout woocommerce-checkout" action="https://kapee.presslayouts.com/checkout/" enctype="multipart/form-data" novalidate="novalidate">
@@ -76,28 +76,28 @@
                                       <div class="col-lg-7">
                                           <div class="col2-set" id="customer_details">
                                               <div class="woocommerce-billing-fields">
-                                                  <h3>Billing details</h3>
+                                                  <h3>Details de la livraison</h3>
                                                   <div class="woocommerce-billing-fields__field-wrapper">
                                                       <p class="form-row form-row-first validate-required" id="billing_first_name_field" data-priority="10">
-                                                          <label for="billing_first_name" class="">First name&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                          <label for="billing_first_name" class="">Prénom&nbsp;<abbr class="required" title="required">*</abbr></label>
                                                           <span class="woocommerce-input-wrapper">
                                                               <input type="text" class="input-text " name="billing_first_name" id="billing_first_name" placeholder="" value="" autocomplete="given-name">
                                                           </span>
                                                       </p>
                                                       <p class="form-row form-row-last validate-required" id="billing_last_name_field" data-priority="20">
-                                                          <label for="billing_last_name" class="">Last name&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                          <label for="billing_last_name" class="">Nom&nbsp;<abbr class="required" title="required">*</abbr></label>
                                                           <span class="woocommerce-input-wrapper">
                                                               <input type="text" class="input-text " name="billing_last_name" id="billing_last_name" placeholder="" value="" autocomplete="family-name">
                                                           </span>
                                                       </p>
-                                                      <p class="form-row form-row-wide" id="billing_company_field" data-priority="30">
+                                                      {{-- <p class="form-row form-row-wide" id="billing_company_field" data-priority="30">
                                                           <label for="billing_company" class="">Company name&nbsp;<span class="optional">(optional)</span></label>
                                                           <span class="woocommerce-input-wrapper">
                                                               <input type="text" class="input-text " name="billing_company" id="billing_company" placeholder="" value="" autocomplete="organization">
                                                           </span>
-                                                      </p>
+                                                      </p> --}}
                                                       <p class="form-row form-row-wide address-field update_totals_on_change validate-required" id="billing_country_field" data-priority="40">
-                                                          <label for="billing_country" class="">Country / Region&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                          <label for="billing_country" class="">Pays&nbsp;<abbr class="required" title="required">*</abbr></label>
                                                           <span class="woocommerce-input-wrapper">
                                                               <select name="billing_country" id="billing_country" class="country_to_state country_select select2-hidden-accessible" autocomplete="country" tabindex="-1" aria-hidden="true">
                                                                   <option value="default">Select a country / region…</option>
@@ -112,12 +112,12 @@
                                                           </span>
                                                       </p>
                                                       <p class="form-row address-field validate-required form-row-wide" id="billing_address_1_field" data-priority="50">
-                                                          <label for="billing_address_1" class="">Street address&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                          <label for="billing_address_1" class="">Addresse&nbsp;<abbr class="required" title="required">*</abbr></label>
                                                           <span class="woocommerce-input-wrapper">
-                                                              <input type="text" class="input-text " name="billing_address_1" id="billing_address_1" placeholder="House number and street name" value="" autocomplete="address-line1" data-placeholder="House number and street name">
+                                                              <input type="text" class="input-text " name="billing_address_1" id="billing_address_1" placeholder="" value="" autocomplete="address-line1" data-placeholder="House number and street name">
                                                           </span>
                                                       </p>
-                                                      <p class="form-row address-field form-row-wide" id="billing_address_2_field" data-priority="60">
+                                                      {{-- <p class="form-row address-field form-row-wide" id="billing_address_2_field" data-priority="60">
                                                           <label for="billing_address_2" class="screen-reader-text">Apartment, suite, unit, etc. (optional)&nbsp;<span class="optional">(optional)</span></label>
                                                           <span class="woocommerce-input-wrapper">
                                                               <input type="text" class="input-text " name="billing_address_2" id="billing_address_2" placeholder="Apartment, suite, unit, etc. (optional)" value="" autocomplete="address-line2" data-placeholder="Apartment, suite, unit, etc. (optional)">
@@ -154,29 +154,29 @@
                                                           <span class="woocommerce-input-wrapper">
                                                               <input type="text" class="input-text " name="billing_postcode" id="billing_postcode" placeholder="" value="" autocomplete="postal-code">
                                                           </span>
-                                                      </p>
+                                                      </p>--}}
                                                       <p class="form-row form-row-wide validate-required validate-phone" id="billing_phone_field" data-priority="100">
-                                                          <label for="billing_phone" class="">Phone&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                          <label for="billing_phone" class="">Téléphone&nbsp;<abbr class="required" title="required">*</abbr></label>
                                                           <span class="woocommerce-input-wrapper">
                                                               <input type="tel" class="input-text " name="billing_phone" id="billing_phone" placeholder="" value="" autocomplete="tel">
                                                           </span>
                                                       </p>
                                                       <p class="form-row form-row-wide validate-required validate-email" id="billing_email_field" data-priority="110">
-                                                          <label for="billing_email" class="">Email address&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                          <label for="billing_email" class="">Email&nbsp;<abbr class="required" title="required">*</abbr></label>
                                                           <span class="woocommerce-input-wrapper">
                                                               <input type="email" class="input-text " name="billing_email" id="billing_email" placeholder="" value="" autocomplete="email">
                                                           </span>
                                                       </p>
                                                   </div>
                                               </div>
-                                              <div class="woocommerce-shipping-fields">
+                                              {{-- <div class="woocommerce-shipping-fields">
                                                   <h3 id="ship-to-different-address">
                                                       <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
                                                           <input id="ship-to-different-address-checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" type="checkbox" name="ship_to_different_address" value="1">
                                                           <span>Ship to a different address?</span>
                                                       </label>
                                                   </h3>
-                                                  <div class="shipping_address" style="display: none;">
+                                                   <div class="shipping_address" style="display: none;">
                                                       <div class="woocommerce-shipping-fields__field-wrapper">
                                                           <p class="form-row form-row-first validate-required" id="shipping_first_name_field" data-priority="10">
                                                               <label for="shipping_first_name" class="">First name&nbsp;<abbr class="required" title="required">*</abbr></label>
@@ -214,9 +214,9 @@
                                                           </p>
                                                           <p class="form-row address-field validate-required validate-postcode form-row-wide" id="shipping_postcode_field" data-priority="90" data-o_class="form-row form-row-wide address-field validate-required validate-postcode"><label for="shipping_postcode" class="">ZIP&nbsp;<abbr class="required" title="required">*</abbr></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text " name="shipping_postcode" id="shipping_postcode" placeholder="" value="" autocomplete="postal-code"></span></p>
                                                       </div>
-                                                  </div>
-                                              </div>
-                                              <div class="woocommerce-additional-fields">
+                                                   </div>
+                                              </div> --}}
+                                               <div class="woocommerce-additional-fields">
                                                   <div class="woocommerce-additional-fields__field-wrapper">
                                                       <p class="form-row notes" id="order_comments_field" data-priority=""><label for="order_comments" class="">Order notes&nbsp;<span class="optional">(optional)</span></label><span class="woocommerce-input-wrapper"><textarea name="order_comments" class="input-text " id="order_comments" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"></textarea></span></p>
                                                   </div>
@@ -225,25 +225,28 @@
                                       </div>
                                       <div class="col-lg-5">
                                           <div class="order-review-inner">
-                                              <h3 id="order_review_heading">Your order</h3>
+                                              <h3 id="order_review_heading">Votre commande</h3>
                                               <div id="order_review" class="woocommerce-checkout-review-order">
                                                   <table class="shop_table woocommerce-checkout-review-order-table">
                                                       <thead>
                                                           <tr>
-                                                              <th class="product-name">Product</th>
+                                                              <th class="product-name">Produit</th>
                                                               <th class="product-total">Subtotal</th>
                                                           </tr>
                                                       </thead>
                                                       <tbody>
+                                                          @foreach (Cart::content() as $item)
                                                           <tr class="cart_item">
                                                               <td class="product-name">
-                                                                  Navy Blue-Silver-White Multifunction Analog Watch&nbsp; <strong class="product-quantity">×&nbsp;1</strong> </td>
+                                                                  {{$item->model->name}}&nbsp; <strong class="product-quantity">×&nbsp;{{$item->qty}}</strong> </td>
                                                               <td class="product-total">
-                                                                  <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>85.00</bdi>
+                                                                  <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{$item->subtotal()}}</bdi>
                                                                   </span>
                                                               </td>
                                                           </tr>
-                                                          <tr class="cart_item">
+
+                                                          @endforeach
+                                                          {{-- <tr class="cart_item">
                                                               <td class="product-name">
                                                                   Men Blue Colourblocked Mid-Top Sneakers&nbsp; <strong class="product-quantity">×&nbsp;1</strong> </td>
                                                               <td class="product-total">
@@ -267,23 +270,23 @@
                                                                   </span>
                                                               </td>
                                                           </tr>
-                                                          <tr class="cart_item">
-                                                              <td class="product-name">
+                                                          <tr class="cart_item"> --}}
+                                                              {{-- <td class="product-name">
                                                                   Women Brown Solid Synthetic Mid Top Flat Boots&nbsp; <strong class="product-quantity">×&nbsp;1</strong> </td>
                                                               <td class="product-total">
                                                                   <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>189.00</bdi>
                                                                   </span>
                                                               </td>
-                                                          </tr>
+                                                          </tr> --}}
                                                       </tbody>
                                                       <tfoot>
                                                           <tr class="cart-subtotal">
                                                               <th>Subtotal</th>
-                                                              <td><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>513.00</bdi>
+                                                              <td><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{Cart::subtotal()}}</bdi>
                                                                   </span>
                                                               </td>
                                                           </tr>
-                                                          <tr class="woocommerce-shipping-totals shipping">
+                                                          {{-- <tr class="woocommerce-shipping-totals shipping">
                                                               <th>Shipping</th>
                                                               <td data-title="Shipping">
                                                                   <ul id="shipping_method" class="woocommerce-shipping-methods">
@@ -297,10 +300,10 @@
                                                                       </li>
                                                                   </ul>
                                                               </td>
-                                                          </tr>
+                                                          </tr> --}}
                                                           <tr class="order-total">
                                                               <th>Total</th>
-                                                              <td><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>518.00</bdi></span></strong> </td>
+                                                              <td><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{Cart::total()}}</bdi></span></strong> </td>
                                                           </tr>
                                                       </tfoot>
                                                   </table>
@@ -348,12 +351,13 @@
                                                       Since your browser does not support JavaScript, or it is disabled, please ensure you click the <em>Update Totals</em> button before placing your order. You may be charged more than the amount stated above if you fail to do so.			<br/><button type="submit" class="button alt" name="woocommerce_checkout_update_totals" value="Update totals">Update totals</button>
                                                   </noscript>
 
-                                                          <div class="woocommerce-terms-and-conditions-wrapper">
-                                                              <div class="woocommerce-privacy-policy-text"></div>
+                                                          <div class="" style="display:flex;justify-content:space-around; align-items: center">
+                                                               <button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order">Valider la commande</button>
+                                                               <a href="{{route('shopping-cart')}}" class="button btn-alert alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order">Retour au panier</a>
                                                           </div>
 
 
-                                                          <button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order">Place order</button>
+
 
                                                           <input type="hidden" id="woocommerce-process-checkout-nonce" name="woocommerce-process-checkout-nonce" value="a44d43c9ca"><input type="hidden" name="_wp_http_referer" value="/wordpress/foden/?wc-ajax=update_order_review">                                                                </div>
                                                   </div>

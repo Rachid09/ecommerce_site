@@ -11,10 +11,10 @@
   width: 60%;
   display: inline-block; }
   .jqueryui-ele-container .ui-selectable .ui-selecting {
-    background: #1E9FF2;
+    background: #e6ab67;
     color: white; }
   .jqueryui-ele-container .ui-selectable .ui-selected {
-    background: #1E9FF2;
+    background: #e6ab67;
     color: white; }
 
 .jqueryui-ele-container .ui-sortable {
@@ -59,8 +59,8 @@
 .ui-accordion .ui-accordion-header.ui-accordion-header-active {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  border-bottom: 2px solid #1E9FF2;
-  color: #1E9FF2; }
+  border-bottom: 2px solid #e6ab67;
+  color: #e6ab67; }
 
 .ui-accordion .ui-corner-top, .ui-accordion .ui-corner-all {
   border-top-left-radius: 0;
@@ -130,7 +130,7 @@
     padding: 10px; }
   .ui-menu .ui-state-active {
     border: none;
-    background: #1E9FF2;
+    background: #e6ab67;
     margin: 0; }
     .ui-menu .ui-state-active .ui-icon {
       color: #FFF; }
@@ -193,7 +193,7 @@
   padding: 0; }
 
 .ui-tabs .ui-state-active .ui-tabs-anchor {
-  background: #1E9FF2;
+  background: #e6ab67;
   color: #FFF; }
 
 .ui-tabs .pe-icon {
@@ -204,7 +204,7 @@
   font-size: 90%; }
 
 .dp-skin .ui-widget {
-  background: #1E9FF2;
+  background: #e6ab67;
   border: none;
   border-radius: 0;
   -webkit-border-radius: 0;
@@ -320,7 +320,7 @@ select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
   overflow-x: hidden; }
   .ui-autocomplete .ui-state-active, .ui-autocomplete .ui-widget-content .ui-state-active {
     border: none;
-    background: #1E9FF2; }
+    background: #e6ab67; }
   .ui-autocomplete .ui-autocomplete-category {
     padding: 8px 10px;
     font-size: 1rem;
@@ -361,8 +361,8 @@ select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
   outline: none; }
 
 .ui-button:active, a.ui-button:active {
-  border: 1px solid #0c84d1;
-  background: #1E9FF2; }
+  border: 1px solid #bb782c;
+  background: #e6ab67; }
 
 .ui-button.btn-primary, .ui-button.btn-success, .ui-button.btn-warning, .ui-button.btn-danger, .ui-button.btn-info, a.ui-button.btn-primary, a.ui-button.btn-success, a.ui-button.btn-warning, a.ui-button.btn-danger, a.ui-button.btn-info {
   color: #fff; }
@@ -383,21 +383,21 @@ a.ui-button-link {
   border: none;
   background-color: transparent; }
   a.ui-button-link:hover {
-    color: #1E9FF2;
+    color: #e6ab67;
     border: none;
     background-color: transparent;
     text-decoration: none; }
 
 .ui-checkboxradio-label.ui-state-active {
   color: #FFF;
-  border: 1px solid #1E9FF2;
-  background: #1E9FF2; }
+  border: 1px solid #e6ab67;
+  background: #e6ab67; }
   .ui-checkboxradio-label.ui-state-active:hover {
     color: #FFF;
-    border: 1px solid #1E9FF2;
-    background: #1E9FF2; }
+    border: 1px solid #e6ab67;
+    background: #e6ab67; }
   .ui-checkboxradio-label.ui-state-active .ui-icon-background {
-    border: 4px solid #0c84d1; }
+    border: 4px solid #bb782c; }
 
 .ui-checkboxradio-label.ui-checkboxradio-checked .ui-icon, .ui-checkboxradio-label.ui-checkboxradio-checked:hover .ui-icon {
   width: 16px;
@@ -656,13 +656,13 @@ a.ui-button-link {
 .ui-slider-primary .ui-slider-range,
 .ui-slider-primary .ui-slider-pip[class*=ui-slider-pip-selected] .ui-slider-line,
 .ui-slider-primary .ui-slider-pip.ui-slider-pip-inrange .ui-slider-line {
-  background-color: #1E9FF2; }
+  background-color: #e6ab67; }
 
 .ui-slider-info .ui-slider-handle,
 .ui-slider-info .ui-slider-range,
 .ui-slider-info .ui-slider-pip[class*=ui-slider-pip-selected] .ui-slider-line,
 .ui-slider-info .ui-slider-pip.ui-slider-pip-inrange .ui-slider-line {
-  background-color: #1E9FF2; }
+  background-color: #e6ab67; }
 
 .ui-slider-success .ui-slider-handle,
 .ui-slider-success .ui-slider-range,
@@ -688,7 +688,7 @@ a.ui-button-link {
 .ui-progressbar {
   background: #D7E0EA; }
   .ui-progressbar .ui-progressbar-value {
-    background: #1E9FF2;
+    background: #e6ab67;
     margin: 0;
     background-size: 60px 60px;
     transition: width .4s ease-in-out; }
@@ -711,7 +711,7 @@ a.ui-button-link {
 .ui-progressbar-indeterminate {
   background: #D7E0EA; }
   .ui-progressbar-indeterminate .ui-progressbar-value {
-    background: #1E9FF2;
+    background: #e6ab67;
     margin: 0;
     background-size: 60px 60px;
     transition: width .4s ease-in-out;
@@ -738,8 +738,8 @@ a.ui-button-link {
     background: transparent; }
   .ui-dialog .ui-button {
     color: #fff;
-    background-color: #1E9FF2;
-    border-color: #1E9FF2; }
+    background-color: #e6ab67;
+    border-color: #e6ab67; }
   .ui-dialog .ui-icon-closethick:after {
     position: absolute;
     text-indent: 0;

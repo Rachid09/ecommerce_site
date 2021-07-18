@@ -30,15 +30,12 @@ class ProductController extends Controller
     public function create()
     {
         $id = Auth::user()->id;
-
-
-
+        // echo '<pre>';
+        // print_r($id);
+        // die;
         $maincategories = Seller::find($id)->maincategory()->orderBy('libelle')->get();
         $categories = json_decode(json_encode($maincategories));
 
-        // echo '<pre>';
-        // print_r($maincategories);
-        // die;
 
         $colors = Color::get();
         // echo '<pre>';

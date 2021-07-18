@@ -223,60 +223,60 @@
     background-color: #28D094 !important; }
 
 .loader-info div {
-  background-color: #1E9FF2 !important; }
+  background-color: #e6ab67 !important; }
 
 .loader-info.ball-clip-rotate div {
-  border-color: #1E9FF2 !important;
+  border-color: #e6ab67 !important;
   border-bottom-color: transparent !important;
   background-color: transparent !important; }
 
 .loader-info.ball-clip-rotate-pulse div:first-child {
-  background: #1E9FF2 !important; }
+  background: #e6ab67 !important; }
 
 .loader-info.ball-clip-rotate-pulse div:last-child {
   background: transparent !important;
-  border-color: #1E9FF2 transparent #1E9FF2 transparent !important; }
+  border-color: #e6ab67 transparent #e6ab67 transparent !important; }
 
 .loader-info.ball-clip-rotate-multiple div {
   background-color: transparent !important;
-  border-color: transparent #1E9FF2 transparent #1E9FF2 !important; }
+  border-color: transparent #e6ab67 transparent #e6ab67 !important; }
 
 .loader-info.ball-rotate div:before, .loader-info.ball-rotate div:after {
-  background-color: #1E9FF2 !important; }
+  background-color: #e6ab67 !important; }
 
 .loader-info.ball-triangle-path div {
   background-color: transparent !important;
-  border-color: #1E9FF2 !important; }
+  border-color: #e6ab67 !important; }
 
 .loader-info.ball-scale-ripple div {
   background-color: transparent !important;
-  border-color: #1E9FF2 !important; }
+  border-color: #e6ab67 !important; }
 
 .loader-info.ball-scale-ripple-multiple div {
   background-color: transparent !important;
-  border-color: #1E9FF2 !important; }
+  border-color: #e6ab67 !important; }
 
 .loader-info.triangle-skew-spin div {
   background-color: transparent !important;
-  border-bottom-color: #1E9FF2 !important; }
+  border-bottom-color: #e6ab67 !important; }
 
 .loader-info.semi-circle-spin div {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent), color-stop(30%, #1E9FF2), to(#1E9FF2));
-  background-image: -webkit-linear-gradient(transparent 0%, transparent 70%, #1E9FF2 30%, #1E9FF2 100%);
-  background-image: -moz-linear-gradient(transparent 0%, transparent 70%, #1E9FF2 30%, #1E9FF2 100%);
-  background-image: -o-linear-gradient(transparent 0%, transparent 70%, #1E9FF2 30%, #1E9FF2 100%);
-  background-image: linear-gradient(transparent 0%, transparent 70%, #1E9FF2 30%, #1E9FF2 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent), color-stop(30%, #e6ab67), to(#e6ab67));
+  background-image: -webkit-linear-gradient(transparent 0%, transparent 70%, #e6ab67 30%, #e6ab67 100%);
+  background-image: -moz-linear-gradient(transparent 0%, transparent 70%, #e6ab67 30%, #e6ab67 100%);
+  background-image: -o-linear-gradient(transparent 0%, transparent 70%, #e6ab67 30%, #e6ab67 100%);
+  background-image: linear-gradient(transparent 0%, transparent 70%, #e6ab67 30%, #e6ab67 100%);
   background-color: transparent !important; }
 
 .loader-info.fading-circle div {
   background-color: transparent !important; }
   .loader-info.fading-circle div:before {
-    background-color: #1E9FF2 !important; }
+    background-color: #e6ab67 !important; }
 
 .loader-info.folding-cube div {
   background-color: transparent !important; }
   .loader-info.folding-cube div:before {
-    background-color: #1E9FF2 !important; }
+    background-color: #e6ab67 !important; }
 
 .loader-warning div {
   background-color: #FF9149 !important; }

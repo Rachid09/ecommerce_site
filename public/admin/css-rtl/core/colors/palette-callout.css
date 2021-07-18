@@ -217,34 +217,34 @@
 
 .bs-callout-info {
   display: block;
-  border-color: #1E9FF2 !important;
+  border-color: #e6ab67 !important;
   background-color: #b8e1fb;
   border-radius: 0.25rem;
   color: #010a10; }
   .bs-callout-info h1, .bs-callout-info h2, .bs-callout-info h3, .bs-callout-info h4, .bs-callout-info h5, .bs-callout-info h6 {
     margin-top: 0;
-    color: #1E9FF2; }
+    color: #e6ab67; }
   .bs-callout-info p:last-child {
     margin-bottom: 0; }
   .bs-callout-info code, .bs-callout-info .highlight {
     background-color: #fff; }
   .bs-callout-info.callout-transparent {
     display: block;
-    border-color: #1E9FF2 !important;
+    border-color: #e6ab67 !important;
     background-color: transparent;
     border-radius: 0.25rem;
     color: #010a10; }
     .bs-callout-info.callout-transparent h1, .bs-callout-info.callout-transparent h2, .bs-callout-info.callout-transparent h3, .bs-callout-info.callout-transparent h4, .bs-callout-info.callout-transparent h5, .bs-callout-info.callout-transparent h6 {
       margin-top: 0;
-      color: #1E9FF2; }
+      color: #e6ab67; }
     .bs-callout-info.callout-transparent p:last-child {
       margin-bottom: 0; }
     .bs-callout-info.callout-transparent code, .bs-callout-info.callout-transparent .highlight {
       background-color: #fff; }
   .bs-callout-info .callout-arrow-left:before {
-    border-right-color: #1E9FF2; }
+    border-right-color: #e6ab67; }
   .bs-callout-info .callout-arrow-right:before {
-    border-left-color: #1E9FF2; }
+    border-left-color: #e6ab67; }
 
 .climacon-info.climacon-darken-1 .climacon_component-stroke {
   fill: #1A97F0; }

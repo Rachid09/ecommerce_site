@@ -9,11 +9,11 @@
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="">الرئيسية </a>
+                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{route('admin.sellers')}}">المتاجر </a>
+                            <li class="breadcrumb-item"><a href="{{route('admin.sellers')}}">Vendeurs </a>
                             </li>
-                            <li class="breadcrumb-item active">تعديل متجر
+                            <li class="breadcrumb-item active">Modifier vendeur
                             </li>
                         </ol>
                     </div>
@@ -27,7 +27,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title" id="basic-layout-form"> تعديل متجر </h4>
+                                <h4 class="card-title" id="basic-layout-form"> Modification </h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -55,7 +55,7 @@
 
 
                                         <div class="form-group">
-                                            <label> لوجو التجار </label>
+                                            <label> logo </label>
                                             <label id="projectinput7" class="file center-block">
                                                 <input type="file" id="file" name="logo">
                                                 <span class="file-custom"></span>
@@ -67,13 +67,13 @@
 
                                         <div class="form-body">
 
-                                            <h4 class="form-section"><i class="ft-home"></i> بيانات المتجر </h4>
+                                            <h4 class="form-section"><i class="ft-home"></i> Les informations du vendeur </h4>
 
 
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> le nom du vendeur </label>
+                                                        <label for="projectinput1"> Nom du vendeur </label>
                                                         <input type="text" value="{{$seller -> full_name}}" id="name" class="form-control" placeholder="  " name="full_name">
                                                         @error("full_name")
                                                         <span class="text-danger">{{$message}}</span>
@@ -92,7 +92,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> اسم المتجر </label>
+                                                        <label for="projectinput1">  Nom du boutique </label>
                                                         <input type="text" value="{{$seller -> store_name}}" id="name" class="form-control" placeholder="  " name="store_name">
                                                         @error("store_name")
                                                         <span class="text-danger">{{$message}}</span>
@@ -108,7 +108,7 @@
 
                                                 <div class="col-md-6 ">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> رقم الهاتف </label>
+                                                        <label for="projectinput1">Telephone </label>
                                                         <input type="text" id="mobile" class="form-control" placeholder="  " name="mobile" value="{{$seller -> mobile}}">
 
                                                         @error("mobile")
@@ -118,7 +118,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput2"> أختر القسم </label>
+                                                        <label for="projectinput2"> Choisissez les catègories </label>
                                                         <select name="categories[]" class="select2 form-control" multiple>
                                                             <optgroup label="من فضلك أختر القسم ">
                                                                 @if($categories && $categories -> count() > 0)
@@ -147,7 +147,7 @@
                                             <div class="row">
                                                 <div class="class col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput1">كلمة المرور </label>
+                                                        <label for="projectinput1"> Mot de pass </label>
                                                         <input type="password" id="password" class="form-control" placeholder="  " name="password">
 
                                                         @error("password")
@@ -158,7 +158,7 @@
                                                 </div>
                                                 <div class="col-md-6 ">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> ألبريد الالكتروني </label>
+                                                        <label for="projectinput1">  Email </label>
                                                         <input type="text" id="email" class="form-control" placeholder="  " name="email" value="{{$seller -> email}}">
 
                                                         @error("email")
@@ -172,7 +172,7 @@
                                             <di class="row">
                                                 <div class="col-12 ">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> العنوان </label>
+                                                        <label for="projectinput1"> Adresse </label>
                                                         <input type="text" id="pac-input" class="form-control" placeholder="  " name="address" value="{{$seller -> address}}">
 
                                                         @error("address")
@@ -186,7 +186,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group mt-1">
                                                         <input type="checkbox" value="1" name="active" id="switcheryColor4" class="switchery" data-color="success" @if($seller -> active == 1)checked @endif/>
-                                                        <label for="switcheryColor4" class="card-title ml-1">الحالة </label>
+                                                        <label for="switcheryColor4" class="card-title ml-1">Status </label>
 
                                                         @error("active")
                                                         <span class="text-danger"> </span>
@@ -202,10 +202,10 @@
 
                                         <div class="form-actions">
                                             <button type="button" class="btn btn-warning mr-1" onclick="history.back();">
-                                                <i class="ft-x"></i> تراجع
+                                                <i class="ft-x"></i> Annuler
                                             </button>
                                             <button type="submit" class="btn btn-primary">
-                                                <i class="la la-check-square-o"></i> حفظ
+                                                <i class="la la-check-square-o"></i> Enregistrer
                                             </button>
                                         </div>
                                     </form>

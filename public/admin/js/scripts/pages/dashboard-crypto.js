@@ -199,9 +199,9 @@
             label: "XRP",
             data: [70, 20, 35, 60, 20, 40, 30],
             backgroundColor: blue_trans_gradient,
-            borderColor: "#1E9FF2",
+            borderColor: "#e6ab67",
             borderWidth: 1.5,
-            strokeColor : "#1E9FF2",
+            strokeColor : "#e6ab67",
             pointRadius: 0,
         }]
     };
@@ -279,7 +279,7 @@ $(window).on("load", function(){
                     axisPointer: {
                         type: 'line',
                         lineStyle: {
-                            color: '#1E9FF2',
+                            color: '#e6ab67',
                             width: 2,
                             type: 'solid'
                         },

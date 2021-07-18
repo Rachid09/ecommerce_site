@@ -185,22 +185,7 @@
                                                     @endforeach
                                                 </optgroup>
                                             </select>
-                                            {{-- <span class="swatch swatch-color swatch-circle swatch-selected"
-                                                data-bs-toggle="tooltip" data-bs-placement="top"
-                                                data-bs-original-title="Blue">
-                                                <span class="bigbazar-tooltip" style="background-color:#33a1de"
-                                                    title="">Blue</span>
-                                            </span>
-                                            <span class="swatch swatch-color term-grey swatch-circle " title="Grey"
-                                                data-term="grey">
-                                                <span class="bigbazar-tooltip" style="background-color:#787878"
-                                                    title="">Grey</span>
-                                            </span>
-                                            <span class="swatch swatch-color term-maroon swatch-circle" title="Maroon"
-                                                data-term="maroon">
-                                                <span class="bigbazar-tooltip" style="background-color:#800000"
-                                                    title="">Maroon</span>
-                                            </span> --}}
+
                                         </div>
                                     </td>
                                 </tr>
@@ -223,17 +208,23 @@
                                 </tr>
                             </table>
                             <div class="single_variation_wrap">
-                                <div class="quantity">
-                                    <input type="number" min="1" max="9" step="1" value="1">
-                                </div>
+                               <select class="custom-select" name="qty" id="quantity"">
+                                            @for ($i = 1; $i <= $product['stock']; $i++)
+                                                <option value="{{ $i }}">
+                                                    {{ $i }}
+                                                </option>
+                                            @endfor
+                                        </select>
                                 <div
                                     class="woocommerce-variation-add-to-cart variations_button woocommerce-variation-add-to-cart-enabled">
 
-                                    <form action="{{route('shopping-cart.add')}}" method="POST" id="add-to-cart-form{{$product['id']}}">
+                                    <form action="{{route('shopping-cart.add')}}" method="POST"
+                                        id="add-to-cart-form{{$product['id']}}">
                                         @csrf
                                         <input type="hidden" name="product_id" id="id" value="{{$product['id']}}">
 
-                                        <button  onclick="event.preventDefault();
+                                        <button
+                                            onclick="event.preventDefault();
                                                  document.getElementById('add-to-cart-form{{$product['id']}}').submit();"
                                             class="single_add_to_cart_button button alt single_add_to_cart_ajax_button">Add
                                             to cart</button>
@@ -297,16 +288,18 @@
                                     <h2 class="my-3">Payment & Shipment:</h2>
                                     <div class="detailmodule_text">
                                         <ul class="detail-desc-decorate-content">
-                                            <li>1. We accept Alipay, Paypal, Western Union, TT. All major credit cards
-                                                are accepted through secure payment processor ESCROW.</li>
-                                            <li>2. If you need faster shipping way, We recommend the Aliexpress Standard
-                                                Shipping .You also can choose the DHL,Fedx.</li>
-                                            <li>3. All the items will be dispatched within 2 business days, to
-                                                USA、France、United Kingdom need 1-5 weeks ,Canada, Australia Russia and
-                                                need around 2 to 5 weeks. </li>
-                                            <li>4. Also ,the delay or failure delivery is sometimes caused by the policy
-                                                of different customs, for example ,the laser pointer is unacceptable in
-                                                some countries.</li>
+                                            Nous acceptons Alipay, Paypal, Western Union, TT. Toutes les principales
+                                            cartes de crédit sont acceptées via le processeur de paiement sécurisé
+                                            ESCROW.
+                                            2. Si vous avez besoin d'un moyen d'expédition plus rapide, nous vous
+                                            recommandons l'expédition standard Aliexpress. Vous pouvez également choisir
+                                            DHL, Fedx.
+                                            3. Tous les articles seront expédiés dans les 2 jours ouvrables, aux
+                                            États-Unis, en France, au Royaume-Uni avec 1 à 5 semaines, au Canada, en
+                                            Australie, en Russie et entre 2 et 5 semaines environ.
+                                            4. En outre, le retard ou l'échec de la livraison est parfois causé par la
+                                            politique de différentes douanes, par exemple, le pointeur laser est
+                                            inacceptable dans certains pays.
                                         </ul>
                                     </div>
 
@@ -351,17 +344,19 @@
                                             <span><a href="#" style="background-color: #31749e;"></a></span>
                                             <span><a href="#" style="background-color: #672a4f;"></a></span>
                                         </div>
-                                        <div class="on-sale">- 20%</div>
+                                        <div class="on-sale">{{$item['discount']}}</div>
                                         <div class="hover-area">
-                                            <form action="{{route('shopping-cart.add')}}" method="post" id="add-to-cart-form{{$item['id']}}">
+                                            <form action="{{route('shopping-cart.add')}}" method="post"
+                                                id="add-to-cart-form{{$item['id']}}">
                                                 @csrf
-                                                <input type="hidden" name="product_id"  value="{{$item['id']}}">
+                                                <input type="hidden" name="product_id" value="{{$item['id']}}">
                                                 {{-- <input type="hidden" name="name" value="{{$item['name']}}">
                                                 <input type="hidden" name="price" value="{{$item['price']}}"> --}}
                                                 <div class="cart-button">
-                                                    <a href="{{route('shopping-cart.add')}}"  onclick="event.preventDefault();
-                                                 document.getElementById('add-to-cart-form{{$item['id']}}').submit();" class="button add_to_cart_button"
-                                                        data-bs-toggle="tooltip" data-bs-placement="right" title=""
+                                                    <a href="{{route('shopping-cart.add')}}" onclick="event.preventDefault();
+                                                 document.getElementById('add-to-cart-form{{$item['id']}}').submit();"
+                                                        class="button add_to_cart_button" data-bs-toggle="tooltip"
+                                                        data-bs-placement="right" title=""
                                                         data-bs-original-title="Add to Cart"
                                                         aria-label="Add to Cart">Add to
                                                         Cart</a>

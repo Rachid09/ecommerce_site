@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductsImage;
 use App\Models\MainCategory;
+use Cart;
 
 class productsController extends Controller
 {
@@ -35,7 +36,10 @@ class productsController extends Controller
         return view('client.AllProducts', compact('products', 'categories', 'totalProducts', 'title', 'navbarTitle', 'latest_products'));
     }
     public function productDetails($name, $id)
+
     {
+        // dd(Cart::content());
+        $categories = MainCategory::selection()->active()->get();
         $categoryId = Product::where(['id' => $id])->CategoryIdSelection()->first()->toArray();
         $cat_id = $categoryId['maincategory_id'];
         $related_products = Product::where(['maincategory_id' => $cat_id])->selection()->active()->get()->toArray();
@@ -44,6 +48,6 @@ class productsController extends Controller
         // print_r($product);
         // die;
         $title = $name;
-        return view('client.productDetails', compact('product', 'related_products', 'title'));
+        return view('client.productDetails', compact('product', 'related_products', 'title', 'categories'));
     }
 }

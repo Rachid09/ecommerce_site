@@ -9,11 +9,11 @@
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="">الرئيسية </a>
+                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{route('admin.sellers')}}">المتاجر </a>
+                            <li class="breadcrumb-item"><a href="{{route('admin.sellers')}}">Les vendeurs </a>
                             </li>
-                            <li class="breadcrumb-item active">إضافة متجر
+                            <li class="breadcrumb-item active"> Ajouter vendeur
                             </li>
                         </ol>
                     </div>
@@ -27,7 +27,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title" id="basic-layout-form"> إضافة تاجر </h4>
+                                {{-- <h4 class="card-title" id="basic-layout-form"> إضافة تاجر </h4> --}}
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -46,7 +46,7 @@
 
                                         @csrf
                                         <div class="form-group">
-                                            <label> لوجو المنجر </label>
+                                            <label>  L'image </label>
                                             <label id="projectinput7" class="file center-block">
                                                 <input type="file" id="file" name="logo">
                                                 <span class="file-custom"></span>
@@ -58,13 +58,13 @@
 
                                         <div class="form-body">
 
-                                            <h4 class="form-section"><i class="ft-home"></i> بيانات التاجر </h4>
+                                            <h4 class="form-section"><i class="ft-home"></i>Les informaion du vendeur</h4>
 
 
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> الاسم الكامل</label>
+                                                        <label for="projectinput1">Nom complete</label>
                                                         <input type="text" value="" id="name" class="form-control" placeholder="  " name="full_name">
                                                         @error("full_name")
                                                         <span class="text-danger">{{$message}}</span>
@@ -74,7 +74,7 @@
 
                                                   <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> le nom du coperative </label>
+                                                        <label for="projectinput1"> Nom du coperative </label>
                                                         <input type="text" value="" id="name" class="form-control" placeholder="  " name="cop_name">
                                                         @error("cop_name")
                                                         <span class="text-danger">{{$message}}</span>
@@ -83,7 +83,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> اسم المتجر</label>
+                                                        <label for="projectinput1"> Nom du boutique </label>
                                                         <input type="text" value="" id="name" class="form-control" placeholder="  " name="store_name">
                                                         @error("store_name")
                                                         <span class="text-danger">{{$message}}</span>
@@ -99,7 +99,7 @@
                                             <div class="row">
                                                 <div class="col-md-6 ">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> رقم الهاتف </label>
+                                                        <label for="projectinput1"> Nom du boutique  </label>
                                                         <input type="text" id="mobile" class="form-control" placeholder="  " name="mobile">
 
                                                         @error("mobile")
@@ -110,9 +110,9 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput2"> أختر الأقسام </label>
+                                                        <label for="projectinput2"> Choisissez les catègories des produits  </label>
                                                         <select name="categories[]" class="select2 form-control" multiple>
-                                                            <optgroup label="من فضلك أختر القسم ">
+                                                            <optgroup label="">
                                                                 @if($categories && $categories -> count() > 0)
                                                                 @foreach($categories as $category)
                                                                 <option value="{{$category -> id }}">{{$category -> libelle}}</option>
@@ -132,7 +132,7 @@
                                             <div class="row">
                                                 <div class="col-md-6 ">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> ألبريد الالكتروني </label>
+                                                        <label for="projectinput1"> Email </label>
                                                         <input type="text" id="email" class="form-control" placeholder="  " name="email">
 
                                                         @error("email")
@@ -144,7 +144,7 @@
 
                                                 <div class="class col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput1">كلمة المرور </label>
+                                                        <label for="projectinput1"> Mot de pass </label>
                                                         <input type="password" id="password" class="form-control" placeholder="  " name="password">
 
                                                         @error("password")
@@ -161,7 +161,7 @@
                                             <di class="row">
                                                 <div class="col-12 ">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> العنوان </label>
+                                                        <label for="projectinput1"> Adresse </label>
                                                         <input type="text" id="pac-input" class="form-control" placeholder="  " name="address">
 
                                                         @error("address")
@@ -175,7 +175,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group mt-1">
                                                         <input type="checkbox" value="1" name="active" id="switcheryColor4" class="switchery" data-color="success" checked />
-                                                        <label for="switcheryColor4" class="card-title ml-1">الحالة </label>
+                                                        <label for="switcheryColor4" class="card-title ml-1">Status </label>
 
                                                         @error("active")
                                                         <span class="text-danger"> </span>
@@ -191,10 +191,10 @@
 
                                         <div class="form-actions">
                                             <button type="button" class="btn btn-warning mr-1" onclick="history.back();">
-                                                <i class="ft-x"></i> تراجع
+                                                <i class="ft-x"></i> Annuler
                                             </button>
                                             <button type="submit" class="btn btn-primary">
-                                                <i class="la la-check-square-o"></i> حفظ
+                                                <i class="la la-check-square-o"></i> Enregistrer
                                             </button>
                                         </div>
                                     </form>

@@ -117,7 +117,6 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{asset('public/js/admin.script.js')}}" ></script>
     <!-- BEGIN VENDOR JS-->
-    {{-- <script src={{asset("public/js/bootstrap.min.js.map")}} type="text/javascript"></script> --}}
     <!-- BEGIN VENDOR JS-->
 
 
@@ -128,7 +127,6 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
     <script src={{asset("public/admin/vendors/js/extensions/datedropper.min.js")}} type="text/javascript"></script>
     <script src={{asset("public/admin/vendors/js/extensions/timedropper.min.js")}} type="text/javascript"></script>
 
-    <script src={{asset("public/admin/vendors/js/forms/icheck/icheck.min.js")}} type="text/javascript"></script> --}}
     {{-- <script src={{asset("public/admin/js/scripts/pages/chat-application.js")}} type="text/javascript"></script> --}}
     <!-- END PAGE VENDOR JS-->
     <!-- BEGIN MODERN JS-->
@@ -140,16 +138,13 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
     {{-- <script src={{asset("public/admin/js/scripts/pages/dashboard-crypto.js")}} type="text/javascript"></script> --}}
 
 
-{{--
+
     <!-- END PAGE LEVEL JS-->
 
-    <script src={{asset("public/admin/js/scripts/forms/checkbox-radio.js")}} type="text/javascript"></script>
-
-    <script src={{asset("public/admin/js/scripts/modal/components-modal.js")}} type="text/javascript">
-    </script> --}}
 
 
 <!-- BEGIN VENDOR JS-->
+    <script src="{{asset("public/js/bootstrap.min.js.map")}}" type="text/javascript"></script>
 <script src={{asset("public/admin/vendors/js/vendors.min.js")}} type="text/javascript"></script>
 <!-- BEGIN VENDOR JS-->
 <!-- BEGIN PAGE VENDOR JS-->
@@ -186,6 +181,12 @@ type="text/javascript"></script>
 <script src="{{asset("public/admin/vendors/js/extensions/timedropper.min.js")}}" type="text/javascript"></script>
 
     <script src="{{asset("public/admin/vendors/js/forms/icheck/icheck.min.js")}}" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <script src="{{asset("public/admin/js/scripts/forms/checkbox-radio.js")}}" type="text/javascript"></script>
+
+    <script src="{{asset("public/admin/js/scripts/modal/components-modal.js")}}" type="text/javascript">
+    </script>
+    <script src="{{asset("public/admin/vendors/js/forms/icheck/icheck.min.js")}}" type="text/javascript"></script> 
 
 <script>
         $('#meridians1').timeDropper({

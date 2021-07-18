@@ -134,7 +134,7 @@
                             <div
                                 class="section-head border-bottom d-flex justify-content-between align-items-center mt-30">
                                 <div class="d-flex section-head-side-title">
-                                    <h5 class="font-700 text-dark mb-0">Recent Product</h5>
+                                    <h5 class="font-700 text-dark mb-0">Dernières produits</h5>
                                 </div>
                             </div>
                         </div>
@@ -148,36 +148,40 @@
                                             <div class="product type-product">
                                                 <div class="product-wrapper">
                                                     <div class="product-image">
-                                                        <a href="single-shop.html"
+                                                        <a href="{{route('shop.productDetails',['name'=>$item->name,'id'=>$item->id])}}"
                                                             class="woocommerce-LoopProduct-link"><img
                                                                 src="{{$item->main_image}}" alt="Product Image"></a>
                                                         <div class="wishlist-view">
                                                             <div class="quickview-button">
-                                                                <a class="quickview-btn" href="#"
+                                                                {{-- <a class="quickview-btn" href="#"
                                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                                     title="" data-bs-original-title="Quick View"
-                                                                    aria-label="Quick View">Quick View</a>
+                                                                    aria-label="Quick View">Quick View</a> --}}
                                                             </div>
                                                             <div class="whishlist-button">
-                                                                <a class="add_to_wishlist" href="#"
+                                                                {{-- <a class="add_to_wishlist" href="#"
                                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                                     title="" data-bs-original-title="Add to Wishlist"
-                                                                    aria-label="Add to Wishlist">Wishlist</a>
+                                                                    aria-label="Add to Wishlist">Wishlist</a> --}}
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="product-info">
-                                                        <h3 class="product-title"><a href="single-shop.html">Fanqieliu
-                                                                Real 925 Sterling Silver Drop Earrings Flower Purple</a>
+                                                        <h3 class="product-title"><a
+                                                                href="{{route('shop.productDetails',['name'=>$item->name,'id'=>$item->id])}}">{{$item->name}}</a>
                                                         </h3>
                                                         <div class="product-price">
                                                             <div class="price">
-                                                                <ins>$6.00</ins>
-                                                                <del>$10.00</del>
+                                                                @if (!$item->discount)
+                                                                <ins>{{$item->price}}.00DH</ins>
+                                                                @else
+                                                                <ins>{{calculatePriceAfterDiscount($item->price,$item->discount)}}DH</ins>
+                                                                <del>{{$item->price}}.00DH</del>
+                                                                @endif
                                                             </div>
-                                                            <div class="on-sale"><span>40</span><span>% off</span></div>
+                                                            <div class="on-sale"><span>{{$item->discount}}</span><span>% off</span></div>
                                                         </div>
-                                                        <div class="shipping-feed-back">
+                                                        {{-- <div class="shipping-feed-back">
                                                             <div class="star-rating">
                                                                 <div class="rating-wrap">
                                                                     <a href="single-shop.html"><i
@@ -188,7 +192,7 @@
                                                                     <a href="#">(273)</a>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -196,156 +200,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                {{-- <div class="item">
-                                            <div class="row row-cols-1">
-                                                <div class="col">
-                                                    <div class="product type-product">
-                                                        <div class="product-wrapper">
-                                                            <div class="product-image">
-                                                                <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-37.png" alt="Product Image"></a>
-                                                                <div class="wishlist-view">
-                                                                    <div class="quickview-button">
-                                                                        <a class="quickview-btn" href="#quick-view" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Quick View" aria-label="Quick View">Quick View</a>
-                                                                    </div>
-                                                                    <div class="whishlist-button">
-                                                                        <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-info">
-                                                                <h3 class="product-title"><a href="single-shop.html">Game The Legend of Zelda Solid Color Printed T-shirt</a></h3>
-                                                                <div class="product-price">
-                                                                    <div class="price">
-                                                                        <ins>$17.96 - 25.50</ins>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="shipping-feed-back">
-                                                                    <div class="star-rating">
-                                                                        <div class="rating-wrap">
-                                                                            <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.9</span></a>
-                                                                        </div>
-                                                                        <div class="rating-counts-wrap">
-                                                                            <a href="#">(343)</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="product type-product">
-                                                        <div class="product-wrapper">
-                                                            <div class="product-image">
-                                                                <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-40.png" alt="Product Image"></a>
-                                                                <div class="wishlist-view">
-                                                                    <div class="quickview-button">
-                                                                        <a class="quickview-btn" href="#quick-view" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Quick View" aria-label="Quick View">Quick View</a>
-                                                                    </div>
-                                                                    <div class="whishlist-button">
-                                                                        <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-info">
-                                                                <h3 class="product-title"><a href="single-shop.html">Anti-static Comb Large Wide Toothed  Comb Salon Hair Comb for T</a></h3>
-                                                                <div class="product-price">
-                                                                    <div class="price">
-                                                                        <ins>$35.00</ins>
-                                                                        <del>$50.00</del>
-                                                                    </div>
-                                                                    <div class="on-sale"><span>30</span><span>% off</span></div>
-                                                                </div>
-                                                                <div class="shipping-feed-back">
-                                                                    <div class="star-rating">
-                                                                        <div class="rating-wrap">
-                                                                            <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.9</span></a>
-                                                                        </div>
-                                                                        <div class="rating-counts-wrap">
-                                                                            <a href="#">(163)</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="product type-product">
-                                                        <div class="product-wrapper">
-                                                            <div class="product-image">
-                                                                <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-38.png" alt="Product Image"></a>
-                                                                <div class="wishlist-view">
-                                                                    <div class="quickview-button">
-                                                                        <a class="quickview-btn" href="#quick-view" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Quick View" aria-label="Quick View">Quick View</a>
-                                                                    </div>
-                                                                    <div class="whishlist-button">
-                                                                        <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-info">
-                                                                <h3 class="product-title"><a href="single-shop.html">Ladies Tops Shirt Blusas Mujer Women  Blouse 2019 Autumn Causal</a></h3>
-                                                                <div class="product-price">
-                                                                    <div class="price">
-                                                                        <ins>$25.00</ins>
-                                                                        <del>$50.00</del>
-                                                                    </div>
-                                                                    <div class="on-sale"><span>50</span><span>% off</span></div>
-                                                                </div>
-                                                                <div class="shipping-feed-back">
-                                                                    <div class="star-rating">
-                                                                        <div class="rating-wrap">
-                                                                            <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.8</span></a>
-                                                                        </div>
-                                                                        <div class="rating-counts-wrap">
-                                                                            <a href="#">(374)</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="product type-product">
-                                                        <div class="product-wrapper">
-                                                            <div class="product-image">
-                                                                <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-39.png" alt="Product Image"></a>
-                                                                <div class="wishlist-view">
-                                                                    <div class="quickview-button">
-                                                                        <a class="quickview-btn" href="#quick-view" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Quick View" aria-label="Quick View">Quick View</a>
-                                                                    </div>
-                                                                    <div class="whishlist-button">
-                                                                        <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-info">
-                                                                <h3 class="product-title"><a href="single-shop.html">Luxury Brand Handbag New Fashion  Simple Square bag Quality</a></h3>
-                                                                <div class="product-price">
-                                                                    <div class="price">
-                                                                        <ins>$20.00</ins>
-                                                                        <del>$25.00</del>
-                                                                    </div>
-                                                                    <div class="on-sale"><span>20</span><span>% off</span></div>
-                                                                </div>
-                                                                <div class="shipping-feed-back">
-                                                                    <div class="star-rating">
-                                                                        <div class="rating-wrap">
-                                                                            <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.8</span></a>
-                                                                        </div>
-                                                                        <div class="rating-counts-wrap">
-                                                                            <a href="#">(264)</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> --}}
+
                             </div>
                         </div>
                     </div>
@@ -408,7 +263,7 @@
                                             <span><a href="#" style="background-color: #31749e;"></a></span>
                                             <span><a href="#" style="background-color: #672a4f;"></a></span>
                                         </div>
-                                        <div class="on-sale">- 20%</div>
+                                        <div class="on-sale"><span>{{$item->discount}}</span><span>% off</span></div>
                                         <div class="hover-area">
                                             <div class="cart-button">
                                                 <form action="{{route('shopping-cart.add')}}" method="post"
@@ -431,7 +286,7 @@
 
 
 
-                
+
                                             </div>
                                             <div class="wishlist-button">
                                                 <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip"
@@ -443,21 +298,31 @@
                                         </div>
                                     </div>
                                     <div class="product-info">
-                                        <h3 class="product-title"><a href="single-shop.html">{{$item->name}}</a></h3>
-                                        <div class="product-price">
-                                            <div class="price">
-                                                <ins>{{$item->price}}Dh</ins>
-                                                <del>32.28Dh</del>
-                                            </div>
-                                        </div>
-                                        <div class="shipping-feed-back">
+                                        <h3 class="product-title"><a
+                                                href="{{route('shop.productDetails',['name'=>$item->name,'id'=>$item->id])}}">{{$item->name}}</a>
+                                        </h3>
+                                         <div class="product-price">
+                                                            <div class="price">
+                                                                @if (!$item->discount)
+                                                                <ins>{{$item->price}}.00DH</ins>
+                                                                @else
+                                                                <ins>{{calculatePriceAfterDiscount($item->price,$item->discount)}}DH</ins>
+                                                                <del>{{$item->price}}.00DH</del>
+                                                                @endif
+                                                            </div>
+                                                            <div class="on-sale"><span>{{$item->discount}}</span><span>% off</span></div>
+                                                        </div>
+
+                                        {{-- <div class="shipping-feed-back">
                                             <div class="star-rating">
                                                 <div class="rating-wrap">
-                                                    <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.7
+                                                    <a
+                                                        href="{{route('shop.productDetails',['name'=>$item->name,'id'=>$item->id])}}"><i
+                                                            class="fas fa-star"></i><span> 4.7
                                                             (35)</span></a>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>

@@ -68,17 +68,17 @@
                                                   <td> <img style="width: 150px; height: 100px;" src="{{$category -> 	photo}}"></td>
                                                   <td>
                                                       <div class="btn-group" role="group" aria-label="Basic example">
-                                                          <a href="{{route('admin.subcategories.edit',$category -> id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
+                                                          <a href="{{route('admin.subcategories.edit',$category -> id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">Modifier</a>
 
 
-                                                          <a href="{{route('admin.subcategories.delete',$category -> id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+                                                          <a href="{{route('admin.subcategories.delete',$category -> id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">Supprimer</a>
 
 
                                                           <a href="{{route('admin.subcategories.status',$category -> id)}}" class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1">
                                                               @if($category -> status == 0)
-                                                              تفعيل
+                                                              Activer
                                                               @else
-                                                              الغاء تفعيل
+                                                              الغاء Dèsactiver
                                                               @endif
                                                           </a>
                                                       </div>

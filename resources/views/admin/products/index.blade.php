@@ -75,7 +75,7 @@
                                                             @endif</a>
 
 
-                                                        <a href="{{route('admin.products.delete',$product->id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+                                                        <a href="{{route('admin.products.delete',$product->id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">Supprimer</a>
 
 
                                                         <a href="{{route('admin.products.featured',$product->id)}}" class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1">

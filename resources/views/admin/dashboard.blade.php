@@ -15,8 +15,8 @@
                 <div class="card-body">
                   <div class="media d-flex">
                     <div class="media-body text-left">
-                      <h3 class="info">850</h3>
-                      <h6>Products Sold</h6>
+                      <h3 class="info">{{App\Models\Product::count()}}</h3>
+                      <h6>Total des produits</h6>
                     </div>
                     <div>
                       <i class="icon-basket-loaded info font-large-2 float-right"></i>
@@ -36,8 +36,8 @@
                 <div class="card-body">
                   <div class="media d-flex">
                     <div class="media-body text-left">
-                      <h3 class="warning">$748</h3>
-                      <h6>Net Profit</h6>
+                      <h3 class="warning">{{App\Models\Seller::count()}}</h3>
+                      <h6>Total des vendeurs</h6>
                     </div>
                     <div>
                       <i class="icon-pie-chart warning font-large-2 float-right"></i>
@@ -57,8 +57,8 @@
                 <div class="card-body">
                   <div class="media d-flex">
                     <div class="media-body text-left">
-                      <h3 class="success">146</h3>
-                      <h6>New Customers</h6>
+                      <h3 class="success">{{App\Models\MainCategory::count()}}</h3>
+                      <h6>Total des catégories</h6>
                     </div>
                     <div>
                       <i class="icon-user-follow success font-large-2 float-right"></i>
@@ -78,8 +78,8 @@
                 <div class="card-body">
                   <div class="media d-flex">
                     <div class="media-body text-left">
-                      <h3 class="danger">99.89 %</h3>
-                      <h6>Customer Satisfaction</h6>
+                      <h3 class="danger">{{App\Models\User::count()}}</h3>
+                      <h6>Total des clients</h6>
                     </div>
                     <div>
                       <i class="icon-heart danger font-large-2 float-right"></i>
@@ -273,7 +273,7 @@
         </div>
         <!--/ Products sell and New Orders -->
         <!-- Recent Transactions -->
-        <div class="row">
+        {{-- <div class="row">
           <div id="recent-transactions" class="col-12">
             <div class="card">
               <div class="card-header">
@@ -507,10 +507,10 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
         <!--/ Recent Transactions -->
         <!--Recent Orders & Monthly Sales -->
-        <div class="row match-height">
+        {{-- <div class="row match-height">
           <div class="col-xl-8 col-lg-12">
             <div class="card">
               <div class="card-content ">
@@ -572,10 +572,10 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
         <!--/Recent Orders & Monthly Sales -->
         <!-- Basic Horizontal Timeline -->
-        <div class="row match-height">
+        {{-- <div class="row match-height">
           <div class="col-xl-4 col-lg-12">
             <div class="card">
               <div class="card-header">
@@ -795,7 +795,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
         <!--/ Basic Horizontal Timeline -->
       </div>
     </div>

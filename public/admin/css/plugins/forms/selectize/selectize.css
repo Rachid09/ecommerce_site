@@ -183,11 +183,11 @@
 .selectize-control.multi .selectize-input [data-value] {
   background-image: none !important;
   padding: 3px 6px;
-  background-color: #1E9FF2 !important;
-  border-color: #0c84d1 !important;
+  background-color: #e6ab67 !important;
+  border-color: #bb782c !important;
   margin-right: 7px;
   font-size: 1rem;
   line-height: 1.5rem; }
 
 .selectize-control.plugin-remove_button [data-value] .remove {
-  border-left-color: #0c84d1 !important; }
+  border-left-color: #bb782c !important; }
