@@ -144,7 +144,7 @@
                     </div>
                   </form>
                 </li>
-              </ul> 
+              </ul>
             </li> --}}
             {{-- <li class="nav-item nav-search"><a class="nav-link nav-link-search" href="#"><i class="ficon ft-search"></i></a>
               <div class="search-input">
@@ -162,13 +162,13 @@
                   <img src="{{asset('public/admin/images/portrait/small/avatar-s-19.png')}}" alt="avatar"><i></i></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="ft-user"></i> Modifer Profile</a>
-               
+
                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
+                                                 document.getElementById('logout-form{{Auth::guard('admin')->user()->id}}').submit();">
                                 {{ __('Logout') }}
                             </a>
 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                <form id="logout-form{{Auth::guard('admin')->user()->id}}" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                 </form>
               </div>

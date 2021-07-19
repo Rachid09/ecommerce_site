@@ -120,7 +120,7 @@
                         <span class="menu-item-text">{{ __('Deconnexion') }}</span>
                      </a>
 
-                     <form id="logout-form{{Auth::guard('admin')->user()->full_name}}" action="{{ route('logout') }}" method="POST" style="display: none;">
+                     <form id="logout-form{{Auth::guard('admin')->user()->id}}" action="{{ route('logout') }}" method="POST" style="display: none;">
                          @csrf
                      </form></li>
 

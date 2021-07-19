@@ -78,8 +78,9 @@
     <script src="{{asset('public/js/vendor/jquery.elevatezoom.js')}}"></script>
     <script src="{{asset("public/js/custom.js")}}"></script>
     <script src="{{asset("public/js/vendor/jquery.fancybox.min.js")}}"></script>
+    @yield('notify-js')
     @yield('zoomScript')
-     @yield('extra-js')
+    @yield('extra-js')
     {{-- <script src="{{asset("public/js/vendor/mixitup.min.js")}}"></script> --}}
     <script src="{{asset("public/admin/vendors/js/forms/select/select2.full.min.js")}}" type="text/javascript"></script>
     <script src="{{asset("public/admin/js/scripts/forms/select/form-select2.js")}}" type="text/javascript"></script>

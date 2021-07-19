@@ -64,18 +64,38 @@
                                                   <td>
                                                       <div class="btn-group" role="group" aria-label="Basic example">
                                                           <a href="{{route('admin.maincategories.edit',$category -> id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">Modifier</a>
+                                                          <form
+                                                            action="{{route('admin.maincategories.delete',$category->id)}}"
+                                                            method="post" id="show-delete-alert{{$category->id}}">
+                                                            @csrf
 
 
-                                                          <a href="{{route('admin.maincategories.delete',$category -> id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">Supprimer</a>
+
+                                                            <a href="javascript:void(0)"
+                                                                onclick="showDeletAlert({{$category->id}});
+                                                              " class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">Supprimer</a>
+
+                                                        </form>
+
+                                                          <form
+                                                            action="{{route('admin.maincategories.status',$category -> id)}}"
+                                                            method="get" id="show-activate-alert{{$category -> id}}">
+                                                            @csrf
 
 
-                                                          <a href="{{route('admin.maincategories.status',$category -> id)}}" class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1">
-                                                              @if($category -> is_active == 0)
-                                                              Activer
-                                                              @else
-                                                             Desactiver
-                                                              @endif
-                                                          </a>
+
+                                                            <a href="javascript:void(0)"
+                                                                onclick="showActivateAlert({{$category -> id}});
+                                                              " class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1" id="status-btn{{$category->id}}">
+                                                            @if($category -> is_active == 0)
+                                                            activer
+                                                            @else
+                                                            desactiver
+                                                            @endif
+                                                            </a>
+
+                                                        </form>
+
 
 
                                                       </div>
@@ -100,3 +120,73 @@
       </div>
   </div>
   @endsection
+
+
+
+  @section('sweetalert-js')
+<script >
+window.showDeletAlert = function(formId)
+{
+    Swal.fire({
+        icon: 'error',
+        text: 'vous etes sur de supprimer cette catègorie?',
+        showCancelButton: true,
+        confirmButtonText: 'Supprimer',
+         cancelButtonText: 'Annuler',
+        confirmButtonColor: '#e3342f',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById(`show-delete-alert${formId}`).submit();
+
+
+
+        }
+        else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swal.fire(
+      'Annulée',
+      'vote catègorie est protegée',
+      'error'
+    )
+  }
+
+    });
+}
+
+
+
+function showActivateAlert(formId)
+{   var statusbtn = document.getElementById(`status-btn${formId}`).innerText;
+     console.log(statusbtn);
+
+    Swal.fire({
+        icon: 'error',
+        text: `vous voulez ${statusbtn == 'Activer' ? 'activer':'desactiver'} cette catègorie?`,
+        showCancelButton: true,
+        confirmButtonText: `${statusbtn == 'Activer' ? 'activer':'desactiver'}`,
+         cancelButtonText: 'Annuler',
+        confirmButtonColor: '#e3342f',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById(`show-activate-alert${formId}`).submit();
+        }
+        else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swal.fire(
+      'Annulée',
+      'Cette catègorie est protegée',
+      'error'
+    )
+  }
+
+    });
+}
+
+</script>
+@endsection
+
+

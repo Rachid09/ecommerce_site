@@ -52,10 +52,13 @@ class RegisterController extends Controller
         $default_lang = get_default_lang();
         $maincategories = MainCategory::where('translation_lang', $default_lang)
             ->selection()
+            ->active()
             ->get();
+        $categories = MainCategory::selection()->active()->get();
+
 
         $title = 'Inscription Vendeur';
-        return view('seller.register', compact('maincategories', 'title'));
+        return view('seller.register', compact(['categories', 'maincategories', 'title']));
     }
 
 
@@ -102,8 +105,13 @@ class RegisterController extends Controller
 
     public function showClientRegisterForm()
     {
+        $default_lang = get_default_lang();
+        $categories = MainCategory::where('translation_lang', $default_lang)
+            ->selection()
+            ->active()
+            ->get();
         $title = 'Inscription Client';
-        return view('client.register', compact('title'));
+        return view('client.register', compact('title', 'categories'));
     }
 
     public function clientRegister(ClientRequest $request)

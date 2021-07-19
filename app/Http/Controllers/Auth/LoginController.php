@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use Auth;
+use App\Models\MainCategory;
 
 
 class LoginController extends Controller
@@ -87,12 +88,18 @@ class LoginController extends Controller
 
     public function showClientLoginForm()
     {
-        return view('client.login');
+        $default_lang = get_default_lang();
+        $categories = MainCategory::where('translation_lang', $default_lang)
+            ->selection()
+            ->active()
+            ->get();
+        return view('client.login', compact('categories'));
     }
 
 
     public function clientLogin(Request $request)
     {
+
         // return $request;
         // $this->validate($request, [
         //     'email'   => 'required|email',

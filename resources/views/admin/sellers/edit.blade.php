@@ -133,7 +133,7 @@
                                                                 @endif
                                                             </optgroup>
                                                         </select>
-                                                        @error('category_id')
+                                                        @error('categories')
                                                         <span class="text-danger"> {{$message}}</span>
                                                         @enderror
                                                     </div>

@@ -246,38 +246,7 @@
                                                           </tr>
 
                                                           @endforeach
-                                                          {{-- <tr class="cart_item">
-                                                              <td class="product-name">
-                                                                  Men Blue Colourblocked Mid-Top Sneakers&nbsp; <strong class="product-quantity">×&nbsp;1</strong> </td>
-                                                              <td class="product-total">
-                                                                  <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>40.00</bdi>
-                                                                  </span>
-                                                              </td>
-                                                          </tr>
-                                                          <tr class="cart_item">
-                                                              <td class="product-name">
-                                                                  Men Navy & Red Checked Slim Fit Casual Shirt - L&nbsp; <strong class="product-quantity">×&nbsp;1</strong> </td>
-                                                              <td class="product-total">
-                                                                  <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>124.00</bdi>
-                                                                  </span>
-                                                              </td>
-                                                          </tr>
-                                                          <tr class="cart_item">
-                                                              <td class="product-name">
-                                                                  Unisex Multicoloured Graphic Backpack&nbsp; <strong class="product-quantity">×&nbsp;1</strong> </td>
-                                                              <td class="product-total">
-                                                                  <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>75.00</bdi>
-                                                                  </span>
-                                                              </td>
-                                                          </tr>
-                                                          <tr class="cart_item"> --}}
-                                                              {{-- <td class="product-name">
-                                                                  Women Brown Solid Synthetic Mid Top Flat Boots&nbsp; <strong class="product-quantity">×&nbsp;1</strong> </td>
-                                                              <td class="product-total">
-                                                                  <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>189.00</bdi>
-                                                                  </span>
-                                                              </td>
-                                                          </tr> --}}
+                                                     
                                                       </tbody>
                                                       <tfoot>
                                                           <tr class="cart-subtotal">

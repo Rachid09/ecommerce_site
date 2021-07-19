@@ -20,18 +20,20 @@
 @section('breadcrumb')
 @include('client.includes.breadcrumb',['title'=>$title])
 @endsection
+@section('notify-js')
+<script src="https://cdn.jsdelivr.net/npm/@reliutg/buzz-notify/index.min.js"></script>
+@endsection
 
 
 
 
 @section('content')
+<div id="notify"></div>
 
 <!--==================== Cart Section Start ====================-->
 <div class="full-row">
     <div class="container">
         <div class="row mr-2 ml-2">
-            <button type="text" class="btn btn-lg btn-block btn-outline-success mb-2" id="update_qty_message">
-            </button>
         </div>
         <div class="row">
             @if (!Cart::content()->count())
@@ -184,7 +186,13 @@
                      _token:token },
             success: function (resp) {
                console.log(resp);
-                $("#update_qty_message").html(resp.success);
+               Notify({
+                            title: resp.success,
+                            type: 'success',
+                            duration:4000,
+                            // html: `<span>${resp.success}</span>`
+
+                      });
                 console.log(resp);
                     // var price = document.querySelector('#price');
                     // var subtotal = document.querySelector('#subtotal');
@@ -206,7 +214,5 @@
         });
     });
 </script>
-
-
 </script>
 @endsection

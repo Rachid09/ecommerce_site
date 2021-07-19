@@ -101,7 +101,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => 'auth
         Route::post('/store', 'MainCategoriesController@store')->name('admin.maincategories.store');
         Route::get('edit/{id}', 'MainCategoriesController@edit')->name('admin.maincategories.edit');
         Route::post('update/{id}', 'MainCategoriesController@update')->name('admin.maincategories.update');
-        Route::get('delete/{id}', 'MainCategoriesController@destroy')->name('admin.maincategories.delete');
+        Route::post('delete/{id}', 'MainCategoriesController@destroy')->name('admin.maincategories.delete');
         Route::get('changeStatus/{id}', 'MainCategoriesController@changeStatus')->name('admin.maincategories.status');
     });
 
@@ -116,8 +116,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => 'auth
         Route::post('store', 'SellersController@store')->name('admin.sellers.store');
         Route::get('edit/{id}', 'SellersController@edit')->name('admin.sellers.edit');
         Route::post('update/{id}', 'SellersController@update')->name('admin.sellers.update');
-        Route::get('delete/{id}', 'SellersController@destroy')->name('admin.sellers.delete');
-        Route::get('changeStatus/{id}', 'SellersController@changeStatus')->name('admin.sellers.status');
+        Route::post('delete/{id}', 'SellersController@destroy')->name('admin.sellers.delete');
+        Route::post('changeStatus/{id}', 'SellersController@changeStatus')->name('admin.sellers.status');
     });
     ######################### End  sellers Routes  ########################
 
@@ -146,7 +146,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => 'auth
         // Route::get('edit/{id}', 'ProductsController@edit')->name('admin.products.edit');
         // Route::post('update/{id}', 'ProductsController@update')->name('admin.products.update');
         Route::get('delete/{id}', 'ProductsController@destroy')->name('admin.products.delete');
-        Route::get('changeStatus/{id}', 'ProductsController@changeStatus')->name('admin.products.status');
+        Route::post('changeStatus/{id}', 'ProductsController@changeStatus')->name('admin.products.status');
         Route::get('makeFeatured/{id}', 'ProductsController@changeFeatured')->name('admin.products.featured');
     });
 });
@@ -163,15 +163,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Auth'], function () {
 
 Route::group(['prefix' => 'seller', 'namespace' => 'seller', 'middleware' => 'auth:seller'], function () {
     Route::get('/home', 'DashboardController@index')->name('seller.dashboard');
-    ######################### brgin products Routes ########################
+    ######################### brgin STOCK Routes ########################
     Route::group(['prefix' => 'stock'], function () {
         Route::get('/', 'ProductController@index')->name('seller.stock.products');
         Route::get('/add', 'ProductController@create')->name('seller.stock.product.create');
         Route::post('/store', 'ProductController@store')->name('seller.stock.product.store');
         Route::get('/edit/{id}', 'ProductController@edit')->name('seller.stock.product.edit');
         Route::post('/update/{id}', 'ProductController@update')->name('seller.stock.product.update');
-        Route::get('delete/{id}', 'ProductController@destroy')->name('seller.stock.product.delete');
-        Route::get('changeStatus/{id}', 'ProductController@changeStatus')->name('seller.stock.product.status');
+        Route::post('delete/{id}', 'ProductController@destroy')->name('seller.stock.product.delete');
+        Route::post('changeStatus/{id}', 'ProductController@changeStatus')->name('seller.stock.product.status');
         Route::get('addImages/{id}', 'ProductController@getFormAddImages')->name('seller.stock.product.images');
         Route::post('addImages/{id}', 'ProductController@addImages')->name('seller.stock.product.storeImages');
         Route::get('/{prod_id}/changeImageStatus/{id}', 'ProductController@changeImageStatus')->name('seller.stock.product.changeImageStatus');
@@ -185,7 +185,7 @@ Route::group(['prefix' => 'seller', 'namespace' => 'seller', 'middleware' => 'au
         // Route::post('/store', 'StoreController@store')->name('seller.store.store');
         Route::get('/edit/{id}', 'StoreController@edit')->name('seller.store.product.edit');
         Route::post('/update/{id}', 'StoreController@update')->name('seller.store.product.update');
-        Route::get('delete/{id}', 'StoreController@changeStatus')->name('seller.store.product.status');
+        Route::post('delete/{id}', 'StoreController@changeStatus')->name('seller.store.product.status');
     });
 
     ######################### brgin orders Routes ########################

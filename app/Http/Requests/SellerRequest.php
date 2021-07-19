@@ -26,10 +26,11 @@ class SellerRequest extends FormRequest
         return [
             'logo' => 'required_without:id|mimes:jpg,jpeg,png',
             'store_name' => 'required|string|max:100',
+            'cop_name' => 'required|string|max:100',
             'full_name' => 'required|string|max:100',
             'mobile' => 'required|max:100|unique:sellers,mobile,' . $this->id,
             'email'  => 'required|email|unique:sellers,email,' . $this->id,
-            // 'category_id'  => 'required|exists:main_categories,id',
+            'categories'  => 'required',
             'address'   => 'required|string|max:500',
             'password'   => 'required_without:id',
             'cop_name'   => 'required|string|max:100'
@@ -41,15 +42,14 @@ class SellerRequest extends FormRequest
     {
 
         return [
-            'required'  =>'Ce champ est obligatoire',
+            'required'  => 'Ce champ est obligatoire',
             'max'  => 'Ce champ est obligatoire',
-            'category_id.exists'  =>'Cette catégorie n existe pas',
             'email.email' => 'Cet email est pas invalide ',
             'address.string' => 'Ce champ doit être composé de caractères, ou bien caractères et numéros',
             'store_name.string'  => 'Ce champ doit être composé de caractères, ou bien caractères et numéros',
             'cop_name.string'  => 'Ce champ doit être composé de caractères, ou bien caractères et numéros',
             'full_name.string'  => 'Ce champ doit être composé de caractères, ou bien caractères et numéros',
-            'logo.required_without'=> 'La photo est obligatoite',
+            'logo.required_without' => 'La photo est obligatoite',
             'email.unique' => 'Cet email est déjà utilisé ',
             'mobile.unique' => 'Ce numéro de téléphone est déjà utilisé ',
 

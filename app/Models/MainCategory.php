@@ -38,7 +38,7 @@ class MainCategory extends Model
 
     public function getIsActive()
     {
-        return $this->is_active == 1 ? 'مفعل' : 'غير مفعل';
+        return $this->is_active == 1 ? 'Active' : 'Inactive';
     }
 
     public function scopeDefaultCategory($query)

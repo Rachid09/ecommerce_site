@@ -82,10 +82,10 @@ class MainCategoriesController extends Controller
 
             DB::commit();
 
-            return redirect()->route('admin.maincategories')->with(['success' => 'تم الحفظ بنجاح']);
+            return redirect()->route('admin.maincategories')->with(['success' => 'la catègorie est creé avec succèss']);
         } catch (\Exception $ex) {
             DB::rollback();
-            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('admin.maincategories')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 
@@ -98,7 +98,7 @@ class MainCategoriesController extends Controller
             ->find($mainCat_id);
 
         if (!$mainCategory)
-            return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
+            return redirect()->route('admin.maincategories')->with(['error' => "cette catègorie n'existe pas"]);
 
         return view('admin.maincategories.edit', compact('mainCategory'));
     }
@@ -112,7 +112,7 @@ class MainCategoriesController extends Controller
             $main_category = MainCategory::find($mainCat_id);
 
             if (!$main_category)
-                return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
+                return redirect()->route('admin.maincategories')->with(['error' => "cette catègorie n'existe pas"]);
 
             // update date
 
@@ -141,10 +141,9 @@ class MainCategoriesController extends Controller
             }
 
 
-            return redirect()->route('admin.maincategories')->with(['success' => 'تم ألتحديث بنجاح']);
+            return redirect()->route('admin.maincategories')->with(['success' => 'la cotègorie est modifié avec succèss']);
         } catch (\Exception $ex) {
-
-            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('admin.maincategories')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 
@@ -155,11 +154,11 @@ class MainCategoriesController extends Controller
         try {
             $maincategory = MainCategory::find($id);
             if (!$maincategory)
-                return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
+                return redirect()->route('admin.maincategories')->with(['error' => "cette catègorie n'existe pas "]);
 
             $sellers = $maincategory->sellers();
             if (isset($sellers) && $sellers->count() > 0) {
-                return redirect()->route('admin.maincategories')->with(['error' => 'لأ يمكن حذف هذا القسم  ']);
+                return redirect()->route('admin.maincategories')->with(['error' => 'cette catégorie contient des vendeurs']);
             }
 
             $image = Str::after($maincategory->photo, 'public/assets/');
@@ -167,10 +166,10 @@ class MainCategoriesController extends Controller
             unlink($image); //delete from folder
             $maincategory->categories()->delete();
             $maincategory->delete();
-            return redirect()->route('admin.maincategories')->with(['success' => 'تم حذف القسم بنجاح']);
+            return redirect()->route('admin.maincategories')->with(['success' => "cette catègorie est supprimé avec succèess"]);
         } catch (\Exception $ex) {
             return $ex;
-            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('admin.maincategories')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 
@@ -179,15 +178,15 @@ class MainCategoriesController extends Controller
         try {
             $maincategory = MainCategory::find($id);
             if (!$maincategory)
-                return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
+                return redirect()->route('admin.maincategories')->with(['error' => "cette catègorie n'existe pas "]);
 
             $status =  $maincategory->is_active  == 0 ? 1 : 0;
 
             $maincategory->update(['is_active' => $status]);
 
-            return redirect()->route('admin.maincategories')->with(['success' => ' تم تغيير الحالة بنجاح ']);
+            return redirect()->route('admin.maincategories')->with(['success' => ' le status du catègorie est changer avec succèss ']);
         } catch (\Exception $ex) {
-            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('admin.maincategories')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 }

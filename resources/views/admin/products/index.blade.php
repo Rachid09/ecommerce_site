@@ -68,14 +68,44 @@
                                                 <td>
                                                     <div class="btn-group" role="group" aria-label="Basic example">
 
-                                                        <a href="{{route('admin.products.status',$product -> id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1"> @if($product -> status == 0)
-                                                            activer
+
+                                                        <form
+                                                            action="{{route('admin.products.status',$product -> id)}}"
+                                                            method="post" id="show-activate-alert{{$product -> id}}">
+                                                            @csrf
+
+
+
+                                                            <a href="javascript:void(0)"
+                                                                onclick="showActivateAlert({{$product -> id}});
+                                                              " class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1" id="status-btn{{$product->id}}">
+                                                            @if($product -> status == 0)
+                                                            Activer
                                                             @else
-                                                            desactiver
-                                                            @endif</a>
+                                                            Desactiver
+                                                            @endif
+                                                            </a>
+
+                                                        </form>
 
 
-                                                        <a href="{{route('admin.products.delete',$product->id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">Supprimer</a>
+
+
+                                                            <form
+                                                            action="{{route('admin.products.delete',$product -> id)}}"
+                                                            method="get" id="show-delete-alert{{$product -> id}}">
+                                                            @csrf
+
+
+
+                                                            <a href="javascript:void(0)"
+                                                                onclick="showDeletAlert({{$product -> id}});
+                                                              " class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">Supprimer</a>
+
+                                                        </form>
+
+
+
 
 
                                                         <a href="{{route('admin.products.featured',$product->id)}}" class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1">
@@ -107,3 +137,74 @@
     </div>
 </div>
 @endsection
+
+
+
+
+ @section('sweetalert-js')
+<script >
+window.showDeletAlert = function(formId)
+{
+    Swal.fire({
+        icon: 'error',
+        text: 'vous etes sur de supprimer ce produit?',
+        showCancelButton: true,
+        confirmButtonText: 'Supprimer',
+         cancelButtonText: 'Annuler',
+        confirmButtonColor: '#e3342f',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById(`show-delete-alert${formId}`).submit();
+
+
+
+        }
+        else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swal.fire(
+      'Annulée',
+      'vote produit est protegée',
+      'error'
+    )
+  }
+
+    });
+}
+
+
+
+
+
+
+window.showActivateAlert = function(formId)
+{   var statusbtn = document.getElementById(`status-btn${formId}`).innerText;
+    Swal.fire({
+        icon: 'error',
+        text: `vous voulez ${statusbtn == 'Activer' ? 'activer':'desactiver'} ce produit?`,
+        showCancelButton: true,
+        confirmButtonText: `${statusbtn == 'Activer' ? 'Activer':'Desactiver'}`,
+         cancelButtonText: 'Annuler',
+        confirmButtonColor: '#e3342f',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById(`show-activate-alert${formId}`).submit();
+        }
+        else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swal.fire(
+      'Annulée',
+      'vote produit est protegée',
+      'error'
+    )
+  }
+
+    });
+}
+</script>
+@endsection
+
+

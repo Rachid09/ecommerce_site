@@ -76,7 +76,21 @@
                                                         <a href="{{route('seller.store.product.edit',$product ->id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">Modifier</a>
 
 
-                                                        <a href="{{route('seller.store.product.status',$product->id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">Supprimer</a>
+                                                        <form
+                                                            action="{{route('seller.store.product.status',$product->id)}}"
+                                                            method="post" id="show-delete-alert{{$product->id}}">
+                                                            @csrf
+
+
+
+                                                            <a href="javascript:void(0)"
+                                                                onclick="showDeletAlert({{$product->id}});
+                                                              " class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">Supprimer</a>
+
+                                                        </form>
+
+
+
 
                                                     </div>
                                                 </td>
@@ -92,6 +106,12 @@
                                     </table>
 
                                 </div>
+
+
+
+
+
+
                             </div>
                         </div>
                     </div>
@@ -101,3 +121,37 @@
     </div>
 </div>
 @endsection
+
+
+
+@section('sweetalert-js')
+<script >
+window.showDeletAlert = function(formId)
+{
+    Swal.fire({
+        icon: 'error',
+        text: 'vous etes sur de supprimer ce produit de votre boutique?',
+        showCancelButton: true,
+        confirmButtonText: 'Supprimer',
+        confirmButtonColor: '#e3342f',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById(`show-delete-alert${formId}`).submit();
+            Swal.fire(
+      'Supprimeé!',
+      'Votre produit est supprimeé avec succèss',
+      'success'
+    )
+        }
+    });
+}
+</script>
+@endsection
+
+
+
+
+
+
+
+

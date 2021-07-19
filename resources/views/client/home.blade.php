@@ -1,6 +1,6 @@
 @extends('layouts.client')
 @section('custom-css')
-<link rel="stylesheet" href="{{asset("public/css/category/cosmetic-store.css")}}">
+{{-- <link rel="stylesheet" href="{{asset("public/css/category/cosmetic-store.css")}}"> --}}
 @endsection
 @section('top-header')
 @include('client.includes.top-header')
@@ -19,7 +19,7 @@
 
 <div class="full-row p-0 bg-light">
     <div id="slider" style="width:1200px; height:650px; margin:0 auto; margin-bottom:0px;">
-        {{-- @foreach ($featured as $item)
+        @foreach ($featured as $item)
         <div class="ls-slide" data-ls="duration:4000; transition2d:4; kenburnsscale:1.2;">
             <img width="1920" height="750" src="{{$item->main_image}}" class="ls-bg" alt=""
                 style="top:50%; left:50%; text-align:initial; font-weight:400; font-style:normal; text-decoration:none; mix-blend-mode:normal; width:100%;"
@@ -51,7 +51,7 @@
                     class="bg-dark text-white">Acheter</p>
             </a>
         </div>
-        @endforeach --}}
+        @endforeach
         <!-- Slide 1-->
 
     </div>

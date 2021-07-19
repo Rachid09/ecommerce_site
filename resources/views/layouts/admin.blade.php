@@ -115,7 +115,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="{{asset('public/js/admin.script.js')}}" ></script>
+    {{-- <script src="{{asset('public/js/admin.script.js')}}" ></script> --}}
     <!-- BEGIN VENDOR JS-->
     <!-- BEGIN VENDOR JS-->
 
@@ -143,10 +143,12 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
 
 
-<!-- BEGIN VENDOR JS-->
-    <script src="{{asset("public/js/bootstrap.min.js.map")}}" type="text/javascript"></script>
-<script src={{asset("public/admin/vendors/js/vendors.min.js")}} type="text/javascript"></script>
-<!-- BEGIN VENDOR JS-->
+    <!-- BEGIN VENDOR JS-->
+    {{-- <script src="{{asset("public/js/bootstrap.min.js.map")}}" type="text/javascript"></script> --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @yield('sweetalert-js')
+    <script src={{asset("public/admin/vendors/js/vendors.min.js")}} type="text/javascript"></script>
+    <!-- BEGIN VENDOR JS-->
 <!-- BEGIN PAGE VENDOR JS-->
 <script src="{{asset('public/admin/vendors/js/charts/chartist.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('public/admin/vendors/js/charts/chartist-plugin-tooltip.min.js')}}"
@@ -186,7 +188,8 @@ type="text/javascript"></script>
 
     <script src="{{asset("public/admin/js/scripts/modal/components-modal.js")}}" type="text/javascript">
     </script>
-    <script src="{{asset("public/admin/vendors/js/forms/icheck/icheck.min.js")}}" type="text/javascript"></script> 
+    <script src="{{asset("public/admin/vendors/js/forms/icheck/icheck.min.js")}}" type="text/javascript"></script>
+
 
 <script>
         $('#meridians1').timeDropper({

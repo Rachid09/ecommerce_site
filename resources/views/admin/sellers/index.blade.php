@@ -68,24 +68,50 @@
                                                 <td> {{$seller -> getActive()}}</td>
                                                 <td>
                                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                                        <a href="" class="btn btn-outline-info btn-min-width box-shadow-3 mr-1 mb-1" data-toggle="modal" data-target="#headingDefault{{$index}}">الاقسام الرئيسية</a>
+                                                        <a href="" class="btn btn-outline-info btn-min-width box-shadow-3 mr-1 mb-1" data-toggle="modal" data-target="#headingDefault{{$index}}">Details</a>
                                                         <a href="{{route('admin.sellers.edit',$seller -> id)}}" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">Modifier</a>
 
+                                                                                         <form
+                                                            action="{{route('admin.sellers.delete',$seller->id)}}"
+                                                            method="post" id="show-delete-alert{{$seller->id}}">
+                                                            @csrf
 
-                                                        <a href="{{route('admin.sellers.delete',$seller->id)}}" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">Supprimer</a>
 
 
-                                                        <a href="{{route('admin.sellers.status',$seller->id)}}" class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1"> @if($seller -> active == 0)
+                                                            <a href="javascript:void(0)"
+                                                                onclick="showDeletAlert({{$seller->id}});
+                                                              " class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">Supprimer</a>
+
+                                                        </form>
+
+
+
+                                                        <form
+                                                            action="{{route('admin.sellers.status',$seller->id)}}"
+                                                            method="post" id="show-activate-alert{{$seller->id}}">
+                                                            @csrf
+
+
+
+                                                            <a href="javascript:void(0)"
+                                                                onclick="showActivateAlert({{$seller->id}});
+                                                              " class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1" id="status-btn{{$seller->id}}">
+                                                            @if($seller-> active == 0)
                                                             Activer
                                                             @else
-                                                            الغاء Dèsactiver
-                                                            @endif</a>
+                                                            Desactiver
+                                                            @endif
+                                                            </a>
+
+                                                        </form>
+
+
 
                                                         <div class="modal fade text-left" id="headingDefault{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel25" aria-hidden="true">
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
-                                                                        <h2 class="modal-title text-text-bold-600" id="myModalLabel25"> الاقسام الرئيسية</h2>
+                                                                        <h2 class="modal-title text-text-bold-600" id="myModalLabel25">Catègories</h2>
                                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                             <span aria-hidden="true">&times;</span>
                                                                         </button>
@@ -130,3 +156,62 @@
     </div>
 </div>
 @endsection
+
+
+
+
+@section('sweetalert-js')
+<script >
+window.showDeletAlert = function(formId)
+{
+    Swal.fire({
+        icon: 'error',
+        text: 'vous etes sur de supprimer ce vendeur?',
+        showCancelButton: true,
+        confirmButtonText: 'Supprimer',
+        confirmButtonColor: '#e3342f',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById(`show-delete-alert${formId}`).submit();
+            Swal.fire(
+      'Supprimeé!',
+      'Ce vendeur est bien été supprimeé',
+      'success'
+    )
+        }
+    });
+}
+
+
+
+function showActivateAlert(formId)
+{   var statusbtn = document.getElementById(`status-btn${formId}`).innerText;
+     console.log(statusbtn);
+
+    Swal.fire({
+        icon: 'error',
+        text: `vous voulez ${statusbtn == 'Activer' ? 'activer':'desactiver'} ce vendeur?`,
+        showCancelButton: true,
+        confirmButtonText: `${statusbtn == 'Activer' ? 'activer':'desactiver'}`,
+         cancelButtonText: 'Annuler',
+        confirmButtonColor: '#e3342f',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById(`show-activate-alert${formId}`).submit();
+        }
+        else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swal.fire(
+      'Annulée',
+      'Ce vendeur est protegée',
+      'error'
+    )
+  }
+
+    });
+}
+</script>
+@endsection
+

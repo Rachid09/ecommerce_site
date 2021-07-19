@@ -80,9 +80,9 @@
                                                 @endif
 
                                             </select>
-                                            {{-- @error('email')
+                                            @error('categories')
                                             <span class="text-danger">{{$message}}</span>
-                                            @enderror --}}
+                                            @enderror
 
 
                                         </div>
