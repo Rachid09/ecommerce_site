@@ -45,11 +45,11 @@
                                      @include('client.alerts.errors')
                                      @include('client.alerts.success')
                                     <div class="sign-in-form">
-                                        <h3>User Login</h3>
+                                        <h3>Connexion</h3>
                                         <form class="woocommerce-form-login" action="{{route('client.login')}}" method="post" novalidate>
                                             @csrf
                                             <p>
-                                                <label for="username">Username ou adresse email&nbsp;<span class="required">*</span></label>
+                                                <label for="username">Email&nbsp;<span class="required">*</span></label>
                                                 <input type="text" class="form-control" name="email" id="email" /> </p>
                                             <p>
                                                 <label for="password">Mot de passe&nbsp;<span class="required">*</span></label>

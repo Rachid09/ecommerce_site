@@ -47,9 +47,9 @@
 
                                         <input type="hidden" name="id" value="{{$seller -> id}}">
 
-                                        <div class="form-group">
-                                            <div class="text-center">
-                                                <img src="{{$seller  -> logo}}" class="rounded-circle  height-250" alt="صورة القسم  ">
+                                        <div class="form-group" style="display: flex;justify-content:center">
+                                            <div class="text-center" style="width:250px; height:200px">
+                                                <img src="{{$seller  -> logo}}"  style="object-fit: cover;width:100% !important" alt="صورة القسم  ">
                                             </div>
                                         </div>
 
@@ -118,7 +118,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput2"> Choisissez les catègories </label>
+                                                        <label for="projectinput2"> Choisissez les catégories </label>
                                                         <select name="categories[]" class="select2 form-control" multiple>
                                                             <optgroup label="من فضلك أختر القسم ">
                                                                 @if($categories && $categories -> count() > 0)

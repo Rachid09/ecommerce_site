@@ -9,9 +9,9 @@
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="">الرئيسية </a>
+                            <li class="breadcrumb-item"><a href="">Home </a>
                             </li>
-                            <li class="breadcrumb-item"><a href=""> الاقسام الرئيسية </a>
+                            <li class="breadcrumb-item"><a href=""> Les catègories </a>
                             </li>
                             <li class="breadcrumb-item active"> Modifier - {{$mainCategory -> libelle}}
                             </li>
@@ -27,7 +27,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title" id="basic-layout-form"> Modifier قسم رئيسي </h4>
+                                <h4 class="card-title" id="basic-layout-form"> Modifier catègorie  </h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -54,8 +54,8 @@
                                         </div>
 
 
-                                        <div class="form-group">    
-                                            <label> صوره القسم </label>
+                                        <div class="form-group">
+                                            <label>  l'image du catègorie </label>
                                             <label id="projectinput7" class="file center-block">
                                                 <input type="file" id="file" name="photo">
                                                 <span class="file-custom"></span>
@@ -67,15 +67,15 @@
 
                                         <div class="form-body">
 
-                                            <h4 class="form-section"><i class="ft-home"></i> بيانات القسم </h4>
+                                            <h4 class="form-section"><i class="ft-home"></i>  Details de la catègorie </h4>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> اسم القسم
-                                                            - {{__('messages.'.$mainCategory -> translation_lang)}} </label>
+                                                        <label for="projectinput1"> Nom de la catègorie
+                                                           </label>
                                                         <input type="text" id="name" class="form-control" placeholder="  " value="{{$mainCategory -> libelle}}" name="category[0][libelle]">
                                                         @error("category.0.libelle")
-                                                        <span class="text-danger"> هذا الحقل مطلوب</span>
+                                                        <span class="text-danger"> Ce champ est obligatoire</span>
                                                         @enderror
                                                     </div>
                                                 </div>
@@ -88,7 +88,7 @@
                                                         <input type="text" id="abbr" class="form-control" placeholder="  " value="{{$mainCategory -> translation_lang}}" name="category[0][abbr]">
 
                                                         @error("category.0.abbr")
-                                                        <span class="text-danger"> هذا الحقل مطلوب</span>
+                                                        <span class="text-danger"> Ce champ est obligatoire</span>
                                                         @enderror
                                                     </div>
                                                 </div>
@@ -99,7 +99,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group mt-1">
                                                         <input type="checkbox" value="1" name="category[0][is_active]" id="switcheryColor4" class="switchery" data-color="success" @if($mainCategory -> is_active == 1)checked @endif/>
-                                                        <label for="switcheryColor4" class="card-title ml-1">الحالة {{__('messages.'.$mainCategory -> translation_lang)}} </label>
+                                                        <label for="switcheryColor4" class="card-title ml-1">Status  </label>
 
                                                         @error("category.0.active")
                                                         <span class="text-danger"> </span>
@@ -112,10 +112,10 @@
 
                                         <div class="form-actions">
                                             <button type="button" class="btn btn-warning mr-1" onclick="history.back();">
-                                                <i class="ft-x"></i> تراجع
+                                                <i class="ft-x"></i> Annuler
                                             </button>
                                             <button type="submit" class="btn btn-primary">
-                                                <i class="la la-check-square-o"></i> تحديث
+                                                <i class="la la-check-square-o"></i> Enregistrer
                                             </button>
                                         </div>
                                     </form>
@@ -156,7 +156,7 @@
                                                                     - {{__('messages.'.$translation -> translation_lang)}} </label>
                                                                 <input type="text" id="name" class="form-control" placeholder="  " value="{{$translation -> libelle}}" name="category[0][libelle]">
                                                                 @error("category.0.libelle")
-                                                                <span class="text-danger"> هذا الحقل مطلوب</span>
+                                                                <span class="text-danger"> Ce champ est obligatoire</span>
                                                                 @enderror
                                                             </div>
                                                         </div>
@@ -169,7 +169,7 @@
                                                                 <input type="text" id="abbr" class="form-control" placeholder="  " value="{{$translation -> translation_lang}}" name="category[0][abbr]">
 
                                                                 @error("category.0.abbr")
-                                                                <span class="text-danger"> هذا الحقل مطلوب</span>
+                                                                <span class="text-danger"> Ce champ est obligatoire</span>
                                                                 @enderror
                                                             </div>
                                                         </div>

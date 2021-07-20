@@ -132,20 +132,7 @@
                         <div class="stock-availability in-stock">In Stock</div>
                         <div class="product-offers">
                             <ul class="product-offers-list">
-                                <li class="product-offer-item"><span class="h6">Special Price</span> Get extra 19% off
-                                    (price inclusive of discount)
-                                    <div class="product-term-wrap"><span class="product-term-text bigbazar-ajax-block">T
-                                            & C </span></div>
-                                </li>
-                                <li class="product-offer-item"><span class="h6">Bank Offer</span> 10% instant discount
-                                    on VISA Cards
-                                    <div class="product-term-wrap"><span class="product-term-text bigbazar-ajax-block">T
-                                            & C </span></div>
-                                </li>
-                                <li class="product-offer-item"><span class="h6">No cost EMI $49/month.</span> Standard
-                                    EMI also available
-                                    <div class="product-term-wrap"><span
-                                            class="product-term-text bigbazar-ajax-block">View Plans </span></div>
+                                <li class="product-offer-item"><span class="h6">{{$product['description']}}</span> </div>
                                 </li>
                             </ul>
                         </div>
@@ -190,7 +177,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="label"><label>Size</label></td>
+                                    <td class="label"><label>Taille</label></td>
                                     <td class="value with-swatches">
                                         <div class="bigbazar-swatches">
                                             <span class="swatch swatch-label  swatch-circle swatch-selected"
@@ -204,7 +191,7 @@
                                 </tr>
                                 <tr>
                                     <td class="label"></td>
-                                    <td><a class="reset_variations" href="#">Reset All</a></td>
+                                    <td><a class="reset_variations" href="#">Reinitialiser tous</a></td>
                                 </tr>
                             </table>
                             <div class="single_variation_wrap">
@@ -226,15 +213,14 @@
                                         <button
                                             onclick="event.preventDefault();
                                                  document.getElementById('add-to-cart-form{{$product['id']}}').submit();"
-                                            class="single_add_to_cart_button button alt single_add_to_cart_ajax_button">Add
-                                            to cart</button>
+                                            class="single_add_to_cart_button button alt single_add_to_cart_ajax_button">Ajouter au panier</button>
                                     </form>
 
 
                                     <div class="bigbazar-quick-buy">
                                         <button
                                             class="bigbazar_quick_buy_button bigbazar_quick_buy_variable bigbazar_quick_buy_58"
-                                            value="Buy Now">Buy Now</button>
+                                            value="Buy Now">Acheter</button>
                                     </div>
                                 </div>
                             </div>
@@ -246,7 +232,7 @@
                                     aria-label="Add to Wishlist">Wishlist</a>
                             </div>
                         </div>
-                        <div class="product_meta"><span class="posted_in">Category: <a
+                        <div class="product_meta"><span class="posted_in">Catègorie: <a
                                     href="{{route('shop.categoryProducts',['name'=>$product['maincategory']['libelle'],'id'=>$product['maincategory_id']])}}"
                                     rel="tag">{{$product['maincategory']['libelle']}}</a></span></div>
                         <div class="bigbazar-wc-message"></div>
@@ -268,7 +254,7 @@
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" id="pills-description-one-tab" data-bs-toggle="pill"
                                     href="#pills-description-one" role="tab" aria-controls="pills-description-one"
-                                    aria-selected="true">Description</a>
+                                    aria-selected="true">Details</a>
                             </li>
 
                         </ul>
@@ -280,12 +266,12 @@
                             id="pills-description-one" role="tabpanel" aria-labelledby="pills-description-one-tab">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <h2 class="my-3">Product Description</h2>
+                                    <h2 class="my-3">Description du produit</h2>
                                     <p>{{$product['description']}}</p>
 
                                 </div>
                                 <div class="col-lg-6">
-                                    <h2 class="my-3">Payment & Shipment:</h2>
+                                    <h2 class="my-3">Paiement & Livraison:</h2>
                                     <div class="detailmodule_text">
                                         <ul class="detail-desc-decorate-content">
                                             Nous acceptons Alipay, Paypal, Western Union, TT. Toutes les principales

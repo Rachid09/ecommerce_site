@@ -13,56 +13,8 @@
 @section('breadcrumb')
 @include('client.includes.breadcrumb',['title'=>$title])
 @endsection
-@section('content')
-        <!--==================== Registration Form Start ====================-->
-        {{-- <div class="full-row">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="woocommerce">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-12 ">
-                                    <div class="registration-form">
-                                        <h3>S'inscrire </h3>
-                                        <form method="post">
-                                        <div class="col-lg-6 col-md-12 ">
-                                            <p>
-                                                <label for="reg_email">Username &nbsp;<span class="required">*</span></label>
-                                                <input type="text" class="form-control" name="name" id="" />
-                                            </p>
-                                            </div>
-                                        <div class="col-lg-6 col-md-12 ">
-                                            <p>
-                                                <label for="reg_email">Adresse email &nbsp;<span class="required">*</span></label>
-                                                <input type="email" class="form-control" name="email" id="reg_email" />
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-6 col-md-12 ">
-                                            <p>
-                                                <label for="reg_email">Mot de passe&nbsp;<span class="required">*</span></label>
-                                                <input type="password" class="form-control" name="password" id="" />
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-6 col-md-12 ">
-                                            <p>
-                                                <label for="name">Retappez le mot de passe &nbsp;<span class="required">*</span></label>
-                                                <input type="password" class="form-control" name= "secondpassword" id="name" />
-                                            </p>
-                                        </div>
 
-                                            <p>
-                                                <button type="submit" class="btn btn-primary rounded-0" name="register" value="Register">S'inscrire</button>
-                                            </p>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-        <!--==================== Registration Form Start ====================-->
+@section('content')
 
 
 <div class="full-row">
@@ -146,7 +98,6 @@
         </div>
     </div>
 </div>
-
 
 
 @endsection

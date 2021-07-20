@@ -110,7 +110,7 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput2"> Choisissez les catègories des produits  </label>
+                                                        <label for="projectinput2"> Choisissez les catégories des produits  </label>
                                                         <select name="categories[]" class="select2 form-control" multiple>
                                                             <optgroup label="">
                                                                 @if($categories && $categories -> count() > 0)

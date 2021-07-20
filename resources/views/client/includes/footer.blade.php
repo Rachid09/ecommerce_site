@@ -4,10 +4,10 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="footer-widget mb-5">
                             <div class="footer-logo mb-4">
-                                <a href="#"><img src="assets/images/logo/white.png" alt="Image not found!" /></a>
+                                <img src="{{asset('public/images/Artico/3x/logo3x-white.png')}}" alt="" srcset="">
                             </div>
                             <div class="widget-ecommerce-contact">
-                                <span class="font-medium font-500 text-primary">Got Questions ? Call us 24/7!</span>
+                                <span class="font-medium font-500 text-primary">Vous avez des questions ? Appelez-nous 24h/24 et 7j/7 !</span>
                                 <div class="text-primary font-500 h4">(090) 8001-8588, (090) 874 548</div>
                                 <div class="text-general font-500 mt-20">Collins Street West, Victoria 8007, <br> Australia</div>
                             </div>
@@ -39,7 +39,7 @@
                                 <li><a href="#">About</a></li>
                                 <li><a href="#">Support</a></li>
                                 <li><a href="#">Contact</a></li>
-                                <li><a href="#">Compare</a></li>
+                                {{-- <li><a href="#">Compare</a></li> --}}
                                 <li><a href="#">FAQ</a></li>
                             </ul>
                         </div>
@@ -66,7 +66,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <span class="text-white font-500 sm-mb-10 d-block">© 2021 BigBazar All right reserved</span>
+                        <span class="text-white font-500 sm-mb-10 d-block">© 2021 Artico All right reserved</span>
                     </div>
                     <div class="col-md-6">
                         <ul class="list-ml-30 d-flex align-items-center justify-content-md-end">

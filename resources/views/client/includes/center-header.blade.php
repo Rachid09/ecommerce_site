@@ -4,7 +4,7 @@
              <div class="col-lg-4">
                  <div class="product-search-one flex-grow-1">
                      <form class="form-inline search-line-shape" action="#" method="post">
-                         <input type="text" class="form-control search-field" name="search" placeholder="I’m shopping for">
+                         <input type="text" class="form-control search-field" name="search" placeholder="Je cherche">
                          <button type="submit" name="submit" class="search-submit"><i class="flaticon-search flat-mini"></i></button>
                      </form>
                  </div>

@@ -14,15 +14,16 @@
                 <div class="card-body">
                   <div class="media d-flex">
                     <div class="media-body text-left">
-                      <h3 class="info">{{$totalProducts}}</h3>
+                      <h3 class="" style="color:#3a9bf0 !important">{{$totalProducts}}</h3>
                       <h6>Produits à vendre</h6>
                     </div>
                     <div>
-                      <i class="icon-basket-loaded info font-large-2 float-right"></i>
+                      <i class="icon-basket-loaded  font-large-2 float-right" style="color: #3a9bf0 !important
+                      "></i>
                     </div>
                   </div>
                   <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
-                    <div class="progress-bar bg-gradient-x-info" role="progressbar" style="width: 80%"
+                    <div class="progress-bar bg-gradient-x-info" role="progressbar" style="width: 20%"
                     aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
@@ -35,15 +36,15 @@
                 <div class="card-body">
                   <div class="media d-flex">
                     <div class="media-body text-left">
-                      <h3 class="warning">0</h3>
+                      <h3 class="warning">120</h3>
                       <h6>List des clients</h6>
                     </div>
                     <div>
-                      <i class="icon-pie-chart warning font-large-2 float-right"></i>
+                      <i class=" icon-user-follow warning font-large-2 float-right"></i>
                     </div>
                   </div>
                   <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
-                    <div class="progress-bar bg-gradient-x-warning" role="progressbar" style="width: 65%"
+                    <div class="progress-bar bg-gradient-x-warning" role="progressbar" style="width: 35%"
                     aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
@@ -56,15 +57,15 @@
                 <div class="card-body">
                   <div class="media d-flex">
                     <div class="media-body text-left">
-                      <h3 class="success">0 DH</h3>
+                      <h3 class="success">600DH</h3>
                       <h6>Net profit</h6>
                     </div>
                     <div>
-                      <i class="icon-user-follow success font-large-2 float-right"></i>
+                      <i class="icon-pie-chart success font-large-2 float-right"></i>
                     </div>
                   </div>
                   <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
-                    <div class="progress-bar bg-gradient-x-success" role="progressbar" style="width: 75%"
+                    <div class="progress-bar bg-gradient-x-success" role="progressbar" style="width: 20%"
                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
@@ -96,21 +97,21 @@
         <!--/ eCommerce statistic -->
         <!-- Products sell and New Orders -->
         <div class="row match-height">
-          <div class="col-xl-8 col-12" id="ecommerceChartView">
+          <div class="col-xl-12 col-12" id="ecommerceChartView">
             <div class="card card-shadow">
               <div class="card-header card-header-transparent py-20">
                 <div class="btn-group dropdown">
                   <a href="#" class="text-body dropdown-toggle blue-grey-700" data-toggle="dropdown">PRODUCTS SALES</a>
                   <div class="dropdown-menu animate" role="menu">
-                    <a class="dropdown-item" href="#" role="menuitem">Sales</a>
-                    <a class="dropdown-item" href="#" role="menuitem">Total sales</a>
+                    <a class="dropdown-item" href="#" role="menuitem">Ventes</a>
+                    <a class="dropdown-item" href="#" role="menuitem">Total Ventes</a>
                     <a class="dropdown-item" href="#" role="menuitem">profit</a>
                   </div>
                 </div>
                 <ul class="nav nav-pills nav-pills-rounded chart-action float-right btn-group" role="group">
-                  <li class="nav-item"><a class="active nav-link" data-toggle="tab" href="#scoreLineToDay">Day</a></li>
-                  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#scoreLineToWeek">Week</a></li>
-                  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#scoreLineToMonth">Month</a></li>
+                  <li class="nav-item"><a class="active nav-link" data-toggle="tab" href="#scoreLineToDay">Jour</a></li>
+                  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#scoreLineToWeek">Semaine</a></li>
+                  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#scoreLineToMonth">Mois</a></li>
                 </ul>
               </div>
               <div class="widget-content tab-content bg-white p-20">
@@ -120,7 +121,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-12">
+          {{-- <div class="col-xl-4 col-lg-12">
             <div class="card">
               <div class="card-header">
                 <h4 class="card-title">New Orders</h4>
@@ -149,18 +150,15 @@
                             <ul class="list-unstyled users-list m-0">
                               <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="John Doe"
                               class="avatar avatar-sm pull-up">
-                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-19.png"
-                                alt="Avatar">
+
                               </li>
                               <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Katherine Nichols"
                               class="avatar avatar-sm pull-up">
-                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-18.png"
-                                alt="Avatar">
+
                               </li>
                               <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Joseph Weaver"
                               class="avatar avatar-sm pull-up">
-                                <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-17.png"
-                                alt="Avatar">
+
                               </li>
                               <li class="avatar avatar-sm">
                                 <span class="badge badge-info">+4 more</span>
@@ -268,7 +266,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
         <!--/ Products sell and New Orders -->
         <!-- Recent Transactions -->

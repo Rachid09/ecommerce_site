@@ -49,9 +49,9 @@
                              {{-- <li><a href="{{route('client.login')}}"><span class="menu-item-text">Se
                                  connecter</span></a>
                      </li> --}}
-                     <li><a href="#"><span class="menu-item-text">Mon compte</span></a></li>
+                     <li><a href="{{route('client.profile')}}"><span class="menu-item-text">Mon compte</span></a></li>
                      <li><a href="{{route('checkout')}}"><span class="menu-item-text">Checkout</span></a></li>
-                     <li><a href="wishlist.html"><span class="menu-item-text">Wishlist</span></a></li>
+
                      <li>
                      <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form{{Auth::user()->id}}').submit();">

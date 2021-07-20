@@ -55,10 +55,16 @@ Route::group(['prefix' => 'client', 'namespace' => 'Auth'], function () {
 
 Route::group(['namespace' => 'client'], function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/profile', 'ProfileController@index')->name('client.profile');
     ####################### Product routes ############################
+
     Route::get('/all-products', 'ProductsController@index')->name('shop.all-products');
     Route::get('/categories/{name}/{id}', 'ProductsController@categoryProducts')->name('shop.categoryProducts');
     Route::get('/product/{name}/{id}', 'ProductsController@productDetails')->name('shop.productDetails');
+
+
+
+
 
     ###################### Cart Routes ############################
 
@@ -83,6 +89,11 @@ Route::group(['namespace' => 'client'], function () {
 //******************************************LANGUAGES***************************************
 Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('/', 'DashboardController@index')->name('admin.dashboard');
+    Route::prefix('profile')->group(function () {
+
+        Route::get('/profile/edit/{id}', 'ProfileController@edit')->name('admin.profile.edit');
+        Route::get('/profile/update/{id}', 'ProfileController@update')->name('admin.profile.update');
+    });
     Route::group(['prefix' => 'languages'], function () {
         Route::get('/', 'LanguagesController@index')->name('admin.languages');
         Route::get('/create', 'LanguagesController@create')->name('admin.languages.create');

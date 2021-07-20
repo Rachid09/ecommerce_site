@@ -65,7 +65,8 @@
             <div class="col-12">
                 <div class="section-head d-flex justify-content-between align-items-center pb-20">
                     <h3 class="text-secondary mb-0">Acheter Par Catègorie</h3>
-                    <a href="{{route('shop.all-products')}}" class="btn-link-down-line text-uppercase font-small">Voir toutes</a>
+                    <a href="{{route('shop.all-products')}}" class="btn-link-down-line text-uppercase font-small">Voir
+                        toutes</a>
                 </div>
             </div>
         </div>
@@ -80,8 +81,10 @@
                                     src="{{$cat->photo}}" alt="Banner Image" style="object-fit: cover"></div>
                             <div class="banner-content position-absolute">
                                 <span class="d-block font-500 font-small text-uppercase mb-2"></span>
-                                <h4><a href="{{route('shop.categoryProducts',['name'=>$cat->libelle,'id'=>$cat->id])}}"" class="text-primary text-decoration-none">{{$cat->libelle}}</a></h4>
-                                <a href="{{route('shop.categoryProducts',['name'=>$cat->libelle,'id'=>$cat->id])}}"" class="btn-link-down-line mt-20 text-uppercase">Acheter</a>
+                                <h4><a href="{{route('shop.categoryProducts',['name'=>$cat->libelle,'id'=>$cat->id])}}"" class="
+                                        text-primary text-decoration-none">{{$cat->libelle}}</a></h4>
+                                <a href="{{route('shop.categoryProducts',['name'=>$cat->libelle,'id'=>$cat->id])}}"" class="
+                                    btn-link-down-line mt-20 text-uppercase">Acheter</a>
                             </div>
                         </div>
                     </div>
@@ -110,8 +113,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <span class="text-primary text-center pb-2 d-table mx-auto tagline text-uppercase font-small">Prduits
-                    exclusives</span>
-                <h3 class="mb-4 w-50 text-center mx-auto w-sm-100 font-700 text-dark">Les dernieres produits</h3>
+                    exclusifs</span>
+                <h3 class="mb-4 w-50 text-center mx-auto w-sm-100 font-700 text-dark">les dernières produits</h3>
             </div>
         </div>
         <div class="row">
@@ -124,7 +127,8 @@
                         <div class="col">
                             <div class="product type-product">
                                 <div class="product-wrapper">
-                                    <div class="product-image">
+                                    <div class="product-image" style="height: 230px;
+">
                                         <a href="{{route('shop.productDetails',['name'=>$item->name,'id'=>$item->id])}}"
                                             class="woocommerce-LoopProduct-link"><img src="{{$item->main_image}}"
                                                 alt="Product Image"></a>
@@ -246,7 +250,8 @@
                         <div class="col">
                             <div class="product type-product">
                                 <div class="product-wrapper">
-                                    <div class="product-image">
+                                    <div class="product-image" style="    height: 230px;
+">
                                         <a href="#" class="woocommerce-LoopProduct-link"><img
                                                 src="{{$item->main_image}}" alt="Product Image"></a>
                                         <div class="product-labels">
@@ -258,7 +263,7 @@
                                         <h3 class="product-title"><a href="#">{{$item->name}}</a></h3>
                                         <div class="product-price">
                                             <div class="price">
-                                                 @if (!$item->discount)
+                                                @if (!$item->discount)
                                                 <ins>{{$item->price}}.00DH</ins>
                                                 @else
                                                 <ins>{{calculatePriceAfterDiscount($item->price,$item->discount)}}DH</ins>

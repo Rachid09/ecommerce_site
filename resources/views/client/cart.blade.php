@@ -53,7 +53,7 @@
                             <th class="product-name">Produit</th>
                             <th class="product-price">Prix</th>
                             <th class="product-quantity">Quantité</th>
-                            <th class="product-subtotal">Subtotal</th>
+                            <th class="product-subtotal">Sous-total</th>
                             <th class="product-remove">&nbsp;</th>
                         </tr>
                         @foreach (Cart::content() as $product)
@@ -103,7 +103,7 @@
         <div class="col-xl-4 col-lg-12 col-md-12 col-12">
             <div class="cart-collaterals">
                 <div class="cart_totals ">
-                    <h2>Cart totals</h2>
+                    <h2>Total du panier</h2>
                     <table>
                         <tr>
                             <th>Sous-total</th>
@@ -115,18 +115,13 @@
                         <tr>
                             <th>Shipping</th>
                             <td>
-                                <ul>
+
                                     <li>
-                                        <input type="radio" name="shipping_method" class="shipping_method"
-                                            id="shipping_method_0_free_shipping1" checked="checked">
-                                        <label for="shipping_method_0_free_shipping1">Free shipping</label>
+
+                                        <label for="shipping_method_0_free_shipping1">Livraison gratuit</label>
                                     </li>
-                                    <li>
-                                        <input type="radio" name="shipping_method" class="shipping_method"
-                                            id="shipping_method_0_flat_rate2">
-                                        <label for="shipping_method_0_flat_rate2">Flat rate</label>
-                                    </li>
-                                </ul>
+
+
 
                             </td>
                         </tr>
