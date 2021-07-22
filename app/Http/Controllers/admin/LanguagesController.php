@@ -26,9 +26,9 @@ class LanguagesController extends Controller
     {
         try {
             Language::create($request->except(['_token']));
-            return redirect()->route('admin.languages')->with(['success' => 'تم حفظ اللغة بنجاح']);
+            return redirect()->route('admin.languages')->with(['success' => 'Cette langue est bien été ajouter']);
         } catch (\Exception $ex) {
-            return redirect()->route('admin.languages')->with(['error' => ' هناك خطا يرجي اعادة المحاولة']);
+            return redirect()->route('admin.languages')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
     public function edit($id)

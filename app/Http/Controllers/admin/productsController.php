@@ -27,7 +27,7 @@ class ProductsController extends Controller
         try {
             $product = Product::find($id);
             if (!$product)
-                return redirect()->route('admin.products')->with(['error' => 'هذا التاجر غير موجود ']);
+                return redirect()->route('admin.products')->with(['error' => "Ce produit n'existe pas"]);
 
             // $Sellers = $Seller->Sellers();
             // if (isset($Sellers) && $Sellers->count() > 0) {
@@ -39,10 +39,10 @@ class ProductsController extends Controller
             unlink($image); //delete from folder
             // $maincategory->categories()->delete();
             $product->delete();
-            return redirect()->route('admin.products')->with(['success' => 'تم حذف التاجر بنجاح']);
+            return redirect()->route('admin.products')->with(['success' => 'Ce produit a bien été supprimer']);
         } catch (\Exception $ex) {
             return $ex;
-            return redirect()->route('admin.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('admin.products')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 
@@ -51,15 +51,15 @@ class ProductsController extends Controller
         try {
             $product = Product::find($id);
             if (!$product)
-                return redirect()->route('admin.products')->with(['error' => 'هذا التاجر غير موجود ']);
+                return redirect()->route('admin.products')->with(['error' => "Ce produit n'existe pas "]);
 
             $status =  $product->status  == 0 ? 1 : 0;
 
             $product->update(['status' => $status]);
 
-            return redirect()->route('admin.products')->with(['success' => ' تم تغيير الحالة بنجاح ']);
+            return redirect()->route('admin.products')->with(['success' => 'le status de ce produit a bien changer']);
         } catch (\Exception $ex) {
-            return redirect()->route('admin.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('admin.products')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 
@@ -69,15 +69,15 @@ class ProductsController extends Controller
         try {
             $product = Product::find($id);
             if (!$product)
-                return redirect()->route('admin.products')->with(['error' => 'هذا التاجر غير موجود ']);
+                return redirect()->route('admin.products')->with(['error' => "Ce produit n'existe pas "]);
 
             $is_featured =  $product->is_featured  == 'No' ? 'Yes' : 'No';
 
             $product->update(['is_featured' => $is_featured]);
 
-            return redirect()->route('admin.products')->with(['success' => ' تم تغيير الحالة بنجاح ']);
+            return redirect()->route('admin.products')->with(['success' => ' le status de ce produit a bien changer ']);
         } catch (\Exception $ex) {
-            return redirect()->route('admin.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('admin.products')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 }

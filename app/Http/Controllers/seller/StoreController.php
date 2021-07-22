@@ -57,7 +57,7 @@ class StoreController extends Controller
             $product = Product::find($id);
 
             if (!$product)
-                return redirect()->route('seller.store.products')->with(['error' => 'هذا القسم غير موجود ']);
+                return redirect()->route('seller.store.products')->with(['error' => "Ce produit n'exite pas "]);
             DB::beginTransaction();
 
 
@@ -100,12 +100,12 @@ class StoreController extends Controller
 
 
             DB::commit();
-            return redirect()->route('seller.store.products')->with(['success' => 'تم ألتحديث بنجاح']);
+            return redirect()->route('seller.store.products')->with(['success' => 'Ce produit a bien été modifier']);
         } catch (\Exception $ex) {
 
             DB::rollback();
             return $ex;
-            return redirect()->route('seller.store.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('seller.store.products')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 
@@ -120,9 +120,9 @@ class StoreController extends Controller
 
             $product->update(['status' => $status]);
 
-            return redirect()->route('seller.store.products')->with(['success' => "ce produit a ete supprimer du boutique "]);
+            return redirect()->route('seller.store.products')->with(['success' => "Ce produit a bien été supprimer du boutique "]);
         } catch (\Exception $ex) {
-            return redirect()->route('seller.store.products')->with(['error' => "un probleme est survenu"]);
+            return redirect()->route('seller.store.products')->with(['error' => "un prolème est survenu veuillez repeter ultérieurement"]);
         }
     }
 }

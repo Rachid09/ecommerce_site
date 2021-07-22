@@ -80,10 +80,10 @@ class ProductController extends Controller
             $Product->colors()->attach($request->colors);
 
 
-            return redirect()->route('seller.stock.products')->with(['success' => 'تم الحفظ بنجاح']);
+            return redirect()->route('seller.stock.products')->with(['success' => 'Ce produit a bien été ajouter au stock']);
         } catch (\Exception $ex) {
             return $ex;
-            return redirect()->route('seller.stock.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('seller.stock.products')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 
@@ -98,7 +98,7 @@ class ProductController extends Controller
             // print_r($product);
             // die;
             if (!$product)
-                return redirect()->route('seller.stock.products')->with(['error' => "ce produit n'existe pas"]);
+                return redirect()->route('seller.stock.products')->with(['error' => "Ce produit n'existe pas"]);
 
             // $categories = MainCategory::where('translation_of', 0)->active()->get();
             $maincategories = Seller::find($seller_id)->maincategory()->orderBy('libelle')->get();
@@ -108,7 +108,7 @@ class ProductController extends Controller
             return view('seller.stock.edit', compact('product', 'categories', 'colors'));
         } catch (\Exception $exception) {
             return $exception;
-            return redirect()->route('seller.stock.products')->with(['error' => 'un probleme est survenu']);
+            return redirect()->route('seller.stock.products')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 
@@ -122,7 +122,7 @@ class ProductController extends Controller
             $product = Product::find($id);
 
             if (!$product)
-                return redirect()->route('seller.stock.products')->with(['error' => 'هذا القسم غير موجود ']);
+                return redirect()->route('seller.stock.products')->with(['error' => "Ce produit n'existe pas"]);
             DB::beginTransaction();
 
 
@@ -165,12 +165,12 @@ class ProductController extends Controller
 
 
             DB::commit();
-            return redirect()->route('seller.stock.products')->with(['success' => 'تم ألتحديث بنجاح']);
+            return redirect()->route('seller.stock.products')->with(['success' => 'Ce produit a bien été modifier']);
         } catch (\Exception $ex) {
 
             DB::rollback();
             return $ex;
-            return redirect()->route('seller.stock.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('seller.stock.products')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 
@@ -181,11 +181,11 @@ class ProductController extends Controller
         try {
             $product = Product::find($id);
             if (!$product)
-                return redirect()->route('seller.stock.products')->with(['error' => 'هذا التاجر غير موجود ']);
+                return redirect()->route('seller.stock.products')->with(['error' => 'د']);
 
             // $Sellers = $Seller->Sellers();
             // if (isset($Sellers) && $Sellers->count() > 0) {
-            //     return redirect()->route('admin.maincategories')->with(['error' => 'لأ يمكن حذف هذا القسم  ']);
+            //     return redirect()->route('admin.maincategories')->with(['error' => 'لأ يمكن حذف هذ لقسم  ']);
             // }
 
             $image = Str::after($product->main_image, 'public/assets/');
@@ -205,15 +205,15 @@ class ProductController extends Controller
         try {
             $product = Product::find($id);
             if (!$product)
-                return redirect()->route('seller.stock.products')->with(['error' => 'هذا التاجر غير موجود ']);
+                return redirect()->route('seller.stock.products')->with(['error' => "Ce produit n'esxite pas "]);
 
             $status =  $product->status  == 0 ? 1 : 0;
 
             $product->update(['status' => $status]);
 
-            return redirect()->route('seller.stock.products')->with(['success' => ' تم تغيير الحالة بنجاح ']);
+            return redirect()->route('seller.stock.products')->with(['success' => ' le status de ce produit a bien été changer ']);
         } catch (\Exception $ex) {
-            return redirect()->route('seller.stock.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('seller.stock.products')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 
@@ -273,15 +273,15 @@ class ProductController extends Controller
             $image = ProductsImage::find($id);
 
             if (!$image)
-                return redirect()->route('seller.stock.product.images', $prod_id)->with(['error' => 'هذا التاجر غير موجود ']);
+                return redirect()->route('seller.stock.product.images', $prod_id)->with(['error' => "cette image n'existe pas "]);
 
             $status =  $image->status  == 0 ? 1 : 0;
 
             $image->update(['status' => $status]);
 
-            return redirect()->route('seller.stock.product.images', $prod_id)->with(['success' => ' تم تغيير الحالة بنجاح ']);
+            return redirect()->route('seller.stock.product.images', $prod_id)->with(['success' => ' le status de cette image a bien été changer ']);
         } catch (\Exception $ex) {
-            return redirect()->route('seller.stock.product.images', $prod_id)->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('seller.stock.product.images', $prod_id)->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 
@@ -291,11 +291,11 @@ class ProductController extends Controller
         try {
             $product = ProductsImage::find($id);
             if (!$product)
-                return redirect()->route('seller.stock.product.images')->with(['error' => 'هذا التاجر غير موجود ']);
+                return redirect()->route('seller.stock.product.images')->with(['error' => "Cette image n'existe pas"]);
 
             // $Sellers = $Seller->Sellers();
             // if (isset($Sellers) && $Sellers->count() > 0) {
-            //     return redirect()->route('admin.maincategories')->with(['error' => 'لأ يمكن حذف هذا القسم  ']);
+            //     return redirect()->route('admin.maincategories')->with(['error' => 'لأ يمكن حذف هذ لقسم  ']);
             // }
 
             $image = Str::after($product->product_image, 'public/assets/');

@@ -45,7 +45,7 @@ class productsController extends Controller
         $related_products = Product::where(['maincategory_id' => $cat_id])->selection()->active()->get()->toArray();
         $product = Product::with(['maincategory', 'productImages', 'colors'])->where(['id' => $id])->selection()->first()->toArray();
         // echo '<pre>';
-        // print_r($product);
+        // print_r($related_products);
         // die;
         $title = $name;
         return view('client.productDetails', compact('product', 'related_products', 'title', 'categories'));

@@ -136,28 +136,7 @@
                                 </li>
                             </ul>
                         </div>
-                        {{-- <div class="product-brands">
-                                    <a class="brand-image" href="#"> <img src="assets/images/partner/1.png" class="attachment-full size-full" alt="" width="120" height="120"> </a>
-                                </div> --}}
-                        {{-- <div class="product-services">
-                                    <span>Services:</span>
-                                    <ul class="product-services-list">
-                                        <li class="product-service-item"> 30 Day Return Policy</li>
-                                        <li class="product-service-item"> Cash on Delivery available</li>
-                                        <li class="product-service-item"> Free Delivery</li>
-                                    </ul>
-                                </div> --}}
-                        {{-- <div class="woocommerce-product-details__short-description"> <span>Highlights:</span>
-                                    <div class="short-description">
-                                        <ul>
-                                            <li>Regular Fit.</li>
-                                            <li>Full sleeves.</li>
-                                            <li>70% cotton, 30% polyester.</li>
-                                            <li>Easy to wear and versatile as Casual.</li>
-                                            <li>Machine wash, tumble dry.</li>
-                                        </ul>
-                                    </div>
-                                </div> --}}
+
                         <form class="variations_form cart kapee-swatches-wrap" action="#" method="post"
                             enctype="multipart/form-data">
                             <table class="variations">

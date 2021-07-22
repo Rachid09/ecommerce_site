@@ -31,15 +31,15 @@ class LanguageRequest extends FormRequest
             'direction' => 'required|in:rtl,ltr',
         ];
     }
-    public function messages()
-    {
-        return [
-            'required' => 'هذا الحقل مطلوب',
-            'nom.string' => 'اسم اللغة لابد ان يكون احرف',
-            'nom.max' => 'اسم اللغة لابد الا يزيد عن 100 حرف',
-            'abbr.max' => 'اختصار اللغة لابد الا يزيد عن 10 حرف',
-            'abbr.string' => 'اختصار اللغة لابد ان يكون احرف',
-            'in' => 'القيم المدخلة غير صحبحة',
-        ];
-    }
+    // public function messages()
+    // {
+    //     return [
+    //         'required' => 'Ce champ est obligatoire',
+    //         'nom.string' => 'اسم اللغة لابد ان يكون احرف',
+    //         'nom.max' => 'اسم اللغة لابد الا يزيد عن 100 حرف',
+    //         'abbr.max' => 'اختصار اللغة لابد الا يزيد عن 10 حرف',
+    //         'abbr.string' => 'اختصار اللغة لابد ان يكون احرف',
+    //         'in' => 'القيم المدخلة غير صحبحة',
+    //     ];
+    // }
 }

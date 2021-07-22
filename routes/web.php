@@ -79,6 +79,7 @@ Route::group(['namespace' => 'client'], function () {
 
     ########################### CHECKOUT CONTROLLER ######################################
     Route::get('/paiement', 'CheckoutController@index')->name('checkout');
+    Route::post('/paiement', 'CheckoutController@checkout')->name('checkout');
 });
 
 
@@ -220,7 +221,3 @@ Route::group(['prefix' => 'seller', 'namespace' => 'Auth', 'middleware' => 'gues
     Route::post('register', 'RegisterController@sellerRegister')->name('seller.register');
     // Route::post('logout', 'LoginController@logout')->name('seller.logout');
 });
-
-// Route::group(['prefix' => 'seller', 'namespace' => 'seller'], function () {
-//     Route::post('logout', 'AuthController@logout')->name('seller.logout');
-// });

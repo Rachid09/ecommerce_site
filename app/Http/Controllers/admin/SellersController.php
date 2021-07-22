@@ -47,7 +47,7 @@ class SellersController extends Controller
             $Seller = Seller::create([
                 'full_name' => $request->full_name,
                 'store_name' => $request->store_name,
-                 'cop_name' => $request->cop_name,
+                'cop_name' => $request->cop_name,
                 'mobile' => $request->mobile,
                 'address' => $request->address,
                 'email' => $request->email,
@@ -59,10 +59,10 @@ class SellersController extends Controller
 
             $Seller->maincategory()->attach($request->categories);
             Notification::send($Seller, new SellerCreated($Seller));
-            return redirect()->route('admin.sellers')->with(['success' => 'تم الحفظ بنجاح']);
+            return redirect()->route('admin.sellers')->with(['success' => 'Ce vendeur a bien été ajouter']);
         } catch (\Exception $ex) {
             return $ex;
-            return redirect()->route('admin.sellers')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('admin.sellers')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 
@@ -72,14 +72,14 @@ class SellersController extends Controller
 
             $seller = Seller::Selection()->find($id);
             if (!$seller)
-                return redirect()->route('admin.sellers')->with(['error' => 'هذا التاجر غير موجود او ربما يكون محذوفا ']);
+                return redirect()->route('admin.sellers')->with(['error' => "Ce vendeur n'existe pas"]);
 
             $categories = MainCategory::where('translation_of', 0)->active()->get();
 
             return view('admin.sellers.edit', compact('seller', 'categories'));
         } catch (\Exception $exception) {
             return $exception;
-            return redirect()->route('admin.sellers')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('admin.sellers')->with(['error' => "un prolème est survenu veuillez repeter ultérieurement"]);
         }
     }
 
@@ -90,7 +90,7 @@ class SellersController extends Controller
 
             $seller = Seller::Selection()->find($id);
             if (!$seller)
-                return redirect()->route('admin.sellers')->with(['error' => 'هذا المتجر غير موجود او ربما يكون محذوفا ']);
+                return redirect()->route('admin.sellers')->with(['error' => "Ce vendeur n'existe pas "]);
 
 
             DB::beginTransaction();
@@ -124,11 +124,11 @@ class SellersController extends Controller
             $seller->maincategory()->sync($request->categories);
 
             DB::commit();
-            return redirect()->route('admin.sellers')->with(['success' => 'تم التحديث بنجاح']);
+            return redirect()->route('admin.sellers')->with(['success' => 'les modification ont bien été enregistrer']);
         } catch (\Exception $exception) {
             return $exception;
             DB::rollback();
-            return redirect()->route('admin.sellers')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('admin.sellers')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 
@@ -139,7 +139,7 @@ class SellersController extends Controller
         try {
             $seller = Seller::find($id);
             if (!$seller)
-                return redirect()->route('admin.sellers')->with(['error' => 'هذا التاجر غير موجود ']);
+                return redirect()->route('admin.sellers')->with(['error' => "Ce vendeur n'existe pas"]);
 
             // $Sellers = $Seller->Sellers();
             // if (isset($Sellers) && $Sellers->count() > 0) {
@@ -151,10 +151,10 @@ class SellersController extends Controller
             unlink($image); //delete from folder
             // $maincategory->categories()->delete();
             $seller->delete();
-            return redirect()->route('admin.sellers')->with(['success' => 'تم حذف التاجر بنجاح']);
+            return redirect()->route('admin.sellers')->with(['success' => 'Ce vendeur a bien été supprimer']);
         } catch (\Exception $ex) {
             return $ex;
-            return redirect()->route('admin.sellers')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('admin.sellers')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 
@@ -163,15 +163,15 @@ class SellersController extends Controller
         try {
             $seller = Seller::find($id);
             if (!$seller)
-                return redirect()->route('admin.sellers')->with(['error' => 'هذا التاجر غير موجود ']);
+                return redirect()->route('admin.sellers')->with(['error' => "Ce vendeur n'existe pas"]);
 
             $status =  $seller->active  == 0 ? 1 : 0;
 
             $seller->update(['active' => $status]);
 
-            return redirect()->route('admin.sellers')->with(['success' => ' تم تغيير الحالة بنجاح ']);
+            return redirect()->route('admin.sellers')->with(['success' => 'le Status de son vendeur a bien changer son status']);
         } catch (\Exception $ex) {
-            return redirect()->route('admin.sellers')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('admin.sellers')->with(['error' => 'un prolème est survenu veuillez repeter ultérieurement']);
         }
     }
 }

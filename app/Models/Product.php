@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\ProductsImage;
+use App\Models\Order;
 
 class Product extends Model
 {
@@ -96,5 +97,11 @@ class Product extends Model
     {
 
         return $this->belongsToMany('App\Models\Color', 'color_product', 'product_id', 'color_id');
+    }
+
+
+    public function orders()
+    {
+        return  $this->belongsToMany(Order::class, 'order_product', 'product_id', 'order_id');
     }
 }

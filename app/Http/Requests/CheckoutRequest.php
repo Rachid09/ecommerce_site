@@ -27,29 +27,31 @@ class CheckoutRequest extends FormRequest
 
             'first_name' => 'required|string|max:100',
             'last_name' => 'required|string|max:100',
-            'phone' => 'required|max:100|unique:users,phone,' . $this->id,
-            'adresse'   => 'required|string|max:500',
-            'email'  => 'required|email|unique:users,email,' . $this->id,
-            'password'   => 'required_without:id',
+            'phone' => 'required|max:100',
+            'address'   => 'required|string|max:500',
+            'email'  => 'required|email',
+            'city' => 'required',
+            'country' => 'required',
+            'payment_method' => 'required',
 
 
-
-        ];
-    }
-
-
-     public function messages()
-
-    {
-        return [
-            'required'  => 'Ce champ est obligatoire ',
-            'max'  => 'Ce champ est trop long',
-            'email.email' => "Etes-vous sure de l'existence de votre email ?",
-            'adresse.string' => 'L adresse doit être contenir des charactères et des numéros',
-            'email.unique' => 'Cet email a déjà un compte',
-            'phone.unique' => 'Ce numéro de téléphone a déjà un compte',
 
 
         ];
     }
+
+
+    // public function messages()
+
+    // {
+    // return [
+    //     'required'  => 'Ce champ est obligatoire ',
+    //     'max'  => 'Ce champ est trop long',
+    //     'email.email' => "Etes-vous sure de l'existence de votre email ?",
+    //     'address.string' => "L'adresse doit être contenir des charactères et des numéros",
+
+
+
+    // ];
+    // }
 }

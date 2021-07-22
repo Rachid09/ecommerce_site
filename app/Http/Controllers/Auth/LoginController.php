@@ -61,7 +61,7 @@ class LoginController extends Controller
             return redirect()->intended(route('admin.dashboard'));
         }
         // notify()->error('خطا في البيانات  برجاء المجاولة مجدا ');
-        return redirect()->back()->with(['error' => 'هناك خطا بالبيانات']);
+        return redirect()->back()->with(['error' => 'Les informations sont incorrects']);
     }
 
     //Seller functions
@@ -81,7 +81,7 @@ class LoginController extends Controller
 
             return redirect()->route('seller.dashboard');
         }
-        return back()->withInput($request->only('email', 'remember_me'));
+        return redirect()->back()->with(['error' => 'Les informations sont incorrect']);
     }
 
     //Client functions

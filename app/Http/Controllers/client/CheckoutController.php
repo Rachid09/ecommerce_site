@@ -9,6 +9,11 @@ use Stripe\PaymentIntent;
 use Illuminate\Support\Arr;
 use Cart;
 use App\Models\MainCategory;
+use App\Http\Requests\CheckoutRequest;
+use App\Models\Order;
+use App\Models\OrderProduct;
+use DB;
+
 
 class CheckoutController extends Controller
 {
@@ -38,5 +43,54 @@ class CheckoutController extends Controller
         $title = 'Paiement';
 
         return view('client.checkout', compact('title', 'categories'));
+    }
+
+
+    public function checkout(CheckoutRequest $request)
+    {
+        // dd($request->all());
+        $payment_gateway = '';
+        if ($request->isMethod('post')) {
+            $data = $request->all();
+            if (!empty($data['payment_method'] == 'cod')) {
+                $paymend_gateway = 'cod';
+            } else {
+                $paymend_gateway = 'paypal';
+            }
+        }
+
+        $cart_items = Cart::Content();
+
+        $user_name = $request->first_name . " " . $request->last_name;
+
+        $order = Order::create([
+            'user_id' => null,
+            'user_name' => $user_name,
+            'address' => $request->address,
+            'city' => $request->city,
+            'country' => $request->country,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'order_status' => "New",
+            'payment_method' => $request->payment_method,
+            'payment_gateway' => $paymend_gateway,
+            'grand_total' => Cart::total()
+
+        ]);
+
+        $order_id = DB::getPdo()->lastInsertId();
+
+        foreach ($cart_items as $key => $item) {
+            # code...
+            $order = OrderProduct::create([
+
+                'order_id' => $order_id,
+                'product_id' => $item->id,
+                'product_qty' => $item->qty,
+                'price' => $item->total(),
+                'delivered_at' => 'New',
+
+            ]);
+        }
     }
 }

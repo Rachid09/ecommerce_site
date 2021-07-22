@@ -19,16 +19,16 @@
 
 <div class="full-row p-0 bg-light">
     <div id="slider" style="width:1200px; height:650px; margin:0 auto; margin-bottom:0px;">
-        @foreach ($featured as $item)
+        @foreach ($categories as $item)
         <div class="ls-slide" data-ls="duration:4000; transition2d:4; kenburnsscale:1.2;">
-            <img width="1920" height="750" src="{{$item->main_image}}" class="ls-bg" alt=""
+            <img width="1920" height="750" src="{{$item->photo}}" class="ls-bg" alt=""
                 style="top:50%; left:50%; text-align:initial; font-weight:400; font-style:normal; text-decoration:none; mix-blend-mode:normal; width:100%;"
                 data-ls="showinfo:1; durationin:2000; easingin:easeOutExpo; scalexin:1.5; scaleyin:1.5; position:fixed;">
 
             <p style="width:450px; font-size:80px; line-height:60px; top:40%; left:100px; white-space:normal;"
                 class="ls-l higlight-font font-700 ls-hide-phone text-dark"
                 data-ls="offsetyin:150; durationin:700; delayin:500; easingin:easeOutQuint; rotatexin:20; scalexin:1.4; offsetyout:600; durationout:400; parallaxlevel:0;">
-                {{$item->maincategory->libelle}}
+                {{$item->libelle}}
             </p>
             <p style="font-size:14px; letter-spacing: 2px; line-height:20px; top:28%; left:100px;"
                 class="ls-l ordenery-font text-dark text-uppercase font-700 ls-hide-phone"
@@ -38,7 +38,7 @@
             <p style="width:580px; font-weight:600; font-size:15px; line-height:30px; top:58%; left:120px; white-space:normal;"
                 class="ls-l ls-hide-phone text-dark ordenery-font text-uppercase"
                 data-ls="offsetxin:150; durationin:700; easingin:easeOutBack; rotatexin:20; scalexin:1; offsetyout:600; durationout:400; parallaxlevel:0; delayin:900;">
-                Price Starting<br>From <span class="text-primary font-600 font-large"> {{$item->price}}</span></p>
+                Price Starting<br>From <span class="text-primary font-600 font-large"> </span></p>
 
             <div style="width:3px; height:60px; border-radius:0; top:58%; left:100px;"
                 class="ls-l ls-hide-phone bg-primary"
@@ -77,7 +77,7 @@
                     @foreach ($maincategories as $cat)
                     <div class="col">
                         <div class="banner-wrapper hover-img-zoom banner-one custom-class-113">
-                            <div class="banner-image overflow-hidden transation" style="height:400px"><img
+                            <div class="banner-image-1 overflow-hidden transation" style="height:400px"><img
                                     src="{{$cat->photo}}" alt="Banner Image" style="object-fit: cover"></div>
                             <div class="banner-content position-absolute">
                                 <span class="d-block font-500 font-small text-uppercase mb-2"></span>
@@ -768,85 +768,76 @@
                 <div class="owl-carousel dot-disable nav-disable six-carousel">
                     <div class="item">
                         <div class="hover-img-zoom overflow-hidden transation">
-                            <a href="assets/images/products/squire-221.png" data-fancybox="gallery"
+                            <a href="{{asset('public/images/5.jpg')}}" data-fancybox="gallery"
                                 data-caption="Caption for single image">
-                                <img class="transation" src="assets/images/products/squire-221.png"
+                                <img class="transation" src="{{asset('public/images/5.jpg')}}"
                                     alt="Image not found!">
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="hover-img-zoom overflow-hidden transation">
-                            <a href="assets/images/products/squire-222.png" data-fancybox="gallery"
+                            <a href="{{asset('public/images/2.jpg')}}" data-fancybox="gallery"
                                 data-caption="Caption for single image">
-                                <img class="transation" src="assets/images/products/squire-222.png"
+                                <img class="transation" src="{{asset('public/images/2.jpg')}}"
                                     alt="Image not found!">
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="hover-img-zoom overflow-hidden transation">
-                            <a href="assets/images/products/squire-223.png" data-fancybox="gallery"
-                                data-caption="Caption for single image">
-                                <img class="transation" src="assets/images/products/squire-223.png"
+                            <a href="{{asset('public/images/4.jpg')}}"          data-fancybox="gallery"                      data-caption="Caption for single image">
+                                <img class="transation" src="{{asset('public/images/4.jpg')}}"
                                     alt="Image not found!">
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="hover-img-zoom overflow-hidden transation">
-                            <a href="assets/images/products/squire-224.png" data-fancybox="gallery"
+                            <a href="{{asset('public/images/6.jpg')}}" data-fancybox="gallery"
                                 data-caption="Caption for single image">
-                                <img class="transation" src="assets/images/products/squire-224.png"
+                                <img class="transation" src="{{asset('public/images/6.jpg')}}"
                                     alt="Image not found!">
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="hover-img-zoom overflow-hidden transation">
-                            <a href="assets/images/products/squire-225.png" data-fancybox="gallery"
+                            <a href="{{asset('public/images/7.jpg')}}" data-fancybox="gallery"
                                 data-caption="Caption for single image">
-                                <img class="transation" src="assets/images/products/squire-225.png"
+                                <img class="transation" src="{{asset('public/images/7.jpg')}}"
                                     alt="Image not found!">
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="hover-img-zoom overflow-hidden transation">
-                            <a href="assets/images/products/squire-226.png" data-fancybox="gallery"
+                            <a href="{{asset('public/images/8.jpg')}}" data-fancybox="gallery"
                                 data-caption="Caption for single image">
-                                <img class="transation" src="assets/images/products/squire-226.png"
+                                <img class="transation" src="{{asset('public/images/8.jpg')}}"
                                     alt="Image not found!">
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="hover-img-zoom overflow-hidden transation">
-                            <a href="assets/images/products/squire-227.png" data-fancybox="gallery"
+                            <a href="{{asset('public/images/10.jpg')}}" data-fancybox="gallery"
                                 data-caption="Caption for single image">
-                                <img class="transation" src="assets/images/products/squire-227.png"
+                                <img class="transation" src="{{asset('public/images/10.jpg')}}"
                                     alt="Image not found!">
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="hover-img-zoom overflow-hidden transation">
-                            <a href="assets/images/products/squire-228.png" data-fancybox="gallery"
+                            <a href="{{asset('public/images/9.jpg')}}" data-fancybox="gallery"
                                 data-caption="Caption for single image">
-                                <img class="transation" src="assets/images/products/squire-228.png"
+                                <img class="transation" src="{{asset('public/images/9.jpg')}}"
                                     alt="Image not found!">
                             </a>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="hover-img-zoom overflow-hidden transation">
-                            <a href="assets/images/products/squire-229.png" data-fancybox="gallery"
-                                data-caption="Caption for single image">
-                                <img class="transation" src="assets/images/products/squire-229.png"
-                                    alt="Image not found!">
-                            </a>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
