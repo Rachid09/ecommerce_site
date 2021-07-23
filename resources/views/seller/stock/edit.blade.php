@@ -58,7 +58,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label> l'image du produit </label>
+                                            <label> Image du produit </label>
                                             <label id="projectinput7" class="file center-block">
                                                 <input type="file" id="file" name="main_image">
                                                 <span class="file-custom"></span>
@@ -77,7 +77,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> nom du produit </label>
+                                                        <label for="projectinput1"> Nom du produit </label>
                                                         <input type="text" id="name" class="form-control" name="name"
                                                             value="{{$product->name}}">
                                                         @error("name")
@@ -120,7 +120,7 @@
                                             <div class="row">
                                                 <div class="col-md-6 ">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> le code du produit </label>
+                                                        <label for="projectinput1"> Code du produit </label>
                                                         <input type="text" id="code" class="form-control"
                                                             placeholder="  " name="code" value="{{$product->code}}">
 
@@ -131,7 +131,7 @@
                                                 </div>
                                                 <div class="col-md-6 ">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> le prix du produit </label>
+                                                        <label for="projectinput1"> Prix du produit </label>
                                                         <input type="text" id="price" value="{{$product->price}}"
                                                             class="form-control" placeholder="  " name="price">
 
@@ -147,35 +147,10 @@
 
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    {{-- <div class="form-group">
-                                                        <label for="projectinput2"> choisissez la couleur
-                                                        </label>
-                                                        <div class="form-group">
-                                                            <select name="color" id="color"
-                                                                class="jui-select-default form-control">
-                                                                <option value="">choisir</option>
-                                                                @if(!empty($colors))
-                                                                @foreach($colors as $color)
-                                                                <option value="{{$color}}" @if ($color==$product->color)
-                                                                    selected
-
-                                                                    @endif>
-                                                                    {{$color}}</option>
-                                                                @endforeach
-                                                                @endif
-                                                            </select>
-                                                        </div>
-
-
-
-                                                        @error('color')
-                                                        <span class="text-danger"> {{$message}}</span>
-                                                        @enderror
-                                                    </div> --}}
-
+                                                   
 
                                                    <div class="form-group">
-                                                        <label for="projectinput2">  la couleur </label>
+                                                        <label for="projectinput2">  Couleur </label>
                                                         <select name="colors[]" class="select2 form-control" multiple>
                                                             <optgroup label="choisissez une couleur ">
                                                                 @if($colors && $colors -> count() > 0)
@@ -199,7 +174,7 @@
 
                                                 <div class="class col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput1">description </label>
+                                                        <label for="projectinput1">Description </label>
                                                         <textarea id="description" type="text" cols="1"
                                                             class="form-control"
                                                             placeholder="Ecrire une bref description"
@@ -219,7 +194,7 @@
                                             <div class="row">
                                                 <div class="col-md-6 ">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> promotion </label>
+                                                        <label for="projectinput1"> Promotion </label>
                                                         <input type="text" id="discount" class="form-control"
                                                             placeholder=" entrer une pourcentage du promotion "
                                                             name="discount" value="{{$product->discount}}">
@@ -231,7 +206,7 @@
                                                 </div>
                                                 <div class="col-md-6 ">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> quantité </label>
+                                                        <label for="projectinput1"> Quantité </label>
                                                         <input type="text" id="stock" class="form-control"
                                                             placeholder=" quantite du produit " name="quantite"
                                                             value="{{$product->stock}}">
@@ -268,10 +243,10 @@
                                         <div class="form-actions">
                                             <button type="button" class="btn btn-warning mr-1"
                                                 onclick="history.back();">
-                                                <i class="ft-x"></i> تراجع
+                                                <i class="ft-x"></i> Annuler
                                             </button>
                                             <button type="submit" class="btn btn-primary">
-                                                <i class="la la-check-square-o"></i> حفظ
+                                                <i class="la la-check-square-o"></i> Enregistrer
                                             </button>
                                         </div>
                                     </form>

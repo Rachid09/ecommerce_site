@@ -9,7 +9,7 @@
             </li>
 
 
-            <li class="nav-item"><a href=""><i class="la la-group"></i>
+            <li class="nav-item"><a href=""><i class="la la-file"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">  Commandes </span>
                     <span class="badge badge badge-danger badge-pill float-right mr-2">{{App\Models\MainCategory::defaultCategory()->count()}}</span>
                 </a>
@@ -22,7 +22,7 @@
                 </ul>
             </li>
 
-            <li class="nav-item"><a href=""><i class="la la-male"></i>
+            <li class="nav-item"><a href=""><i class="la la-shopping-cart"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">Ma Boutique </span>
                     <span class="badge badge badge-success badge-pill float-right mr-2">{{App\Models\Seller::count()}}</span>
                 </a>
@@ -35,7 +35,7 @@
                 </ul>
             </li>
 
-            <li class="nav-item"><a href=""><i class="la la-male"></i>
+            <li class="nav-item"><a href=""><i class="la la-bank"></i>
                     <span class="menu-title" data-i18n="nav.dash.main"> Stock </span>
                     <span class="badge badge badge-success badge-pill float-right mr-2">{{App\Models\Product::count()}}</span>
                 </a>

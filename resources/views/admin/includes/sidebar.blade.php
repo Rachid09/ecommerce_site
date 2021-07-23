@@ -32,6 +32,18 @@
                     </li>
                 </ul>
             </li>
+             <li class="nav-item"><a href=""><i class="la la-male"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">Les Clients </span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">{{App\Models\User::count()}}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class=""><a class="menu-item" href="{{route('admin.clients')}}" data-i18n="nav.dash.ecommerce">List des vendeurs</a>
+                    </li>
+                    {{-- <li><a class="menu-item" href=" {{route('admin.sellers.create')}}" data-i18n="nav.dash.crypto">Ajouter un vendeur
+                             </a>
+                    </li> --}}
+                </ul>
+            </li>
 
 
 
@@ -46,7 +58,7 @@
             </li>
 
 
-               <li class="nav-item"><a href=""><i class="la la-home"></i>
+               {{-- <li class="nav-item"><a href=""><i class="la la-home"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">les langues du site </span>
                     <span class="badge badge badge-info badge-pill float-right mr-2">{{App\Models\language::count()}}</span>
                 </a>
@@ -57,7 +69,7 @@
                             une langue </a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
 
 
 

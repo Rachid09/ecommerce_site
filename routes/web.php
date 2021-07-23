@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-// use Cart;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,29 +15,6 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get(
-//     '/',
-//     'HomeController@index'
-// )->name('shop.home');
-// Route::get('/shop', function () {
-//     return view('shop.AllProducts');
-// });
-
-
-
-/*
-Route::get('/wishlist', function () {
-    return view('client.wishlist');
-});
-Route::get('/cart', function () {
-    return view('client.cart');
-});
- */
-
-
-
-
 
 
 Auth::routes();
@@ -73,13 +50,14 @@ Route::group(['namespace' => 'client'], function () {
     Route::post('/shopping-cart/update/{id}', 'CartController@update')->name('shopping-cart.update');
     Route::get('/shopping-cart/delete/{id}', 'CartController@destroy')->name('shopping-cart.delete');
 
-    Route::get('/shopping-cart/empty', function () {
-        Cart::destroy();
-    });
+
+
+
 
     ########################### CHECKOUT CONTROLLER ######################################
     Route::get('/paiement', 'CheckoutController@index')->name('checkout');
     Route::post('/paiement', 'CheckoutController@checkout')->name('checkout');
+    Route::get('/thank-you', 'CheckoutController@orderThanks')->name('order.thanksPage');
 });
 
 
@@ -134,16 +112,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => 'auth
     ######################### End  sellers Routes  ########################
 
     ######################### Begin SubCategories Routes ########################
-    Route::group(['prefix' => 'sub-categories'], function () {
-        Route::get('/', 'SubCategoryController@index')->name('admin.subcategories');
-        Route::get('create', 'SubCategoryController@create')->name('admin.subcategories.create');
-        Route::post('store', 'SubCategoryController@store')->name('admin.subcategories.store');
-        Route::get('edit/{id}', 'SubCategoryController@edit')->name('admin.subcategories.edit');
-        Route::post('update/{id}', 'SubCategoryController@update')->name('admin.subcategories.update');
-        Route::get('delete/{id}', 'SubCategoryController@destroy')->name('admin.subcategories.delete');
-        Route::get('changeStatus/{id}', 'SubCategoryController@changeStatus')->name('admin.subcategories.status');
-        // Route::post('append-category-level', 'SubCategoryController@appendCategoryLevel')->name('append-category-level');
-        // Route::post('/edit/append-category-level', 'SubCategoryController@appendCategoryLevel')->name('edit.append-category-level');
+    Route::group(['prefix' => 'clients'], function () {
+        Route::get('/', 'ClientController@index')->name('admin.clients');
+        Route::get('edit/{id}', 'ClientController@edit')->name('admin.clients.edit');
+        Route::post('update/{id}', 'ClientController@update')->name('admin.clients.update');
+        Route::get('delete/{id}', 'ClientController@destroy')->name('admin.clients.delete');
     });
 
     ######################### End SubCategories Routes ########################
@@ -153,10 +126,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => 'auth
 
     Route::group(['prefix' => 'products'], function () {
         Route::get('/', 'ProductsController@index')->name('admin.products');
-        // Route::get('/create', 'ProductsController@create')->name('admin.products.create');
-        // Route::post('/store', 'ProductsController@store')->name('admin.products.store');
-        // Route::get('edit/{id}', 'ProductsController@edit')->name('admin.products.edit');
-        // Route::post('update/{id}', 'ProductsController@update')->name('admin.products.update');
         Route::get('delete/{id}', 'ProductsController@destroy')->name('admin.products.delete');
         Route::post('changeStatus/{id}', 'ProductsController@changeStatus')->name('admin.products.status');
         Route::get('makeFeatured/{id}', 'ProductsController@changeFeatured')->name('admin.products.featured');
@@ -205,7 +174,7 @@ Route::group(['prefix' => 'seller', 'namespace' => 'seller', 'middleware' => 'au
         Route::get('/', 'OrderController@index')->name('seller.orders');
         Route::get('/add', 'OrderController@create')->name('seller.orders.create');
         Route::post('/store', 'OrderController@store')->name('seller.orders.store');
-        Route::get('/edit/{id}', 'OrderController@edit')->name('seller.orders.edit');
+        // Route::get('/orderDetails/{id}', 'OrderController@show')->name('seller.orders.details');
         Route::post('/update/{id}', 'OrderController@update')->name('seller.orders.update');
         Route::get('delete/{id}', 'OrderController@destroy')->name('seller.orders.delete');
         Route::get('changeStatus/{id}', 'OrderController@changeStatus')->name('seller.orders.status');

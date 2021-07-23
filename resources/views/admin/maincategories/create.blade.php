@@ -103,10 +103,10 @@
 
                                         <div class="form-actions">
                                             <button type="button" class="btn btn-warning mr-1" onclick="history.back();">
-                                                <i class="ft-x"></i> تراجع
+                                                <i class="ft-x"></i> Annuler
                                             </button>
                                             <button type="submit" class="btn btn-primary">
-                                                <i class="la la-check-square-o"></i> حفظ
+                                                <i class="la la-check-square-o"></i> Enregistrer
                                             </button>
                                         </div>
                                     </form>

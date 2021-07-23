@@ -76,7 +76,7 @@
 
                                     </table>
                                      <button type="submit" class="btn btn-primary" >
-                                                <i class="la la-check-square-o"></i> حفظ
+                                                <i class="la la-check-square-o"></i> Enregistrer
                                     </button>
 
                                     </form>

@@ -47,7 +47,7 @@
                                         @csrf
                                         <input type="hidden" name="seller_id" value="{{$id = Auth::user()->id}}">
                                         <div class="form-group">
-                                            <label> l'image du produit </label>
+                                            <label> Image du produit </label>
                                             <label id="projectinput7" class="file center-block">
                                                 <input type="file" id="file" name="main_image">
                                                 <span class="file-custom"></span>
@@ -65,7 +65,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> nom du produit </label>
+                                                        <label for="projectinput1"> Nom du produit </label>
                                                         <input type="text" value="" id="name" class="form-control" placeholder="  " name="name">
                                                         @error("name")
                                                         <span class="text-danger">{{$message}}</span>
@@ -104,7 +104,7 @@
                                             <div class="row">
                                                 <div class="col-md-6 ">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> le code du produit  </label>
+                                                        <label for="projectinput1"> Code du produit  </label>
                                                         <input type="text" id="code" class="form-control" placeholder="  " name="code">
 
                                                         @error("code")
@@ -114,7 +114,7 @@
                                                 </div>
                                                     <div class="col-md-6 ">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> le prix du produit  </label>
+                                                        <label for="projectinput1"> Prix du produit  </label>
                                                         <input type="text" id="price" class="form-control" placeholder="  " name="price">
 
                                                         @error("code")
@@ -151,7 +151,7 @@
                                                         @enderror
                                                     </div> --}}
                                                     <div class="form-group">
-                                                        <label for="projectinput2">  couleur </label>
+                                                        <label for="projectinput2">  Couleur </label>
                                                         <select name="colors[]" class="select2 form-control" multiple>
                                                             <optgroup label="choisissez une couleur ">
                                                                 @if($colors && $colors -> count() > 0)
@@ -171,7 +171,7 @@
 
                                                 <div class="class col-md-6">
                                                     <div class="form-group">
-                                                        <label for="projectinput1">description </label>
+                                                        <label for="projectinput1">Description du produit </label>
                                                         <textarea id="description" type="text" cols="1" class="form-control" placeholder="Ecrire une bref description" name="description"></textarea>
 
                                                         @error("description")
@@ -188,7 +188,7 @@
                                             <div class="row">
                                                 <div class="col-md-6 ">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> promotion </label>
+                                                        <label for="projectinput1"> Promotion </label>
                                                         <input type="text" id="discount" class="form-control" placeholder=" entrer une pourcentage du promotion " name="discount">
 
                                                         @error("discount")
@@ -198,7 +198,7 @@
                                                 </div>
                                                     <div class="col-md-6 ">
                                                     <div class="form-group">
-                                                        <label for="projectinput1"> quantité </label>
+                                                        <label for="projectinput1"> Quantité </label>
                                                         <input type="text" id="stock" class="form-control" placeholder=" quantite du produit " name="quantite">
 
                                                         @error("quantite")
@@ -212,7 +212,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group mt-1">
                                                         <input type="checkbox" value="1" name="status" id="switcheryColor4" class="switchery" data-color="success" checked />
-                                                        <label for="switcheryColor4" class="card-title ml-1">status </label>
+                                                        <label for="switcheryColor4" class="card-title ml-1">Status </label>
 
                                                         @error("status")
                                                         <span class="text-danger"> </span>
@@ -228,10 +228,10 @@
 
                                         <div class="form-actions">
                                             <button type="button" class="btn btn-warning mr-1" onclick="history.back();">
-                                                <i class="ft-x"></i> تراجع
+                                                <i class="ft-x"></i> Annuler
                                             </button>
                                             <button type="submit" class="btn btn-primary">
-                                                <i class="la la-check-square-o"></i> حفظ
+                                                <i class="la la-check-square-o"></i> Enregistrer
                                             </button>
                                         </div>
                                     </form>

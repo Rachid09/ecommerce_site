@@ -196,11 +196,11 @@
                                     </form>
 
 
-                                    <div class="bigbazar-quick-buy">
-                                        <button
+                                    {{-- <div class="bigbazar-quick-buy">
+                                        <a href="{{route('checkout')}}"
                                             class="bigbazar_quick_buy_button bigbazar_quick_buy_variable bigbazar_quick_buy_58"
-                                            value="Buy Now">Acheter</button>
-                                    </div>
+                                            value="Buy Now">Acheter</a>
+                                    </div> --}}
                                 </div>
                             </div>
                         </form>

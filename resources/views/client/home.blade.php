@@ -77,28 +77,20 @@
                     @foreach ($maincategories as $cat)
                     <div class="col">
                         <div class="banner-wrapper hover-img-zoom banner-one custom-class-113">
-                            <div class="banner-image-1 overflow-hidden transation" style="height:400px"><img
-                                    src="{{$cat->photo}}" alt="Banner Image" style="object-fit: cover"></div>
+
+                            <a  href="{{route('shop.categoryProducts',['name'=>$cat->libelle,'id'=>$cat->id])}}"><div class="banner-image-1 overflow-hidden transation" style="background:linear-gradient( rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.13) ),url({{asset($cat->photo)}}) ;background-size:cover;height:400px"></div></a>
                             <div class="banner-content position-absolute">
                                 <span class="d-block font-500 font-small text-uppercase mb-2"></span>
-                                <h4><a href="{{route('shop.categoryProducts',['name'=>$cat->libelle,'id'=>$cat->id])}}"" class="
+                                <h4 ><a style="color:#fff !important;" href="{{route('shop.categoryProducts',['name'=>$cat->libelle,'id'=>$cat->id])}}" class="
                                         text-primary text-decoration-none">{{$cat->libelle}}</a></h4>
-                                <a href="{{route('shop.categoryProducts',['name'=>$cat->libelle,'id'=>$cat->id])}}"" class="
+                                <a style="color:#fff !important;"href="{{route('shop.categoryProducts',['name'=>$cat->libelle,'id'=>$cat->id])}}" class="
                                     btn-link-down-line mt-20 text-uppercase">Acheter</a>
                             </div>
                         </div>
                     </div>
                     @endforeach
 
-                    {{-- <div class="banner-wrapper hover-img-zoom banner-one custom-class-113">
-                                    <div class="banner-image overflow-hidden transation"><img src="{{asset('public/images/CHABICHIC_MARS21_300dpi_josephouechen-2_2048x.jpg')}}"
-                    alt="Banner Image"></div>
-                <div class="banner-content position-absolute">
-                    <span class="font-500 font-small text-uppercase d-block mb-2">Fat Loss</span>
-                    <h4><a href="#" class="text-primary text-decoration-none">Organic Tea</a></h4>
-                    <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
-                </div>
-            </div> --}}
+
         </div>
     </div>
 </div>
@@ -152,20 +144,7 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        {{-- <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div> --}}
-                                        {{-- <div class="shipping-feed-back">
-                                            <div class="star-rating">
-                                                <div class="rating-wrap">
-                                                    <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
-                                                </div>
-                                                <div class="rating-counts-wrap">
-                                                    <a href="#">(563)</a>
-                                                </div>
-                                            </div>
-                                            <div class="sold-items">
-                                                <span>65</span> <span>Sold</span>
-                                            </div>
-                                        </div> --}}
+
                                         <div class="hover-area" style="justify-content: space-around;">
                                             <form action="{{route('shopping-cart.add')}}" method="post"
                                                 id="add-to-cart-form{{$item->id}}">
@@ -194,9 +173,7 @@
                                                     data-bs-original-title="Add to Wishlist"
                                                     aria-label="Add to Wishlist">Wishlist</a>
                                             </div>
-                                            {{-- <div class="compare-button">
-                                                        <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
-                                                    </div> --}}
+
                                         </div>
                                     </div>
                                 </div>
@@ -213,15 +190,15 @@
 <!--==================== Exclusive Product Section End ====================-->
 
 <!--==================== Special Offer Section Start ====================-->
-<div class="full-row" style="background: url(assets/images/background/1.png) no-repeat center / cover;">
+<div class="full-row" style="background: url({{asset('public/images/banner.jpg')}}) no-repeat center / cover;">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
-                <div class="p-50 text-white bg-primary">
-                    <div class="text-uppercase text-white font-500">Special Offer</div>
-                    <h1 class="text-white my-4">Special Beauty Care Available</h1>
+            <div class="col-lg-6" style="background:linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url({{asset('public/images/plateau.jpg')}});background-size:cover;background-position:center;">
+                <div class="p-50 text-white bg-primary" style="background-color:unset !important;">
+                    <div class="text-uppercase text-white font-500">Offre spécial</div>
+                    <h1 class="text-white my-4">Promotion du <strong>50%</strong> sur ce produit</h1>
                     <div class="font-medium w-75">
-                        <p>On purchases with your City Furniture Credit Card from 6/16/2021 – 7/6/2021.</p>
+                        <p>PLATEAU TRADITIONNEL CISELÉ DE MOTIFS ORIENTAUX</p>
                     </div>
                     <a href="#" class="btn btn-dark mt-4">Learn More</a>
                 </div>
@@ -252,15 +229,16 @@
                                 <div class="product-wrapper">
                                     <div class="product-image" style="    height: 230px;
 ">
-                                        <a href="#" class="woocommerce-LoopProduct-link"><img
+                                        <a href="{{route('shop.productDetails',['name'=>$item->name,'id'=>$item->id])}}" class="woocommerce-LoopProduct-link"><img
                                                 src="{{$item->main_image}}" alt="Product Image"></a>
                                         <div class="product-labels">
-                                            <div class="badge1"><span>On top</span></div>
+                                            <div class="badge1"><span>Top</span></div>
                                         </div>
                                         <div class="on-sale">-60%</div>
                                     </div>
-                                    <div class="product-info">
-                                        <h3 class="product-title"><a href="#">{{$item->name}}</a></h3>
+                                    <div class="product-info"  style="background-color: #f8f6f5;
+    padding: 1.5rem 1.5rem;line-height: 1.4;height:160px;">
+                                        <h3 class="product-title"  style="font-size: 16px !important;"><a href="{{route('shop.productDetails',['name'=>$item->name,'id'=>$item->id])}}">{{$item->name}}</a></h3>
                                         <div class="product-price">
                                             <div class="price">
                                                 @if (!$item->discount)
@@ -271,28 +249,14 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        {{-- <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div> --}}
-                                        <div class="shipping-feed-back">
-                                            <div class="star-rating">
-                                                <div class="rating-wrap">
-                                                    <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
-                                                </div>
-                                                <div class="rating-counts-wrap">
-                                                    <a href="#">(563)</a>
-                                                </div>
-                                            </div>
-                                            <div class="sold-items">
-                                                <span>65</span> <span>Sold</span>
-                                            </div>
-                                        </div>
-                                        <div class="hover-area">
 
+
+                                        <div class="hover-area" style=" justify-content: space-around;">
                                             <form action="{{route('shopping-cart.add')}}" method="post"
                                                 id="add-to-cart-form{{$item->id}}">
                                                 @csrf
                                                 <input type="hidden" name="product_id" value="{{$item->id}}">
-                                                {{-- <input type="hidden" name="name" value="{{$item['name']}}">
-                                                <input type="hidden" name="price" value="{{$item['price']}}"> --}}
+
                                                 <div class="cart-button">
                                                     <a href="{{route('shopping-cart.add')}}"
                                                         onclick="event.preventDefault();
@@ -302,9 +266,7 @@
                                                 </div>
                                             </form>
 
-                                            {{-- <div class="cart-button">
-                                                <a href="#" class="button add_to_cart_button">Add to Cart</a>
-                                            </div> --}}
+
                                             <div class="wishlist-button">
                                                 <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" title=""
@@ -331,435 +293,43 @@
 
 <!--==================== Banner Section Start ====================-->
 {{-- <div class="full-row p-0 d-none d-sm-block">
-            <div class="container">
-                <div class="row row-cols-lg-2 row-cols-1 g-3">
-                    <div class="col">
-                        <div class="banner-wrapper hover-img-zoom banner-one custom-class-112">
-                            <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/63.png" alt="Banner Image"></div>
-                            <div class="banner-content position-absolute">
-                                <span class="text-dark font-500 font-small text-uppercase d-block mb-2">Natural Product</span>
-                                <h4><a href="#" class="text-dark font-700 text-decoration-none">Beauty Essintial Product</a></h4>
-                                <div class="font-fifteen">
-                                    <p>Turpis pulvinar amet sodales. Dui eget interdum molestie vivamus tempus.</p>
-                                </div>
-                                <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
-                            </div>
+    <div class="container">
+        <div class="row row-cols-lg-2 row-cols-1 g-3">
+            <div class="col">
+                <div class="banner-wrapper hover-img-zoom banner-one custom-class-112">
+                    <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/63.png"
+                            alt="Banner Image"></div>
+                    <div class="banner-content position-absolute">
+                        <span class="text-dark font-500 font-small text-uppercase d-block mb-2">Natural Product</span>
+                        <h4><a href="#" class="text-dark font-700 text-decoration-none">Beauty Essintial Product</a>
+                        </h4>
+                        <div class="font-fifteen">
+                            <p>Turpis pulvinar amet sodales. Dui eget interdum molestie vivamus tempus.</p>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="banner-wrapper hover-img-zoom banner-one custom-class-112">
-                            <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/64.png" alt="Banner Image"></div>
-                            <div class="banner-content position-absolute">
-                                <span class="text-dark font-500 font-small text-uppercase d-block mb-2">Sale Upto 30%</span>
-                                <h4><a href="#" class="text-dark font-700 text-decoration-none">Beauty Essintial Product</a></h4>
-                                <div class="font-fifteen">
-                                    <p>Turpis pulvinar amet sodales. Dui eget interdum molestie vivamus tempus.</p>
-                                </div>
-                                <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
-                            </div>
-                        </div>
+                        <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
                     </div>
                 </div>
             </div>
-        </div> --}}
+            <div class="col">
+                <div class="banner-wrapper hover-img-zoom banner-one custom-class-112">
+                    <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/64.png"
+                            alt="Banner Image"></div>
+                    <div class="banner-content position-absolute">
+                        <span class="text-dark font-500 font-small text-uppercase d-block mb-2">Sale Upto 30%</span>
+                        <h4><a href="#" class="text-dark font-700 text-decoration-none">Beauty Essintial Product</a>
+                        </h4>
+                        <div class="font-fifteen">
+                            <p>Turpis pulvinar amet sodales. Dui eget interdum molestie vivamus tempus.</p>
+                        </div>
+                        <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  --}}
 <!--==================== Banner Section End ====================-->
 
-<!--==================== Best Selling Products Section Start ====================-->
-{{-- <div class="full-row pb-10">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="section-head d-flex justify-content-between align-items-center pb-20">
-                            <h3 class="font-700 text-secondary mb-0 down-line">Best Selling Products</h3>
-                            <a href="#" class="btn-link-down-line text-uppercase font-small">View all products</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row g-3 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-1 product-list e-hover-image-zoom e-btn-set-two">
-                    <div class="col">
-                        <div class="product type-product">
-                            <div class="product-wrapper">
-                                <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-229.png" alt="Product Image"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Beauty Bee Harbal</a></h3>
-                                    <div class="product-price">
-                                        <div class="price">
-                                            <ins>$27.50</ins>
-                                        </div>
-                                    </div>
-                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
-                                    <div class="shipping-feed-back">
-                                        <div class="star-rating">
-                                            <div class="rating-wrap">
-                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
-                                            </div>
-                                            <div class="rating-counts-wrap">
-                                                <a href="#">(563)</a>
-                                            </div>
-                                        </div>
-                                        <div class="sold-items">
-                                            <span>65</span> <span>Sold</span>
-                                        </div>
-                                    </div>
-                                    <div class="hover-area">
-                                        <div class="cart-button">
-                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
-                                        </div>
-                                        <div class="wishlist-button">
-                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-                                        </div>
-                                        <div class="compare-button">
-                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="product type-product">
-                            <div class="product-wrapper">
-                                <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-230.png" alt="Product Image"></a>
-                                    <div class="on-sale">- 10%</div>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Hawaiian Tropic</a></h3>
-                                    <div class="product-price">
-                                        <div class="price">
-                                            <ins>$18.00</ins>
-                                            <del>$28.00</del>
-                                        </div>
-                                    </div>
-                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
-                                    <div class="shipping-feed-back">
-                                        <div class="star-rating">
-                                            <div class="rating-wrap">
-                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
-                                            </div>
-                                            <div class="rating-counts-wrap">
-                                                <a href="#">(563)</a>
-                                            </div>
-                                        </div>
-                                        <div class="sold-items">
-                                            <span>65</span> <span>Sold</span>
-                                        </div>
-                                    </div>
-                                    <div class="hover-area">
-                                        <div class="cart-button">
-                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
-                                        </div>
-                                        <div class="wishlist-button">
-                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-                                        </div>
-                                        <div class="compare-button">
-                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="product type-product">
-                            <div class="product-wrapper">
-                                <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-231.png" alt="Product Image"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Ariana Grande Ari</a></h3>
-                                    <div class="product-price">
-                                        <div class="price">
-                                            <ins>$31.00</ins>
-                                        </div>
-                                    </div>
-                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
-                                    <div class="shipping-feed-back">
-                                        <div class="star-rating">
-                                            <div class="rating-wrap">
-                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
-                                            </div>
-                                            <div class="rating-counts-wrap">
-                                                <a href="#">(563)</a>
-                                            </div>
-                                        </div>
-                                        <div class="sold-items">
-                                            <span>65</span> <span>Sold</span>
-                                        </div>
-                                    </div>
-                                    <div class="hover-area">
-                                        <div class="cart-button">
-                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
-                                        </div>
-                                        <div class="wishlist-button">
-                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-                                        </div>
-                                        <div class="compare-button">
-                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="product type-product">
-                            <div class="product-wrapper">
-                                <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-232.png" alt="Product Image"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Women Night Cream</a></h3>
-                                    <div class="product-price">
-                                        <div class="price">
-                                            <ins>$17.99</ins>
-                                        </div>
-                                    </div>
-                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
-                                    <div class="shipping-feed-back">
-                                        <div class="star-rating">
-                                            <div class="rating-wrap">
-                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
-                                            </div>
-                                            <div class="rating-counts-wrap">
-                                                <a href="#">(563)</a>
-                                            </div>
-                                        </div>
-                                        <div class="sold-items">
-                                            <span>65</span> <span>Sold</span>
-                                        </div>
-                                    </div>
-                                    <div class="hover-area">
-                                        <div class="cart-button">
-                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
-                                        </div>
-                                        <div class="wishlist-button">
-                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-                                        </div>
-                                        <div class="compare-button">
-                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="product type-product">
-                            <div class="product-wrapper">
-                                <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-233.png" alt="Product Image"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Harbal Facial Jel</a></h3>
-                                    <div class="product-price">
-                                        <div class="price">
-                                            <ins>$12.00</ins>
-                                        </div>
-                                    </div>
-                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
-                                    <div class="shipping-feed-back">
-                                        <div class="star-rating">
-                                            <div class="rating-wrap">
-                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
-                                            </div>
-                                            <div class="rating-counts-wrap">
-                                                <a href="#">(563)</a>
-                                            </div>
-                                        </div>
-                                        <div class="sold-items">
-                                            <span>65</span> <span>Sold</span>
-                                        </div>
-                                    </div>
-                                    <div class="hover-area">
-                                        <div class="cart-button">
-                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
-                                        </div>
-                                        <div class="wishlist-button">
-                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-                                        </div>
-                                        <div class="compare-button">
-                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="product type-product">
-                            <div class="product-wrapper">
-                                <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-223.png" alt="Product Image"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Organic Facial</a></h3>
-                                    <div class="product-price">
-                                        <div class="price">
-                                            <ins>$38.70</ins>
-                                        </div>
-                                    </div>
-                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
-                                    <div class="shipping-feed-back">
-                                        <div class="star-rating">
-                                            <div class="rating-wrap">
-                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
-                                            </div>
-                                            <div class="rating-counts-wrap">
-                                                <a href="#">(563)</a>
-                                            </div>
-                                        </div>
-                                        <div class="sold-items">
-                                            <span>65</span> <span>Sold</span>
-                                        </div>
-                                    </div>
-                                    <div class="hover-area">
-                                        <div class="cart-button">
-                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
-                                        </div>
-                                        <div class="wishlist-button">
-                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-                                        </div>
-                                        <div class="compare-button">
-                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="product type-product">
-                            <div class="product-wrapper">
-                                <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-234.png" alt="Product Image"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Make Up For Ever</a></h3>
-                                    <div class="product-price">
-                                        <div class="price">
-                                            <ins>$25.00</ins>
-                                        </div>
-                                    </div>
-                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
-                                    <div class="shipping-feed-back">
-                                        <div class="star-rating">
-                                            <div class="rating-wrap">
-                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
-                                            </div>
-                                            <div class="rating-counts-wrap">
-                                                <a href="#">(563)</a>
-                                            </div>
-                                        </div>
-                                        <div class="sold-items">
-                                            <span>65</span> <span>Sold</span>
-                                        </div>
-                                    </div>
-                                    <div class="hover-area">
-                                        <div class="cart-button">
-                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
-                                        </div>
-                                        <div class="wishlist-button">
-                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-                                        </div>
-                                        <div class="compare-button">
-                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="product type-product">
-                            <div class="product-wrapper">
-                                <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-235.png" alt="Product Image"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Advice Smoothing</a></h3>
-                                    <div class="product-price">
-                                        <div class="price">
-                                            <ins>$20.00</ins>
-                                        </div>
-                                    </div>
-                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
-                                    <div class="shipping-feed-back">
-                                        <div class="star-rating">
-                                            <div class="rating-wrap">
-                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
-                                            </div>
-                                            <div class="rating-counts-wrap">
-                                                <a href="#">(563)</a>
-                                            </div>
-                                        </div>
-                                        <div class="sold-items">
-                                            <span>65</span> <span>Sold</span>
-                                        </div>
-                                    </div>
-                                    <div class="hover-area">
-                                        <div class="cart-button">
-                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
-                                        </div>
-                                        <div class="wishlist-button">
-                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-                                        </div>
-                                        <div class="compare-button">
-                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="product type-product">
-                            <div class="product-wrapper">
-                                <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-236.png" alt="Product Image"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Makeup Utility</a></h3>
-                                    <div class="product-price">
-                                        <div class="price">
-                                            <ins>$20.25</ins>
-                                        </div>
-                                    </div>
-                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
-                                    <div class="shipping-feed-back">
-                                        <div class="star-rating">
-                                            <div class="rating-wrap">
-                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
-                                            </div>
-                                            <div class="rating-counts-wrap">
-                                                <a href="#">(563)</a>
-                                            </div>
-                                        </div>
-                                        <div class="sold-items">
-                                            <span>65</span> <span>Sold</span>
-                                        </div>
-                                    </div>
-                                    <div class="hover-area">
-                                        <div class="cart-button">
-                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
-                                        </div>
-                                        <div class="wishlist-button">
-                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
-                                        </div>
-                                        <div class="compare-button">
-                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-<!--==================== Best Selling Products Section End ====================-->
 
 <div class="full-row pb-0">
     <div class="container-fluid p-0">
@@ -770,8 +340,7 @@
                         <div class="hover-img-zoom overflow-hidden transation">
                             <a href="{{asset('public/images/5.jpg')}}" data-fancybox="gallery"
                                 data-caption="Caption for single image">
-                                <img class="transation" src="{{asset('public/images/5.jpg')}}"
-                                    alt="Image not found!">
+                                <img class="transation" src="{{asset('public/images/5.jpg')}}" alt="Image not found!">
                             </a>
                         </div>
                     </div>
@@ -779,16 +348,15 @@
                         <div class="hover-img-zoom overflow-hidden transation">
                             <a href="{{asset('public/images/2.jpg')}}" data-fancybox="gallery"
                                 data-caption="Caption for single image">
-                                <img class="transation" src="{{asset('public/images/2.jpg')}}"
-                                    alt="Image not found!">
+                                <img class="transation" src="{{asset('public/images/2.jpg')}}" alt="Image not found!">
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="hover-img-zoom overflow-hidden transation">
-                            <a href="{{asset('public/images/4.jpg')}}"          data-fancybox="gallery"                      data-caption="Caption for single image">
-                                <img class="transation" src="{{asset('public/images/4.jpg')}}"
-                                    alt="Image not found!">
+                            <a href="{{asset('public/images/4.jpg')}}" data-fancybox="gallery"
+                                data-caption="Caption for single image">
+                                <img class="transation" src="{{asset('public/images/4.jpg')}}" alt="Image not found!">
                             </a>
                         </div>
                     </div>
@@ -796,8 +364,7 @@
                         <div class="hover-img-zoom overflow-hidden transation">
                             <a href="{{asset('public/images/6.jpg')}}" data-fancybox="gallery"
                                 data-caption="Caption for single image">
-                                <img class="transation" src="{{asset('public/images/6.jpg')}}"
-                                    alt="Image not found!">
+                                <img class="transation" src="{{asset('public/images/6.jpg')}}" alt="Image not found!">
                             </a>
                         </div>
                     </div>
@@ -805,8 +372,7 @@
                         <div class="hover-img-zoom overflow-hidden transation">
                             <a href="{{asset('public/images/7.jpg')}}" data-fancybox="gallery"
                                 data-caption="Caption for single image">
-                                <img class="transation" src="{{asset('public/images/7.jpg')}}"
-                                    alt="Image not found!">
+                                <img class="transation" src="{{asset('public/images/7.jpg')}}" alt="Image not found!">
                             </a>
                         </div>
                     </div>
@@ -814,8 +380,7 @@
                         <div class="hover-img-zoom overflow-hidden transation">
                             <a href="{{asset('public/images/8.jpg')}}" data-fancybox="gallery"
                                 data-caption="Caption for single image">
-                                <img class="transation" src="{{asset('public/images/8.jpg')}}"
-                                    alt="Image not found!">
+                                <img class="transation" src="{{asset('public/images/8.jpg')}}" alt="Image not found!">
                             </a>
                         </div>
                     </div>
@@ -823,8 +388,7 @@
                         <div class="hover-img-zoom overflow-hidden transation">
                             <a href="{{asset('public/images/10.jpg')}}" data-fancybox="gallery"
                                 data-caption="Caption for single image">
-                                <img class="transation" src="{{asset('public/images/10.jpg')}}"
-                                    alt="Image not found!">
+                                <img class="transation" src="{{asset('public/images/10.jpg')}}" alt="Image not found!">
                             </a>
                         </div>
                     </div>
@@ -832,8 +396,7 @@
                         <div class="hover-img-zoom overflow-hidden transation">
                             <a href="{{asset('public/images/9.jpg')}}" data-fancybox="gallery"
                                 data-caption="Caption for single image">
-                                <img class="transation" src="{{asset('public/images/9.jpg')}}"
-                                    alt="Image not found!">
+                                <img class="transation" src="{{asset('public/images/9.jpg')}}" alt="Image not found!">
                             </a>
                         </div>
                     </div>

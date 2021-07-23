@@ -13,7 +13,7 @@
     <title>BigBazar - Multipurpose Ecommerce HTML Template</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href={{asset("public/favicon.ico")}}>
+    <link rel="shortcut icon" href="{{asset('public/images/Favicon@3x.png')}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 
     <!-- Google Font -->
