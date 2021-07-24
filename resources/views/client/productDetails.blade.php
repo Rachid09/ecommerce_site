@@ -300,7 +300,7 @@
                             <div class="product type-product">
                                 <div class="product-wrapper">
                                     <div class="product-image">
-                                        <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img
+                                        <a href="{{route('shop.productDetails',['name'=>$item['name'],'id'=>$item['id']])}}" class="woocommerce-LoopProduct-link"><img
                                                 src="{{$item['main_image']}}" alt="Product Image"></a>
                                         <div class="product-variations">
                                             <span class="active"><a href="#"
@@ -341,7 +341,7 @@
                                         </div>
                                     </div>
                                     <div class="product-info">
-                                        <h3 class="product-title"><a href="">{{$item['name']}}</a></h3>
+                                        <h3 class="product-title"><a href="{{route('shop.productDetails',['name'=>$item['name'],'id'=>$item['id']])}}">{{$item['name']}}</a></h3>
                                         <div class="product-price">
                                             <div class="price">
                                                 <ins>{{$item['price']}}Dh</ins>

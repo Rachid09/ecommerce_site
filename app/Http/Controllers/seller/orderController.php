@@ -19,20 +19,6 @@ class orderController extends Controller
             $q->where('seller_id', Auth::user()->id);
         })->get()->toArray();
 
-        // $ordersDetails = Order::with('products')->where('id', $id)->get()->toArray();
-        // echo '<pre>';
-        // print_r($orders);
-        // die;
-
         return view('seller.orders.index', compact('orders'));
     }
-
-    // public function show($id)
-    // {
-    //     $ordersDetails = Order::with('products')->where('id', $id)->get()->toArray();
-    //     echo '<pre>';
-    //     print_r($ordersDetails);
-    //     die;
-    //     return view('seller.orders.index', compact('ordersDetails'));
-    // }
 }

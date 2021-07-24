@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\MainCategory;
+
 
 
 /*
@@ -20,6 +22,19 @@ use Illuminate\Http\Request;
 Auth::routes();
 
 define('PAGINATION_COUNT', 5);
+Route::get('/about-us', function () {
+    $categories = MainCategory::selection()->active()->get();
+
+
+    $title = 'Qui sommes nous';
+    return view('client.aboutUs', compact('categories', 'title'));
+})->name('about-us');
+Route::get('/contact', function () {
+    $categories = MainCategory::selection()->active()->get();
+
+    $title = 'Contactez nous';
+    return view('client.contactUs', compact('categories', 'title'));
+})->name('contact');
 
 ################## CLIENT ROUTES ################################
 Route::group(['prefix' => 'client', 'namespace' => 'Auth'], function () {
@@ -33,6 +48,7 @@ Route::group(['prefix' => 'client', 'namespace' => 'Auth'], function () {
 Route::group(['namespace' => 'client'], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/profile', 'ProfileController@index')->name('client.profile');
+    Route::post('/profile/update/{id}', 'ProfileController@update')->name('client.profile.update');
     ####################### Product routes ############################
 
     Route::get('/all-products', 'ProductsController@index')->name('shop.all-products');

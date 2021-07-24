@@ -39,7 +39,7 @@ class CartController extends Controller
 
         Cart::add($product->id, $product->name, 1, $product->price)->associate('App\Models\Product');
 
-        return redirect()->back();
+        return redirect()->back()->with(['success' => 'le produit a bien été ajouter au panier']);
     }
 
 

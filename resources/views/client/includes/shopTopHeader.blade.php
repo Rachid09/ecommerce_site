@@ -62,7 +62,11 @@
                                         </li>
 
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#">Qui somme nous</a>
+                                            <a class="nav-link dropdown-toggle" href="{{route('about-us')}}">Qui somme nous</a>
+
+                                        </li>
+                                                                            <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="{{route('contact')}}">Contact</a>
 
                                         </li>
 

@@ -83,12 +83,6 @@ class ClientController extends Controller
             if (!$client)
                 return redirect()->route('admin.clients')->with(['error' => "Ce client n'existe pas"]);
 
-            // $clients = $client->clients();
-            // if (isset($clients) && $clients->count() > 0) {
-            //     return redirect()->route('admin.maincategories')->with(['error' => 'لأ يمكن حذف هذا القسم  ']);
-            // }
-
-
             $client->delete();
             return redirect()->route('admin.clients')->with(['success' => 'Ce client a bien été supprimer']);
         } catch (\Exception $ex) {

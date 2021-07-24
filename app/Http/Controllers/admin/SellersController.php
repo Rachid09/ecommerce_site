@@ -141,10 +141,7 @@ class SellersController extends Controller
             if (!$seller)
                 return redirect()->route('admin.sellers')->with(['error' => "Ce vendeur n'existe pas"]);
 
-            // $Sellers = $Seller->Sellers();
-            // if (isset($Sellers) && $Sellers->count() > 0) {
-            //     return redirect()->route('admin.maincategories')->with(['error' => 'لأ يمكن حذف هذا القسم  ']);
-            // }
+
 
             $image = Str::after($seller->logo, 'public/assets/');
             $image = base_path('public/assets/' . $image);

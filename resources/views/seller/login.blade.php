@@ -1,4 +1,8 @@
 @extends('layouts.adminLogin')
+@section('title')
+ <title>Connexion compte vendeur
+  </title>
+@endsection
 
 @section('content')
 <div class="app-content content">

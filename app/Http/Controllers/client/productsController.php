@@ -8,6 +8,8 @@ use App\Models\Product;
 use App\Models\ProductsImage;
 use App\Models\MainCategory;
 use Cart;
+use App\Models\Recommends;
+use Auth;
 
 class productsController extends Controller
 {
@@ -22,7 +24,14 @@ class productsController extends Controller
         $title = 'Tous les produits';
         $navbarTitle = "Tous les categories";
         $latest_products = Product::orderBy('id', 'Desc')->limit(4)->active()->selection()->get();
-        return view('client.AllProducts', compact('products', 'categories', 'totalProducts', 'title', 'navbarTitle', 'latest_products'));
+        $recommended_products = '';
+        if (Auth::guard('web')->check()) {
+
+            $recommended_products = Recommends::with('product')->where('user_id', Auth::guard('web')->user()->id)->get()->toArray();
+        }
+
+
+        return view('client.AllProducts', compact('products', 'categories', 'totalProducts', 'title', 'navbarTitle', 'latest_products', 'recommended_products'));
     }
 
     public function categoryProducts($name, $id)
@@ -33,21 +42,39 @@ class productsController extends Controller
         $latest_products = Product::orderBy('id', 'Desc')->limit(4)->active()->selection()->get();
         $title = $name;
         $navbarTitle = $name;
-        return view('client.AllProducts', compact('products', 'categories', 'totalProducts', 'title', 'navbarTitle', 'latest_products'));
+        $recommended_products = '';
+        if (Auth::guard('web')->check()) {
+
+            $recommended_products = Recommends::with('product')->where('user_id', Auth::guard('web')->user()->id)->get()->toArray();
+        }
+
+
+
+
+
+        return view('client.AllProducts', compact('products', 'categories', 'totalProducts', 'title', 'navbarTitle', 'latest_products', 'recommended_products'));
     }
     public function productDetails($name, $id)
 
     {
-        // dd(Cart::content());
+
         $categories = MainCategory::selection()->active()->get();
         $categoryId = Product::where(['id' => $id])->CategoryIdSelection()->first()->toArray();
         $cat_id = $categoryId['maincategory_id'];
         $related_products = Product::where(['maincategory_id' => $cat_id])->selection()->active()->get()->toArray();
         $product = Product::with(['maincategory', 'productImages', 'colors'])->where(['id' => $id])->selection()->first()->toArray();
-        // echo '<pre>';
-        // print_r($related_products);
-        // die;
+
         $title = $name;
+
+        if (Auth::check())
+            $recommend_product = Recommends::create([
+                'user_id' => Auth::guard('web')->user()->id,
+                'product_id' => $id
+            ]);
+
+
+
+
         return view('client.productDetails', compact('product', 'related_products', 'title', 'categories'));
     }
 }

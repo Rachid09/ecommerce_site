@@ -39,19 +39,4 @@ class CheckoutRequest extends FormRequest
 
         ];
     }
-
-
-    // public function messages()
-
-    // {
-    // return [
-    //     'required'  => 'Ce champ est obligatoire ',
-    //     'max'  => 'Ce champ est trop long',
-    //     'email.email' => "Etes-vous sure de l'existence de votre email ?",
-    //     'address.string' => "L'adresse doit être contenir des charactères et des numéros",
-
-
-
-    // ];
-    // }
 }

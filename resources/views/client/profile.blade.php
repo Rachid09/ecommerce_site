@@ -27,13 +27,14 @@
                             <div class="sign-in-form">
                                  @include('client.alerts.errors')
                                 @include('client.alerts.success')
-                                <form class="woocommerce-form-login" action="{{route('client.register')}}" method="post"
+                                <form class="woocommerce-form-login" action="{{route('client.profile.update',$client['id'])}}" method="post"
                                     novalidate enctype="multipart/form-data">
                                     @csrf
+                                    <input type="hidden" name="id" value="{{$id=$client['id']}}">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <label for="name">Prenom&nbsp;<span class="required">*</span></label>
-                                            <input type="text" class="form-control" name="first_name" id="first_name" />
+                                            <input type="text" class="form-control" name="first_name" id="first_name" value="{{$client['first_name']}}" />
                                             @error('first_name')
                                             <span class="text-danger">{{$message}}</span>
                                             @enderror</div>
@@ -42,7 +43,7 @@
                                         <div class="col-lg-6">
                                             <label for="name">Nom&nbsp;<span
                                                     class="required">*</span></label>
-                                            <input type="text" class="form-control" name="last_name" />
+                                            <input type="text" class="form-control" name="last_name"  value="{{$client['first_name']}}" />
                                             @error('last_name')
                                             <span class="text-danger">{{$message}}</span>
                                             @enderror
@@ -54,14 +55,14 @@
                                         <div class="col-lg-6">
                                             <label for="name">N° tele&nbsp;<span
                                                     class="required">*</span></label>
-                                            <input type="text" class="form-control" name="phone" id="email" />
+                                            <input type="text" class="form-control" name="phone" id="email"  value="{{$client['phone']}}"/>
                                             @error('phone')
                                             <span class="text-danger">{{$message}}</span>
                                             @enderror
                                         </div>
                                          <div class="col-lg-6">
                                             <label for="name">Email&nbsp;<span class="required">*</span></label>
-                                            <input type="text" class="form-control" name="email" id="email" />
+                                            <input type="text" class="form-control" name="email" id="email"  value="{{$client['email']}}"/>
                                         @error('email')
                                             <span class="text-danger">{{$message}}</span>
                                             @enderror </div>
@@ -73,18 +74,18 @@
 
                                         <div class="col-lg-6">
                                             <label for="name">Mot de pass&nbsp;<span class="required">*</span></label>
-                                            <input type="password" class="form-control" name="password" id="password" />
+                                            <input type="password" class="form-control" name="password" id="password"  />
                                         @error('password')
                                             <span class="text-danger">{{$message}}</span>
                                             @enderror</div>
 
                                             <div class="col-lg-6">
                                                 <label for="name">Adresse&nbsp;<span class="required"></span></label>
-                                                <input type="text" class="form-control" name="adresse" id="adresse" />
+                                                <input type="text" class="form-control" name="adresse" id="adresse"  value="{{$client['adresse']}}"/>
                                             @error('adresse')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror</div>
-                                                <button type="submit" class="woocommerce-form-login__submit btn btn-primary rounded-0" style="margin-top: 3rem" name="register" value="Log in">S'inscrire</button>
+                                                <button type="submit" class="woocommerce-form-login__submit btn btn-primary rounded-0" style="margin-top: 3rem"  value="Log in">Modifier</button>
                                     </div>
 
 

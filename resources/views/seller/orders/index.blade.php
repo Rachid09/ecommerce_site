@@ -11,9 +11,6 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('seller.dashboard')}}">Home</a>
                             </li>
-                            {{-- <li class="breadcrumb-item"><a href="{{route('seller.order.product.create')}}">Ajouter
-                                    Commande</a>
-                            </li> --}}
                             <li class="breadcrumb-item active"> List des Commandes
                             </li>
                         </ol>
@@ -43,9 +40,9 @@
                                             <th class="border-top-0">Nom du client</th>
                                             <th class="border-top-0">Tèlèphone</th>
                                             <th class="border-top-0">Email</th>
-                                            {{-- <th class="border-top-0">Adress de livraison</th> --}}
+
                                             <th class="border-top-0">Status</th>
-                                            {{-- <th class="border-top-0">Total</th> --}}
+
                                             <th class="border-top-0">Date du commande</th>
                                             <th class="border-top-0">Action</th>
                                         </tr>
@@ -80,53 +77,71 @@
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-outline-primary round"
                                                     data-toggle="modal"
-                                                    data-target="#detailsOrder{{$index}}" >Details</button>
+                                                    data-target="#detailsOrder{{$index}}">Details</button>
+                                                    <div class="modal fade text-left" style="display: none" id="detailsOrder{{$index}}" tabindex="-1"
+                                                        role="dialog" aria-labelledby="myModalLabel25" aria-hidden="true">
+                                                        <div class="modal-dialog modal-xl" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-body">
+                                                                    <table class="table table-hover table-xl mb-0">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th class="border-top-0">ID produit</th>
+                                                                                <th class="border-top-0">Nom du produit</th>
+                                                                                <th class="border-top-0">code du produit
+                                                                                </th>
+                                                                                {{-- <th class="border-top-0">categorie du
+                                                                                        produit</th> --}}
+                                                                                <th class="border-top-0">prix</th>
+                                                                                <th class="border-top-0">quantité</th>
+
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+
+                                                                            @php
+                                                                            $h=1
+                                                                            @endphp
+                                                                            @foreach ($item['products'] as $product)
+                                                                            <tr>
+
+                                                                                <td class="text-truncate"><a href="#">{{$h}}</a>
+                                                                                </td>
+                                                                                <td class="text-truncate">
+                                                                                    <span>{{$product['name']}}</span>
+                                                                                </td>
+                                                                                <td class="text-truncate">
+                                                                                    <span>{{$product['code']}}</span>
+                                                                                </td>
+
+                                                                                <td class="text-truncate">
+                                                                                    <span>{{$product['price']}}</span>
+                                                                                </td>
+                                                                                <td class="text-truncate">
+                                                                                    <span>{{$product['pivot']['product_qty']}}</span>
+                                                                                </td>
+
+
+                                                                            </tr>
+                                                                            @php
+                                                                            $h++
+                                                                            @endphp
+                                                                            @endforeach
+
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                             </td>
 
-                                            <div class="modal fade text-left" id="detailsOrder{{$index}}" tabindex="-1"
-                                                role="dialog" aria-labelledby="myModalLabel25" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h2 class="modal-title text-text-bold-600" id="myModalLabel25">
-                                                                Details du commande</h2>
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            @foreach($item['products'] as $product)
-                                                            <h2 class="modal-title text-text-bold-600">Nom du produits</h2>
-                                                            <div class="badge badge-primary">{{$product['name']}}
-                                                            </div>
-                                                             <h2 class="modal-title text-text-bold-600">Code du produit</h2>
-                                                            <div class="badge badge-primary">{{$product['code']}}
-                                                            </div>
-                                                             <h2 class="modal-title text-text-bold-600">Prix du produit</h2>
-                                                            <div class="badge badge-primary">{{$product['price']}}
-                                                            </div>
-                                                             <h2 class="modal-title text-text-bold-600">quantite du produit</h2>
-                                                            {{-- <div class="badge badge-primary">{{$product['pivot']['qty']}} --}}
-                                                            </div>
-                                                            @endforeach
-
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </tr>
                                         @php
                                         $i++
                                         @endphp
                                         @endforeach
                                         @endisset
-
-
-
-
-
                                     </tbody>
                                 </table>
                             </div>
@@ -134,36 +149,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
 @endsection

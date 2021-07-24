@@ -26,8 +26,7 @@
                         <ul class="product-categories">
                             @foreach ($categories as $cat)
                             <li class="cat-item cat-parent">
-                                <a href="{{route('shop.categoryProducts',['name'=>$cat->libelle,'id'=>$cat->id])}}">{{$cat->libelle}}<span
-                                        class="count">(7)</span></a>
+                                <a href="{{route('shop.categoryProducts',['name'=>$cat->libelle,'id'=>$cat->id])}}">{{$cat->libelle}}</a>
                             </li>
                             @endforeach
                         </ul>
@@ -153,16 +152,10 @@
                                                                 src="{{$item->main_image}}" alt="Product Image"></a>
                                                         <div class="wishlist-view">
                                                             <div class="quickview-button">
-                                                                {{-- <a class="quickview-btn" href="#"
-                                                                    data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                    title="" data-bs-original-title="Quick View"
-                                                                    aria-label="Quick View">Quick View</a> --}}
+
                                                             </div>
                                                             <div class="whishlist-button">
-                                                                {{-- <a class="add_to_wishlist" href="#"
-                                                                    data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                    title="" data-bs-original-title="Add to Wishlist"
-                                                                    aria-label="Add to Wishlist">Wishlist</a> --}}
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -181,18 +174,7 @@
                                                             </div>
                                                             <div class="on-sale"><span>{{$item->discount}}</span><span>% off</span></div>
                                                         </div>
-                                                        {{-- <div class="shipping-feed-back">
-                                                            <div class="star-rating">
-                                                                <div class="rating-wrap">
-                                                                    <a href="single-shop.html"><i
-                                                                            class="fas fa-star"></i><span>
-                                                                            4.95</span></a>
-                                                                </div>
-                                                                <div class="rating-counts-wrap">
-                                                                    <a href="#">(273)</a>
-                                                                </div>
-                                                            </div>
-                                                        </div> --}}
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -211,7 +193,7 @@
                     class="products-header d-flex justify-content-between align-items-center py-10 px-20 bg-light md-mt-30">
                     <div class="products-header-left d-flex align-items-center">
                         <h6 class="woocommerce-products-header__title page-title">{{$navbarTitle}}</h6>
-                        <div class="woocommerce-result-count"> (1 – 28 produits parmi {{$totalProducts}} produits )
+                        <div class="woocommerce-result-count"> (1 – {{$totalProducts}} produits )
                         </div>
                     </div>
                     <div class="products-header-right">
@@ -313,16 +295,7 @@
                                                             <div class="on-sale"><span>{{$item->discount}}</span><span>% off</span></div>
                                                         </div>
 
-                                        {{-- <div class="shipping-feed-back">
-                                            <div class="star-rating">
-                                                <div class="rating-wrap">
-                                                    <a
-                                                        href="{{route('shop.productDetails',['name'=>$item->name,'id'=>$item->id])}}"><i
-                                                            class="fas fa-star"></i><span> 4.7
-                                                            (35)</span></a>
-                                                </div>
-                                            </div>
-                                        </div> --}}
+
                                     </div>
                                 </div>
                             </div>
@@ -331,7 +304,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-between align-items-center pt-3">
-                    <div class="showing-result">Voir 1 – 28 parmi {{$totalProducts}} resultats</div>
+                    <div class="showing-result">(1 – {{$totalProducts}} produits )</div>
                     <div class="pagination-style-one">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
@@ -355,23 +328,28 @@
 
 
                 <!--==================== Recomended For You Section Start ====================-->
+                @if (Auth::guard('web')->check())
+
                 <div class="row mt-50">
                     <div class="col-12">
                         <div class="section-head d-flex justify-content-between align-items-end">
                             <div class="d-flex">
-                                <h4 class="font-600 text-secondary mb-0 pb-1">Recomended For You</h4>
+                                <h4 class="font-600 text-secondary mb-0 pb-1">Recomendeés Pour Vous</h4>
                             </div>
                         </div>
                     </div>
                     <div class="col-12">
                         <div
+                        @foreach ($recommended_products as $item)
+
+                        @endforeach
                             class="product-style-1 owl-carousel owl-item-mb-50 owl-mx-5 owl-nav-hover-primary nav-top-right four-carousel product-carousel dot-disable e-title-hover-primary e-image-bg-light e-hover-image-zoom e-info-center">
                             <div class="item">
                                 <div class="product type-product">
                                     <div class="product-wrapper">
                                         <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img
-                                                    src="assets/images/products/height-12.png" alt="Product Image"></a>
+                                            <a href="{{route('shop.productDetails',['name'=>$item['product']['name'],'id'=>$item['product_id']])}}" class="woocommerce-LoopProduct-link"><img
+                                                    src="{{asset($item['product']['main_image'])}}" alt="Product Image"></a>
                                             <div class="product-variations">
                                                 <span class="active"><a href="#"
                                                         style="background-color: #b78269;"></a></span>
@@ -379,445 +357,58 @@
                                                 <span><a href="#" style="background-color: #31749e;"></a></span>
                                                 <span><a href="#" style="background-color: #672a4f;"></a></span>
                                             </div>
-                                            <div class="on-sale">- 20%</div>
+                                            <div class="on-sale"><span>{{$item['product']['discount']}}</span><span>% off</span></div>
                                             <div class="hover-area">
-                                                <div class="cart-button">
-                                                    <a href="#" class="button add_to_cart_button"
-                                                        data-bs-toggle="tooltip" data-bs-placement="right" title=""
-                                                        data-bs-original-title="Add to Cart"
-                                                        aria-label="Add to Cart">Add to Cart</a>
-                                                </div>
+                                                <form action="{{route('shopping-cart.add')}}" method="post"
+                                                    id="add-to-cart-form{{$item['product_id']}}">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id" value="{{$item['product_id']}}">
+
+                                                    <div class="cart-button">
+                                                        <a href="{{route('shopping-cart.add')}}"
+                                                            onclick="event.preventDefault();
+                                                       document.getElementById('add-to-cart-form{{$item['product_id']}}').submit();" class="button add_to_cart_button"
+                                                            data-bs-toggle="tooltip" data-bs-placement="right" title=""
+                                                            data-bs-original-title="Add to Cart"
+                                                            aria-label="Add to Cart">Add to
+                                                            Cart</a>
+                                                    </div>
+                                                </form>
                                                 <div class="wishlist-button">
                                                     <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip"
                                                         data-bs-placement="right" title=""
                                                         data-bs-original-title="Add to Wishlist"
                                                         aria-label="Add to Wishlist">Wishlist</a>
                                                 </div>
-                                                <div class="compare-button">
-                                                    <a class="compare button" href="#" data-bs-toggle="tooltip"
-                                                        data-bs-placement="right" title=""
-                                                        data-bs-original-title="Compare"
-                                                        aria-label="Compare">Compare</a>
-                                                </div>
+
                                             </div>
                                         </div>
                                         <div class="product-info">
-                                            <h3 class="product-title"><a href="single-shop.html">Women Fish Cut
-                                                    Cloth</a></h3>
+                                            <h3 class="product-title"><a href="{{route('shop.productDetails',['name'=>$item['product']['name'],'id'=>$item['product_id']])}}">{{$item['product']['name']}}</a></h3>
                                             <div class="product-price">
                                                 <div class="price">
-                                                    <ins>$17.00</ins>
-                                                    <del>$32.28</del>
+                                                   @if (!$item['product']['discount'])
+                                                                <ins>{{$item['product']['price']}}.00DH</ins>
+                                                                @else
+                                                                <ins>{{calculatePriceAfterDiscount($item['product']['price'],$item['product']['discount'])}}DH</ins>
+                                                                <del>{{$item['product']['price']}}.00DH</del>
+                                                                @endif
                                                 </div>
                                             </div>
-                                            <div class="shipping-feed-back">
-                                                <div class="star-rating">
-                                                    <div class="rating-wrap">
-                                                        <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.7
-                                                                (35)</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="product type-product">
-                                    <div class="product-wrapper">
-                                        <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img
-                                                    src="assets/images/products/height-13.png" alt="Product Image"></a>
-                                            <div class="product-variations">
-                                                <span class="active"><a href="#"
-                                                        style="background-color: #b78269;"></a></span>
-                                                <span><a href="#" style="background-color: #f1cc4e;"></a></span>
-                                                <span><a href="#" style="background-color: #31749e;"></a></span>
-                                                <span><a href="#" style="background-color: #672a4f;"></a></span>
-                                            </div>
-                                            <div class="hover-area">
-                                                <div class="cart-button">
-                                                    <a href="#" class="button add_to_cart_button"
-                                                        data-bs-toggle="tooltip" data-bs-placement="right" title=""
-                                                        data-bs-original-title="Add to Cart"
-                                                        aria-label="Add to Cart">Add to Cart</a>
-                                                </div>
-                                                <div class="wishlist-button">
-                                                    <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip"
-                                                        data-bs-placement="right" title=""
-                                                        data-bs-original-title="Add to Wishlist"
-                                                        aria-label="Add to Wishlist">Wishlist</a>
-                                                </div>
-                                                <div class="compare-button">
-                                                    <a class="compare button" href="#" data-bs-toggle="tooltip"
-                                                        data-bs-placement="right" title=""
-                                                        data-bs-original-title="Compare"
-                                                        aria-label="Compare">Compare</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-title"><a href="single-shop.html">Blazar Jins Coat</a>
-                                            </h3>
-                                            <div class="product-price">
-                                                <div class="price">
-                                                    <ins>$25.62.00</ins>
-                                                </div>
-                                            </div>
-                                            <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span>
-                                            </div>
-                                            <div class="shipping-feed-back">
-                                                <div class="star-rating">
-                                                    <div class="rating-wrap">
-                                                        <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.7
-                                                                (35)</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product type-product">
-                                    <div class="product-wrapper">
-                                        <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img
-                                                    src="assets/images/products/height-14.png" alt="Product Image"></a>
-                                            <div class="product-variations">
-                                                <span class="active"><a href="#"
-                                                        style="background-color: #b78269;"></a></span>
-                                                <span><a href="#" style="background-color: #f1cc4e;"></a></span>
-                                                <span><a href="#" style="background-color: #31749e;"></a></span>
-                                                <span><a href="#" style="background-color: #672a4f;"></a></span>
-                                            </div>
-                                            <div class="product-labels">
-                                                <div class="badge1"><span>New</span></div>
-                                            </div>
-                                            <div class="hover-area">
-                                                <div class="cart-button">
-                                                    <a href="#" class="button add_to_cart_button"
-                                                        data-bs-toggle="tooltip" data-bs-placement="right" title=""
-                                                        data-bs-original-title="Add to Cart"
-                                                        aria-label="Add to Cart">Add to Cart</a>
-                                                </div>
-                                                <div class="wishlist-button">
-                                                    <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip"
-                                                        data-bs-placement="right" title=""
-                                                        data-bs-original-title="Add to Wishlist"
-                                                        aria-label="Add to Wishlist">Wishlist</a>
-                                                </div>
-                                                <div class="compare-button">
-                                                    <a class="compare button" href="#" data-bs-toggle="tooltip"
-                                                        data-bs-placement="right" title=""
-                                                        data-bs-original-title="Compare"
-                                                        aria-label="Compare">Compare</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-title"><a href="single-shop.html">Fashion Summer
-                                                    Cloth</a></h3>
-                                            <div class="product-price">
-                                                <div class="price">
-                                                    <ins>$34.88</ins>
-                                                </div>
-                                            </div>
-                                            <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span>
-                                            </div>
-                                            <div class="shipping-feed-back">
-                                                <div class="star-rating">
-                                                    <div class="rating-wrap">
-                                                        <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.7
-                                                                (35)</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product type-product">
-                                    <div class="product-wrapper">
-                                        <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img
-                                                    src="assets/images/products/height-15.png" alt="Product Image"></a>
-                                            <div class="product-variations">
-                                                <span class="active"><a href="#"
-                                                        style="background-color: #b78269;"></a></span>
-                                                <span><a href="#" style="background-color: #f1cc4e;"></a></span>
-                                                <span><a href="#" style="background-color: #31749e;"></a></span>
-                                                <span><a href="#" style="background-color: #672a4f;"></a></span>
-                                            </div>
-                                            <div class="product-labels">
-                                                <div class="badge1"><span>New</span></div>
-                                            </div>
-                                            <div class="hover-area">
-                                                <div class="cart-button">
-                                                    <a href="#" class="button add_to_cart_button"
-                                                        data-bs-toggle="tooltip" data-bs-placement="right" title=""
-                                                        data-bs-original-title="Add to Cart"
-                                                        aria-label="Add to Cart">Add to Cart</a>
-                                                </div>
-                                                <div class="wishlist-button">
-                                                    <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip"
-                                                        data-bs-placement="right" title=""
-                                                        data-bs-original-title="Add to Wishlist"
-                                                        aria-label="Add to Wishlist">Wishlist</a>
-                                                </div>
-                                                <div class="compare-button">
-                                                    <a class="compare button" href="#" data-bs-toggle="tooltip"
-                                                        data-bs-placement="right" title=""
-                                                        data-bs-original-title="Compare"
-                                                        aria-label="Compare">Compare</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-title"><a href="single-shop.html">Women Modern Bags</a>
-                                            </h3>
-                                            <div class="product-price">
-                                                <div class="price">
-                                                    <ins>$32.88</ins>
-                                                </div>
-                                            </div>
-                                            <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span>
-                                            </div>
-                                            <div class="shipping-feed-back">
-                                                <div class="star-rating">
-                                                    <div class="rating-wrap">
-                                                        <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.7
-                                                                (35)</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product type-product">
-                                    <div class="product-wrapper">
-                                        <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img
-                                                    src="assets/images/products/height-11.png" alt="Product Image"></a>
-                                            <div class="product-variations">
-                                                <span class="active"><a href="#"
-                                                        style="background-color: #b78269;"></a></span>
-                                                <span><a href="#" style="background-color: #f1cc4e;"></a></span>
-                                                <span><a href="#" style="background-color: #31749e;"></a></span>
-                                                <span><a href="#" style="background-color: #672a4f;"></a></span>
-                                            </div>
-                                            <div class="product-labels">
-                                                <div class="badge1"><span>New</span></div>
-                                            </div>
-                                            <div class="hover-area">
-                                                <div class="cart-button">
-                                                    <a href="#" class="button add_to_cart_button"
-                                                        data-bs-toggle="tooltip" data-bs-placement="right" title=""
-                                                        data-bs-original-title="Add to Cart"
-                                                        aria-label="Add to Cart">Add to Cart</a>
-                                                </div>
-                                                <div class="wishlist-button">
-                                                    <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip"
-                                                        data-bs-placement="right" title=""
-                                                        data-bs-original-title="Add to Wishlist"
-                                                        aria-label="Add to Wishlist">Wishlist</a>
-                                                </div>
-                                                <div class="compare-button">
-                                                    <a class="compare button" href="#" data-bs-toggle="tooltip"
-                                                        data-bs-placement="right" title=""
-                                                        data-bs-original-title="Compare"
-                                                        aria-label="Compare">Compare</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-title"><a href="single-shop.html">Women Fish Cut
-                                                    Cloth</a></h3>
-                                            <div class="product-price">
-                                                <div class="price">
-                                                    <ins>$106.88</ins>
-                                                </div>
-                                            </div>
-                                            <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span>
-                                            </div>
-                                            <div class="shipping-feed-back">
-                                                <div class="star-rating">
-                                                    <div class="rating-wrap">
-                                                        <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.7
-                                                                (35)</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product type-product">
-                                    <div class="product-wrapper">
-                                        <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img
-                                                    src="assets/images/products/height-8.png" alt="Product Image"></a>
-                                            <div class="product-variations">
-                                                <span class="active"><a href="#"
-                                                        style="background-color: #b78269;"></a></span>
-                                                <span><a href="#" style="background-color: #f1cc4e;"></a></span>
-                                                <span><a href="#" style="background-color: #31749e;"></a></span>
-                                                <span><a href="#" style="background-color: #672a4f;"></a></span>
-                                            </div>
-                                            <div class="product-labels">
-                                                <div class="badge1"><span>New</span></div>
-                                            </div>
-                                            <div class="on-sale">- 20%</div>
-                                            <div class="hover-area">
-                                                <div class="cart-button">
-                                                    <a href="#" class="button add_to_cart_button"
-                                                        data-bs-toggle="tooltip" data-bs-placement="right" title=""
-                                                        data-bs-original-title="Add to Cart"
-                                                        aria-label="Add to Cart">Add to Cart</a>
-                                                </div>
-                                                <div class="wishlist-button">
-                                                    <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip"
-                                                        data-bs-placement="right" title=""
-                                                        data-bs-original-title="Add to Wishlist"
-                                                        aria-label="Add to Wishlist">Wishlist</a>
-                                                </div>
-                                                <div class="compare-button">
-                                                    <a class="compare button" href="#" data-bs-toggle="tooltip"
-                                                        data-bs-placement="right" title=""
-                                                        data-bs-original-title="Compare"
-                                                        aria-label="Compare">Compare</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-title"><a href="single-shop.html">Blazar Jins Coat</a>
-                                            </h3>
-                                            <div class="product-price">
-                                                <div class="price">
-                                                    <ins>$38.00</ins>
-                                                    <del>$40.00</del>
-                                                </div>
-                                            </div>
-                                            <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span>
-                                            </div>
-                                            <div class="shipping-feed-back">
-                                                <div class="star-rating">
-                                                    <div class="rating-wrap">
-                                                        <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.7
-                                                                (35)</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
+                @endif
                 <!--==================== Recomended For You Section End ====================-->
             </div>
         </div>
     </div>
 </div>
 
-
-
-{{-- <!--============== Modal Start ==============-->
-        <div class="overlay-dark modal fade quick-view-modal" id="quick-view">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
-                <div class="modal-content">
-                    <div class="close view-close">
-                        <i class="flaticon-cancel"></i>
-                    </div>
-                    <div class="modal-body property-block summary p-3">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="e-hover-image-zoom e-image-bg-light">
-                                    <div class="product type-product">
-                                        <div class="product-wrapper">
-                                            <div class="product-image">
-                                                <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-2.png" alt="Product Image"></a>
-                                                <ul class="position-absolute quick-meta">
-                                                    <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Transfer" aria-label="Transfer"><i class="flaticon-transfer flat-mini"></i></a></li>
-                                                    <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Wishlist" aria-label="Wishlist"><i class="flaticon-like flat-mini"></i></a></li>
-                                                    <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Share" aria-label="Share"><i class="flaticon-share flat-mini"></i></a></li>
-                                                    <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Print" aria-label="Print"><i class="flaticon-printer flat-mini"></i></a></li>
-                                                </ul>
-                                                <div class="product-labels">
-                                                    <div class="shape1-badge3"><span>New</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="e-hover-image-zoom e-image-bg-light">
-                                    <div class="product type-product">
-                                        <div class="product-wrapper">
-                                            <div class="product-info">
-                                                <div class="product-cats"><a href="#">Apparel Accessories</a></div>
-                                                <h3 class="product-title"><a href="single-shop.html">Osteoarthrit Anti Arthritis Health Compression Therapy Gloves</a></h3>
-                                                <div class="product-price">
-                                                    <div class="price">
-                                                        <ins>$15.00 - 22.92</ins>
-                                                    </div>
-                                                    <span class="text-white font-mini px-2 rounded product-status ms-5 my-1 bg-primary"><i class="fas fa-check"></i> Available</span>
-                                                </div>
-                                                <div class="shipping-cost"><span>+Shipping: </span> <span>$1.00</span> </div>
-                                                <div class="shipping-feed-back">
-                                                    <div class="star-rating">
-                                                        <div class="rating-wrap">
-                                                            <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.9</span></a>
-                                                        </div>
-                                                        <div class="rating-counts-wrap">
-                                                            <a href="#">(543)</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="sold-items">
-                                                        <span>142</span> <span>Sold</span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-offers mt-3">
-                                                    <ul class="product-offers-list">
-                                                        <li class="product-offer-item"> <strong>Special Price </strong>Get extra 19% off (price inclusive of discount)</li>
-                                                        <li class="product-offer-item"> <strong>Bank Offer </strong> 10% instant discount on VISA Cards</li>
-                                                        <li class="product-offer-item"> <strong>No cost EMI $49/month.</strong> Standard EMI also available</li>
-                                                    </ul>
-                                                </div>
-                                                <h5 class="text-secondary my-3">Description</h5>
-                                                <p>Bibendum purus aenean mus aenean eu interdum nonummy ipsum ad consequat. Dui eros donec faucibus convallis tempus rutrum id donec mus hymenaeos placerat congue curae mauris turpis</p>
-                                                <div class="short-description d-flex">
-                                                    <span class="me-4"><b>Highlights:</b></span>
-                                                    <div class="short-description">
-                                                        <ul class="list-style-tick">
-                                                            <li>Regular Fit.</li>
-                                                            <li>Full sleeves.</li>
-                                                            <li>Machine wash, tumble dry.</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="hover-area">
-                                                    <div class="compare-button">
-                                                        <a href="#">Compare</a>
-                                                    </div>
-                                                    <div class="cart-button">
-                                                        <a href="#">Add to Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
 @endsection

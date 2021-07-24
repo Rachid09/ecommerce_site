@@ -23,21 +23,6 @@ class CheckoutController extends Controller
     public function index()
     {
 
-        // Stripe::setApiKey('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
-        // $intent = PaymentIntent::create([
-        //     'amount' => Cart::total(),
-        //     'currency' => 'eur',
-        // ]);
-        // dd($intent);
-
-        // $clientSecret = Arr::get($intent, 'client_secret');
-        // $cartInstance = Cart::get($rowId);
-        // $price = $cartInstance->price;
-        // $subtotal = $cartInstance->subtotal();
-        // $total = $cartInstance->total();
-        // $tax = $cartInstance->tax();
-        // $items_count = Cart::content()->count();
-        // $qty = $cartInstance->qty;
         $categories = MainCategory::selection()->active()->get();
 
         $title = 'Paiement';

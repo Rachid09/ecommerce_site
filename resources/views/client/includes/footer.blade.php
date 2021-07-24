@@ -20,39 +20,29 @@
                             <a href="#"><i class="fab fa-pinterest-p"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-widget category-widget mb-5">
-                            <h6 class="widget-title mb-4">Services</h6>
-                            <ul>
-                                <li><a href="#">Assembly Guides</a></li>
-                                <li><a href="#">Furniture Packages & Fitouts</a></li>
-                                <li><a href="#">Trade Programme</a></li>
-                                <li><a href="#">Sale</a></li>
-                                <li><a href="#">New Designs</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    
+                      <div class="col-lg-2 col-md-6">
+                      </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget category-widget mb-5">
                             <h6 class="widget-title mb-4 xs-mx-none">Pages</h6>
                             <ul>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Support</a></li>
-                                <li><a href="#">Contact</a></li>
-                                {{-- <li><a href="#">Compare</a></li> --}}
+                                <li><a href="{{route('about-us')}}">About</a></li>
+                                <li><a href="{{route('contact')}}">Support</a></li>
+                                <li><a href="{{route('contact')}}">Contact</a></li>
                                 <li><a href="#">FAQ</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="footer-widget widget-nav mb-5">
-                            <h6 class="widget-title mb-4">Support</h6>
+                            <h6 class="widget-title mb-4">Liens utils</h6>
                             <ul>
-                                <li><a href="#">My Account</a></li>
-                                <li><a href="#">Track your Order</a></li>
-                                <li><a href="#">Customer Service</a></li>
+                                <li><a href="{{route('client.profile')}}">My Account</a></li>
+                                <li><a href="{{route('shop.all-products')}}">Tous les produits</a></li>
+                                {{-- <li><a href="#">Customer Service</a></li>
                                 <li><a href="#">Returns/Exchange</a></li>
-                                <li><a href="#">Product Support</a></li>
+                                <li><a href="#">Product Support</a></li> --}}
                             </ul>
                         </div>
                     </div>

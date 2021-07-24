@@ -13,12 +13,9 @@ class ProductsController extends Controller
 
     public function index()
     {
-        // $maincategories = Seller::find($id)->maincategory()->orderBy('libelle')->get();
+
         $products = Product::with(['seller', 'maincategory'])->selection()->get();
-        // $product_array = json_decode(json_encode($products));
-        // echo '<pre>';
-        // print_r($product_array);
-        // die;
+
         return view('admin.products.index', compact('products'));
     }
     public function destroy($id)
@@ -29,15 +26,12 @@ class ProductsController extends Controller
             if (!$product)
                 return redirect()->route('admin.products')->with(['error' => "Ce produit n'existe pas"]);
 
-            // $Sellers = $Seller->Sellers();
-            // if (isset($Sellers) && $Sellers->count() > 0) {
-            //     return redirect()->route('admin.maincategories')->with(['error' => 'لأ يمكن حذف هذا القسم  ']);
-            // }
+
 
             $image = Str::after($product->main_image, 'public/assets/');
             $image = base_path('public/assets/' . $image);
             unlink($image); //delete from folder
-            // $maincategory->categories()->delete();
+
             $product->delete();
             return redirect()->route('admin.products')->with(['success' => 'Ce produit a bien été supprimer']);
         } catch (\Exception $ex) {

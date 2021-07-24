@@ -15,8 +15,6 @@ class DashboardController extends Controller
     public function index()
     {
         $id = Auth::user()->id;
-        // print_r($id);
-        // die;
         $orders = Order::with('products')->whereHas('products', function ($q) {
             $q->where('seller_id', Auth::user()->id);
         })->get()->toArray();

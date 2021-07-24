@@ -58,18 +58,7 @@
             </li>
 
 
-               {{-- <li class="nav-item"><a href=""><i class="la la-home"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">les langues du site </span>
-                    <span class="badge badge badge-info badge-pill float-right mr-2">{{App\Models\language::count()}}</span>
-                </a>
-                <ul class="menu-content">
-                    <li class=""><a class="menu-item" href="{{route('admin.languages')}}" data-i18n="nav.dash.ecommerce">  List des langues </a>
-                    </li>
-                    <li><a class="menu-item" href="{{route('admin.languages.create')}}" data-i18n="nav.dash.crypto">Ajouter
-                            une langue </a>
-                    </li>
-                </ul>
-            </li> --}}
+               
 
 
 

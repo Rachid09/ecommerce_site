@@ -20,8 +20,7 @@ class ProductController extends Controller
     public function index()
     {
         $id = Auth::user()->id;
-        // print_r($id);
-        // die;
+
         $maincategories = Seller::find($id)->maincategory()->orderBy('libelle')->get();
         $products = Product::with(['seller', 'maincategory'])->where(['seller_id' => $id])->selection()->get();
         return view('seller.stock.index', compact('products'));
@@ -30,17 +29,14 @@ class ProductController extends Controller
     public function create()
     {
         $id = Auth::user()->id;
-        // echo '<pre>';
-        // print_r($id);
-        // die;
+
         $maincategories = Seller::find($id)->maincategory()->orderBy('libelle')->get();
         $categories = json_decode(json_encode($maincategories));
 
 
         $colors = Color::get();
-        // echo '<pre>';
-        // print_r($colors);
-        // die;
+
+
 
 
         return view('seller.stock.create')->with(compact('categories', 'colors'));
@@ -48,7 +44,7 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {
-        // return $request->all();
+
 
 
         try {
@@ -94,13 +90,11 @@ class ProductController extends Controller
             $seller_id = Auth::user()->id;
 
             $product = Product::Selection()->find($id);
-            // echo '<pre>';
-            // print_r($product);
-            // die;
+
             if (!$product)
                 return redirect()->route('seller.stock.products')->with(['error' => "Ce produit n'existe pas"]);
 
-            // $categories = MainCategory::where('translation_of', 0)->active()->get();
+
             $maincategories = Seller::find($seller_id)->maincategory()->orderBy('libelle')->get();
             $categories = json_decode(json_encode($maincategories));
             $colors = Color::get();
@@ -143,8 +137,6 @@ class ProductController extends Controller
                 $request->request->add(['status' => 1]);
 
 
-            //get request data
-            // $data = $request->except('_token', 'id', 'main_image');
 
 
             // update date
@@ -183,10 +175,7 @@ class ProductController extends Controller
             if (!$product)
                 return redirect()->route('seller.stock.products')->with(['error' => 'د']);
 
-            // $Sellers = $Seller->Sellers();
-            // if (isset($Sellers) && $Sellers->count() > 0) {
-            //     return redirect()->route('admin.maincategories')->with(['error' => 'لأ يمكن حذف هذ لقسم  ']);
-            // }
+
 
             $image = Str::after($product->main_image, 'public/assets/');
             $image = base_path('public/assets/' . $image);
@@ -222,12 +211,8 @@ class ProductController extends Controller
     {
 
         $product = Product::with(['productImages'])->where(['id' => $id])->selection()->first();
-        // $product = Product::find($id)->with('productImages');
-        $productArray = json_decode(json_encode($product), true);
 
-        // echo '<pre>';
-        // print_r($productArray);
-        // die;
+        $productArray = json_decode(json_encode($product), true);
 
         return view('seller.stock.addImages')->with(compact('productArray'));
     }
@@ -243,8 +228,6 @@ class ProductController extends Controller
 
             if ($request->hasFile('images')) {
                 $images = $request->file('images');
-                // echo '<pre>';
-                // print_r($images);
 
 
                 foreach ($images as $key => $image) {
@@ -293,15 +276,12 @@ class ProductController extends Controller
             if (!$product)
                 return redirect()->route('seller.stock.product.images')->with(['error' => "Cette image n'existe pas"]);
 
-            // $Sellers = $Seller->Sellers();
-            // if (isset($Sellers) && $Sellers->count() > 0) {
-            //     return redirect()->route('admin.maincategories')->with(['error' => 'لأ يمكن حذف هذ لقسم  ']);
-            // }
+
 
             $image = Str::after($product->product_image, 'public/assets/');
             $image = base_path('public/assets/' . $image);
             unlink($image); //delete from folder
-            // $maincategory->categories()->delete();
+
             $product->delete();
             return redirect()->route('seller.stock.product.images', $prod_id)->with(['success' => 'les images ont été ajouter avec succès']);
         } catch (\Exception $ex) {

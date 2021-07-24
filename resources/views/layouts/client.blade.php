@@ -37,8 +37,7 @@
     @yield('custom-css')
     <link rel="stylesheet" href="{{asset("public/css/category/cosmetic-store.css")}}">
     <link rel="stylesheet" href="{{asset("public/css/jquery.fancybox.min.css")}}">
-    {{-- <link rel="stylesheet" href="{{asset("public/css/category/minimal.css")}}">
-    <link rel="stylesheet" href="{{asset("public/css/category/default.css")}}"> --}}
+   
 
 
 
@@ -81,7 +80,7 @@
     @yield('notify-js')
     @yield('zoomScript')
     @yield('extra-js')
-    {{-- <script src="{{asset("public/js/vendor/mixitup.min.js")}}"></script> --}}
+
     <script src="{{asset("public/admin/vendors/js/forms/select/select2.full.min.js")}}" type="text/javascript"></script>
     <script src="{{asset("public/admin/js/scripts/forms/select/form-select2.js")}}" type="text/javascript"></script>
       <script>

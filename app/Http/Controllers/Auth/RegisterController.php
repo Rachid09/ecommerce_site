@@ -67,11 +67,6 @@ class RegisterController extends Controller
 
         try {
 
-            // if (!$request->has('active'))
-            //     $request->request->add(['active' => 0]);
-            // else
-            //     $request->request->add(['active' => 1]);
-
             $filePath = "";
             if ($request->has('logo')) {
                 $filePath = uploadImage('sellers', $request->logo);

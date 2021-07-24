@@ -2,9 +2,6 @@
 @section('custom-css')
  <link rel="stylesheet" href="{{asset("public/css/category/cosmetic-store.css")}}">
 @endsection
-{{-- @section('top-header')
-@include('client.includes.top-header')
-@endsection --}}
 @section('bottom-header')
 @include('client.includes.bottom-header')
 @endsection

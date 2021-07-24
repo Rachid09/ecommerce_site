@@ -1,5 +1,6 @@
 <div class="main-nav py-4 bg-white d-none d-lg-block">
-    <div class="container">
+    <div class="container" style="max-width: 100%;
+    padding: 0px 2.5rem;">
         <div class="row align-items-center">
             <div class="col-xl-7 col-md-9">
                 <nav class="navbar navbar-expand-lg nav-general nav-primary-hover">
@@ -67,7 +68,11 @@
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#">Qui somme nous</a>
+                                <a class="nav-link dropdown-toggle" href="{{(route('about-us'))}}">Qui somme nous</a>
+
+                            </li>
+                                                    <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="{{(route('contact'))}}">Contact</a>
 
                             </li>
 
@@ -98,12 +103,12 @@
                             <i class="flaticon-search flat-small text-dark"></i>
                         </a>
                     </div>
-                    <div class="refresh-view">
+                    {{-- <div class="refresh-view">
                         <a href="compare.html"
                             class="position-relative top-quantity d-flex align-items-center text-white text-decoration-none">
                             <i class="flaticon-shuffle flat-small text-dark"></i>
                         </a>
-                    </div>
+                    </div> --}}
                     <div class="header-cart-4">
                         <a href="cart.html" class="cart has-cart-data" title="View Cart">
                             <div class="cart-icon"><i class="flaticon-shopping-cart flat-small"></i> <span

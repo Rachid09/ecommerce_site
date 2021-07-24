@@ -29,13 +29,11 @@ class StoreController extends Controller
             $seller_id = Auth::user()->id;
 
             $product = Product::Selection()->find($id);
-            // echo '<pre>';
-            // print_r($product);
-            // die;
+
             if (!$product)
                 return redirect()->route('seller.store.products')->with(['error' => "ce produit n'existe pas"]);
 
-            // $categories = MainCategory::where('translation_of', 0)->active()->get();
+
             $maincategories = Seller::find($seller_id)->maincategory()->orderBy('libelle')->get();
             $categories = json_decode(json_encode($maincategories));
             $colors = array('rouge', 'vert', 'blanc', 'jaune', 'marron', 'noir');
@@ -51,7 +49,7 @@ class StoreController extends Controller
 
     public function update($id, ProductRequest $request)
     {
-        // return $request;
+
 
         try {
             $product = Product::find($id);
@@ -78,8 +76,7 @@ class StoreController extends Controller
                 $request->request->add(['status' => 1]);
 
 
-            //get request data
-            // $data = $request->except('_token', 'id', 'main_image');
+
 
 
             // update date

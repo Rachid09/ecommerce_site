@@ -24,9 +24,7 @@ class HomeController extends Controller
 
         $latest_products = Product::orderBy('id', 'Desc')->limit(5)->active()->selection()->get();
         $latest_prod = json_decode(json_encode($latest_products));
-        // echo '<pre>';
-        // print_r($latest_prod);
-        // die;
+
         return view('client.home', compact('categories', 'maincategories', 'categoriesArray', 'featured', 'latest_prod'));
     }
 }

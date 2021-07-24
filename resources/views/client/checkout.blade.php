@@ -153,21 +153,7 @@
                                                                   </span>
                                                               </td>
                                                           </tr>
-                                                          {{-- <tr class="woocommerce-shipping-totals shipping">
-                                                              <th>Shipping</th>
-                                                              <td data-title="Shipping">
-                                                                  <ul id="shipping_method" class="woocommerce-shipping-methods">
-                                                                      <li>
-                                                                          <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_method_0_free_shipping1" value="free_shipping:1" class="shipping_method" checked="checked">
-                                                                          <label for="shipping_method_0_free_shipping1">Free shipping</label>
-                                                                      </li>
-                                                                      <li>
-                                                                          <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_method_0_flat_rate2" value="flat_rate:2" class="shipping_method">
-                                                                          <label for="shipping_method_0_flat_rate2">Flat rate</label>
-                                                                      </li>
-                                                                  </ul>
-                                                              </td>
-                                                          </tr> --}}
+                                                          
                                                           <tr class="order-total">
                                                               <th>Total</th>
                                                               <td><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{Cart::total()}}</bdi></span></strong> </td>

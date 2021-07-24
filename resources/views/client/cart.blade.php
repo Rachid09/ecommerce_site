@@ -185,12 +185,11 @@
                             title: resp.success,
                             type: 'success',
                             duration:4000,
-                            // html: `<span>${resp.success}</span>`
+                            
 
                       });
                 console.log(resp);
-                    // var price = document.querySelector('#price');
-                    // var subtotal = document.querySelector('#subtotal');
+
                    $('#price').html(resp.price);
                     $('#subtotal').html(resp.subtotal);
                      $('#subtotal-cart').html(resp.subtotal);
