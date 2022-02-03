@@ -1,49 +1,41 @@
-Les etapes d'installation et l'execution de notre application web:
+Les étapes d'installation et l'execution de notre application web :
 
- 1-vous devez installer une version du php >7.25 d'apres ce lien si-dessous et   preferable d'installer la dèrnière verion stable.
-   https://www.php.net/downloads
+ 1-Vous devez installer une version du php >7.25 à travers le lien ci-dessous et de préférence installer la dernière verion stable.
+     "https://www.php.net/downloads"
 
- 2-Installer la derniere version du composer dans votre machine d'apres ce lien si-dessous:
-     https://getcomposer.org/download
+ 2-Installer la dernière version du composer dans votre machine d'après le lien ci-dessous:
+     "https://getcomposer.org/download"
 
- 3-Installer un serveur web comme xampp/wampp et d'apres ce lien ci dessous vous pouvez installer la derniere version stable du xampp serveur
+ 3-Installer un serveur web comme xampp/wampp et d'après lelien ci-desous ous pouvez installer la dernière version stabledu xampp serveur :
+    "https://www.apachefriends.org/download.html"
 
-    https://www.apachefriends.org/download.html
+ 4-Après avoir installé xampp. prenez le dossier de projet et placez le dans le dossier "htdocs" qui existe dans ce chemin: "C:\xampp\htdocs"
 
+ 5-lancez le serveur web et aussi le service mysql de votre application "xampp" ou "wampp":
 
- 4-apres l'installation du xampp. prenez le dossier de projet et placez le dans le dossier htdocs qui exicte dans ce chemin: C:\xampp\htdocs
+ 6-Allez vers l'interface "php-my-admin" dans et créez une base de données local appelée : "ecommerce_site" ou ce que vous voulez le nommer
 
- 5-lancez le serveur web et aussi le service mysql de votre application xampp ou wampp:
-
- 
- 6- allez vers l'interface php-my-admin dans et creez une base de donnez local appelez:ecommerce_site ou ce que vous voulez 
-
-
- 7-ouvrir le dossier du projt et allez vers le fichier .env et verifier que le nom du base de donneé c'est le meme que vous avez utiliser
+ 7-Ouvrir le dossier du projet et allez vers le fichier ".env" et vérifier si le nom du base de données est le même que vous avez utilisé
 
  8-ouvrir le terminal du votre editeur du code et executer ce commande:
-    composer install
-  cela va installer tous les packages utilisés dans le projet.
+    "composer install"
+   cela va installer tous les packages utilisés dans le projet.
 
-
- 9-Vous devez aussi creer une clé unique pou votre instance du projet en  executant la commande suivante 
-    php artisan key:generate
+ 9-Vous devez aussi créer une clé unique pour votre instance du projet en executant la commande suivante 
+    "php artisan key:generate"
   
+ 10-Après avoir installé les packages vouillez executer la commande:
+     "php run migrate"
+    cela va creer tous les tables naicessaires pour le projets qui sont deja dans le chemin "database/migrations".
 
- 10-apres que les packages sont installer vous executer la commande:
+ 11-Après avoir cré les tables, vous pouvez après lancer l'application web ,pour cela vous devez just allez vers le chemin de votre navigateur et tapez ce url:
+     "http://localhost/ecommerce_site"
 
-   php run migrate
+ 12:Remarque : Si vous voulez créer un compte admin vous devez lancer ce commande : "php artisan db:seed"
+     le compte admin a pour email:admin@hotmail.com
+                             mot de pass:admin
 
-  cela va creer tous les tables naicessaires pour le projets qui sont deja dans le chemin database/migrations.
-
- 11-apres que les tables sont installeés vous etes pret de lancer l'application web ,pour cela vous allez just dans le chemin de votre navigateur et tapez ce url: http://localhost/ecommerce_site
-
- 12:une dernier instruction si vous voulez creer un compte admin vous devez lancer ce commande : php artisan db:seed
-  
-   le compte admin a pour email:admin@hotmail.com
-                          mot de pass:admin
-
-Remarque : tous les autres comptes à savoir compte client et vendeur ; vous pouvez les creer d'arpres liens mentionez dans le site.
+Remarque : tous les autres comptes à savoir compte client et vendeur ; vous pouvez les créer d'après les liens mentionés dans le site.
 
 
  
